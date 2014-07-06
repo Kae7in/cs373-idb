@@ -1,16 +1,16 @@
 from django.db import models
 
 # Create your models here.
-class Characters(models.Model):
+class Character(models.Model):
     pass
 
-class Spells(models.Model):
+class Spell(models.Model):
     pass
 
-class Creatures(models.Model):
+class Creature(models.Model):
     pass
  
-class Potions(models.Model):
+class Potion(models.Model):
     pass
 
 class Location(models.Model):
@@ -19,23 +19,33 @@ class Location(models.Model):
     kind = models.CharField(max_length=20)
     image = models.ImageField(upload_to = 'images/locations', default = 'images/empty.jpg')
 
-class Schools(Locations):
+
+class School(Location):
     pass
 
-class Shop(Locations):
-    location = models.ForeignKey('Locations', related_name = 'child_shops')
+class Shop(Location):
+    location = models.ForeignKey(Location, related_name = 'child_shops')
 
-class Stores(models.Model):
+class Artifact(models.Model):
     pass
 
-class Artifacts(models.Model):
+class Book(models.Model):
     pass
 
-class Books(models.Model):
+class Story(models.Model):
+    name = models.CharField(max_length=100)
+    description = models.TextField()
+    date = models.DateTimeField()
+    book = models.ForeignKey(Book)
+    characters = models.ManyToManyField(Character)
+    artifacts = models.ManyToManyField(Artifact)
+    locations = models.ManyToManyField(Location)
+
+    class Meta:
+        verbose_name_plural = 'stories'
+
+class AcademicStatus(models.Model):
     pass
 
-class AcademicStatuses(models.Model):
-    pass
-
-class Relationships(models.Model):
+class Relationship(models.Model):
     pass
