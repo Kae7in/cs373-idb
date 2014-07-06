@@ -37,7 +37,7 @@ class School(Location):
     country = models.CharField(max_length=20)
     
 class House(School):
-    school = models.ForeignKey('School', related_name = 'child_houses')
+    school = models.ForeignKey(School, related_name = 'child_houses')
 
 class Shop(Location):
     location = models.ForeignKey(Location, related_name = 'child_shops')
