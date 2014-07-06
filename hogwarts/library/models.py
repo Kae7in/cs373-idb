@@ -7,7 +7,7 @@ class Characters(models.Model):
 class Spells(models.Model):
     pass
 
-class Creatures(models.Model):
+class Creature(models.Model):
     pass
 
 class Potion(models.Model):
@@ -34,14 +34,10 @@ class Location(models.Model):
     image = models.ImageField(upload_to = 'images/locations', default = 'images/empty.jpg')
 
 class School(Location):
-    name = models.CharField(max_length=100)
     country = models.CharField(max_length=20)
-    description = models.TextField()
-    image = models.ImageField(upload_to = 'images/schools', default = 'images/empty.jpg')
     
-
 class House(School):
-    school = models.ForeignKey('School')
+    school = models.ForeignKey('School', related_name = 'child_houses')
 
 class Shop(Location):
     location = models.ForeignKey(Location, related_name = 'child_shops')
