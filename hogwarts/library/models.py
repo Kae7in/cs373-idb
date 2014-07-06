@@ -13,7 +13,7 @@ class Creatures(models.Model):
 class Potions(models.Model):
     pass
 
-class Locations(models.Model):
+class Location(models.Model):
     name = models.CharField(max_length=40)
     description = models.TextField()
     kind = models.CharField(max_length=20)
@@ -22,7 +22,7 @@ class Locations(models.Model):
 class Schools(Locations):
     pass
 
-class Shops(Locations):
+class Shop(Locations):
     location = models.ForeignKey('Locations', related_name = 'child_shops')
 
 class Stores(models.Model):
