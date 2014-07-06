@@ -1,26 +1,41 @@
 from django.db import models
 
 # Create your models here.
-class Characters(models.Model):
+class Character(models.Model):
 
-class Spells(models.Model):
+class Spell(models.Model):
 
-class Creatures(models.Model):
+class Creature(models.Model):
 
-class Potions(models.Model):
+class Potion(models.Model):
 
-class Locations(models.Model):
+class Location(models.Model):
 
-class Schools(Locations):
+class School(Locations):
 
-class Shops(Locations):
+class Shop(Locations):
 
-class Stores(models.Model):
+class Store(models.Model):
 
-class Artifacts(models.Model):
+class Artifact(models.Model):
+    name = models.CharField(max_field=100)
+    description = models.TextField()
+    kind = models.CharField(max_field=100)
+    image = models.ImageField(upload_to="images/artifacts")
+    owner = models.ForeignKey(Character)
+    # Belongs to relationships get the foreign key
 
-class Books(models.Model):
+    def __str__(self):              
+        return self.name
 
-class AcademicStatuses(models.Model):
+class Book(models.Model):
+    name = models.CharField(max_field=100)
+    description = models.TextField()
+    author = models.ForeignKey(Character)
 
-class Relationships(models.Model):
+    def __str__(self):              
+        return self.name
+
+class AcademicStatus(models.Model):
+
+class Relationship(models.Model):
