@@ -11,7 +11,8 @@ cs373-idb
   - domoench@gmail.com
   - 410.830.1111
   - Github: domoench
-  - CS: dom289
+  - CS: dmoench
+  - EID: dom289
 * Isabella Bhardwaj
   - isabella.bhardwaj@gmail.com
   - Github: IsabellaBhardwaj
