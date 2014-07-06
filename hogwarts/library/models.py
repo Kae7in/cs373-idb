@@ -1,10 +1,10 @@
 from django.db import models
 
 # Create your models here.
-class Characters(models.Model):
+class Character(models.Model):
     pass
 
-class Spells(models.Model):
+class Spell(models.Model):
     pass
 
 class Creature(models.Model):
@@ -42,9 +42,6 @@ class House(School):
 class Shop(Location):
     location = models.ForeignKey(Location, related_name = 'child_shops')
 
-class Story(models.Model):
-    pass
-
 class Artifact(models.Model):
     name = models.CharField(max_field=100)
     description = models.TextField()
@@ -63,8 +60,20 @@ class Book(models.Model):
     def __str__(self):              
         return self.name
 
-class AcademicStatuses(models.Model):
+class Story(models.Model):
+    name = models.CharField(max_length=100)
+    description = models.TextField()
+    date = models.DateTimeField()
+    book = models.ForeignKey(Book)
+    characters = models.ManyToManyField(Character)
+    artifacts = models.ManyToManyField(Artifact)
+    locations = models.ManyToManyField(Location)
+
+    class Meta:
+        verbose_name_plural = 'stories'
+
+class AcademicStatus(models.Model):
     pass
 
-class Relationships(models.Model):
+class Relationship(models.Model):
     pass
