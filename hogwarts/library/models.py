@@ -2,10 +2,13 @@ from django.db import models
 
 # Create your models here.
 class Character(models.Model):
+    pass
 
 class Spell(models.Model):
+    pass
 
 class Creature(models.Model):
+    pass
 
 class Potion(models.Model):
 
@@ -35,13 +38,20 @@ class House(models.Model):
     school = models.ForeignKey('School')
 
 class Shop(Locations):
+    pass
 
 class Store(models.Model):
+    pass
 
 class Artifact(models.Model):
+    pass
 
 class Book(models.Model):
+    pass
 
 class AcademicStatus(models.Model):
+    pass
 
 class Relationship(models.Model):
+    pass
+
