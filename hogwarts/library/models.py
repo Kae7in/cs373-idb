@@ -9,7 +9,7 @@ class Spell(models.Model):
 
 class Creature(models.Model):
     pass
- 
+
 class Potion(models.Model):
 
     DIFFICULTIES = (
