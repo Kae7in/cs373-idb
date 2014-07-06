@@ -1,26 +1,47 @@
 from django.db import models
 
 # Create your models here.
-class Characters(models.Model):
+class Character(models.Model):
 
-class Spells(models.Model):
+class Spell(models.Model):
 
-class Creatures(models.Model):
+class Creature(models.Model):
 
-class Potions(models.Model):
+class Potion(models.Model):
 
-class Locations(models.Model):
+    DIFFICULTIES = (
+        ('E', 'Easy'),
+        ('M', 'Moderate'),
+        ('A', 'Advanced'),
+    )
+    title = models.CharField(max_length = 100)
+    difficulty = models.CharField(max_length = 1, choices = DIFFICULTIES)
+    description = models.TextField()
+    effects = models.TextField()
+    recipe = models.TextField()
+    usages = models.TextField()
+    more_info = models.TextField()
+    creatures = models.ManyToManyField(Creature)
 
-class Schools(Locations):
+class School(Locations):
+    name = models.CharField(max_length=100)
+    country = models.CharField(max_length=20)
+    description = models.TextField()
+    
 
-class Shops(Locations):
+class House(models.Model):
+    name = models.CharField(max_length=11)
+    description = models.TextField()
+    school = models.ForeignKey('School')
 
-class Stores(models.Model):
+class Shop(Locations):
 
-class Artifacts(models.Model):
+class Store(models.Model):
 
-class Books(models.Model):
+class Artifact(models.Model):
 
-class AcademicStatuses(models.Model):
+class Book(models.Model):
 
-class Relationships(models.Model):
+class AcademicStatus(models.Model):
+
+class Relationship(models.Model):
