@@ -64,9 +64,9 @@ class Shop(Location):
     location = models.ForeignKey(Location, related_name = 'child_shops')
 
 class Artifact(models.Model):
-    name = models.CharField(max_field=100)
+    name = models.CharField(max_length=100)
     description = models.TextField()
-    kind = models.CharField(max_field=100)
+    kind = models.CharField(max_length=100)
     image = models.ImageField(upload_to="images/artifacts")
     owner = models.ForeignKey(Character)
 
@@ -74,7 +74,7 @@ class Artifact(models.Model):
         return self.name
 
 class Book(models.Model):
-    name = models.CharField(max_field=100)
+    name = models.CharField(max_length=100)
     description = models.TextField()
     author = models.ForeignKey(Character)
 
