@@ -25,22 +25,31 @@ class Potion(models.Model):
     usages = models.TextField()
     more_info = models.TextField()
     creatures = models.ManyToManyField(Creature)
+    image = models.ImageField(upload_to = 'images/potions', default = 'images/empty.jpg')
+
+class Location(models.Model):
+    name = models.CharField(max_length=40)
+    description = models.TextField()
+    kind = models.CharField(max_length=20)
+    image = models.ImageField(upload_to = 'images/locations', default = 'images/empty.jpg')
 
 class School(Locations):
     name = models.CharField(max_length=100)
     country = models.CharField(max_length=20)
     description = models.TextField()
+    image = models.ImageField(upload_to = 'images/schools', default = 'images/empty.jpg')
     
 
 class House(models.Model):
     name = models.CharField(max_length=11)
     description = models.TextField()
     school = models.ForeignKey('School')
+    image = models.ImageField(upload_to = 'images/houses', default = 'images/empty.jpg')
 
-class Shops(Locations):
-    pass
+class Shop(Location):
+    location = models.ForeignKey(Location, related_name = 'child_shops')
 
-class Stores(models.Model):
+class Story(models.Model):
     pass
 
 class Artifacts(models.Model):
@@ -54,4 +63,3 @@ class AcademicStatuses(models.Model):
 
 class Relationships(models.Model):
     pass
-
