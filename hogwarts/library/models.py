@@ -33,18 +33,15 @@ class Location(models.Model):
     kind = models.CharField(max_length=20)
     image = models.ImageField(upload_to = 'images/locations', default = 'images/empty.jpg')
 
-class School(Locations):
+class School(Location):
     name = models.CharField(max_length=100)
     country = models.CharField(max_length=20)
     description = models.TextField()
     image = models.ImageField(upload_to = 'images/schools', default = 'images/empty.jpg')
     
 
-class House(models.Model):
-    name = models.CharField(max_length=11)
-    description = models.TextField()
+class House(School):
     school = models.ForeignKey('School')
-    image = models.ImageField(upload_to = 'images/houses', default = 'images/empty.jpg')
 
 class Shop(Location):
     location = models.ForeignKey(Location, related_name = 'child_shops')
