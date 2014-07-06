@@ -1,21 +1,29 @@
 from django.db import models
 
 # Create your models here.
-class Character(models.Model):
+class Characters(models.Model):
+    pass
 
-class Spell(models.Model):
+class Spells(models.Model):
+    pass
 
-class Creature(models.Model):
+class Creatures(models.Model):
+    pass
 
-class Potion(models.Model):
+class Potions(models.Model):
+    pass
 
-class Location(models.Model):
+class Locations(models.Model):
+    pass
 
-class School(Locations):
+class Schools(Locations):
+    pass
 
-class Shop(Locations):
+class Shops(Locations):
+    pass
 
-class Store(models.Model):
+class Stores(models.Model):
+    pass
 
 class Artifact(models.Model):
     name = models.CharField(max_field=100)
@@ -23,7 +31,6 @@ class Artifact(models.Model):
     kind = models.CharField(max_field=100)
     image = models.ImageField(upload_to="images/artifacts")
     owner = models.ForeignKey(Character)
-    # Belongs to relationships get the foreign key
 
     def __str__(self):              
         return self.name
@@ -36,6 +43,8 @@ class Book(models.Model):
     def __str__(self):              
         return self.name
 
-class AcademicStatus(models.Model):
+class AcademicStatuses(models.Model):
+    pass
 
-class Relationship(models.Model):
+class Relationships(models.Model):
+    pass
