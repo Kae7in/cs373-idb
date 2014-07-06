@@ -93,8 +93,17 @@ class Story(models.Model):
     class Meta:
         verbose_name_plural = 'stories'
 
-class AcademicStatus(models.Model):
-    pass
+class Academic(models.Model):
+    DESCRIPTORS = (
+        ('founder', 'founder'),
+        ('student', 'student'),
+        ('professor', 'professor'),
+        ('headmaster', 'headmaster'),
+        ('staff', 'staff')
+    )
+    character = models.ForeignKey(Character)
+    school = models.ForeignKey(School)
+    descriptor = models.charField(max_length=10, choices=DESCRIPTORS)
 
 class Relationship(models.Model):
     pass
