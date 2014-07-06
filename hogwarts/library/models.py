@@ -19,13 +19,13 @@ class Location(models.Model):
     kind = models.CharField(max_length=20)
     image = models.ImageField(upload_to = 'images/locations', default = 'images/empty.jpg')
 
-class Schools(Locations):
+class School(Location):
     pass
 
-class Shop(Locations):
-    location = models.ForeignKey('Locations', related_name = 'child_shops')
+class Shop(Location):
+    location = models.ForeignKey(Location, related_name = 'child_shops')
 
-class Stores(models.Model):
+class Story(models.Model):
     pass
 
 class Artifacts(models.Model):
