@@ -45,11 +45,23 @@ class Shop(Location):
 class Story(models.Model):
     pass
 
-class Artifacts(models.Model):
-    pass
+class Artifact(models.Model):
+    name = models.CharField(max_field=100)
+    description = models.TextField()
+    kind = models.CharField(max_field=100)
+    image = models.ImageField(upload_to="images/artifacts")
+    owner = models.ForeignKey(Character)
 
-class Books(models.Model):
-    pass
+    def __str__(self):              
+        return self.name
+
+class Book(models.Model):
+    name = models.CharField(max_field=100)
+    description = models.TextField()
+    author = models.ForeignKey(Character)
+
+    def __str__(self):              
+        return self.name
 
 class AcademicStatuses(models.Model):
     pass
