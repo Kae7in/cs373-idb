@@ -21,7 +21,7 @@ class Spell(models.Model):
     image = models.ImageField(upload_to='images/spells')
 
     # affects certain creatures
-    creature = models.ForeignKey('Creature', blank=True)
+#    creature = models.ForeignKey('Creature', blank=True)
 
     def __str__(self):
         return self.incantation

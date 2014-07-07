@@ -46,17 +46,17 @@ class SpellTest(TestCase):
         self.assertEqual(spell.unforgivable, False)
         self.assertEqual(spell.kind, 'Charm')
 
-    def test_relationships_spell(self):
-        spell = lm.Spell.objects.first()
-        creature = lm.Creature()
-        creature.name = 'Dementor'
-        creature.classification = 'NB'
-        creature.save()
-        spell.creature = creature
-        spell.save()
-
-        first_spell = lm.Spell.objects.first()
-        self.assertEqual(first_spell.creature, creature)
+#    def test_relationships_spell(self):
+#        spell = lm.Spell.objects.first()
+#        creature = lm.Creature()
+#        creature.name = 'Dementor'
+#        creature.classification = 'NB'
+#        creature.save()
+#        spell.creature = creature
+#        spell.save()
+#
+#        first_spell = lm.Spell.objects.first()
+#        self.assertEqual(first_spell.creature, creature)
 
     def test_string_spell(self):
         spell = lm.Spell.objects.first()
