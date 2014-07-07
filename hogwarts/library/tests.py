@@ -211,3 +211,20 @@ class HouseTest(TestCase):
         self.assertEquals(name, house_created.name)
         self.assertEquals(description, house_created.description)
         self.assertEquals("images/empty.jpg", house_created.image)
+
+class ArtifactTest(TestCase):
+    def setUp(self):
+        self.artifact  = lm.Artifact()
+        self.wizzy = lm.Character()
+
+        self.wizzy.name = "Some Wizard"
+        self.wizzy.save()
+
+        self.artifact.name = "Pensieve"
+        self.artifact.description = "The Pensieve is an object used to review memories. It has the appearance of a shallow stone basin, into which are carved runes and strange symbols. It is filled with a silvery substance that appears to be a cloud-like liquid/gas; the collected memories of people who have siphoned their recollections into it. Memories can then be viewed from a non-participant, third-person point of view."
+        # TODO: Test kind
+        # TODO: Test image
+        self.artifact.owner = wizzy
+        self.artifact.save()
+
+    def test_create_artifact(self):
