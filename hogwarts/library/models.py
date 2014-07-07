@@ -17,7 +17,21 @@ class Character(models.Model):
     book = models.ForeignKey('Book', blank=True, null=True)
     story = models.ManyToManyField('Story', blank=True, null=True)
     house = models.ForeignKey('House', blank=True, null=True)
-    shop = models.ForeignKey('Shop', blank=True, null=True)
+    shop = models.ForeignKey('Shop', blank=True, null=True, related_name='owners')
+
+    def is_squib(self):
+        for relation in self.relationships.all():
+            if(relation.character1 == self):
+                other_id = relation.character2
+                other_desc = relation.descriptor2
+            else:
+                other_id = relation.character1.id
+                other_desc = relation.descriptor1
+            if(other_desc == 'mother' or other_desc == 'father'):
+                parent = Character.objects.get(pk=other_id)
+                if(parent.magical):
+                    return True
+        return False
 
 class Creature(models.Model):
     name = models.CharField(max_length=50)

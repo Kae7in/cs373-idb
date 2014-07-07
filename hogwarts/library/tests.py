@@ -3,6 +3,38 @@ import library.models as lm
 from datetime import date
 
 # Create your tests here.
+class CharacterTest(TestCase):
+    def test_squib_character(self):
+        argus = lm.Character()
+        argus.name = 'Argus Filch'
+        argus.magical = False
+        argus.save()
+
+        dad = lm.Character()
+        dad.magical = True
+        dad.save()
+
+        mom = lm.Character()
+        mom.magical = True
+        mom.save()
+
+        r1 = lm.Relationship()
+        r1.character1 = argus
+        r1.descriptor1 = 'son'
+        r1.character2 = dad
+        r1.descriptor2 = 'father'
+        r1.save()
+
+        r2 = lm.Relationship()
+        r2.character1 = mom
+        r2.descriptor1 = 'mother'
+        r2.character2 = argus
+        r2.descriptor2 = 'son'
+        r2.save()
+
+        self.assertTrue(argus.is_squib)
+
+
 class CreatureTest(TestCase):
     def setUp(self):
         creature = lm.Creature()
@@ -201,7 +233,6 @@ class PotionTest(TestCase):
         self.assertEqual(potion.creatures.all()[1], creature2)
 
 class SchoolTest(TestCase):
-
     def setUp(self):
       
         school = lm.School()
@@ -233,7 +264,6 @@ class SchoolTest(TestCase):
         self.assertEqual(school.image, "images/non_empty.jpg")	 
 
 class HouseTest(TestCase):
-
     def setUp(self):
     
         house = lm.House()
