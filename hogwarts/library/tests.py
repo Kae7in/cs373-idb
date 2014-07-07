@@ -270,24 +270,24 @@ class HouseTest(TestCase):
 
 class ArtifactTest(TestCase):
     def setUp(self):
-        self.artifact  = lm.Artifact()
-        self.wizzy = lm.Character()
+        artifact  = lm.Artifact()
+        wizzy = lm.Character()
 
-        self.wizzy.name = "Some Wizard"
-        self.wizzy.save()
+        wizzy.name = "Some Wizard"
+        wizzy.magical = True
+        wizzy.save()
 
-        self.artifact.name = "Pensieve"
-        self.artifact.description = "The Pensieve is an object used to review memories. It has the appearance of a shallow stone basin, into which are carved runes and strange symbols. It is filled with a silvery substance that appears to be a cloud-like liquid/gas; the collected memories of people who have siphoned their recollections into it. Memories can then be viewed from a non-participant, third-person point of view."
+        artifact.name = "Pensieve"
+        artifact.description = "The Pensieve is an object used to review memories. It has the appearance of a shallow stone basin, into which are carved runes and strange symbols. It is filled with a silvery substance that appears to be a cloud-like liquid/gas; the collected memories of people who have siphoned their recollections into it. Memories can then be viewed from a non-participant, third-person point of view."
         # TODO: Test kind
         # TODO: Test image
-        self.artifact.owner = wizzy
-        self.artifact.save()
+        artifact.owner = self.wizzy
+        artifact.save()
 
     def test_create_artifact(self):
-        artifacts = self.artifacts.objects.all()
-        self.assertEquals(len(artifacts), 1)
+        artifacts = lm.Artifact.objects.all()
         a = artifacts[0]
-        self.assertEquals(len(artifacts[0]), 1)
-        self.assertEquals(a.name, "Pensieve")
-        self.assertEquals(a.description, "The Pensieve is an object used to review memories. It has the appearance of a shallow stone basin, into which are carved runes and strange symbols. It is filled with a silvery substance that appears to be a cloud-like liquid/gas; the collected memories of people who have siphoned their recollections into it. Memories can then be viewed from a non-participant, third-person point of view.")
-        self.assertEquals(a.image, "images/empty.jpg")
+        self.assertEqual(len(artifacts), 1)
+        self.assertEqual(a.name, "Pensieve")
+        self.assertEqual(a.description, "The Pensieve is an object used to review memories. It has the appearance of a shallow stone basin, into which are carved runes and strange symbols. It is filled with a silvery substance that appears to be a cloud-like liquid/gas; the collected memories of people who have siphoned their recollections into it. Memories can then be viewed from a non-participant, third-person point of view.")
+        self.assertEqual(a.image, "images/empty.jpg")
