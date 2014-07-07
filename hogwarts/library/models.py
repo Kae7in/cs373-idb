@@ -12,12 +12,12 @@ class Character(models.Model):
     images = models.ImageField(upload_to = 'images/characters', default = 'images/empty.jpg')
 
     #relationships
-    creature = models.ForeignKey('Creature', blank = True)
-    relationship = models.ManyToManyField('Relationship', blank = True)
-    book = models.ForeignKey('Book', blank = True)
-    story = models.ManyToManyField('Story', blank = True)
-    house = models.ForeignKey('House', blank = True)
-    shop = models.ForeignKey('Shop', blank = True)
+    creature = models.ForeignKey('Creature', blank=True, null=True)
+    relationship = models.ManyToManyField('Relationship', blank=True, null=True)
+    book = models.ForeignKey('Book', blank=True, null=True)
+    story = models.ManyToManyField('Story', blank=True, null=True)
+    house = models.ForeignKey('House', blank=True, null=True)
+    shop = models.ForeignKey('Shop', blank=True, null=True)
 
 class Creature(models.Model):
     name = models.CharField(max_length=50)
@@ -70,7 +70,7 @@ class Potion(models.Model):
     recipe = models.TextField()
     usages = models.TextField()
     more_info = models.TextField()
-    creatures = models.ManyToManyField('Creature', related_name = 'potions', blank = True)
+    creatures = models.ManyToManyField('Creature', related_name = 'potions', blank=True, null=True)
     image = models.ImageField(upload_to = 'images/potions', default = 'images/empty.jpg')
 
     def __str__(self):
@@ -98,14 +98,14 @@ class House(School):
         return self.name
 
 class Shop(Location):
-    location = models.ForeignKey(Location, related_name = 'child_shops', blank = True)
+    location = models.ForeignKey(Location, related_name = 'child_shops', blank=True, null=True)
 
 class Artifact(models.Model):
     name = models.CharField(max_length=100)
     description = models.TextField()
     kind = models.CharField(max_length=100)
     image = models.ImageField(upload_to="images/artifacts")
-    owner = models.ForeignKey(Character, related_name = 'artifacts', blank = True)
+    owner = models.ForeignKey(Character, related_name = 'artifacts', blank=True, null=True)
 
     def __str__(self):              
         return self.name
@@ -113,7 +113,7 @@ class Artifact(models.Model):
 class Book(models.Model):
     name = models.CharField(max_length=100)
     description = models.TextField()
-    author = models.ForeignKey(Character, related_name = 'books', blank = True)
+    author = models.ForeignKey(Character, related_name = 'books', blank=True, null=True)
 
     def __str__(self):              
         return self.name
@@ -124,9 +124,9 @@ class Story(models.Model):
     date = models.DateField()
     book = models.ForeignKey(Book, related_name = 'story', blank=True)
     kind = models.CharField(max_length=20)
-    characters = models.ManyToManyField('Character', related_name = 'stories', blank = True)
-    artifacts = models.ManyToManyField('Artifact', related_name = 'stories', blank = True)
-    locations = models.ManyToManyField('Location', related_name = 'stories', blank = True)
+    characters = models.ManyToManyField('Character', related_name = 'stories', blank=True, null=True)
+    artifacts = models.ManyToManyField('Artifact', related_name = 'stories', blank=True, null=True)
+    locations = models.ManyToManyField('Location', related_name = 'stories', blank=True, null=True)
 
     class Meta:
         verbose_name_plural = 'stories'
@@ -139,8 +139,8 @@ class Academic(models.Model):
         ('headmaster', 'headmaster'),
         ('staff', 'staff')
     )
-    character = models.ForeignKey(Character, related_name = 'academic_statuses', blank = True)
-    school = models.ForeignKey(School, related_name = 'academic_statuses', blank = True)
+    character = models.ForeignKey(Character, related_name = 'academic_statuses', blank=True, null=True)
+    school = models.ForeignKey(School, related_name = 'academic_statuses', blank=True, null=True)
     descriptor = models.CharField(max_length=10, choices=DESCRIPTORS)
 
 class Relationship(models.Model):
@@ -148,6 +148,6 @@ class Relationship(models.Model):
     relation_id = models.CharField(max_length = 100)
 
     #relationships
-    character1 = models.ForeignKey(Character, related_name = "character1", blank = True)
-    character2 = models.ForeignKey(Character, related_name = "character2", blank = True)
+    character1 = models.ForeignKey(Character, related_name = "character1", blank=True, null=True)
+    character2 = models.ForeignKey(Character, related_name = "character2", blank=True, null=True)
     descriptor1 = models.TextField()
