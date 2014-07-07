@@ -3,6 +3,8 @@ import library.models as lm
 
 # Create your tests here.
 class CreatureTest(TestCase):
+    def setUp(self):
+        pass
     def test_create_creature(self):
         creature = lm.Creature()
 
@@ -26,6 +28,10 @@ class CreatureTest(TestCase):
         self.assertEqual(only_creature.description, only_creature.description)
         self.assertEqual(only_creature.classification, creature.classification)
         self.assertEqual(only_creature.rating, creature.rating)
+
+
+    def test_string_creature(self):
+        
 
 class SpellTest(TestCase):
     def test_create_spell(self):

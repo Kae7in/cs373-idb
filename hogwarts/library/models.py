@@ -20,6 +20,9 @@ class Spell(models.Model):
     kind = models.CharField(max_length=20, choices=KIND_CHOICES)
     image = models.ImageField(upload_to='images/spells')
 
+    def __str__(self):
+        return self.incantation
+
 class Creature(models.Model):
     name = models.CharField(max_length=50)
     description = models.TextField()
@@ -30,6 +33,9 @@ class Creature(models.Model):
     RATING_CHOICES = ((1,'X'),(2,'XX'),(3,'XXX'),(4,'XXXX'),(5,'XXXXX'))
     rating = models.IntegerField(choices=RATING_CHOICES)
     image = models.ImageField(upload_to='images/creatures')
+
+    def __str__(self):
+        return self.name
 
 class Potion(models.Model):
 
