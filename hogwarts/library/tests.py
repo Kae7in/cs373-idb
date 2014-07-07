@@ -1,17 +1,15 @@
 from django.test import TestCase
-from library.models import Creature
-from library.models import Potion
-from library.models import School
-from library.models import House
+import library.models as lm
+from datetime import date
 
 # Create your tests here.
 class CreatureTest(TestCase):
     def test_create_creature(self):
-        creature = Creature()
+        creature = lm.Creature()
 
         # set attributes
         creature.name = 'Goblin'
-        creature.description = "Goblins are a highly intelligent race of small hominids with long fingers and feet that coexist with the wizard world.  Their diet consists of meat, roots and fungi. Goblins converse in a language known as Gobbledegook, and are adept metalsmiths notable for their silverwork; they even mint coins for wizarding currency. Due to their skills with money and finances, they control the wizarding economy to a large extent and run Gringotts Wizarding Bank.\n\nGoblins have their own type of magic and can do magic without a wand. They are represented by the Goblin Liaison Office of the Department for the Regulation and Control of Magical Creatures in the Ministry of Magic. Goblins are considered to be inferior by many wizards, who foolishly believe that the goblins are comfortable with that arrangement.  Goblins do not like Dolores Umbrige."
+        creature.description = "Goblins are a highly intelligent race of small hominids with long fingers and feet that coexist with the wizard world.\n"
         creature.classification = 'Being'
         creature.rating = 3
         #TODO: test image
@@ -19,16 +17,120 @@ class CreatureTest(TestCase):
         creature.save()
 
         # Check that it works
-        all_creatures = Creature.objects.all()
-        self.assertEquals(len(all_creatures), 1)
+        all_creatures = lm.Creature.objects.all()
+        self.assertEqual(len(all_creatures), 1)
         only_creature = all_creatures[0]
-        self.assertEquals(only_creature, creature) 
+        self.assertEqual(only_creature, creature) 
 
         # Check attributes
-        self.assertEquals(only_creature.name, creature.name)
-        self.assertEquals(only_creature.description, only_creature.description)
-        self.assertEquals(only_creature.classification, creature.classification)
-        self.assertEquals(only_creature.rating, creature.rating)
+        self.assertEqual(only_creature.name, creature.name)
+        self.assertEqual(only_creature.description, only_creature.description)
+        self.assertEqual(only_creature.classification, creature.classification)
+        self.assertEqual(only_creature.rating, creature.rating)
+
+class ShopTest(TestCase):
+    def setUp(self):
+        shop = lm.Shop()
+        shop.name = "Weasley's Wizard Wheezes"
+        shop.description = "A practical magical joke shop run by the Weasley brothers. Well, one brother now..."
+        shop.kind = 'shop'
+        shop.save()
+
+    def test_create_shop(self):
+        shop = lm.Shop.objects.first()
+        self.assertEquals(shop.name, "Weasley's Wizard Wheezes")
+        self.assertEquals(shop.description, "A practical magical joke shop run by the Weasley brothers. Well, one brother now...")
+        self.assertEquals(shop.kind, 'shop')
+
+    def test_relationships_shop(self):
+        shop = lm.Shop.objects.first()
+        location = lm.Location()
+        location.name = 'Diagon Alley'
+        location.save()
+        shop.location = location
+        shop.save()
+
+        character = lm.Character()
+        character.name = 'George Weasley'
+        character.shop = shop
+        character.save()
+
+        first_shop = lm.Shop.objects.first()
+        self.assertEquals(first_shop.location, location)
+        self.assertEquals(first_shop.owners.first, character)
+
+    def test_string_shop(self):
+        shop = lm.Shop.objects.first()
+        self.assertEquals(str(shop), shop.name)
+
+class LocationTest(TestCase):
+    def setUp(self):
+        location = lm.Location()
+        location.name = 'Knockturn Alley'
+        location.description = 'Only naughty wizards go here. Why are you here? You must be naughty.'
+        location.kind = 'shopping district'
+        location.save() 
+
+    def test_create_location(self):
+        location = lm.Location.objects.first()
+        self.assertEquals(location.name, 'Knockturn Alley')
+        self.assertEquals(location.description, 'Only naughty wizards go here. Why are you here? You must be naughty.')
+        self.assertEquals(location.kind, 'shopping district')
+
+    def test_string_location(self):
+        location = lm.Location.objects.first()
+        self.assertEquals(str(location), location.name)
+
+class StoryTest(TestCase):
+    def test_create_story(self):
+        story = lm.Story()
+        story.name = 'Deathly Hallows'
+        story.description = 'There were three brothers and they all died.'
+        story.kind = 'legend'
+        story.date = date(1200, 1, 1)
+
+        book = lm.Book()
+        book.name = 'The Tales of Beedle the Bard'
+        book.save()
+        story.book = book
+
+        elder_wand = lm.Artifact()
+        elder_wand.save()
+        book.artifacts.add(elder_wand)
+
+        ignotus = lm.Character()
+        ignotus.name = 'Ignotus Peverell'
+        ignotus.save()
+        book.characters.add(ignotus)
+
+class SpellTest(TestCase):
+    def test_create_spell(self):
+        spell = lm.Spell()
+
+        # set attributes
+        spell.incantation = 'Expecto Patronum'
+        spell.alias = 'Patronus Charm'
+        spell.effect = 'evokes a partially-tangible positive energy force known as a Patronus (pl. Patronuses) or spirit guardian'
+        spell.notable_uses = 'Yes. Harry used it for dementors.'
+        spell.unforgivable = False 
+        spell.kind = 'Charm'
+        #TODO: test image
+
+        spell.save()
+
+        # Check that it works
+        all_spells = lm.Spell.objects.all()
+        self.assertEqual(len(all_spells), 1)
+        only_spell = all_spells[0]
+        self.assertEqual(only_spell, spell) 
+
+        # Check attributes
+        self.assertEqual(only_spell.incantation, spell.incantation)
+        self.assertEqual(only_spell.alias, only_spell.alias)
+        self.assertEqual(only_spell.effect, spell.effect)
+        self.assertEqual(only_spell.notable_uses, spell.notable_uses)
+        self.assertEqual(only_spell.unforgivable, spell.unforgivable)
+        self.assertEqual(only_spell.kind, spell.kind)
 
 class PotionTest(TestCase):
     def test_create_potion(self):
