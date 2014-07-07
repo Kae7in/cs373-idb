@@ -6,7 +6,7 @@ class Character(models.Model):
 
 class Spell(models.Model):
     incantation = models.CharField(max_length=50)
-    aliases = models.CharField(max_length=50)
+    alias = models.CharField(max_length=50)
     effect = models.TextField()
     notable_uses = models.TextField()
     unforgivable = models.BooleanField()
