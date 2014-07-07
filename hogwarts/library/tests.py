@@ -4,29 +4,26 @@ from datetime import date
 
 # Create your tests here.
 class CreatureTest(TestCase):
-    def test_create_creature(self):
+    def setUp(self):
         creature = lm.Creature()
-
-        # set attributes
         creature.name = 'Goblin'
-        creature.description = "Goblins are a highly intelligent race of small hominids with long fingers and feet that coexist with the wizard world.\n"
+        creature.description = "Goblins are mysterious and good with money.\n"
         creature.classification = 'Being'
         creature.rating = 3
-        #TODO: test image
-
         creature.save()
-
-        # Check that it works
+    
+    def test_create_creature(self):
         all_creatures = lm.Creature.objects.all()
         self.assertEqual(len(all_creatures), 1)
-        only_creature = all_creatures[0]
-        self.assertEqual(only_creature, creature) 
+        creature = lm.Creature.objects.first()
+        self.assertEqual(creature.name, 'Goblin')
+        self.assertEqual(creature.description, 'Goblins are mysterious and good with money.\n')
+        self.assertEqual(creature.classification, 'Being')
+        self.assertEqual(creature.rating, 3)
 
-        # Check attributes
-        self.assertEqual(only_creature.name, creature.name)
-        self.assertEqual(only_creature.description, only_creature.description)
-        self.assertEqual(only_creature.classification, creature.classification)
-        self.assertEqual(only_creature.rating, creature.rating)
+    def test_string_creature(self):
+        creature = lm.Creature.objects.first()
+        self.assertEqual(str(creature), creature.name)    
 
 class ShopTest(TestCase):
     def setUp(self):
@@ -38,9 +35,9 @@ class ShopTest(TestCase):
 
     def test_create_shop(self):
         shop = lm.Shop.objects.first()
-        self.assertEquals(shop.name, "Weasley's Wizard Wheezes")
-        self.assertEquals(shop.description, "A practical magical joke shop run by the Weasley brothers. Well, one brother now...")
-        self.assertEquals(shop.kind, 'shop')
+        self.assertEqual(shop.name, "Weasley's Wizard Wheezes")
+        self.assertEqual(shop.description, "A practical magical joke shop run by the Weasley brothers. Well, one brother now...")
+        self.assertEqual(shop.kind, 'shop')
 
     def test_relationships_shop(self):
         shop = lm.Shop.objects.first()
@@ -52,16 +49,17 @@ class ShopTest(TestCase):
 
         character = lm.Character()
         character.name = 'George Weasley'
+        character.magical = True
         character.shop = shop
         character.save()
 
         first_shop = lm.Shop.objects.first()
-        self.assertEquals(first_shop.location, location)
-        self.assertEquals(first_shop.owners.first, character)
+        self.assertEqual(first_shop.location, location)
+        self.assertEqual(first_shop.owners.first, character)
 
     def test_string_shop(self):
         shop = lm.Shop.objects.first()
-        self.assertEquals(str(shop), shop.name)
+        self.assertEqual(str(shop), shop.name)
 
 class LocationTest(TestCase):
     def setUp(self):
@@ -73,13 +71,13 @@ class LocationTest(TestCase):
 
     def test_create_location(self):
         location = lm.Location.objects.first()
-        self.assertEquals(location.name, 'Knockturn Alley')
-        self.assertEquals(location.description, 'Only naughty wizards go here. Why are you here? You must be naughty.')
-        self.assertEquals(location.kind, 'shopping district')
+        self.assertEqual(location.name, 'Knockturn Alley')
+        self.assertEqual(location.description, 'Only naughty wizards go here. Why are you here? You must be naughty.')
+        self.assertEqual(location.kind, 'shopping district')
 
     def test_string_location(self):
         location = lm.Location.objects.first()
-        self.assertEquals(str(location), location.name)
+        self.assertEqual(str(location), location.name)
 
 class StoryTest(TestCase):
     def test_create_story(self):
@@ -104,36 +102,45 @@ class StoryTest(TestCase):
         book.characters.add(ignotus)
 
 class SpellTest(TestCase):
-    def test_create_spell(self):
+    def setUp(self):
         spell = lm.Spell()
-
-        # set attributes
         spell.incantation = 'Expecto Patronum'
         spell.alias = 'Patronus Charm'
-        spell.effect = 'evokes a partially-tangible positive energy force known as a Patronus (pl. Patronuses) or spirit guardian'
-        spell.notable_uses = 'Yes. Harry used it for dementors.'
+        spell.effect = "evokes a positive energy force"
+        spell.notable_uses = "Harry used it for dementors."
         spell.unforgivable = False 
         spell.kind = 'Charm'
-        #TODO: test image
-
         spell.save()
-
-        # Check that it works
+        
+    def test_create_spell(self):
         all_spells = lm.Spell.objects.all()
         self.assertEqual(len(all_spells), 1)
-        only_spell = all_spells[0]
-        self.assertEqual(only_spell, spell) 
+        spell = lm.Spell.objects.first()
+        self.assertEqual(spell.incantation, 'Expecto Patronum')
+        self.assertEqual(spell.alias, 'Patronus Charm')
+        self.assertEqual(spell.effect, "evokes a positive energy force")
+        self.assertEqual(spell.notable_uses, 'Harry used it for dementors.')
+        self.assertEqual(spell.unforgivable, False)
+        self.assertEqual(spell.kind, 'Charm')
 
-        # Check attributes
-        self.assertEqual(only_spell.incantation, spell.incantation)
-        self.assertEqual(only_spell.alias, only_spell.alias)
-        self.assertEqual(only_spell.effect, spell.effect)
-        self.assertEqual(only_spell.notable_uses, spell.notable_uses)
-        self.assertEqual(only_spell.unforgivable, spell.unforgivable)
-        self.assertEqual(only_spell.kind, spell.kind)
+    def test_relationships_spell(self):
+        spell = lm.Spell.objects.first()
+        creature = lm.Creature()
+        creature.name = 'Dementor'
+        creature.classification = 'NB'
+        creature.rating = 5
+        creature.save()
+        spell.creature = creature
+        spell.save()
+
+        first_spell = lm.Spell.objects.first()
+        self.assertEqual(first_spell.creature, creature)
+
+    def test_string_spell(self):
+        spell = lm.Spell.objects.first()
+        self.assertEqual(str(spell), spell.incantation)
 
 class PotionTest(TestCase):
-
     def setUp(self):
         
         potion = lm.Potion()
@@ -148,24 +155,24 @@ class PotionTest(TestCase):
     
     def test_create_potion(self):
         potions = lm.Potion.objects.all()
-        self.assertEquals(len(potions), 1)
+        self.assertEqual(len(potions), 1)
         potion_created = potions.first()
         
         
-        self.assertEquals("Felix Felices", potion_created.title)
-        self.assertEquals("A", potion_created.difficulty)
-        self.assertEquals("Its color is molten gold...", potion_created.description)
-        self.assertEquals("Add to the cauldron an Ashwinder egg and horseradish before heating...", potion_created.recipe)
-        self.assertEquals("Increases the drinker's luck. Overdose can...", potion_created.effects)
-        self.assertEquals("Hermoine, Ginny and Ron used Felix Felices to evade the curses of Death Eaters...", potion_created.usages)
-        self.assertEquals("Also called \"Liquid Luck\", Felix Felices was invented...", potion_created.more_info)
-        self.assertEquals("images/empty.jpg", potion_created.image)
+        self.assertEqual("Felix Felices", potion_created.title)
+        self.assertEqual("A", potion_created.difficulty)
+        self.assertEqual("Its color is molten gold...", potion_created.description)
+        self.assertEqual("Add to the cauldron an Ashwinder egg and horseradish before heating...", potion_created.recipe)
+        self.assertEqual("Increases the drinker's luck. Overdose can...", potion_created.effects)
+        self.assertEqual("Hermoine, Ginny and Ron used Felix Felices to evade the curses of Death Eaters...", potion_created.usages)
+        self.assertEqual("Also called \"Liquid Luck\", Felix Felices was invented...", potion_created.more_info)
+        self.assertEqual("images/empty.jpg", potion_created.image)
         all_creatures = potion_created.creatures.all()
-        self.assertEquals(len(all_creatures), 0)
+        self.assertEqual(len(all_creatures), 0)
 
     def test_string_potion(self):
         potion = lm.Potion.objects.all().first()
-        self.assertEquals(str(potion), "Felix Felices")
+        self.assertEqual(str(potion), "Felix Felices")
 
     def test_potion_image(self):
         potion = lm.Potion.objects.all().first()
@@ -190,8 +197,8 @@ class PotionTest(TestCase):
         creature2.save()
         potion.creatures = [creature1, creature2]
         potion.save()
-        self.assertEquals(potion.creatures.all()[0], creature1)
-        self.assertEquals(potion.creatures.all()[1], creature2)
+        self.assertEqual(potion.creatures.all()[0], creature1)
+        self.assertEqual(potion.creatures.all()[1], creature2)
 
 class SchoolTest(TestCase):
 
@@ -208,12 +215,12 @@ class SchoolTest(TestCase):
     def test_create_school(self):
         
         schools = lm.School.objects.all()
-        self.assertEquals(len(schools), 1)
+        self.assertEqual(len(schools), 1)
         school_created = schools.first()
-        self.assertEquals(school_created, school_created)
-        self.assertEquals("Durmstrang Institute", school_created.name)
-        self.assertEquals("These guys don't really like muggle-borns very much. Except Krum I guess.", school_created.description)
-        self.assertEquals("images/empty.jpg", school_created.image)
+        self.assertEqual(school_created, school_created)
+        self.assertEqual("Durmstrang Institute", school_created.name)
+        self.assertEqual("These guys don't really like muggle-borns very much. Except Krum I guess.", school_created.description)
+        self.assertEqual("images/empty.jpg", school_created.image)
 
     def test_school_string(self):
         school = lm.School.objects.first()
@@ -242,18 +249,18 @@ class HouseTest(TestCase):
     
     def test_create_house(self):
         houses = lm.House.objects.all()
-        self.assertEquals(len(houses), 1)
+        self.assertEqual(len(houses), 1)
         house_created = houses.first()
-        self.assertEquals(house_created, house_created)
+        self.assertEqual(house_created, house_created)
         
         
-        self.assertEquals("Hufflepuff", house_created.name)
-        self.assertEquals("Nobody wants to be a Hufflepuff.", house_created.description)
-        self.assertEquals("images/empty.jpg", house_created.image)
+        self.assertEqual("Hufflepuff", house_created.name)
+        self.assertEqual("Nobody wants to be a Hufflepuff.", house_created.description)
+        self.assertEqual("images/empty.jpg", house_created.image)
 
     def test_house_string(self):
         house = lm.House.objects.first()
-        self.assertEquals(str(house), "Hufflepuff")
+        self.assertEqual(str(house), "Hufflepuff")
 
     def test_house_image(self):
         house = lm.House.objects.first()
