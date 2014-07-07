@@ -103,8 +103,8 @@ class Shop(Location):
 class Artifact(models.Model):
     name = models.CharField(max_length=100)
     description = models.TextField()
-    kind = models.CharField(max_length=100)
-    image = models.ImageField(upload_to="images/artifacts")
+    kind = models.CharField(max_length=100, blank=True)
+    image = models.ImageField(upload_to='images/artifacts', default='images/empty.jpg')
     owner = models.ForeignKey(Character, related_name = 'artifacts', blank=True, null=True)
 
     def __str__(self):              
