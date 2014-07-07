@@ -1,0 +1,9 @@
+{% if potions %}
+  <ul>
+    {% for potion in potions %}
+      <li><a href='/library/{{ potion.id }}/'>{{ potion.name }}</a></li>
+    {% endfor %}
+  </ul>
+{% else %}
+  <p>No potions are available.</p>
+{% endif %}
