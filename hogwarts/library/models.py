@@ -63,6 +63,9 @@ class Potion(models.Model):
     creatures = models.ManyToManyField('Creature', related_name = 'potions', blank = True)
     image = models.ImageField(upload_to = 'images/potions', default = 'images/empty.jpg')
 
+    def __str__(self):
+        return self.title
+
 class Location(models.Model):
     name = models.CharField(max_length=40)
     description = models.TextField()
@@ -75,8 +78,14 @@ class Location(models.Model):
 class School(Location):
     country = models.CharField(max_length=20)
     
+    def __str__(self):
+        return self.name
+
 class House(School):
-    school = models.ForeignKey('School', related_name = 'child_houses', blank = True)
+    school = models.ForeignKey(School, related_name = 'child_houses')
+    
+    def __str__(self):
+        return self.name
 
 class Shop(Location):
     location = models.ForeignKey(Location, related_name = 'child_shops', blank = True)
@@ -103,7 +112,7 @@ class Story(models.Model):
     name = models.CharField(max_length=100)
     description = models.TextField()
     date = models.DateField()
-    book = models.ForeignKey(Book, related_name = 'story')
+    book = models.ForeignKey(Book, related_name = 'story', blank=True)
     kind = models.CharField(max_length=20)
     characters = models.ManyToManyField('Character', related_name = 'stories', blank = True)
     artifacts = models.ManyToManyField('Artifact', related_name = 'stories', blank = True)
