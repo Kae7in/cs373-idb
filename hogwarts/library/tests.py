@@ -279,15 +279,70 @@ class ArtifactTest(TestCase):
 
         artifact.name = "Pensieve"
         artifact.description = "The Pensieve is an object used to review memories. It has the appearance of a shallow stone basin, into which are carved runes and strange symbols. It is filled with a silvery substance that appears to be a cloud-like liquid/gas; the collected memories of people who have siphoned their recollections into it. Memories can then be viewed from a non-participant, third-person point of view."
-        # TODO: Test kind
-        # TODO: Test image
-        artifact.owner = self.wizzy
+        artifact.owner = wizzy
         artifact.save()
 
-    def test_create_artifact(self):
+    def test_artifact_create(self):
         artifacts = lm.Artifact.objects.all()
         a = artifacts[0]
         self.assertEqual(len(artifacts), 1)
         self.assertEqual(a.name, "Pensieve")
+        self.assertEqual(str(a), "Pensieve")
         self.assertEqual(a.description, "The Pensieve is an object used to review memories. It has the appearance of a shallow stone basin, into which are carved runes and strange symbols. It is filled with a silvery substance that appears to be a cloud-like liquid/gas; the collected memories of people who have siphoned their recollections into it. Memories can then be viewed from a non-participant, third-person point of view.")
+        self.assertEqual(a.kind, "")
         self.assertEqual(a.image, "images/empty.jpg")
+
+    def test_artifact_image(self):
+        artifacts = lm.Artifact.objects.all()
+        a = artifacts[0]
+        a.image = "images/dummy-artifact.jpg" # TODO: What does this actually do, an image is more than a file path string right?
+        a.save()
+        self.assertEqual(a.image, "images/dummy-artifact.jpg")
+
+    def test_artifact_owner(self):
+        a = lm.Artifact.objects.first()
+        w = lm.Character.objects.first()
+        self.assertEqual(a.owner, w)
+        # self.assertIs(a.owner, w) # TODO: Why are they different instances?
+
+        # Reverse lookup. 
+        artifact = w.artifacts.first()
+        self.assertEqual(artifact, a)
+
+class BookTest(TestCase):
+    def setUp(self):
+        beedle = lm.Character()
+        beedle.name = "Beedle The Bard"
+        beedle.magical = False
+        beedle.save()
+
+        tales_of_beedle = lm.Book()
+        tales_of_beedle.name = "Tales Of Beedle The Bard"
+        tales_of_beedle.description = "A book of stories that are pretty ok"
+        tales_of_beedle.author = beedle
+        tales_of_beedle.save()
+
+        brothers = lm.Story()
+        brothers.name = "The Three Brothers"
+        brothers.description = "There were three brothers and they all died."
+        brothers.kind = "legend"
+        brothers.date = date(1200, 1, 1)
+        brothers.book = tales_of_beedle
+        brothers.save()
+
+    def test_book_create(self):
+        book   = lm.Book.objects.first()
+        self.assertEqual(book.name, "Tales Of Beedle The Bard")
+        self.assertEqual(book.description, "A book of stories that are pretty ok")
+
+    def test_book_author(self):
+        book   = lm.Book.objects.first()
+        author = lm.Character.objects.first()
+        self.assertEqual(book.author, author)
+        self.assertEqual(author.books.first(), book)
+
+    def test_book_story(self):
+        book   = lm.Book.objects.first()
+        story  = lm.Story.objects.first()
+        self.assertEqual(story.book, book)
+        self.assertEqual(book.story.first(), story)
