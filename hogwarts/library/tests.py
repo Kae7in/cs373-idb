@@ -4,67 +4,67 @@ import library.models as lm
 # Create your tests here.
 class CreatureTest(TestCase):
     def setUp(self):
-        pass
-    def test_create_creature(self):
         creature = lm.Creature()
-
-        # set attributes
         creature.name = 'Goblin'
-        creature.description = "Goblins are a highly intelligent race of small hominids with long fingers and feet that coexist with the wizard world.\n"
+        creature.description = "Goblins are mysterious and good with money.\n"
         creature.classification = 'Being'
         creature.rating = 3
-        #TODO: test image
-
         creature.save()
-
-        # Check that it works
+    
+    def test_create_creature(self):
         all_creatures = lm.Creature.objects.all()
         self.assertEqual(len(all_creatures), 1)
-        only_creature = all_creatures[0]
-        self.assertEqual(only_creature, creature) 
-
-        # Check attributes
-        self.assertEqual(only_creature.name, creature.name)
-        self.assertEqual(only_creature.description, only_creature.description)
-        self.assertEqual(only_creature.classification, creature.classification)
-        self.assertEqual(only_creature.rating, creature.rating)
-
+        creature = lm.Creature.objects.first()
+        self.assertEqual(creature.name, 'Goblin')
+        self.assertEqual(creature.description, 'Goblins are mysterious and good with money.\n')
+        self.assertEqual(creature.classification, 'Being')
+        self.assertEqual(creature.rating, 3)
 
     def test_string_creature(self):
-        
+        creature = lm.Creature.objects.first()
+        self.assertEqual(str(creature), creature.name)    
 
 class SpellTest(TestCase):
-    def test_create_spell(self):
+    def setUp(self):
         spell = lm.Spell()
-
-        # set attributes
         spell.incantation = 'Expecto Patronum'
         spell.alias = 'Patronus Charm'
-        spell.effect = 'evokes a partially-tangible positive energy force known as a Patronus (pl. Patronuses) or spirit guardian'
-        spell.notable_uses = 'Yes. Harry used it for dementors.'
+        spell.effect = "evokes a positive energy force"
+        spell.notable_uses = "Harry used it for dementors."
         spell.unforgivable = False 
         spell.kind = 'Charm'
-        #TODO: test image
-
         spell.save()
-
-        # Check that it works
+        
+    def test_create_spell(self):
         all_spells = lm.Spell.objects.all()
         self.assertEqual(len(all_spells), 1)
-        only_spell = all_spells[0]
-        self.assertEqual(only_spell, spell) 
+        spell = lm.Spell.objects.first()
+        self.assertEqual(spell.incantation, 'Expecto Patronum')
+        self.assertEqual(spell.alias, 'Patronus Charm')
+        self.assertEqual(spell.effect, "evokes a positive energy force")
+        self.assertEqual(spell.notable_uses, 'Harry used it for dementors.')
+        self.assertEqual(spell.unforgivable, False)
+        self.assertEqual(spell.kind, 'Charm')
 
-        # Check attributes
-        self.assertEqual(only_spell.incantation, spell.incantation)
-        self.assertEqual(only_spell.alias, only_spell.alias)
-        self.assertEqual(only_spell.effect, spell.effect)
-        self.assertEqual(only_spell.notable_uses, spell.notable_uses)
-        self.assertEqual(only_spell.unforgivable, spell.unforgivable)
-        self.assertEqual(only_spell.kind, spell.kind)
+    def test_relationships_spell(self):
+        spell = lm.Spell.objects.first()
+        creature = lm.Creature()
+        creature.name = 'Dementor'
+        creature.classification = 'NB'
+        creature.save()
+        spell.creature = creature
+        spell.save()
+
+        first_spell = lm.Spell.objects.first()
+        self.assertEqual(first_spell.creature, creature)
+
+    def test_string_spell(self):
+        spell = lm.Spell.objects.first()
+        self.assertEqual(str(spell), spell.incantation)
 
 class PotionTest(TestCase):
     def test_create_potion(self):
-        potion = Potion()
+        potion = lm.Potion()
         name = "Amortentia"
         potion.title = name
         difficult = 'A'
@@ -81,7 +81,7 @@ class PotionTest(TestCase):
         
         potion.more_info = more_information
         potion.save()
-        potions = Potion.objects.all()
+        potions = lm.Potion.objects.all()
         self.assertEquals(len(potions), 1)
         potion_created = potions[0]
         self.assertEquals(potion, potion_created)

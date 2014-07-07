@@ -20,6 +20,9 @@ class Spell(models.Model):
     kind = models.CharField(max_length=20, choices=KIND_CHOICES)
     image = models.ImageField(upload_to='images/spells')
 
+    # affects certain creatures
+    creature = models.ForeignKey('Creature', blank=True)
+
     def __str__(self):
         return self.incantation
 
@@ -28,6 +31,7 @@ class Creature(models.Model):
     description = models.TextField()
     CLASS_CHOICES = (('Beast', 'Beast'),
                      ('Being', 'Being'),
+                     ('NB', 'Non-being'),
                      ('Spirit', 'Spirit'))
     classification = models.CharField(max_length=6, choices=CLASS_CHOICES)
     RATING_CHOICES = ((1,'X'),(2,'XX'),(3,'XXX'),(4,'XXXX'),(5,'XXXXX'))
