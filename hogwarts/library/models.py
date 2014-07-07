@@ -45,7 +45,7 @@ class Potion(models.Model):
     recipe = models.TextField()
     usages = models.TextField()
     more_info = models.TextField()
-    creatures = models.ManyToManyField(Creature)
+    creatures = models.ManyToManyField(Creature, blank=True)
     image = models.ImageField(upload_to = 'images/potions', default = 'images/empty.jpg')
 
 class Location(models.Model):
@@ -58,7 +58,7 @@ class School(Location):
     country = models.CharField(max_length=20)
     
 class House(School):
-    school = models.ForeignKey('School', related_name = 'child_houses')
+    school = models.ForeignKey(School, related_name = 'child_houses')
 
 class Shop(Location):
     location = models.ForeignKey(Location, related_name = 'child_shops')
