@@ -228,3 +228,10 @@ class ArtifactTest(TestCase):
         self.artifact.save()
 
     def test_create_artifact(self):
+        artifacts = self.artifacts.objects.all()
+        self.assertEquals(len(artifacts), 1)
+        a = artifacts[0]
+        self.assertEquals(len(artifacts[0]), 1)
+        self.assertEquals(a.name, "Pensieve")
+        self.assertEquals(a.description, "The Pensieve is an object used to review memories. It has the appearance of a shallow stone basin, into which are carved runes and strange symbols. It is filled with a silvery substance that appears to be a cloud-like liquid/gas; the collected memories of people who have siphoned their recollections into it. Memories can then be viewed from a non-participant, third-person point of view.")
+        self.assertEquals(a.image, "images/empty.jpg")
