@@ -1,5 +1,6 @@
 from django.test import TestCase
 import library.models as lm
+from datetime import date
 
 # Create your tests here.
 class CreatureTest(TestCase):
@@ -65,5 +66,26 @@ class CreatureTest(TestCase):
         self.assertEquals(first_location.name, location.name)
         self.assertEquals(first_location.description, location.description)
         self.assertEquals(first_location.kind, location.kind)
+
+    def test_create_story(self):
+        story = lm.Story()
+        story.name = 'Deathly Hallows'
+        story.description = 'There were three brothers and they all died.'
+        story.kind = 'legend'
+        story.date = date(1200, 1, 1)
+
+        book = lm.Book()
+        book.name = 'The Tales of Beedle the Bard'
+        book.save()
+        story.book = book
+
+        elder_wand = lm.Artifact()
+        elder_wand.save()
+        book.artifacts.add(elder_wand)
+
+        ignotus = lm.Character()
+        ignotus.name = 'Ignotus Peverell'
+        ignotus.save()
+        book.characters.add(ignotus)
 
 
