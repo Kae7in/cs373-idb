@@ -2,7 +2,22 @@ from django.db import models
 
 # Create your models here.
 class Character(models.Model):
-    pass
+    #descriptors
+    character_id = models.CharField(max_length = 100)
+    name = models.CharField(max_length = 100)
+    birthday = models.CharField(max_length = 100)
+    description = models.TextField()
+    magical = models.BooleanField()
+    quotes = models.TextField()
+    images = models.ImageField(upload_to = 'images/characters', default = 'images/empty.jpg')
+
+    #relationships
+    creature = models.ForeignKey(Creature)
+    relationship = models.ManyToManyField(Relationship)
+    book = models.ForeignKey(Book)
+    story = models.ManyToManyField(Story)
+    house = models.ForeignKey(House)
+    shop = models.ForeignKey(Shop)
 
 class Spell(models.Model):
     incantation = models.CharField(max_length=50)
@@ -106,4 +121,10 @@ class Academic(models.Model):
     descriptor = models.CharField(max_length=10, choices=DESCRIPTORS)
 
 class Relationship(models.Model):
-    pass
+    #descriptors
+    relation_id = models.CharField(max_length = 100)
+
+    #relationships
+    character1 = models.ForeignKey(Character, related_name = "character1")
+    character2 = models.ForeignKey(Character, related_name = "character2")
+    descriptor1 = models.TextField()
