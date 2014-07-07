@@ -179,7 +179,7 @@ class PotionTest(TestCase):
         potion.image = "images/non_empty.jpg"
         potion.save()
 
-    def test_potion_creatures(self):
+    def test_potion_relationships(self):
         potion = lm.Potion.objects.first()
         creature1 = lm.Creature()
         creature1.name = "Hippogriff"
@@ -196,9 +196,36 @@ class PotionTest(TestCase):
         creature2.image = "images/non_empty.jpg"
         creature2.save()
         potion.creatures = [creature1, creature2]
+
+        character = lm.Character()
+        character.character_id = "2"
+        character.name = "Harry"
+        character.birthday = "."
+        character.description = "."
+        character.magical = True
+        character.quotes = "Woe is me"
+        character.creature = creature1
+        character.save()
+
+        potion2 = lm.Potion()
+        potion2.title = "Felix Felices"
+        potion2.difficulty = 'A'
+        potion2.description = "Its color is molten gold..."
+        potion2.recipe = 'Add to the cauldron an Ashwinder egg and horseradish before heating...'
+        potion2.effects = "Increases the drinker's luck. Overdose can..."
+        potion2.usages = "Hermoine, Ginny and Ron used Felix Felices to evade the curses of Death Eaters..."
+        potion2.more_info = "Also called \"Liquid Luck\", Felix Felices was invented..."
+        potion2.save()
+        potion.other_potions = [potion2]
+
+        potion2.characters = [character]
+        potion2.other_potions = [potion]
         potion.save()
-        self.assertEqual(potion.creatures.all()[0], creature1)
+        self.assertEqual(potion.creatures.first(), creature1)
         self.assertEqual(potion.creatures.all()[1], creature2)
+        self.assertEqual(potion.other_potions.first(), potion2)
+        self.assertEqual(potion2.other_potions.first(), potion)
+        self.assertEqual(potion2.characters.first(), character)
 
 class SchoolTest(TestCase):
 
@@ -267,3 +294,4 @@ class HouseTest(TestCase):
         house.image = "images/non_empty.jpg"
         house.save()
         self.assertEqual(house.image, "images/non_empty.jpg")	
+
