@@ -103,7 +103,7 @@ class Academic(models.Model):
     )
     character = models.ForeignKey(Character)
     school = models.ForeignKey(School)
-    descriptor = models.charField(max_length=10, choices=DESCRIPTORS)
+    descriptor = models.CharField(max_length=10, choices=DESCRIPTORS)
 
 class Relationship(models.Model):
     pass
