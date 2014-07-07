@@ -54,7 +54,7 @@ class Location(models.Model):
     kind = models.CharField(max_length=20)
     image = models.ImageField(upload_to = 'images/locations', default = 'images/empty.jpg')
 
-    def __unicode__(self):
+    def __str__(self):
         return self.name
 
 class School(Location):

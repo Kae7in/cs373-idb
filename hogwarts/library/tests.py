@@ -29,13 +29,21 @@ class CreatureTest(TestCase):
         self.assertEqual(only_creature.rating, creature.rating)
 
 class ShopTest(TestCase):
-    def test_create_shop(self):
+    def setUp(self):
         shop = lm.Shop()
         shop.name = "Weasley's Wizard Wheezes"
         shop.description = "A practical magical joke shop run by the Weasley brothers. Well, one brother now..."
         shop.kind = 'shop'
+        shop.save()
 
-        # Relationships
+    def test_create_shop(self):
+        shop = lm.Shop.objects.first()
+        self.assertEquals(shop.name, "Weasley's Wizard Wheezes")
+        self.assertEquals(shop.description, "A practical magical joke shop run by the Weasley brothers. Well, one brother now...")
+        self.assertEquals(shop.kind, 'shop')
+
+    def test_relationships_shop(self):
+        shop = lm.Shop.objects.first()
         location = lm.Location()
         location.name = 'Diagon Alley'
         location.save()
@@ -48,26 +56,30 @@ class ShopTest(TestCase):
         character.save()
 
         first_shop = lm.Shop.objects.first()
-        self.assertEquals(str(first_shop), shop.name)
-        self.assertEquals(first_shop.name, shop.name)
-        self.assertEquals(first_shop.description, shop.description)
-        self.assertEquals(first_shop.kind, shop.kind)
         self.assertEquals(first_shop.location, location)
         self.assertEquals(first_shop.owners.first, character)
 
+    def test_string_shop(self):
+        shop = lm.Shop.objects.first()
+        self.assertEquals(str(shop), shop.name)
+
 class LocationTest(TestCase):
-    def test_create_location(self):
+    def setUp(self):
         location = lm.Location()
         location.name = 'Knockturn Alley'
         location.description = 'Only naughty wizards go here. Why are you here? You must be naughty.'
         location.kind = 'shopping district'
-        location.save()
+        location.save() 
 
-        first_location = lm.Location.objects.first()
-        self.assertEquals(str(first_location), location.name)
-        self.assertEquals(first_location.name, location.name)
-        self.assertEquals(first_location.description, location.description)
-        self.assertEquals(first_location.kind, location.kind)
+    def test_create_location(self):
+        location = lm.Location.objects.first()
+        self.assertEquals(location.name, 'Knockturn Alley')
+        self.assertEquals(location.description, 'Only naughty wizards go here. Why are you here? You must be naughty.')
+        self.assertEquals(location.kind, 'shopping district')
+
+    def test_string_location(self):
+        location = lm.Location.objects.first()
+        self.assertEquals(str(location), location.name)
 
 class StoryTest(TestCase):
     def test_create_story(self):
