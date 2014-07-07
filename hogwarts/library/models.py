@@ -34,6 +34,9 @@ class Creature(models.Model):
     def __str__(self):
         return self.name
 
+    def potions(self):
+        return creature.ingredients.first().potions.all()
+
 class Spell(models.Model):
     incantation = models.CharField(max_length=50)
     alias = models.CharField(max_length=50)
@@ -56,6 +59,10 @@ class Spell(models.Model):
     def __str__(self):
         return self.incantation
 
+class Ingredient(models.Model):
+    name = models.CharField(max_length = 100)
+    creature = models.ForeignKey('Creature', null=True, blank=True, related_name = 'ingredients')
+
 class Potion(models.Model):
 
     DIFFICULTIES = (
@@ -70,11 +77,19 @@ class Potion(models.Model):
     recipe = models.TextField()
     usages = models.TextField()
     more_info = models.TextField()
-    creatures = models.ManyToManyField('Creature', related_name = 'potions', blank=True, null=True)
+    ingredients = models.ManyToManyField(Ingredient, related_name = 'potions', null=True, blank=True)
     image = models.ImageField(upload_to = 'images/potions', default = 'images/empty.jpg')
 
     def __str__(self):
         return self.title
+
+    def brew(self, available_ingredients):
+        for required in self.ingredients.all():
+            if(not required.name in available_ingredients):
+                return 'Failure'
+        if(self.ingredients.all().count() == len(available_ingredients)):
+            return 'Success'
+        return 'Explosion!'
 
 class Location(models.Model):
     name = models.CharField(max_length=40)
