@@ -39,7 +39,7 @@ class ShopTest(TestCase):
         self.assertEqual(shop.description, "A practical magical joke shop run by the Weasley brothers. Well, one brother now...")
         self.assertEqual(shop.kind, 'shop')
 
-    def test_relationships_shop(self):
+    def test_shop_with_locations(self):
         shop = lm.Shop.objects.first()
         location = lm.Location()
         location.name = 'Diagon Alley'
@@ -47,14 +47,17 @@ class ShopTest(TestCase):
         shop.location = location
         shop.save()
 
+        first_shop = lm.Shop.objects.first()
+        self.assertEqual(first_shop.location, location)
+
+    def test_shop_with_owners(self):       
+        shop = lm.Shop.objects.first()
         character = lm.Character()
         character.name = 'George Weasley'
-        character.magical = True
         character.shop = shop
         character.save()
 
         first_shop = lm.Shop.objects.first()
-        self.assertEqual(first_shop.location, location)
         self.assertEqual(first_shop.owners.first, character)
 
     def test_string_shop(self):
