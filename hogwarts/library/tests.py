@@ -58,7 +58,7 @@ class ShopTest(TestCase):
         character.save()
 
         first_shop = lm.Shop.objects.first()
-        self.assertEqual(first_shop.owners.first, character)
+        self.assertEqual(first_shop.owners.first(), character)
 
     def test_string_shop(self):
         shop = lm.Shop.objects.first()
@@ -83,26 +83,61 @@ class LocationTest(TestCase):
         self.assertEqual(str(location), location.name)
 
 class StoryTest(TestCase):
-    def test_create_story(self):
+    def setUp(self):
         story = lm.Story()
         story.name = 'Deathly Hallows'
         story.description = 'There were three brothers and they all died.'
         story.kind = 'legend'
         story.date = date(1200, 1, 1)
+        story.save()
 
+    def test_create_story(self):
+        story = lm.Story.objects.first()
+        self.assertEqual(story.name, 'Deathly Hallows')
+        self.assertEqual(story.description, 'There were three brothers and they all died.')
+        self.assertEqual(story.kind, 'legend')
+        self.assertEqual(story.date.year, 1200)
+
+    def test_story_with_book(self):
+        story = lm.Story.objects.first()
         book = lm.Book()
         book.name = 'The Tales of Beedle the Bard'
         book.save()
         story.book = book
+        story.save()
 
+        first_story = lm.Story.objects.first()
+        self.assertEqual(first_story.book.name, book.name)
+
+    def test_story_with_artifact(self):
+        story = lm.Story.objects.first()
         elder_wand = lm.Artifact()
+        elder_wand.name = 'Elder Wand'
         elder_wand.save()
-        book.artifacts.add(elder_wand)
+        story.artifacts.add(elder_wand)
+        story.save()
 
+        first_story = lm.Story.objects.first()
+        self.assertEqual(first_story.artifacts.first().name, elder_wand.name)
+
+    def test_story_with_character(self):
+        story = lm.Story.objects.first()
         ignotus = lm.Character()
         ignotus.name = 'Ignotus Peverell'
         ignotus.save()
-        book.characters.add(ignotus)
+        story.characters.add(ignotus)
+        story.save()
+
+        first_story = lm.Story.objects.first()
+        self.assertEqual(first_story.characters.first().name, ignotus.name)
+
+    def test_str_story(self):
+        story = lm.Story.objects.first()
+        self.assertEqual(str(story), story.name)
+
+    def test_century_story(self):
+        story = lm.Story.objects.first()
+        self.assertEqual(story.century(), 13)
 
 class SpellTest(TestCase):
     def setUp(self):
