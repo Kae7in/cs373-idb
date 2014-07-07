@@ -60,7 +60,7 @@ class Potion(models.Model):
     recipe = models.TextField()
     usages = models.TextField()
     more_info = models.TextField()
-    creatures = models.ManyToManyField(Creature, related_name = 'potions', blank = True)
+    creatures = models.ManyToManyField('Creature', related_name = 'potions', blank = True)
     image = models.ImageField(upload_to = 'images/potions', default = 'images/empty.jpg')
 
     def __str__(self):
@@ -114,9 +114,9 @@ class Story(models.Model):
     date = models.DateField()
     book = models.ForeignKey(Book, related_name = 'story', blank=True)
     kind = models.CharField(max_length=20)
-    characters = models.ManyToManyField(Character, related_name = 'stories', blank = True)
-    artifacts = models.ManyToManyField(Artifact, related_name = 'stories', blank = True)
-    locations = models.ManyToManyField(Location, related_name = 'stories', blank = True)
+    characters = models.ManyToManyField('Character', related_name = 'stories', blank = True)
+    artifacts = models.ManyToManyField('Artifact', related_name = 'stories', blank = True)
+    locations = models.ManyToManyField('Location', related_name = 'stories', blank = True)
 
     class Meta:
         verbose_name_plural = 'stories'
