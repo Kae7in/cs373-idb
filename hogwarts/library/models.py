@@ -27,7 +27,7 @@ class Creature(models.Model):
                      ('Being', 'Being'),
                      ('Spirit', 'Spirit'))
     classification = models.CharField(max_length=6, choices=CLASS_CHOICES)
-    RATING_CHOICES = ((x,x) for x in range(1,6))
+    RATING_CHOICES = ((1,'X'),(2,'XX'),(3,'XXX'),(4,'XXXX'),(5,'XXXXX'))
     rating = models.IntegerField(choices=RATING_CHOICES)
     image = models.ImageField(upload_to='images/creatures')
 
