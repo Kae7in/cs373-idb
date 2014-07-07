@@ -1,8 +1,23 @@
 from django.db import models
-
+###
 # Create your models here.
 class Character(models.Model):
-    pass
+    #descriptors
+    character_id = models.CharField(max_length = 100)
+    name = models.CharField(max_length = 100)
+    birthday = models.CharField(max_length = 100)
+    description = models.TextField()
+    magical = models.BooleanField()
+    quotes = models.TextField()
+    images = models.ImageField(upload_to = 'images/characters', default = 'images/empty.jpg')
+
+    #relationships
+    creature = models.ForeignKey(Creature, blank = true)
+    relationship = models.ManyToManyField(Relationship, blank = true)
+    book = models.ForeignKey(Book, blank = true)
+    story = models.ManyToManyField(Story, blank = true)
+    house = models.ForeignKey(House, blank = true)
+    shop = models.ForeignKey(Shop, blank = true)
 
 class Spell(models.Model):
     incantation = models.CharField(max_length=50)
@@ -45,7 +60,7 @@ class Potion(models.Model):
     recipe = models.TextField()
     usages = models.TextField()
     more_info = models.TextField()
-    creatures = models.ManyToManyField(Creature, related_name = 'potions')
+    creatures = models.ManyToManyField(Creature, related_name = 'potions', blank = True)
     image = models.ImageField(upload_to = 'images/potions', default = 'images/empty.jpg')
 
 class Location(models.Model):
@@ -61,17 +76,17 @@ class School(Location):
     country = models.CharField(max_length=20)
     
 class House(School):
-    school = models.ForeignKey('School', related_name = 'child_houses')
+    school = models.ForeignKey('School', related_name = 'child_houses', blank = true)
 
 class Shop(Location):
-    location = models.ForeignKey(Location, related_name = 'child_shops')
+    location = models.ForeignKey(Location, related_name = 'child_shops' blank = true)
 
 class Artifact(models.Model):
     name = models.CharField(max_length=100)
     description = models.TextField()
     kind = models.CharField(max_length=100)
     image = models.ImageField(upload_to="images/artifacts")
-    owner = models.ForeignKey(Character, related_name = 'artifacts')
+    owner = models.ForeignKey(Character, related_name = 'artifacts', blank = True)
 
     def __str__(self):              
         return self.name
@@ -79,7 +94,7 @@ class Artifact(models.Model):
 class Book(models.Model):
     name = models.CharField(max_length=100)
     description = models.TextField()
-    author = models.ForeignKey(Character, related_name = 'books')
+    author = models.ForeignKey(Character, related_name = 'books', blank = True)
 
     def __str__(self):              
         return self.name
@@ -90,9 +105,9 @@ class Story(models.Model):
     date = models.DateField()
     book = models.ForeignKey(Book, related_name = 'story')
     kind = models.CharField(max_length=20)
-    characters = models.ManyToManyField(Character, related_name = 'stories')
-    artifacts = models.ManyToManyField(Artifact, related_name = 'stories')
-    locations = models.ManyToManyField(Location, related_name = 'stories')
+    characters = models.ManyToManyField(Character, related_name = 'stories', blank = True)
+    artifacts = models.ManyToManyField(Artifact, related_name = 'stories', blank = True)
+    locations = models.ManyToManyField(Location, related_name = 'stories', blank = True)
 
     class Meta:
         verbose_name_plural = 'stories'
@@ -105,9 +120,15 @@ class Academic(models.Model):
         ('headmaster', 'headmaster'),
         ('staff', 'staff')
     )
-    character = models.ForeignKey(Character, related_name = 'academic_statuses')
-    school = models.ForeignKey(School, related_name = 'academic_statuses')
+    character = models.ForeignKey(Character, related_name = 'academic_statuses', blank = True)
+    school = models.ForeignKey(School, related_name = 'academic_statuses', blank = True)
     descriptor = models.CharField(max_length=10, choices=DESCRIPTORS)
 
 class Relationship(models.Model):
-    pass
+    #descriptors
+    relation_id = models.CharField(max_length = 100)
+
+    #relationships
+    character1 = models.ForeignKey(Character, related_name = "character1", blank = true)
+    character2 = models.ForeignKey(Character, related_name = "character2", blank = true)
+    descriptor1 = models.TextField()
