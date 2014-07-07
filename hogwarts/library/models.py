@@ -162,6 +162,6 @@ class Relationship(models.Model):
     relation_id = models.CharField(max_length = 100)
 
     #relationships
-    character1 = models.ForeignKey(Character, related_name = "character1", blank=True, null=True)
-    character2 = models.ForeignKey(Character, related_name = "character2", blank=True, null=True)
+    character1 = models.ForeignKey(Character, related_name = "relationship1", blank=True, null=True)
+    character2 = models.ForeignKey(Character, related_name = "relationship2", blank=True, null=True)
     descriptor1 = models.TextField()
