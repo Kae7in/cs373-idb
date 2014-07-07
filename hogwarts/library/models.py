@@ -45,7 +45,7 @@ class Potion(models.Model):
     recipe = models.TextField()
     usages = models.TextField()
     more_info = models.TextField()
-    creatures = models.ManyToManyField(Creature)
+    creatures = models.ManyToManyField(Creature, related_name = 'potions')
     image = models.ImageField(upload_to = 'images/potions', default = 'images/empty.jpg')
 
 class Location(models.Model):
@@ -53,6 +53,9 @@ class Location(models.Model):
     description = models.TextField()
     kind = models.CharField(max_length=20)
     image = models.ImageField(upload_to = 'images/locations', default = 'images/empty.jpg')
+
+    def __unicode__(self):
+        return self.name
 
 class School(Location):
     country = models.CharField(max_length=20)
@@ -68,7 +71,7 @@ class Artifact(models.Model):
     description = models.TextField()
     kind = models.CharField(max_length=100)
     image = models.ImageField(upload_to="images/artifacts")
-    owner = models.ForeignKey(Character)
+    owner = models.ForeignKey(Character, related_name = 'artifacts')
 
     def __str__(self):              
         return self.name
@@ -76,7 +79,7 @@ class Artifact(models.Model):
 class Book(models.Model):
     name = models.CharField(max_length=100)
     description = models.TextField()
-    author = models.ForeignKey(Character)
+    author = models.ForeignKey(Character, related_name = 'books')
 
     def __str__(self):              
         return self.name
@@ -85,10 +88,10 @@ class Story(models.Model):
     name = models.CharField(max_length=100)
     description = models.TextField()
     date = models.DateTimeField()
-    book = models.ForeignKey(Book)
-    characters = models.ManyToManyField(Character)
-    artifacts = models.ManyToManyField(Artifact)
-    locations = models.ManyToManyField(Location)
+    book = models.ForeignKey(Book, related_name = 'story')
+    characters = models.ManyToManyField(Character, related_name = 'stories')
+    artifacts = models.ManyToManyField(Artifact, related_name = 'stories')
+    locations = models.ManyToManyField(Location, related_name = 'stories')
 
     class Meta:
         verbose_name_plural = 'stories'
@@ -101,8 +104,8 @@ class Academic(models.Model):
         ('headmaster', 'headmaster'),
         ('staff', 'staff')
     )
-    character = models.ForeignKey(Character)
-    school = models.ForeignKey(School)
+    character = models.ForeignKey(Character, related_name = 'academic_statuses')
+    school = models.ForeignKey(School, related_name = 'academic_statuses')
     descriptor = models.CharField(max_length=10, choices=DESCRIPTORS)
 
 class Relationship(models.Model):

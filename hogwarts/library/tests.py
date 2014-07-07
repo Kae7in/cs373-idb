@@ -1,10 +1,10 @@
 from django.test import TestCase
-from library.models import Creature
+import library.models as lm
 
 # Create your tests here.
 class CreatureTest(TestCase):
     def test_create_creature(self):
-        creature = Creature()
+        creature = lm.Creature()
 
         # set attributes
         creature.name = 'Goblin'
@@ -16,7 +16,7 @@ class CreatureTest(TestCase):
         creature.save()
 
         # Check that it works
-        all_creatures = Creature.objects.all()
+        all_creatures = lm.Creature.objects.all()
         self.assertEquals(len(all_creatures), 1)
         only_creature = all_creatures[0]
         self.assertEquals(only_creature, creature) 
@@ -26,3 +26,32 @@ class CreatureTest(TestCase):
         self.assertEquals(only_creature.description, only_creature.description)
         self.assertEquals(only_creature.classification, creature.classification)
         self.assertEquals(only_creature.rating, creature.rating)
+
+    def test_create_shop(self):
+        shop = lm.Shop()
+        shop.name = "Weasley's Wizard Wheezes"
+        shop.description = "A practical magical joke shop run by the Weasley brothers. Well, one brother now..."
+        shop.kind = 'shop'
+
+        # Relationships
+        location = lm.Location()
+        location.name = 'Diagon Alley'
+        location.save()
+        shop.location = location
+        shop.save()
+
+        #character = lm.Character()
+        #character.name = 'George Weasley'
+        #character.shop = shop
+        #character.save()
+
+        first_shop = lm.Shop.objects.first()
+        self.assertEquals(str(first_shop), shop.name)
+        self.assertEquals(first_shop.name, shop.name)
+        self.assertEquals(first_shop.description, shop.description)
+        self.assertEquals(first_shop.kind, shop.kind)
+        self.assertEquals(first_shop.location, location)
+        #self.assertEquals(first_shop.owners.first, character)
+
+
+
