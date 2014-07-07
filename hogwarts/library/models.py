@@ -86,7 +86,7 @@ class Artifact(models.Model):
     description = models.TextField()
     kind = models.CharField(max_length=100, blank=True)
     image = models.ImageField(upload_to='images/artifacts', default='images/empty.jpg')
-    owner = models.ForeignKey(Character, related_name = 'artifacts', blank = True)
+    owner = models.ForeignKey('Character', related_name = 'artifacts', blank = True)
 
     def __str__(self):              
         return self.name
@@ -94,7 +94,7 @@ class Artifact(models.Model):
 class Book(models.Model):
     name = models.CharField(max_length=100)
     description = models.TextField()
-    author = models.ForeignKey(Character, related_name = 'books', blank = True)
+    author = models.ForeignKey('Character', related_name = 'books', blank = True)
 
     def __str__(self):              
         return self.name
