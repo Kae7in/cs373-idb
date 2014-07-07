@@ -87,8 +87,9 @@ class Book(models.Model):
 class Story(models.Model):
     name = models.CharField(max_length=100)
     description = models.TextField()
-    date = models.DateTimeField()
+    date = models.DateField()
     book = models.ForeignKey(Book, related_name = 'story')
+    kind = models.CharField(max_field=20)
     characters = models.ManyToManyField(Character, related_name = 'stories')
     artifacts = models.ManyToManyField(Artifact, related_name = 'stories')
     locations = models.ManyToManyField(Location, related_name = 'stories')
