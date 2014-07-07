@@ -12,12 +12,12 @@ class Character(models.Model):
     images = models.ImageField(upload_to = 'images/characters', default = 'images/empty.jpg')
 
     #relationships
-    creature = models.ForeignKey(Creature, blank = true)
-    relationship = models.ManyToManyField(Relationship, blank = true)
-    book = models.ForeignKey(Book, blank = true)
-    story = models.ManyToManyField(Story, blank = true)
-    house = models.ForeignKey(House, blank = true)
-    shop = models.ForeignKey(Shop, blank = true)
+    creature = models.ForeignKey('Creature', blank = True)
+    relationship = models.ManyToManyField('Relationship', blank = True)
+    book = models.ForeignKey('Book', blank = True)
+    story = models.ManyToManyField('Story', blank = True)
+    house = models.ForeignKey('House', blank = True)
+    shop = models.ForeignKey('Shop', blank = True)
 
 class Spell(models.Model):
     incantation = models.CharField(max_length=50)
@@ -60,7 +60,7 @@ class Potion(models.Model):
     recipe = models.TextField()
     usages = models.TextField()
     more_info = models.TextField()
-    creatures = models.ManyToManyField(Creature, related_name = 'potions', blank = True)
+    creatures = models.ManyToManyField('Creature', related_name = 'potions', blank = True)
     image = models.ImageField(upload_to = 'images/potions', default = 'images/empty.jpg')
 
 class Location(models.Model):
@@ -76,10 +76,10 @@ class School(Location):
     country = models.CharField(max_length=20)
     
 class House(School):
-    school = models.ForeignKey(School, related_name = 'child_houses')
+    school = models.ForeignKey('School', related_name = 'child_houses', blank = True)
 
 class Shop(Location):
-    location = models.ForeignKey(Location, related_name = 'child_shops' blank = true)
+    location = models.ForeignKey(Location, related_name = 'child_shops', blank = True)
 
 class Artifact(models.Model):
     name = models.CharField(max_length=100)
@@ -105,9 +105,9 @@ class Story(models.Model):
     date = models.DateField()
     book = models.ForeignKey(Book, related_name = 'story')
     kind = models.CharField(max_length=20)
-    characters = models.ManyToManyField(Character, related_name = 'stories', blank = True)
-    artifacts = models.ManyToManyField(Artifact, related_name = 'stories', blank = True)
-    locations = models.ManyToManyField(Location, related_name = 'stories', blank = True)
+    characters = models.ManyToManyField('Character', related_name = 'stories', blank = True)
+    artifacts = models.ManyToManyField('Artifact', related_name = 'stories', blank = True)
+    locations = models.ManyToManyField('Location', related_name = 'stories', blank = True)
 
     class Meta:
         verbose_name_plural = 'stories'
@@ -129,6 +129,6 @@ class Relationship(models.Model):
     relation_id = models.CharField(max_length = 100)
 
     #relationships
-    character1 = models.ForeignKey(Character, related_name = "character1", blank = true)
-    character2 = models.ForeignKey(Character, related_name = "character2", blank = true)
+    character1 = models.ForeignKey(Character, related_name = "character1", blank = True)
+    character2 = models.ForeignKey(Character, related_name = "character2", blank = True)
     descriptor1 = models.TextField()
