@@ -27,19 +27,22 @@ class Creature(models.Model):
                      ('NB', 'Non-being'),
                      ('Spirit', 'Spirit'))
     classification = models.CharField(max_length=6, choices=CLASS_CHOICES)
-    RATING_CHOICES = ((1,'X'),(2,'XX'),(3,'XXX'),(4,'XXXX'),(5,'XXXXX'))
+    RATING_CHOICES = ((0, 'Unknown'), (1,'X'),(2,'XX'),(3,'XXX'),(4,'XXXX'),(5,'XXXXX'))
     rating = models.IntegerField(choices=RATING_CHOICES)
     image = models.ImageField(upload_to='images/creatures')
 
     def __str__(self):
         return self.name
 
+    def neutralize(self, incantation):
+        return self.spells.first().incantation == incantation
+
 class Spell(models.Model):
     incantation = models.CharField(max_length=50)
     alias = models.CharField(max_length=50)
     effect = models.TextField()
     notable_uses = models.TextField()
-    unforgivable = models.BooleanField()
+    unforgivable = models.BooleanField(default=False)
     KIND_CHOICES = (('Transfiguration', 'Transfiguration'),
                     ('Charm', 'Charm'),
                     ('Jinx', 'Jinx'),
@@ -51,7 +54,7 @@ class Spell(models.Model):
     image = models.ImageField(upload_to='images/spells')
 
     # affects certain creatures
-    creature = models.ForeignKey('Creature', blank=True, null=True)
+    creature = models.ForeignKey('Creature', blank=True, null=True, related_name='spells')
 
     def __str__(self):
         return self.incantation
