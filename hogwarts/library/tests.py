@@ -53,5 +53,17 @@ class CreatureTest(TestCase):
         self.assertEquals(first_shop.location, location)
         #self.assertEquals(first_shop.owners.first, character)
 
+    def test_create_location(self):
+        location = lm.Location()
+        location.name = 'Knockturn Alley'
+        location.description = 'Only naughty wizards go here. Why are you here? You must be naughty.'
+        location.kind = 'shopping district'
+        location.save()
+
+        first_location = lm.Location.objects.first()
+        self.assertEquals(str(first_location), location.name)
+        self.assertEquals(first_location.name, location.name)
+        self.assertEquals(first_location.description, location.description)
+        self.assertEquals(first_location.kind, location.kind)
 
 
