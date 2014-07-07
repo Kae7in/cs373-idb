@@ -133,81 +133,130 @@ class SpellTest(TestCase):
         self.assertEqual(only_spell.kind, spell.kind)
 
 class PotionTest(TestCase):
-    def test_create_potion(self):
-        potion = Potion()
-        name = "Amortentia"
-        potion.title = name
-        difficult = 'A'
-        potion.difficulty = difficult
-        physical_description = 'Its color is molten gold. When inside a cauldron, drops of the liquid will leap above the surface.'
-        potion.description = physical_description
-        the_recipe = 'Add to the cauldron an Ashwinder egg and horseradish before heating. Then add a juiced squill bulb and stir. Add chopped Murtlap tentacle to mixture and heat again. Then add a dash of tincture of thyme before stirring slowly. Add ground Occamy eggshell. Stir slowly and heat again. Sprinkle powdered common rue over the  mixture before stirring and heating again. Then make a figure-eight motion over the cauldron with the wand and say the incantation, "Felixempra!". Needs to be brewed for six months.'
-        potion.recipe = the_recipe
-        effect = "Increases the drinker's luck. Overdose can induce giddiness and recklessness. Large quantities can be toxic."
-        potion.effects = effect
-        uses = "Hermoine, Ginny and Ron used Felix Felices to evade the curses of Death Eaters.  Horace Slughorn used this potion at 24and 57 years old. It gave him one perfect day each time. Professor Slughorn awarded Harry enough potion for 12 hours' worth of luck for producing the most effective Draught of Living Death potion of anyone in his class."
-        potion.usages = uses
-        more_information = "Also called \"Liquid Luck\", Felix Felices was invented by Zygmunt Budge in the 16th century. The drinker of the potion is given the best scenario possible in their situation, which manifests in an urge or a voice telling them which action to take to ensure the outcome."
-         
-        potion.more_info = more_information
+
+    def setUp(self):
+        
+        potion = lm.Potion()
+        potion.title = "Felix Felices"
+        potion.difficulty = 'A'
+        potion.description = "Its color is molten gold..."
+        potion.recipe = 'Add to the cauldron an Ashwinder egg and horseradish before heating...'
+        potion.effects = "Increases the drinker's luck. Overdose can..."
+        potion.usages = "Hermoine, Ginny and Ron used Felix Felices to evade the curses of Death Eaters..."
+        potion.more_info = "Also called \"Liquid Luck\", Felix Felices was invented..."
         potion.save()
-        potions = Potion.objects.all()
+    
+    def test_create_potion(self):
+        potions = lm.Potion.objects.all()
         self.assertEquals(len(potions), 1)
-        potion_created = potions[0]
-        self.assertEquals(potion, potion_created)
+        potion_created = potions.first()
         
         
-        self.assertEquals(name, potion_created.title)
-        self.assertEquals(difficult, potion_created.difficulty)
-        self.assertEquals(physical_description, potion_created.description)
-        self.assertEquals(the_recipe, potion_created.recipe)
-        self.assertEquals(effect, potion_created.effects)
-        self.assertEquals(uses, potion_created.usages)
-        self.assertEquals(more_information, potion_created.more_info)
+        self.assertEquals("Felix Felices", potion_created.title)
+        self.assertEquals("A", potion_created.difficulty)
+        self.assertEquals("Its color is molten gold...", potion_created.description)
+        self.assertEquals("Add to the cauldron an Ashwinder egg and horseradish before heating...", potion_created.recipe)
+        self.assertEquals("Increases the drinker's luck. Overdose can...", potion_created.effects)
+        self.assertEquals("Hermoine, Ginny and Ron used Felix Felices to evade the curses of Death Eaters...", potion_created.usages)
+        self.assertEquals("Also called \"Liquid Luck\", Felix Felices was invented...", potion_created.more_info)
         self.assertEquals("images/empty.jpg", potion_created.image)
         all_creatures = potion_created.creatures.all()
         self.assertEquals(len(all_creatures), 0)
 
+    def test_string_potion(self):
+        potion = lm.Potion.objects.all().first()
+        self.assertEquals(str(potion), "Felix Felices")
+
+    def test_potion_image(self):
+        potion = lm.Potion.objects.all().first()
+        potion.image = "images/non_empty.jpg"
+        potion.save()
+
+    def test_potion_creatures(self):
+        potion = lm.Potion.objects.first()
+        creature1 = lm.Creature()
+        creature1.name = "Hippogriff"
+        creature1.description = "uh"
+        creature1.classification = "Beast"
+        creature1.rating = 1
+        creature1.image = "images/non_empty.jpg"
+        creature1.save()
+        creature2 = lm.Creature()
+        creature2.name = "Hippogriff"
+        creature2.description = "uh"
+        creature2.classification = "Beast"
+        creature2.rating = 1
+        creature2.image = "images/non_empty.jpg"
+        creature2.save()
+        potion.creatures = [creature1, creature2]
+        potion.save()
+        self.assertEquals(potion.creatures.all()[0], creature1)
+        self.assertEquals(potion.creatures.all()[1], creature2)
+
 class SchoolTest(TestCase):
-    def test_create_school(self):
-        school = School()
+
+    def setUp(self):
+      
+        school = lm.School()
         name = "Durmstrang Institute"
         school.name = name
         description = "These guys don't really like muggle-borns very much. Except Krum I guess."
         school.description = description
  
         school.save()
+
+    def test_create_school(self):
         
-        schools = School.objects.all()
+        schools = lm.School.objects.all()
         self.assertEquals(len(schools), 1)
-        school_created = schools[0]
-        self.assertEquals(school, school_created)
-        
-        
-        self.assertEquals(name, school_created.name)
-        self.assertEquals(description, school_created.description)
+        school_created = schools.first()
+        self.assertEquals(school_created, school_created)
+        self.assertEquals("Durmstrang Institute", school_created.name)
+        self.assertEquals("These guys don't really like muggle-borns very much. Except Krum I guess.", school_created.description)
         self.assertEquals("images/empty.jpg", school_created.image)
 
-class HouseTest(TestCase):
-    def test_create_house(self):
-        house = House()
-        name = "Hufflepuff"
-        description = "Nobody wants to be a Hufflepuff."
+    def test_school_string(self):
+        school = lm.School.objects.first()
+        self.assertEqual(str(school), "Durmstrang Institute")	
+	
+    def test_school_image(self):	
+        school = lm.School.objects.first()
+        school.image = "images/non_empty.jpg"
+        school.save()
+        self.assertEqual(school.image, "images/non_empty.jpg")	 
 
-        house.name = name
-        house.description = description
-        school2 = School()
+class HouseTest(TestCase):
+
+    def setUp(self):
+    
+        house = lm.House()
+        house.name = "Hufflepuff"
+        house.description = "Nobody wants to be a Hufflepuff."
+
+        school2 = lm.School()
         school2.name = "Hogwarts"
         school2.description = "The best school ever"
         school2.save()
         house.school = school2
         house.save()
-        houses = House.objects.all()
+    
+    def test_create_house(self):
+        houses = lm.House.objects.all()
         self.assertEquals(len(houses), 1)
-        house_created = houses[0]
-        self.assertEquals(house, house_created)
+        house_created = houses.first()
+        self.assertEquals(house_created, house_created)
         
         
-        self.assertEquals(name, house_created.name)
-        self.assertEquals(description, house_created.description)
+        self.assertEquals("Hufflepuff", house_created.name)
+        self.assertEquals("Nobody wants to be a Hufflepuff.", house_created.description)
         self.assertEquals("images/empty.jpg", house_created.image)
+
+    def test_house_string(self):
+        house = lm.House.objects.first()
+        self.assertEquals(str(house), "Hufflepuff")
+
+    def test_house_image(self):
+        house = lm.House.objects.first()
+        house.image = "images/non_empty.jpg"
+        house.save()
+        self.assertEqual(house.image, "images/non_empty.jpg")	
