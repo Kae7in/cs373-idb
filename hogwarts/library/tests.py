@@ -75,7 +75,7 @@ class ShopTest(TestCase):
         character.save()
 
         first_shop = lm.Shop.objects.first()
-        self.assertEqual(first_shop.owners.first, character)
+        self.assertEqual(first_shop.owners.first(), character)
 
     def test_string_shop(self):
         shop = lm.Shop.objects.first()
@@ -100,26 +100,61 @@ class LocationTest(TestCase):
         self.assertEqual(str(location), location.name)
 
 class StoryTest(TestCase):
-    def test_create_story(self):
+    def setUp(self):
         story = lm.Story()
         story.name = 'Deathly Hallows'
         story.description = 'There were three brothers and they all died.'
         story.kind = 'legend'
         story.date = date(1200, 1, 1)
+        story.save()
 
+    def test_create_story(self):
+        story = lm.Story.objects.first()
+        self.assertEqual(story.name, 'Deathly Hallows')
+        self.assertEqual(story.description, 'There were three brothers and they all died.')
+        self.assertEqual(story.kind, 'legend')
+        self.assertEqual(story.date.year, 1200)
+
+    def test_story_with_book(self):
+        story = lm.Story.objects.first()
         book = lm.Book()
         book.name = 'The Tales of Beedle the Bard'
         book.save()
         story.book = book
+        story.save()
 
+        first_story = lm.Story.objects.first()
+        self.assertEqual(first_story.book.name, book.name)
+
+    def test_story_with_artifact(self):
+        story = lm.Story.objects.first()
         elder_wand = lm.Artifact()
+        elder_wand.name = 'Elder Wand'
         elder_wand.save()
-        book.artifacts.add(elder_wand)
+        story.artifacts.add(elder_wand)
+        story.save()
 
+        first_story = lm.Story.objects.first()
+        self.assertEqual(first_story.artifacts.first().name, elder_wand.name)
+
+    def test_story_with_character(self):
+        story = lm.Story.objects.first()
         ignotus = lm.Character()
         ignotus.name = 'Ignotus Peverell'
         ignotus.save()
-        book.characters.add(ignotus)
+        story.characters.add(ignotus)
+        story.save()
+
+        first_story = lm.Story.objects.first()
+        self.assertEqual(first_story.characters.first().name, ignotus.name)
+
+    def test_str_story(self):
+        story = lm.Story.objects.first()
+        self.assertEqual(str(story), story.name)
+
+    def test_century_story(self):
+        story = lm.Story.objects.first()
+        self.assertEqual(story.century(), 13)
 
 class SpellTest(TestCase):
     def setUp(self):
@@ -187,8 +222,8 @@ class PotionTest(TestCase):
         self.assertEqual("Hermoine, Ginny and Ron used Felix Felices to evade the curses of Death Eaters...", potion_created.usages)
         self.assertEqual("Also called \"Liquid Luck\", Felix Felices was invented...", potion_created.more_info)
         self.assertEqual("images/empty.jpg", potion_created.image)
-        all_creatures = potion_created.creatures.all()
-        self.assertEqual(len(all_creatures), 0)
+        all_ingredients = potion_created.ingredients.all()
+        self.assertEqual(len(all_ingredients), 0)
 
     def test_string_potion(self):
         potion = lm.Potion.objects.all().first()
@@ -199,26 +234,59 @@ class PotionTest(TestCase):
         potion.image = "images/non_empty.jpg"
         potion.save()
 
-    def test_potion_creatures(self):
+    def test_potion_ingredients(self):
         potion = lm.Potion.objects.first()
-        creature1 = lm.Creature()
-        creature1.name = "Hippogriff"
-        creature1.description = "uh"
-        creature1.classification = "Beast"
-        creature1.rating = 1
-        creature1.image = "images/non_empty.jpg"
-        creature1.save()
-        creature2 = lm.Creature()
-        creature2.name = "Hippogriff"
-        creature2.description = "uh"
-        creature2.classification = "Beast"
-        creature2.rating = 1
-        creature2.image = "images/non_empty.jpg"
-        creature2.save()
-        potion.creatures = [creature1, creature2]
+        creature = lm.Creature()
+        creature.name = 'Hippogriff'
+        creature.rating = 3
+        creature.save()
+
+        ingredient1 = lm.Ingredient()
+        ingredient1.name = 'Hippogriff talon'
+        ingredient1.creature = creature
+        ingredient1.save()
+
+        ingredient2 = lm.Ingredient()
+        ingredient2.name = 'Valerian roots'
+        ingredient2.save()
+
+        potion.ingredients.add(ingredient1)
+        potion.ingredients.add(ingredient2)
+        self.assertTrue(ingredient1 in potion.ingredients.all())
+        self.assertTrue(ingredient2 in potion.ingredients.all())
+
+    def test_brew_potion(self):
+        potion = lm.Potion()
+        potion.name = 'Draught of Living Death'
         potion.save()
-        self.assertEqual(potion.creatures.all()[0], creature1)
-        self.assertEqual(potion.creatures.all()[1], creature2)
+
+        ingredient = lm.Ingredient()
+        ingredient.name = 'Asphodel in an infusion of wormwood'
+        ingredient.save()
+        potion.ingredients.add(ingredient)
+
+        ingredient = lm.Ingredient()
+        ingredient.name = 'Valerian roots'
+        ingredient.save()
+        potion.ingredients.add(ingredient)
+
+        ingredient = lm.Ingredient()
+        ingredient.name = 'Sopophorous bean'
+        ingredient.save()
+        potion.ingredients.add(ingredient)
+
+        potion.save()
+
+        available_ingredients = [
+            'Asphodel in an infusion of wormwood',
+            'Valerian roots',
+            'Sopophorous bean'
+            ]
+        self.assertEqual(potion.brew(available_ingredients), 'Success')
+        available_ingredients.append('Newt egg')
+        self.assertEqual(potion.brew(available_ingredients), 'Explosion!')
+        available_ingredients = ['Valerian roots', 'Wolfsbane', 'Eye of toad']
+        self.assertEqual(potion.brew(available_ingredients), 'Failure')
 
 class SchoolTest(TestCase):
 

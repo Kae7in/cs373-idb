@@ -7,7 +7,7 @@ class Character(models.Model):
     name = models.CharField(max_length = 100)
     birthday = models.CharField(max_length = 100)
     description = models.TextField()
-    magical = models.BooleanField()
+    magical = models.BooleanField(default=True)
     quotes = models.TextField()
     images = models.ImageField(upload_to = 'images/characters', default = 'images/empty.jpg')
 
@@ -17,7 +17,7 @@ class Character(models.Model):
     book = models.ForeignKey('Book', blank=True, null=True)
     story = models.ManyToManyField('Story', blank=True, null=True)
     house = models.ForeignKey('House', blank=True, null=True)
-    shop = models.ForeignKey('Shop', blank=True, null=True)
+    shop = models.ForeignKey('Shop', blank=True, null=True, related_name='owners')
 
 class Creature(models.Model):
     name = models.CharField(max_length=50)
@@ -33,6 +33,9 @@ class Creature(models.Model):
 
     def __str__(self):
         return self.name
+
+    def potions(self):
+        return creature.ingredients.first().potions.all()
 
     def neutralize(self, incantation):
         return self.spells.first().incantation == incantation
@@ -59,6 +62,10 @@ class Spell(models.Model):
     def __str__(self):
         return self.incantation
 
+class Ingredient(models.Model):
+    name = models.CharField(max_length = 100)
+    creature = models.ForeignKey('Creature', null=True, blank=True, related_name = 'ingredients')
+
 class Potion(models.Model):
 
     DIFFICULTIES = (
@@ -73,11 +80,19 @@ class Potion(models.Model):
     recipe = models.TextField()
     usages = models.TextField()
     more_info = models.TextField()
-    creatures = models.ManyToManyField('Creature', related_name = 'potions', blank=True, null=True)
+    ingredients = models.ManyToManyField(Ingredient, related_name = 'potions', null=True, blank=True)
     image = models.ImageField(upload_to = 'images/potions', default = 'images/empty.jpg')
 
     def __str__(self):
         return self.title
+
+    def brew(self, available_ingredients):
+        for required in self.ingredients.all():
+            if(not required.name in available_ingredients):
+                return 'Failure'
+        if(self.ingredients.all().count() == len(available_ingredients)):
+            return 'Success'
+        return 'Explosion!'
 
 class Location(models.Model):
     name = models.CharField(max_length=40)
@@ -125,11 +140,17 @@ class Story(models.Model):
     name = models.CharField(max_length=100)
     description = models.TextField()
     date = models.DateField()
-    book = models.ForeignKey(Book, related_name = 'story', blank=True)
+    book = models.ForeignKey(Book, related_name = 'story', null=True, blank=True)
     kind = models.CharField(max_length=20)
-    characters = models.ManyToManyField('Character', related_name = 'stories', blank=True, null=True)
-    artifacts = models.ManyToManyField('Artifact', related_name = 'stories', blank=True, null=True)
-    locations = models.ManyToManyField('Location', related_name = 'stories', blank=True, null=True)
+    characters = models.ManyToManyField('Character', related_name = 'stories')
+    artifacts = models.ManyToManyField('Artifact', related_name = 'stories')
+    locations = models.ManyToManyField('Location', related_name = 'stories')
+
+    def century(self):
+        return self.date.year // 100 + 1
+
+    def __str__(self):
+        return self.name
 
     class Meta:
         verbose_name_plural = 'stories'
