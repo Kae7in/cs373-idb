@@ -1,0 +1,50 @@
+{% extends "characters/base.html" %}
+
+{% block name %}
+Albus Dumbledore
+{% endblock name %}
+
+{% block image_url %}
+{{ STATIC_URL }}images/albus-dumbledore.gif
+{% endblock image_url %}
+
+{% block info_group %}
+<li class='list-group-item'>Wizard</li>
+<li class='list-group-item'>Former Headmaster at <a href='/schools/1'>Hogwarts</a></li>
+<li class='list-group-item'><a href='/houses/1'>Gryffindor House</a></li>
+<li class='list-group-item'>15 inch elder wood with thestral hair wand</li>
+{% endblock info_group %}
+
+{% block quote %}
+It does not do to dwell on dreams and forget to live. Remember that.
+{% endblock quote %}
+
+{% block quote_footer %}
+Albus Dumbledore
+{% endblock quote_footer %}
+
+{% block description %}
+<p>Albus Dumbledore is considered one of the greatest headmaster of <a href='/schools/1'>Hogwarts School of Witchcraft and Wizardry</a> and the most powerful wizard of his time. Dumbledore holds the Order of Merlin, First Class, for Grand Sorcery. He was the headmaster while <a href='/characters/3'>Harry Potter</a> attended school and also a professor while Tom Riddle, who would later become Voldemort, attended school. Dumbledore founded the <a href='/stories/3'>Order of the Phoenix</a>, a resistance against the reign of the dark wizard Voldemort, and he was the only wizard of which Voldemort was afraid.</p>
+
+<p>Dumbledore's full name is Albus Percival Wulfric Brian Dumbledore. Rowling chose "Dumbledore" because it means "bumblebee," and she liked to imagine Dumbledore humming to himself similar to a bee buzzing around.</p>
+
+<p>Dumbledore was killed by Severus Snape in 1997 at age 115.</p>
+{% endblock description %}
+
+{% block stories %}
+<a href='/stories/1'>Deathly Hallows</a><br/>
+<a href='/stories/2'>Dumbledore's Scandal</a><br/>
+<a href='/stories/3'>The Order of the Phoenix</a>
+{% endblock stories %}
+
+{% block bibliography %}
+None
+{% endblock bibliography %}
+
+{% block artifacts %}
+<a href='/artifacts/1'>Elder Wand</a>
+{% endblock artifacts %}
+
+{% block relationships %}
+<a href='/characters/2'>Ariana Dumbledore (sister)</a>
+{% endblock relationships %}
