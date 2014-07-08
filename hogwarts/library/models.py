@@ -1,5 +1,4 @@
 from django.db import models
-###
 # Create your models here.
 class Character(models.Model):
     #descriptors
@@ -12,12 +11,8 @@ class Character(models.Model):
     images = models.ImageField(upload_to = 'images/characters', default = 'images/empty.jpg')
 
     #relationships
-    creature = models.ForeignKey('Creature', blank=True, null=True)
-    relationship = models.ManyToManyField('Relationship', blank=True, null=True)
-    book = models.ForeignKey('Book', blank=True, null=True)
-    story = models.ManyToManyField('Story', blank=True, null=True)
-    house = models.ForeignKey('House', blank=True, null=True)
-    shop = models.ForeignKey('Shop', blank=True, null=True, related_name='owners')
+    creature = models.ForeignKey('Creature', related_name="characters", blank=True, null=True)
+    shop = models.ForeignKey('Shop', related_name="characters", blank=True, null=True, related_name='owners')
 
     def is_squib(self):
         for relation in self.relationships.all():
