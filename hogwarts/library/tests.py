@@ -3,6 +3,38 @@ import library.models as lm
 from datetime import date
 
 # Create your tests here.
+class CharacterTest(TestCase):
+    def test_squib_character(self):
+        argus = lm.Character()
+        argus.name = 'Argus Filch'
+        argus.magical = False
+        argus.save()
+
+        dad = lm.Character()
+        dad.magical = True
+        dad.save()
+
+        mom = lm.Character()
+        mom.magical = True
+        mom.save()
+
+        r1 = lm.Relationship()
+        r1.character1 = argus
+        r1.descriptor1 = 'son'
+        r1.character2 = dad
+        r1.descriptor2 = 'father'
+        r1.save()
+
+        r2 = lm.Relationship()
+        r2.character1 = mom
+        r2.descriptor1 = 'mother'
+        r2.character2 = argus
+        r2.descriptor2 = 'son'
+        r2.save()
+
+        self.assertTrue(argus.is_squib)
+
+
 class CreatureTest(TestCase):
     def setUp(self):
         creature = lm.Creature()
@@ -289,7 +321,6 @@ class PotionTest(TestCase):
         self.assertEqual(potion.brew(available_ingredients), 'Failure')
 
 class SchoolTest(TestCase):
-
     def setUp(self):
       
         school = lm.School()
@@ -321,7 +352,6 @@ class SchoolTest(TestCase):
         self.assertEqual(school.image, "images/non_empty.jpg")	 
 
 class HouseTest(TestCase):
-
     def setUp(self):
     
         house = lm.House()
@@ -365,9 +395,15 @@ class ArtifactTest(TestCase):
         wizzy.magical = True
         wizzy.save()
 
+        shop = lm.Shop()
+        shop.name = "Weasleys' Wizard Wheezes"
+        shop.description = "A practical magical joke shop run by the Weasley brothers. Well, one brother now..."
+        shop.save()
+
         artifact.name = "Pensieve"
         artifact.description = "The Pensieve is an object used to review memories. It has the appearance of a shallow stone basin, into which are carved runes and strange symbols. It is filled with a silvery substance that appears to be a cloud-like liquid/gas; the collected memories of people who have siphoned their recollections into it. Memories can then be viewed from a non-participant, third-person point of view."
         artifact.owner = wizzy
+        artifact.shop = shop
         artifact.save()
 
     def test_artifact_create(self):
@@ -395,6 +431,17 @@ class ArtifactTest(TestCase):
 
         # Reverse lookup. 
         artifact = w.artifacts.first()
+        self.assertEqual(artifact, a)
+
+    def test_artifact_shop(self):
+        a = lm.Artifact.objects.first()
+        s = lm.Shop.objects.first()
+        self.assertEqual(a.shop, s)
+        self.assertEqual(a.shop.name, "Weasleys' Wizard Wheezes")
+        # self.assertIs(a.owner, w) # TODO: Why are they different instances?
+
+        # Reverse lookup 
+        artifact = s.artifacts.first()
         self.assertEqual(artifact, a)
 
 class BookTest(TestCase):

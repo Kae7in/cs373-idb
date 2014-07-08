@@ -1,5 +1,4 @@
 from django.db import models
-###
 # Create your models here.
 class Character(models.Model):
     #descriptors
@@ -12,12 +11,22 @@ class Character(models.Model):
     images = models.ImageField(upload_to = 'images/characters', default = 'images/empty.jpg')
 
     #relationships
-    creature = models.ForeignKey('Creature', blank=True, null=True)
-    relationship = models.ManyToManyField('Relationship', blank=True, null=True)
-    book = models.ForeignKey('Book', blank=True, null=True)
-    story = models.ManyToManyField('Story', blank=True, null=True)
-    house = models.ForeignKey('House', blank=True, null=True)
-    shop = models.ForeignKey('Shop', blank=True, null=True, related_name='owners')
+    creature = models.ForeignKey('Creature', related_name="characters", blank=True, null=True)
+    shop = models.ForeignKey('Shop', related_name="owners", blank=True, null=True)
+
+    def is_squib(self):
+        for relation in self.relationships.all():
+            if(relation.character1 == self):
+                other_id = relation.character2
+                other_desc = relation.descriptor2
+            else:
+                other_id = relation.character1.id
+                other_desc = relation.descriptor1
+            if(other_desc == 'mother' or other_desc == 'father'):
+                parent = Character.objects.get(pk=other_id)
+                if(parent.magical):
+                    return True
+        return False
 
 class Creature(models.Model):
     name = models.CharField(max_length=50)
@@ -125,6 +134,7 @@ class Artifact(models.Model):
     kind = models.CharField(max_length=100, blank=True)
     image = models.ImageField(upload_to='images/artifacts', default='images/empty.jpg')
     owner = models.ForeignKey(Character, related_name = 'artifacts', blank=True, null=True)
+    shop  = models.ForeignKey(Shop, related_name='artifacts', blank=True, null=True)
 
     def __str__(self):              
         return self.name
@@ -173,6 +183,6 @@ class Relationship(models.Model):
     relation_id = models.CharField(max_length = 100)
 
     #relationships
-    character1 = models.ForeignKey(Character, related_name = "character1", blank=True, null=True)
-    character2 = models.ForeignKey(Character, related_name = "character2", blank=True, null=True)
+    character1 = models.ForeignKey(Character, related_name = "relationship1", blank=True, null=True)
+    character2 = models.ForeignKey(Character, related_name = "relationship2", blank=True, null=True)
     descriptor1 = models.TextField()
