@@ -12,7 +12,7 @@ class Character(models.Model):
 
     #relationships
     creature = models.ForeignKey('Creature', related_name="characters", blank=True, null=True)
-    shop = models.ForeignKey('Shop', related_name="owners", blank=True, null=True, related_name='owners')
+    shop = models.ForeignKey('Shop', related_name="owners", blank=True, null=True)
 
     def is_squib(self):
         for relation in self.relationships.all():
