@@ -1,0 +1,30 @@
+{% extends "base.html" %}
+
+{% block content %}
+<div class='row'>
+   	<div class='col-md-8 col-sm-6 info-group'>
+   		<h1 class="uppercase">{% block name %}{% endblock name %}</h1>
+   		<ul class='list-group info-group-list'>
+			{% block info_group %}{% endblock info_group %}
+		</ul>
+	</div>
+
+	<div class='col-md-4 col-sm-6 main-image'>
+		<center><img class='center list-group-item' src='{% block image_url %}{% endblock image_url %}'></center>
+	</div>
+</div>
+
+<div class='row'>
+	<div class='col-md-12'>
+		{% block description %}{% endblock description %}
+	</div>
+</div>
+
+<div class='row'>
+	<div class='col-md-12'>
+		<h3>SUBJECTS</h3>
+		{% block characters %}
+		{% endblock characters %}
+	</div>
+</div>
+{% endblock content %}

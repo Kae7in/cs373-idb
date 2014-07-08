@@ -1,0 +1,28 @@
+{% extends "books/base.html" %}
+
+{% block name %}
+The Life and Lies of Albus Dumbledore
+{% endblock name %}
+
+{% block image_url %}{{ STATIC_URL }}images/life-and-lies.jpg{% endblock image_url %}
+
+{% block info_group %}
+<li class='list-group-item'>Authored by Rita Skeeter</li>
+<li class='list-group-item'>Published by The Daily Prophet Press in 1997</li>
+{% endblock info_group %}
+
+{% block description %}
+<p>Published in 1997 in the wake of Albus Dumbledore's death, this book brought the gritty secrets and rumors of Albus' past to public attention. The Daily Prophet rated The Life and Lies of Albus Dumbledore 5 stars and interviewed Rita Skeeter for a promotional article.</p>
+
+<p>In this book, Skeeter covers how the Dumbledore family hid away Ariana Dumbledore's mental instability caused by a traumatatic assault. It goes on about how their father, Percival Dumbledore, was sent to Azkaban for seeking revenge against Ariana's attackers. It probes questions into Albus' friendship with Gellert Grindelwald who later becomes one of the world's powerful dark wizards, finally defeated by Albus in 1945. While still living in Godric's Hollow, Ariana was killed by getting in the way of a duel between her brothers and Grindelwald, and it is uncertain who dealt the killing blow. Rita also speculates that Harry Potter was involved with Albus' murder.</p>
+
+<p>Fortunately for Rita Skeeter, the dead cannot be libelled.</p>
+{% endblock description %}
+
+{% block characters %}
+<a href='/characters/1'>Albus Dumbledore</a><br/>
+<a href='/characters/2'>Ariana Dumbledore</a><br/>
+Aberforth Dumbledore<br/>
+Gellert Grindelwald<br/>
+<a href='/characters/3'>Harry Potter</a>
+{% endblock characters %}
