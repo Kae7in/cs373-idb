@@ -3,6 +3,38 @@ import library.models as lm
 from datetime import date
 
 # Create your tests here.
+class CharacterTest(TestCase):
+    def test_squib_character(self):
+        argus = lm.Character()
+        argus.name = 'Argus Filch'
+        argus.magical = False
+        argus.save()
+
+        dad = lm.Character()
+        dad.magical = True
+        dad.save()
+
+        mom = lm.Character()
+        mom.magical = True
+        mom.save()
+
+        r1 = lm.Relationship()
+        r1.character1 = argus
+        r1.descriptor1 = 'son'
+        r1.character2 = dad
+        r1.descriptor2 = 'father'
+        r1.save()
+
+        r2 = lm.Relationship()
+        r2.character1 = mom
+        r2.descriptor1 = 'mother'
+        r2.character2 = argus
+        r2.descriptor2 = 'son'
+        r2.save()
+
+        self.assertTrue(argus.is_squib)
+
+
 class CreatureTest(TestCase):
     def setUp(self):
         creature = lm.Creature()
@@ -23,7 +55,24 @@ class CreatureTest(TestCase):
 
     def test_string_creature(self):
         creature = lm.Creature.objects.first()
-        self.assertEqual(str(creature), creature.name)    
+        self.assertEqual(str(creature), creature.name)
+
+    def test_neutralize_creature(self):
+        boggart = lm.Creature()
+        boggart.name = 'Boggart'
+        boggart.rating = 0
+        boggart.save()
+
+        spell = lm.Spell()
+        spell.incantation = 'Riddikulus'
+        spell.alias = 'Boggart Banishing Spell'
+        spell.creature = boggart
+        spell.kind = 'Defensive'
+        spell.save()
+
+        self.assertTrue(boggart.neutralize('Riddikulus'))
+        self.assertFalse(boggart.neutralize('Lumos'))
+
 
 class ShopTest(TestCase):
     def setUp(self):
@@ -39,7 +88,7 @@ class ShopTest(TestCase):
         self.assertEqual(shop.description, "A practical magical joke shop run by the Weasley brothers. Well, one brother now...")
         self.assertEqual(shop.kind, 'shop')
 
-    def test_relationships_shop(self):
+    def test_shop_with_locations(self):
         shop = lm.Shop.objects.first()
         location = lm.Location()
         location.name = 'Diagon Alley'
@@ -47,15 +96,18 @@ class ShopTest(TestCase):
         shop.location = location
         shop.save()
 
+        first_shop = lm.Shop.objects.first()
+        self.assertEqual(first_shop.location, location)
+
+    def test_shop_with_owners(self):       
+        shop = lm.Shop.objects.first()
         character = lm.Character()
         character.name = 'George Weasley'
-        character.magical = True
         character.shop = shop
         character.save()
 
         first_shop = lm.Shop.objects.first()
-        self.assertEqual(first_shop.location, location)
-        self.assertEqual(first_shop.owners.first, character)
+        self.assertEqual(first_shop.owners.first(), character)
 
     def test_string_shop(self):
         shop = lm.Shop.objects.first()
@@ -80,26 +132,61 @@ class LocationTest(TestCase):
         self.assertEqual(str(location), location.name)
 
 class StoryTest(TestCase):
-    def test_create_story(self):
+    def setUp(self):
         story = lm.Story()
         story.name = 'Deathly Hallows'
         story.description = 'There were three brothers and they all died.'
         story.kind = 'legend'
         story.date = date(1200, 1, 1)
+        story.save()
 
+    def test_create_story(self):
+        story = lm.Story.objects.first()
+        self.assertEqual(story.name, 'Deathly Hallows')
+        self.assertEqual(story.description, 'There were three brothers and they all died.')
+        self.assertEqual(story.kind, 'legend')
+        self.assertEqual(story.date.year, 1200)
+
+    def test_story_with_book(self):
+        story = lm.Story.objects.first()
         book = lm.Book()
         book.name = 'The Tales of Beedle the Bard'
         book.save()
         story.book = book
+        story.save()
 
+        first_story = lm.Story.objects.first()
+        self.assertEqual(first_story.book.name, book.name)
+
+    def test_story_with_artifact(self):
+        story = lm.Story.objects.first()
         elder_wand = lm.Artifact()
+        elder_wand.name = 'Elder Wand'
         elder_wand.save()
-        book.artifacts.add(elder_wand)
+        story.artifacts.add(elder_wand)
+        story.save()
 
+        first_story = lm.Story.objects.first()
+        self.assertEqual(first_story.artifacts.first().name, elder_wand.name)
+
+    def test_story_with_character(self):
+        story = lm.Story.objects.first()
         ignotus = lm.Character()
         ignotus.name = 'Ignotus Peverell'
         ignotus.save()
-        book.characters.add(ignotus)
+        story.characters.add(ignotus)
+        story.save()
+
+        first_story = lm.Story.objects.first()
+        self.assertEqual(first_story.characters.first().name, ignotus.name)
+
+    def test_str_story(self):
+        story = lm.Story.objects.first()
+        self.assertEqual(str(story), story.name)
+
+    def test_century_story(self):
+        story = lm.Story.objects.first()
+        self.assertEqual(story.century(), 13)
 
 class SpellTest(TestCase):
     def setUp(self):
@@ -167,8 +254,8 @@ class PotionTest(TestCase):
         self.assertEqual("Hermoine, Ginny and Ron used Felix Felices to evade the curses of Death Eaters...", potion_created.usages)
         self.assertEqual("Also called \"Liquid Luck\", Felix Felices was invented...", potion_created.more_info)
         self.assertEqual("images/empty.jpg", potion_created.image)
-        all_creatures = potion_created.creatures.all()
-        self.assertEqual(len(all_creatures), 0)
+        all_ingredients = potion_created.ingredients.all()
+        self.assertEqual(len(all_ingredients), 0)
 
     def test_string_potion(self):
         potion = lm.Potion.objects.all().first()
@@ -179,56 +266,61 @@ class PotionTest(TestCase):
         potion.image = "images/non_empty.jpg"
         potion.save()
 
-    def test_potion_relationships(self):
+    def test_potion_ingredients(self):
         potion = lm.Potion.objects.first()
-        creature1 = lm.Creature()
-        creature1.name = "Hippogriff"
-        creature1.description = "uh"
-        creature1.classification = "Beast"
-        creature1.rating = 1
-        creature1.image = "images/non_empty.jpg"
-        creature1.save()
-        creature2 = lm.Creature()
-        creature2.name = "Hippogriff"
-        creature2.description = "uh"
-        creature2.classification = "Beast"
-        creature2.rating = 1
-        creature2.image = "images/non_empty.jpg"
-        creature2.save()
-        potion.creatures = [creature1, creature2]
+        creature = lm.Creature()
+        creature.name = 'Hippogriff'
+        creature.rating = 3
+        creature.save()
 
-        character = lm.Character()
-        character.character_id = "2"
-        character.name = "Harry"
-        character.birthday = "."
-        character.description = "."
-        character.magical = True
-        character.quotes = "Woe is me"
-        character.creature = creature1
-        character.save()
+        ingredient1 = lm.Ingredient()
+        ingredient1.name = 'Hippogriff talon'
+        ingredient1.creature = creature
+        ingredient1.save()
 
-        potion2 = lm.Potion()
-        potion2.title = "Felix Felices"
-        potion2.difficulty = 'A'
-        potion2.description = "Its color is molten gold..."
-        potion2.recipe = 'Add to the cauldron an Ashwinder egg and horseradish before heating...'
-        potion2.effects = "Increases the drinker's luck. Overdose can..."
-        potion2.usages = "Hermoine, Ginny and Ron used Felix Felices to evade the curses of Death Eaters..."
-        potion2.more_info = "Also called \"Liquid Luck\", Felix Felices was invented..."
-        potion2.save()
-        potion.other_potions = [potion2]
+        ingredient2 = lm.Ingredient()
+        ingredient2.name = 'Valerian roots'
+        ingredient2.save()
 
-        potion2.characters = [character]
-        potion2.other_potions = [potion]
+        potion.ingredients.add(ingredient1)
+        potion.ingredients.add(ingredient2)
+        self.assertTrue(ingredient1 in potion.ingredients.all())
+        self.assertTrue(ingredient2 in potion.ingredients.all())
+
+    def test_brew_potion(self):
+        potion = lm.Potion()
+        potion.name = 'Draught of Living Death'
         potion.save()
-        self.assertEqual(potion.creatures.first(), creature1)
-        self.assertEqual(potion.creatures.all()[1], creature2)
-        self.assertEqual(potion.other_potions.first(), potion2)
-        self.assertEqual(potion2.other_potions.first(), potion)
-        self.assertEqual(potion2.characters.first(), character)
+
+        ingredient = lm.Ingredient()
+        ingredient.name = 'Asphodel in an infusion of wormwood'
+        ingredient.save()
+        potion.ingredients.add(ingredient)
+
+        ingredient = lm.Ingredient()
+        ingredient.name = 'Valerian roots'
+        ingredient.save()
+        potion.ingredients.add(ingredient)
+
+        ingredient = lm.Ingredient()
+        ingredient.name = 'Sopophorous bean'
+        ingredient.save()
+        potion.ingredients.add(ingredient)
+
+        potion.save()
+
+        available_ingredients = [
+            'Asphodel in an infusion of wormwood',
+            'Valerian roots',
+            'Sopophorous bean'
+            ]
+        self.assertEqual(potion.brew(available_ingredients), 'Success')
+        available_ingredients.append('Newt egg')
+        self.assertEqual(potion.brew(available_ingredients), 'Explosion!')
+        available_ingredients = ['Valerian roots', 'Wolfsbane', 'Eye of toad']
+        self.assertEqual(potion.brew(available_ingredients), 'Failure')
 
 class SchoolTest(TestCase):
-
     def setUp(self):
       
         school = lm.School()
@@ -260,7 +352,6 @@ class SchoolTest(TestCase):
         self.assertEqual(school.image, "images/non_empty.jpg")	 
 
 class HouseTest(TestCase):
-
     def setUp(self):
     
         house = lm.House()
@@ -304,9 +395,15 @@ class ArtifactTest(TestCase):
         wizzy.magical = True
         wizzy.save()
 
+        shop = lm.Shop()
+        shop.name = "Weasleys' Wizard Wheezes"
+        shop.description = "A practical magical joke shop run by the Weasley brothers. Well, one brother now..."
+        shop.save()
+
         artifact.name = "Pensieve"
         artifact.description = "The Pensieve is an object used to review memories. It has the appearance of a shallow stone basin, into which are carved runes and strange symbols. It is filled with a silvery substance that appears to be a cloud-like liquid/gas; the collected memories of people who have siphoned their recollections into it. Memories can then be viewed from a non-participant, third-person point of view."
         artifact.owner = wizzy
+        artifact.shop = shop
         artifact.save()
 
     def test_artifact_create(self):
@@ -334,6 +431,17 @@ class ArtifactTest(TestCase):
 
         # Reverse lookup. 
         artifact = w.artifacts.first()
+        self.assertEqual(artifact, a)
+
+    def test_artifact_shop(self):
+        a = lm.Artifact.objects.first()
+        s = lm.Shop.objects.first()
+        self.assertEqual(a.shop, s)
+        self.assertEqual(a.shop.name, "Weasleys' Wizard Wheezes")
+        # self.assertIs(a.owner, w) # TODO: Why are they different instances?
+
+        # Reverse lookup 
+        artifact = s.artifacts.first()
         self.assertEqual(artifact, a)
 
 class BookTest(TestCase):
