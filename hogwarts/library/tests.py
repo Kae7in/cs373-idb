@@ -513,4 +513,28 @@ class AcademicTest(TestCase):
 		
 class RelationshipTest(TestCase):
     def setUp(self):
-        
+        james = lm.Character()
+        jame.name = 'James Potter'
+        james.magical = True
+        james.save()
+
+        lily = lm.Character()
+        lily.name = 'Lily Evans'
+        lily.magical = True
+        lily.save()
+
+        relationship = lm.Relationship()
+        relationship.character1 = james
+        relationship.descriptor1 = 'husband'
+        relationship.character2 = lily
+        relationship.descriptor2 = 'wife'
+        relationship.save()
+		
+    def test_relationship(self)
+        character1 = relationship.character1
+        character2 = relationship.character2		
+        self.assertEqual(character1, james)
+        self.assertEqual(character2, lily)
+        self.assertEqual(relationship.descriptor1, 'husband')
+        self.assertEqual(relationship.descriptor2, 'wife')
+      

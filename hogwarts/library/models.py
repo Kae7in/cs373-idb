@@ -2,7 +2,6 @@ from django.db import models
 # Create your models here.
 class Character(models.Model):
     #descriptors
-    character_id = models.CharField(max_length = 100)
     name = models.CharField(max_length = 100)
     birthday = models.CharField(max_length = 100)
     description = models.TextField()
@@ -179,10 +178,9 @@ class Academic(models.Model):
     descriptor = models.CharField(max_length=10, choices=DESCRIPTORS)
 
 class Relationship(models.Model):
-    #descriptors
-    relation_id = models.CharField(max_length = 100)
 
     #relationships
     character1 = models.ForeignKey(Character, related_name = "relationship1", blank=True, null=True)
     character2 = models.ForeignKey(Character, related_name = "relationship2", blank=True, null=True)
     descriptor1 = models.TextField()
+    descriptor2 = models.TextField()
