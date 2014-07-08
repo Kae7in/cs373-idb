@@ -481,3 +481,36 @@ class BookTest(TestCase):
         story  = lm.Story.objects.first()
         self.assertEqual(story.book, book)
         self.assertEqual(book.story.first(), story)
+
+class AcademicTest(TestCase):
+    def setUp(self):
+        academic = lm.Academic()
+        snape = lm.Character()
+        snape.name = 'Severus Snape'
+        snape.magical = True
+        snape.save()
+		
+        snape_school = lm.School()
+        school_name = "Hogwarts School of Witchcraft and Wizardry"
+        snape_school.name = school_name
+        school_description = "The well known wizarding school in Great Britain that welcomes all types of students"
+        snape_school.description = description
+        snape_school.save()
+		
+        academic.character = snape
+        academic.school = snape_school
+        academic.descriptor = 'headmaster'
+		academic.save()
+	
+    def test_academic_status(self):
+        person = lm.Character.objects.first()
+        school = lm.School.objects.first()
+        academic = lm.Academic.objects.first()
+		
+        self.assertEqual(academic.character, person)
+        self.assertEqual(academic.school, person)
+        self.assertEqual(academic.descriptor, 'headmaster')
+		
+class RelationshipTest(TestCase):
+    def setUp(self):
+        
