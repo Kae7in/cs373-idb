@@ -44,6 +44,7 @@ class Spell(models.Model):
     incantation = models.CharField(max_length=50)
     alias = models.CharField(max_length=50)
     effect = models.TextField()
+	creator = models.CharField(max_length=50)
     notable_uses = models.TextField()
     unforgivable = models.BooleanField(default=False)
     KIND_CHOICES = (('Transfiguration', 'Transfiguration'),
