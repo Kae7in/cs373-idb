@@ -1,0 +1,15 @@
+.info-group-list { display: table; }
+
+.main-image img { 
+	width: 250px;
+	margin-bottom: 20px !important;
+}
+
+.container-fluid { 
+	max-width: 800px; 
+	margin: 20px auto 20px;
+}
+
+.uppercase { text-transform: uppercase;}
+
+.description { margin-top: 20px;}
