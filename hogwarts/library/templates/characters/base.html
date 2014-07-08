@@ -1,68 +1,58 @@
-<!DOCTYPE html>
-<html lang='en'>
-<head>
-	<link rel="stylesheet" href="{{ STATIC_URL }}css/bootstrap.min.css">
-	<link rel="stylesheet" href="{{ STATIC_URL }}css/base.css">
-    <script src="{{ STATIC_URL }}js/bootstrap.min.js"></script>
-    <title>Marauders' Map -- Characters</title>
-</head>
+{% extends "base.html" %}
 
-<body>
-	<div class='container-fluid'>
-		<div class='row'>
-    		<div class='col-md-8 col-sm-6 info-group'>
-    			<h1 class="uppercase">{% block name %}{% endblock name %}</h1>
-    			<ul class='list-group info-group-list'>
-					{% block info_group %}{% endblock info_group %}
-				</ul>
-				<blockquote>
-					<p>{% block quote %}{% endblock quote %}</p>
-					<footer>{% block quote_footer %}{% endblock quote_footer %}</footer>
-				</blockquote>
-			</div>
-
-			<div class='col-md-4 col-sm-6 main-image'>
-				<center><img class='center list-group-item' src='{% block image_url %}{% endblock image_url %}'></center>
-			</div>
-    	</div>
-
-    	<div class='row'>
-    		<div class='col-md-12'>
-				{% block description %}{% endblock description %}
-			</div>
-		</div>
-
-		<div class='row'>
-			<div class='col-md-12'>
-				<h3>STORIES</h3>
-				{% block stories %}
-				{% endblock stories %}
-			</div>
-		</div>
-
-		<div class='row'>
-			<div class='col-md-12'>
-				<h3>BIBLIOGRAPHY</h3>
-				{% block bibliography %}
-				{% endblock bibliography %}
-			</div>
-		</div>
-
-		<div class='row'>
-			<div class='col-md-12'>
-				<h3>ARTIFACTS</h3>
-				{% block artifacts %}
-				{% endblock artifacts %}
-			</div>
-		</div>
-
-		<div class='row'>
-			<div class='col-md-12'>
-				<h3>FAMILY RELATIONSHIPS</h3>
-				{% block relationships %}
-				{% endblock relationships %}
-			</div>
-		</div>
+{% block content %}
+<div class='row'>
+   	<div class='col-md-8 col-sm-6 info-group'>
+   		<h1 class="uppercase">{% block name %}{% endblock name %}</h1>
+   		<ul class='list-group info-group-list'>
+			{% block info_group %}{% endblock info_group %}
+		</ul>
+		<blockquote>
+			<p>{% block quote %}{% endblock quote %}</p>
+			<footer>{% block quote_footer %}{% endblock quote_footer %}</footer>
+		</blockquote>
 	</div>
-</body>
-</html>
+
+	<div class='col-md-4 col-sm-6 main-image'>
+		<center><img class='center list-group-item' src='{% block image_url %}{% endblock image_url %}'></center>
+	</div>
+</div>
+
+<div class='row'>
+	<div class='col-md-12'>
+		{% block description %}{% endblock description %}
+	</div>
+</div>
+
+<div class='row'>
+	<div class='col-md-12'>
+		<h3>STORIES</h3>
+		{% block stories %}
+		{% endblock stories %}
+	</div>
+</div>
+
+<div class='row'>
+	<div class='col-md-12'>
+		<h3>BIBLIOGRAPHY</h3>
+		{% block bibliography %}
+		{% endblock bibliography %}
+	</div>
+</div>
+
+<div class='row'>
+	<div class='col-md-12'>
+		<h3>ARTIFACTS</h3>
+		{% block artifacts %}
+		{% endblock artifacts %}
+	</div>
+</div>
+
+<div class='row'>
+	<div class='col-md-12'>
+		<h3>FAMILY RELATIONSHIPS</h3>
+		{% block relationships %}
+		{% endblock relationships %}
+	</div>
+</div>
+{% endblock content %}

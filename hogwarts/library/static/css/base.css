@@ -5,10 +5,7 @@
 	margin-bottom: 20px !important;
 }
 
-.container-fluid { 
-	max-width: 800px; 
-	margin: 20px auto 20px;
-}
+#content { margin: 0px auto 20px; }
 
 .uppercase { text-transform: uppercase;}
 

@@ -1,0 +1,35 @@
+<link rel="stylesheet" href="{{ STATIC_URL }}css/bootstrap.min.css">
+<script src="{{ STATIC_URL }}js/bootstrap.min.js"></script>
+
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>{% block title %}Marauder's Map{% endblock title %}</title>
+		<meta name=”viewport” content=”width=device-width, initial-scale=1.0″>
+		<!-- Latest compiled and minified CSS -->
+		<link rel="stylesheet" href="{{ STATIC_URL }}css/bootstrap.min.css">
+		<link rel="stylesheet" href="{{ STATIC_URL }}css/base.css">
+		<script src="{{ STATIC_URL }}js/bootstrap.min.js"></script>
+		<script src="http://code.jquery.com/jquery.js"></script>
+		{% block scripts %}{% endblock scripts %}
+	</head>
+	<body>
+		<nav class="navbar navbar-default navbar-fixed-top" role="navigation">
+			<div class="container-fluid">
+				navbar here?
+			</div>
+		</nav>
+		<div class="jumbotron">
+			<h1 class="text-center">Marauders' Map</h1>
+			<p class="text-center">It's the unknown we fear when we look upon death and darkness, nothing more.</p>
+		</div>
+		<div class="container-fluid">
+			<div class='col-md-2' id='sidebar'>
+				<a href="#" class="btn btn-primary">Magic</a>
+			</div>
+			<div class='col-md-10' id='content'>
+				{% block content %}{% endblock content %}
+			</div>
+		</div>
+	</body>
+</html>
