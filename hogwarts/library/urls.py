@@ -3,8 +3,9 @@ from django.views.generic import TemplateView
 import library.views as lib_views
 
 urlpatterns = patterns('django.views.generic.simple',
-    (r'^$', TemplateView.as_view(template_name='index.html')),
+    (r'^$', TemplateView.as_view(template_name='base.html')),
     #Characters
+    (r'^characters/', TemplateView.as_view(template_name='characters')),
     (r'^characters/1$', TemplateView.as_view(template_name='characters/1.html')),
     (r'^characters/2$', TemplateView.as_view(template_name='characters/2.html')),
     (r'^characters/3$', TemplateView.as_view(template_name='characters/3.html')),
