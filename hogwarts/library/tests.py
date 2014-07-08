@@ -23,7 +23,24 @@ class CreatureTest(TestCase):
 
     def test_string_creature(self):
         creature = lm.Creature.objects.first()
-        self.assertEqual(str(creature), creature.name)    
+        self.assertEqual(str(creature), creature.name)
+
+    def test_neutralize_creature(self):
+        boggart = lm.Creature()
+        boggart.name = 'Boggart'
+        boggart.rating = 0
+        boggart.save()
+
+        spell = lm.Spell()
+        spell.incantation = 'Riddikulus'
+        spell.alias = 'Boggart Banishing Spell'
+        spell.creature = boggart
+        spell.kind = 'Defensive'
+        spell.save()
+
+        self.assertTrue(boggart.neutralize('Riddikulus'))
+        self.assertFalse(boggart.neutralize('Lumos'))
+
 
 class ShopTest(TestCase):
     def setUp(self):
