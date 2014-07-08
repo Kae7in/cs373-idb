@@ -44,7 +44,7 @@ class Spell(models.Model):
     incantation = models.CharField(max_length=50)
     alias = models.CharField(max_length=50)
     effect = models.TextField()
-	creator = models.CharField(max_length=50)
+    creator = models.CharField(max_length=50)
     notable_uses = models.TextField()
     unforgivable = models.BooleanField(default=False)
     KIND_CHOICES = (('Transfiguration', 'Transfiguration'),
@@ -125,6 +125,7 @@ class Artifact(models.Model):
     kind = models.CharField(max_length=100, blank=True)
     image = models.ImageField(upload_to='images/artifacts', default='images/empty.jpg')
     owner = models.ForeignKey(Character, related_name = 'artifacts', blank=True, null=True)
+    shop  = models.ForeignKey(Shop, related_name='artifacts', blank=True, null=True)
 
     def __str__(self):              
         return self.name
