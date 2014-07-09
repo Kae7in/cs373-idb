@@ -4,6 +4,7 @@ import library.views as lib_views
 
 urlpatterns = patterns('django.views.generic.simple',
     (r'^$', TemplateView.as_view(template_name='index.html')),
+    (r'^base.html$', TemplateView.as_view(template_name='base.html')),
     #Characters
     (r'^characters/1$', TemplateView.as_view(template_name='characters/1.html')),
     (r'^characters/2$', TemplateView.as_view(template_name='characters/2.html')),
