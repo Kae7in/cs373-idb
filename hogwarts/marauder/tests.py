@@ -481,3 +481,32 @@ class BookTest(TestCase):
         story  = lm.Story.objects.first()
         self.assertEqual(story.book, book)
         self.assertEqual(book.story.first(), story)
+
+class IngredientTest(TestCase):
+    def setUp(self):
+        ingredient = lm.Ingredient()
+        ingredient.name = "Hippogriff Talon"
+        hippogriff = lm.Creature()
+        hippogriff.name = "Hippogriff"
+        hippogriff.description = "."
+        hippogriff.classification = "Beast"
+        hippogriff.rating = "3"
+        hippogriff.save()
+        ingredient.creature = hippogriff
+        ingredient.save()
+
+    def test_ingredient_create(self):
+        ing   = lm.Ingredient.objects.first()
+        self.assertEqual(ing.name, "Hippogriff Talon")
+        self.assertEqual(ing, lm.Ingredient.objects.first())
+
+    def test_ingredient_attributes(self):
+        ing = lm.Ingredient.objects.first()
+        self.assertEqual(ing.name, "Hippogriff Talon")
+        self.assertEqual(ing.creature, lm.Creature.objects.first())
+
+
+    def test_ingredient_relationship(self):
+        ingredient   = lm.Ingredient.objects.first()
+        self.assertEqual(ingredient.creature, lm.Creature.objects.first())
+

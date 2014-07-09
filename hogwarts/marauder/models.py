@@ -92,8 +92,6 @@ class Potion(models.Model):
     more_info = models.TextField()
     ingredients = models.ManyToManyField(Ingredient, related_name = 'potions', null=True, blank=True)
     image = models.ImageField(upload_to = 'images/potions', default = 'images/empty.jpg')
-    characters = models.ManyToManyField(Character, related_name = 'potions', blank=True, null=True)
-    other_potions = models.ManyToManyField('Potion', related_name = 'potions', blank=True, null=True)
 
     def __str__(self):
         return self.title
