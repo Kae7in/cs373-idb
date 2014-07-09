@@ -1,0 +1,142 @@
+@import url('http://fonts.googleapis.com/css?family=Open+Sans:200,300');
+
+html {
+  margin:0;
+  padding:0;
+  position: relative;
+  height: 100%;
+}
+
+body {
+    margin:0;
+    padding:0;
+    height:100%;
+    background: url('../images/marauders.jpg') no-repeat center center fixed;
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+    background-size: cover;
+    color:#fff;
+    background-color:#333;
+    font-family: 'Open Sans',Arial,Helvetica,Sans-Serif;
+    margin-bottom: 100px;
+}
+
+
+/* Wrapper for page content to push down footer */
+#wrap {
+  min-height: 100%;
+  position: relative;
+}
+
+#content {
+  padding:10px;
+  padding-bottom:80px;    
+}
+
+a:link, a:visited {
+    color:#eee;
+}
+
+.customjumbo {
+    background-color:rgba(0, 0, 0, 0.2);
+}
+
+.categories {
+font-family: 'Special Elite';
+font-size: 35px;
+}
+
+#myfooter {
+  display: table;
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+  /* Set the fixed height of the footer here */
+  height: 80px;
+  background-color:rgba(0, 0, 0, 0.2);
+  vertical-align: middle;
+}
+
+#footertxt {
+  display: table-cell;
+  vertical-align: bottom;
+  text-align: center;
+  padding-bottom: 10px;  
+  font-family: 'Special Elite', sans-serif;  
+  font-size: 16px;
+
+}
+
+
+
+
+
+.no-style {
+    list-style-type: none;
+}
+
+/*
+#menu li {padding: 0px;}
+#menu li a {margin: 0px; display: block; width: 100%; height: 100%;}
+*/
+/*
+.nav-pills .nav,
+.nav-pills .nav > li {
+    float: none;
+    display:inline-block;
+    *display:inline;
+    *zoom:1;
+    vertical-align: top;
+} */
+
+#swear {
+/*    display: none;  */
+    font-family: 'Tangerine', cursive;
+    font-size: 50px;
+    color: white;
+/*    width: 800px;
+    height: 400px;
+    margin-top: -100px;
+    margin-left: -100px;
+    position: relative;
+    top: 50%;
+    left: 50%; */
+    animation: glow .5s infinite alternate;
+
+
+}
+
+
+
+
+
+.block {
+    background-color:rgba(0,0,0,0.2);
+    height:370px;
+    padding-left:12px;
+    padding-right:12px;
+}
+
+.block-sm {
+    height:180px;
+}
+
+.btn-flat {
+    font-family: 'Open Sans',Arial,Helvetica,Sans-Serif;
+    border-radius:0px;
+    border-width:0;
+    background-image:none;
+    padding:16px;
+    margin:0 auto;
+    margin-top:15px;
+    width:70%;
+    font-size:20pt;
+}
+
+
+
+
+
+
+

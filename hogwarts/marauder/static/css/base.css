@@ -5,6 +5,10 @@
 	margin-bottom: 20px !important;
 }
 
+.jumbotron {
+font-family: 'Special Elite';
+}
+
 #content { margin: 0px auto 20px; }
 
 .uppercase { text-transform: uppercase;}
