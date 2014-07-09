@@ -5,8 +5,21 @@
 	margin-bottom: 20px !important;
 }
 
+.jumbotron {
+font-family: 'Special Elite';
+}
+
 #content { margin: 0px auto 20px; }
 
 .uppercase { text-transform: uppercase;}
 
 .description { margin-top: 20px;}
+
+
+.category{
+font-family: 'Special Elite';
+
+}
+.nav-stacked {
+max-width: 300px;
+}

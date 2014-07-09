@@ -4,11 +4,16 @@ import marauder.views as mar_views
 
 urlpatterns = patterns('django.views.generic.simple',
     (r'^$', TemplateView.as_view(template_name='index.html')),
+    (r'^base.html$', TemplateView.as_view(template_name='base.html')),
+    (r'^splash.html$', TemplateView.as_view(template_name='splash.html')),
     #Characters
     (r'^characters/$', TemplateView.as_view(template_name='characters/index.html')),
     (r'^characters/1$', TemplateView.as_view(template_name='characters/1.html')),
     (r'^characters/2$', TemplateView.as_view(template_name='characters/2.html')),
     (r'^characters/3$', TemplateView.as_view(template_name='characters/3.html')),
+    (r'^characters/4$', TemplateView.as_view(template_name='characters/4.html')),
+    (r'^characters/5$', TemplateView.as_view(template_name='characters/5.html')),
+    (r'^characters/6$', TemplateView.as_view(template_name='characters/6.html')),
     #Potions
     (r'^potions/$', TemplateView.as_view(template_name='potions/index.html')),
     (r'^potions/1$', TemplateView.as_view(template_name='potions/1.html')),
@@ -34,6 +39,7 @@ urlpatterns = patterns('django.views.generic.simple',
     (r'^shops/1$', TemplateView.as_view(template_name='shops/1.html')),
     (r'^shops/2$', TemplateView.as_view(template_name='shops/2.html')),
     (r'^shops/3$', TemplateView.as_view(template_name='shops/3.html')),
+
     #Potions
     (r'^potions/$', TemplateView.as_view(template_name='potions/index.html')),
     (r'^potions/1$', TemplateView.as_view(template_name='potions/1.html')),

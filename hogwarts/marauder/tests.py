@@ -481,3 +481,57 @@ class BookTest(TestCase):
         story  = lm.Story.objects.first()
         self.assertEqual(story.book, book)
         self.assertEqual(book.story.first(), story)
+
+class IngredientTest(TestCase):
+    def setUp(self):
+        ingredient = lm.Ingredient()
+        ingredient.name = "Hippogriff Talon"
+        hippogriff = lm.Creature()
+        hippogriff.name = "Hippogriff"
+        hippogriff.description = "."
+        hippogriff.classification = "Beast"
+        hippogriff.rating = "3"
+        hippogriff.save()
+        ingredient.creature = hippogriff
+        ingredient.save()
+
+    def test_ingredient_create(self):
+        ing   = lm.Ingredient.objects.first()
+        self.assertEqual(ing.name, "Hippogriff Talon")
+        self.assertEqual(ing, lm.Ingredient.objects.first())
+
+    def test_ingredient_attributes(self):
+        ing = lm.Ingredient.objects.first()
+        self.assertEqual(ing.name, "Hippogriff Talon")
+        self.assertEqual(ing.creature, lm.Creature.objects.first())
+
+
+    def test_ingredient_relationship(self):
+        ingredient   = lm.Ingredient.objects.first()
+        self.assertEqual(ingredient.creature, lm.Creature.objects.first())
+
+class RelationshipTest(TestCase):
+    def setUp(self):
+        char1 = lm.Character()
+        char1.name = "Harry Potter"
+        char1.save()
+        char2 = lm.Character()
+        char2.name = "Ron Weasley" 
+        char2.save()
+        rel = lm.Relationship()
+        rel.character1 = char1
+        rel.character2 = char2
+        rel.descriptor1 = "BEST FRIENDS FOREVER! <3"
+        rel.save()
+        
+
+    def test_create_relationship(self):
+        rel = lm.Relationship.objects.first()
+        self.assertEqual(rel.character1, lm.Character.objects.first())
+        self.assertEqual(rel.character2, lm.Character.objects.all()[1])
+        self.assertEqual(rel.descriptor1, "BEST FRIENDS FOREVER! <3")
+        
+    def test_create_relationship2(self):
+        rel = lm.Relationship.objects.first()
+        self.assertEqual(rel.character1.name, lm.Character.objects.first().name)
+        self.assertEqual(rel.character2.name, lm.Character.objects.all()[1].name)
