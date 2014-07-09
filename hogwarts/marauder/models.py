@@ -8,6 +8,7 @@ class Character(models.Model):
     description = models.TextField()
     magical = models.BooleanField(default=True)
     quotes = models.TextField()
+    quote_by = models.CharField(max_length = 200)
     images = models.ImageField(upload_to = 'images/characters', default = 'images/empty.jpg')
 
     #relationships
@@ -142,8 +143,10 @@ class Artifact(models.Model):
 class Book(models.Model):
     name = models.CharField(max_length=100)
     description = models.TextField()
-    author = models.ForeignKey(Character, related_name = 'books', blank=True, null=True)
-
+    author = models.ForeignKey(Character, related_name = 'books_published', blank=True, null=True)
+    subjects = models.ManyToManyField(Character, null=True, blank=True, related_name='books_starred')
+    publisher = models.CharField(max_length = 200)
+    published_date = models.DateField()
     def __str__(self):              
         return self.name
 
