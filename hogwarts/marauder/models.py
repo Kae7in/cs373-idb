@@ -18,16 +18,19 @@ class Character(models.Model):
     def is_squib(self):
         for relation in self.relationships.all():
             if(relation.character1 == self):
-                other_id = relation.character2
+                other_id = relation.character2.id
                 other_desc = relation.descriptor2
             else:
                 other_id = relation.character1.id
                 other_desc = relation.descriptor1
             if(other_desc == 'mother' or other_desc == 'father'):
                 parent = Character.objects.get(pk=other_id)
-                if(parent.magical):
+                if(parent.magical and self.magical == False):
                     return True
         return False
+
+    def __str__(self):
+        return self.name
 
 class Creature(models.Model):
     name = models.CharField(max_length=50)
