@@ -1,5 +1,5 @@
 from django.test import TestCase
-import library.models as lm
+import maurader.models as lm
 from datetime import date
 
 # Create your tests here.

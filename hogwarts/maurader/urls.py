@@ -1,6 +1,6 @@
 from django.conf.urls import patterns, url
 from django.views.generic import TemplateView
-import library.views as lib_views
+import maurader.views as mar_views
 
 urlpatterns = patterns('django.views.generic.simple',
     (r'^$', TemplateView.as_view(template_name='index.html')),
