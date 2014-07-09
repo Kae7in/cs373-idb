@@ -1,5 +1,50 @@
-{% extends "base.html" %}
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>{% block title %}Marauder's Map{% endblock title %}</title>
+		<meta name=”viewport” content=”width=device-width, initial-scale=1.0″>
+		<!-- Latest compiled and minified CSS -->
+		<link rel="stylesheet" href="{{ STATIC_URL }}css/bootstrap.min.css">
+		<link rel="stylesheet" href="{{ STATIC_URL }}css/base.css">
+<link href='http://fonts.googleapis.com/css?family=Special+Elite' rel='stylesheet' type='text/css'>
+<link href='http://fonts.googleapis.com/css?family=Roboto' rel='stylesheet' type='text/css'>
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+<!--		<script src="http://code.jquery.com/jquery.js"></script>  -->
+<link rel="stylesheet" href="{{ STATIC_URL }}css/splash.css">
+<!--<script src="{{ STATIC_URL}}js/splash.js"></script>-->
 
-{% block content %}
-Hello, world. AVADA KEDAVRA!
-{% endblock content %}
+</head>
+<body>
+<div id="wrap">
+		<div class="jumbotron customjumbo">
+			<h1 class="text-center">Marauder's Map</h1>
+			<p class="text-center">Brought to you by The Six Potters</p>
+		</div>
+    <div id="content">
+
+
+        <div class="row">
+            <div class="col-md-3"></div>
+            <div class="col-md-6">
+                <div class="text-center categories">
+                    <ul class="no-style" id="menu">
+                        <li><a href="characters/">Characters</a></li>
+                        <li><a href="artifacts/">Artifacts</a></li>
+                        <li><a href="potions/">Potions</a></li>
+                        <li><a href="spells/">Spells</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="col-md-3"></div>
+        </div>
+    </div>  <!--/content-->
+
+    <div id="myfooter">
+        <div id="footertxt">
+        <p>The Six Potters are Amanda Steinwedel, Angela Hsu, David Moench, Isabella Bhardwaj, Kaelin D. Hooper, and Stephen Arnett</p>
+        </div>  <!--/footertxt-->
+    </div>  <!--/footer-->
+</div>  <!--/wrap-->
+	</body>
+</html>
+
