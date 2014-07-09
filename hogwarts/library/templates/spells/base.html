@@ -1,0 +1,88 @@
+{% extends "base.html" %}
+
+{% block content %}
+<div class='row'>
+   	<div class='col-md-8 col-sm-6 info-group'>
+   		<h1 class="uppercase">{% block spell_name %}{% endblock spell_name %}</h1>
+	</div>
+
+	<div class='col-md-4 col-sm-6 main-image'>
+		<center><img class='center list-group-item' src='{% block image_url %}{% endblock image_url %}'></center>
+	</div>
+</div>
+
+<div class='row'>
+	<div class='col-md-12'>
+		<h3>TYPE</h3>
+		{% block spell_type %}
+		{% endblock spell_type %}
+	</div>
+</div>
+
+<div class='row'>
+	<div class='col-md-12'>
+		<h3>INCANTATION</h3>
+		{% block incantation %}
+		{% endblock incantation %}
+	</div>
+</div>
+
+<div class='row'>
+	<div class='col-md-12'>
+		<h3>ALIASES</h3>
+		{% block aliases %}
+		{% endblock aliases %}
+	</div>
+</div>
+
+<div class='row'>
+	<div class='col-md-12'>
+		<h3>CREATOR</h3>
+		{% block creator %}
+		{% endblock creator %}
+	</div>
+</div>
+
+<div class='row'>
+	<div class='col-md-12'>
+		{% block effect_description %}{% endblock effect_description %}
+	</div>
+</div>
+
+
+<div class='row'>
+	<div class='col-md-12'>
+		<h3>MISCELLANEOUS</h3>
+		{% block misc %}
+		{% endblock misc %}
+	</div>
+</div>
+
+
+<div class='row'>
+	<div class='col-md-12'>
+		<h3>DIFFICULTY</h3>
+		{% block difficulty %}
+		{% endblock difficulty %}
+	</div>
+</div>
+
+
+<div class='row'>
+	<div class='col-md-12'>
+		<h3>AFFECTED CREATURES</h3>
+		{% block affected_creatures %}
+		{% endblock affected_creatures %}
+	</div>
+</div>
+
+
+<div class='row'>
+	<div class='col-md-12'>
+		<h3>USES</h3>
+		{% block uses %}
+		{% endblock uses %}
+	</div>
+</div>
+
+{% endblock content %}
