@@ -1,12 +1,25 @@
-{% extends "base.html" %}
-
-{% block scripts %}
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>{% block title %}Marauder's Map{% endblock title %}</title>
+		<meta name=”viewport” content=”width=device-width, initial-scale=1.0″>
+		<!-- Latest compiled and minified CSS -->
+		<link rel="stylesheet" href="{{ STATIC_URL }}css/bootstrap.min.css">
+		<link rel="stylesheet" href="{{ STATIC_URL }}css/base.css">
+<link href='http://fonts.googleapis.com/css?family=Special+Elite' rel='stylesheet' type='text/css'>
+<link href='http://fonts.googleapis.com/css?family=Roboto' rel='stylesheet' type='text/css'>
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+<!--		<script src="http://code.jquery.com/jquery.js"></script>  -->
 <link rel="stylesheet" href="{{ STATIC_URL }}css/splash.css">
 <script src="{{ STATIC_URL}}js/splash.js"></script>
-{% endblock scripts %}
 
-{% block content %}
+</head>
+<body>
 <div id="wrap">
+		<div class="jumbotron customjumbo">
+			<h1 class="text-center">Marauder's Map</h1>
+			<p class="text-center">Brought to you by The Six Potters</p>
+		</div>
     <div id="content">
         <div class="container"><br>
     <!--              <div id="swear" style="overflow-x: hidden; overflow-y: hidden; opacity: 1; ">  -->
@@ -31,10 +44,11 @@
     </div>  <!--/content-->
 
     <div id="myfooter">
-      <div class="container">
+        <div id="footertxt">
         <p>The Six Potters are Amanda Steinwedel, Angela Hsu, David Moench, Isabella Bhardwaj, Kaelin D. Hooper, and Stephen Arnett</p>
-      </div>
+        </div>  <!--/footertxt-->
     </div>  <!--/footer-->
 </div>  <!--/wrap-->
-{% endblock content %}
+	</body>
+</html>
 
