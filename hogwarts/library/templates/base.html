@@ -6,25 +6,25 @@
 		<!-- Latest compiled and minified CSS -->
 		<link rel="stylesheet" href="{{ STATIC_URL }}css/bootstrap.min.css">
 		<link rel="stylesheet" href="{{ STATIC_URL }}css/base.css">
+<link href='http://fonts.googleapis.com/css?family=Special+Elite' rel='stylesheet' type='text/css'>
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
 <!--		<script src="http://code.jquery.com/jquery.js"></script>  -->
 		<script src="{{ STATIC_URL }}js/bootstrap.min.js"></script>
 		{% block scripts %}{% endblock scripts %}
 	</head>
 	<body>
-		<nav class="navbar navbar-default navbar-fixed-top" role="navigation">
+<!--    		<nav class="navbar navbar-default navbar-fixed-top" role="navigation">
 			<div class="container-fluid">
 				navbar here?
 			</div>
-		</nav>
-		<div class="jumbotron">
-			<h1 class="text-center">Marauders' Map</h1>
-			<p class="text-center">It's the unknown we fear when we look upon death and darkness, nothing more.</p>
+		</nav>   -->
+		<div class="jumbotron ourjumbo">
+			<h1 class="text-center">Marauder's Map</h1>
+			<p class="text-center">Brought to you by The Six Potters</p>
 		</div>
 		<div class="container-fluid">
-			<div class='col-md-2' id='sidebar'>
-				<a href="#" class="btn btn-primary">Magic</a>
-			</div>
+<!--			<div class='col-md-2' id='sidebar'>
+			</div>  -->
 			<div class='col-md-8' id='content'>
 				{% block content %}{% endblock content %}
 			</div>

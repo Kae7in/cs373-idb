@@ -5,6 +5,23 @@
 	margin-bottom: 20px !important;
 }
 
+.ourjumbo {
+background-color:rgba(0, 0, 0, 0.2);
+font-family: 'Special Elite';
+}
+
+.categories {
+font-family: 'Special Elite';
+font-size: 35px;
+
+
+}
+
+.no-style {
+    list-style-type: none;
+
+}
+
 #content { margin: 0px auto 20px; }
 
 .uppercase { text-transform: uppercase;}
