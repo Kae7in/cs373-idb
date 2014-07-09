@@ -34,6 +34,50 @@ class CharacterTest(TestCase):
 
         self.assertTrue(argus.is_squib)
 
+    def test_harry_character(self):
+        harry = lm.Character()
+        harry.name = 'Harry Potter'
+        harry.magical = True
+        harry.birthday = "7/31/1980"
+        harry.save()
+
+        snape = lm.Character()
+        snape.magical = True
+        snape.save()
+
+        r1 = lm.Relationship()
+        r1.character1 = harry
+        r1.descriptor1 = 'student'
+        r1.character2 = snape
+        r1.descriptor2 = 'professor'
+        r1.save()
+
+        self.assertFalse(harry.is_squib)
+        self.assertEqual(harry.birthday, "7/31/1980")
+        self.assertTrue(harry.magical)
+
+    def test_malfoy_character(self):
+        malfoy = lm.Character()
+        malfoy.name = 'Draco Malfoy'
+        malfoy.magical = True
+        malfoy.birthday = "6/5/1980"
+        malfoy.save()
+
+        dad = lm.Character()
+        dad.magical = True
+        dad.save()
+
+        r1 = lm.Relationship()
+        r1.character1 = malfoy
+        r1.descriptor1 = 'son'
+        r1.character2 = dad
+        r1.descriptor2 = 'father'
+        r1.save()
+
+        self.assertFalse(malfoy.is_squib)
+        self.assertEqual(malfoy.birthday, "6/5/1980")
+        self.assertTrue(malfoy.magical)
+
 
 class CreatureTest(TestCase):
     def setUp(self):
