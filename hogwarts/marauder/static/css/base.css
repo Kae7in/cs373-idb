@@ -14,3 +14,12 @@ font-family: 'Special Elite';
 .uppercase { text-transform: uppercase;}
 
 .description { margin-top: 20px;}
+
+
+.category{
+font-family: 'Special Elite';
+
+}
+.nav-stacked {
+max-width: 300px;
+}
