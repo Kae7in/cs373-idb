@@ -1,0 +1,40 @@
+{% extends "base.html" %}
+
+{% block scripts %}
+<link rel="stylesheet" href="{{ STATIC_URL }}css/splash.css">
+<script src="{{ STATIC_URL}}js/splash.js"></script>
+{% endblock scripts %}
+
+{% block content %}
+<div id="wrap">
+    <div id="content">
+        <div class="container"><br>
+    <!--              <div id="swear" style="overflow-x: hidden; overflow-y: hidden; opacity: 1; ">  -->
+              <div id="swear" a href="#"></a></div>
+        </div>
+
+
+        <div class="row">
+            <div class="col-md-3"></div>
+            <div class="col-md-6">
+                <div class="text-center categories">
+                    <ul class="no-style" id="menu">
+                        <li><a href="characters/">Characters</a></li>
+                        <li><a href="artifacts/">Artifacts</a></li>
+                        <li><a href="potions/">Potions</a></li>
+                        <li><a href="spells/">Spells</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="col-md-3"></div>
+        </div>
+    </div>  <!--/content-->
+
+    <div id="myfooter">
+      <div class="container">
+        <p>The Six Potters are Amanda Steinwedel, Angela Hsu, David Moench, Isabella Bhardwaj, Kaelin D. Hooper, and Stephen Arnett</p>
+      </div>
+    </div>  <!--/footer-->
+</div>  <!--/wrap-->
+{% endblock content %}
+
