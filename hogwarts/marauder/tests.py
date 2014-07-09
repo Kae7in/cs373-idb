@@ -535,3 +535,29 @@ class RelationshipTest(TestCase):
         rel = lm.Relationship.objects.first()
         self.assertEqual(rel.character1.name, lm.Character.objects.first().name)
         self.assertEqual(rel.character2.name, lm.Character.objects.all()[1].name)
+
+class AcademicTest(TestCase):
+    def setUp(self):
+        snape = lm.Character()
+        snape.name = "Severus Snape"
+        snape.save()
+        hogwarts = lm.School()
+        hogwarts.name = "Hogwarts School of Witchcraft and Wizardry"
+        hogwarts.save()
+        
+        academic = lm.Academic()
+        academic.school = hogwarts
+        academic.character = snape
+        academic.descriptor = "professor"
+        academic.save()
+
+    def test_create_academic(self):
+        academic = lm.Academic.objects.first()
+        self.assertEqual(academic.character.name, "Severus Snape")
+        self.assertEqual(academic.descriptor, "professor")
+        self.assertEqual(academic.school.name, "Hogwarts School of Witchcraft and Wizardry")
+
+    def test_create_academic2(self):
+        academic = lm.Academic.objects.first()
+        self.assertEqual(academic.character, lm.Character.objects.first())
+        self.assertEqual(academic.school, lm.School.objects.first())  
