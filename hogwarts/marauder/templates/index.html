@@ -8,10 +8,7 @@
 		<link rel="stylesheet" href="{{ STATIC_URL }}css/base.css">
 <link href='http://fonts.googleapis.com/css?family=Special+Elite' rel='stylesheet' type='text/css'>
 <link href='http://fonts.googleapis.com/css?family=Roboto' rel='stylesheet' type='text/css'>
-        <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
-<!--		<script src="http://code.jquery.com/jquery.js"></script>  -->
 <link rel="stylesheet" href="{{ STATIC_URL }}css/splash.css">
-<!--<script src="{{ STATIC_URL}}js/splash.js"></script>-->
 
 </head>
 <body>
@@ -22,7 +19,65 @@
 		</div>
     <div id="content">
 
+    <div class="row">
+        <div class="panel-group category" id="accordion">
+            <div class="col-md-4">
+                <div class="panel">
+                    <div class="panel-heading">
+                      <h2 class="panel-title">
+                      <a data-toggle="collapse" data-parent="#accordion" href="#collapseOne">Characters</a>
+                      </h2>
+                    </div>  <!-- /panel-heading -->
 
+                    <div id="collapseOne" class="panel-collapse collapse">
+                        <div class="panel-body">                  
+                            <h3><a href="characters/1">Albus Dumbledore</a></h3> 
+                            <h3><a href="characters/2">Ariana Dumbledore</a></h3>
+                            <h3><a href="characters/3">Harry Potter</a></h3>
+                        </div>  <!-- /panel-body -->
+                    </div> <!-- /collapseOne -->
+                </div>  <!-- /panel panel-default -->
+            </div>  <!-- /col-md-4 -->
+
+            <div class="col-md-4">
+                <div class="panel">
+                    <div class="panel-heading">
+                      <h2 class="panel-title">
+                      <a data-toggle="collapse" data-parent="#accordion" href="#collapseTwo">Artifacts</a>
+                      </h2>
+                    </div>  <!-- /panel-heading -->
+
+                    <div id="collapseTwo" class="panel-collapse collapse">
+                        <div class="panel-body">                  
+                            <h3><a href="artifacts/1">Pensieve</a></h3> 
+                            <h3><a href="artifacts/2">Elder Wand</a></h3>
+                            <h3><a href="artifacts/3">Invisibility Cloak</a></h3>
+                        </div>  <!-- /panel-body -->
+                    </div> <!-- /collapseOne -->
+                </div>  <!-- /panel panel-default -->
+            </div>  <!-- /col-md-4 -->
+
+            <div class="col-md-4">
+                <div class="panel">
+                    <div class="panel-heading">
+                      <h2 class="panel-title">
+                      <a data-toggle="collapse" data-parent="#accordion" href="#collapseThree">Potions</a>
+                      </h2>
+                    </div>  <!-- /panel-heading -->
+
+                    <div id="collapseThree" class="panel-collapse collapse">
+                        <div class="panel-body">                  
+                            <h3><a href="potions/1">Amortentia</a></h3> 
+                            <h3><a href="potions/2">Veritaserum</a></h3>
+                            <h3><a href="potions/3">Regeneration Potion</a></h3>
+                        </div>  <!-- /panel-body -->
+                    </div> <!-- /collapseOne -->
+                </div>  <!-- /panel panel-default -->
+            </div>  <!-- /col-md-4 -->
+      </div>  <!-- /accordion -->
+  </div>  <!-- /row -->
+
+<!--
         <div class="row">
             <div class="col-md-3"></div>
             <div class="col-md-6">
@@ -37,6 +92,8 @@
             </div>
             <div class="col-md-3"></div>
         </div>
+
+-->
     </div>  <!--/content-->
 
     <div id="myfooter">
@@ -46,5 +103,14 @@
     </div>  <!--/footer-->
 </div>  <!--/wrap-->
 	</body>
+
+<!-- javascript at end to load page faster -->
+        <script src="//code.jquery.com/jquery-1.10.2.js"></script>
+        <script src="//code.jquery.com/ui/1.11.0/jquery-ui.js"></script>
+        <script src="{{ STATIC_URL }}js/bootstrap.min.js"></script>
+        <script src="{{ STATIC_URL}}js/splash.js"></script>
+<!--		<script src="http://code.jquery.com/jquery.js"></script>  
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>  -->
+
 </html>
 

@@ -38,13 +38,32 @@ a:link, a:visited {
     color:#eee;
 }
 
+a:hover {
+    text-decoration: none;
+    color: rgb(200,200,200);
+}
+
 .customjumbo {
     background-color:rgba(0, 0, 0, 0.2);
 }
 
-.categories {
+.category{
 font-family: 'Special Elite';
-font-size: 35px;
+
+}
+
+.panel-heading {
+/*    background-color:rgba(0, 0, 0, 0.2);*/
+
+
+}
+
+.panel-title {
+font-size: 36px;
+
+}
+.panel{
+    background-color:transparent;
 }
 
 #myfooter {
