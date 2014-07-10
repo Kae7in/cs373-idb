@@ -1,21 +1,21 @@
-name		type	country	photo	stories	founders	headmasters
-Hogwarts School of Witchcraft and Wizardry	"Hogwarts School of Witchcraft and Wizardry is a boarding school for young witches and wizards. Students can study subjects such as Charms, Potions, Defense Against the Dark Arts, Transfiguration, Herbology, Muggle Studies, Divination, Care of Magical Creatures, and Arithmancy. Hogwarts is a castle near the Black Lake, the Forbidden Forest, a quidditch field, and the magical village of Hogsmeade. Hogwarts has high towers and 142 staircases, which move around as to confuse the students and make them late for class. Some of the rooms move around as well. No one knows the exact location of Hogwarts since it is unplottable, in order to protect the students and faculty as well as guard its secrets. Witches and wizards are also not allowed to apparate or disapparate within the grounds, unless the enchantment is lifted by the headmaster.
+name;;type;country;photo;stories;founders;headmasters;;;;;;;;;;
+Hogwarts School of Witchcraft and Wizardry;"Hogwarts School of Witchcraft and Wizardry is a boarding school for young witches and wizards. Students can study subjects such as Charms, Potions, Defense Against the Dark Arts, Transfiguration, Herbology, Muggle Studies, Divination, Care of Magical Creatures, and Arithmancy. Hogwarts is a castle near the Black Lake, the Forbidden Forest, a quidditch field, and the magical village of Hogsmeade. Hogwarts has high towers and 142 staircases, which move around as to confuse the students and make them late for class. Some of the rooms move around as well. No one knows the exact location of Hogwarts since it is unplottable, in order to protect the students and faculty as well as guard its secrets. Witches and wizards are also not allowed to apparate or disapparate within the grounds, unless the enchantment is lifted by the headmaster.
 
 Hogwarts was founded around 990 AD by Godric Gryffindor, Helga Hufflepuff, Rowena Ravenclaw, and Salazar Slytherin. Each founded their own respective houses and preferred a set of students similar to their own personalities. Once the others discovered that Slytherin discriminated against non-pure-blood students, they had a falling out and Slytherin left but not before building the Chamber of Secrets.
 
 The school's motto is Draco Dormiens Nunquam Titillandus, which is Latin for ""Never tickle a sleeping dragon.""
-"	school	Scotland	/static/images/hogwarts.gif	"Chamber of Secrets
+";school;Scotland;/static/images/hogwarts.gif;"Chamber of Secrets
 The Triwizard Tournament
 The Prophecy
-Quidditch"	"Godric Gryffindor
+Quidditch";"Godric Gryffindor
 Salazar Slytherin
 Rowena Ravenclaw
-Helga Hufflepuff"	"Albus Dumbledore
-Severus Snape"
-Beauxbatons Academy of Magic	Beauxbatons Academy of Magic is a wizarding school for both young witches and wizards located at a palace in the Pyrenees of France, surrounded by gardens, mountains, and magical fountains. One of the fountains is named after Nicolas Flamel and his wife Perenelle, alumni who met while studying here. Students are accepted from France, Spain, Portugal, Luxembourg, Belgium, and the Netherlands. The students at Beauxbatons have great respect for their headmistress, standing at attention whenever she enters the room. 	school	France	/static/images/beauxbatons.jpg	The Triwizard Tournament		Olympe Maxime
-Durmstrang Institute	"Durmstrang Institute is a wizarding school located somewhere in north of Sweden or Norway. Like Hogwarts, the school is unplottable and hence the exact location is unknown. Since they arrived by ship for the 1994-1995 Triwizard Tournament at Hogwarts, it is probable that they are near a sea, river, or major lake. 
+Helga Hufflepuff";"Albus Dumbledore
+Severus Snape";;;;;;;;;;
+Beauxbatons Academy of Magic;Beauxbatons Academy of Magic is a wizarding school for both young witches and wizards located at a palace in the Pyrenees of France; surrounded by gardens; mountains; and magical fountains. One of the fountains is named after Nicolas Flamel and his wife Perenelle; alumni who met while studying here. Students are accepted from France; Spain; Portugal; Luxembourg; Belgium; and the Netherlands. The students at Beauxbatons have great respect for their headmistress; standing at attention whenever she enters the room. ;school;France;/static/images/beauxbatons.jpg;The Triwizard Tournament;;Olympe Maxime
+Durmstrang Institute;"Durmstrang Institute is a wizarding school located somewhere in north of Sweden or Norway. Like Hogwarts, the school is unplottable and hence the exact location is unknown. Since they arrived by ship for the 1994-1995 Triwizard Tournament at Hogwarts, it is probable that they are near a sea, river, or major lake. 
 
 Durmstrang has a reputation for attracting dark witches and wizards, and it does not accept Muggle-born students. They are known to teach the Dark Arts and Gellert Grindelwald, an incredibly dark wizard, studied here. Former headmaster Igor Karkaroff was a known Death Eater, a follower of Lord Voldemort, who escaped Azkaban by cooperating with the Ministry of Magic.
 
-Durmstrang Institute was founded sometime in the Middle Ages by Nerida Vulchanova. Professor Harfang Munter took over quickly after she mysteriously died, and he is the one who changed the school curriculum to focus on martial arts and dueling."	school	Sweden or Norway	/static/images/durmstrang.jpg	The Triwizard Tournament	Nerida Vulchanova	"Harfang Munter
-Igor Karkaroff"
+Durmstrang Institute was founded sometime in the Middle Ages by Nerida Vulchanova. Professor Harfang Munter took over quickly after she mysteriously died, and he is the one who changed the school curriculum to focus on martial arts and dueling.";school;Sweden or Norway;/static/images/durmstrang.jpg;The Triwizard Tournament;Nerida Vulchanova;"Harfang Munter
+Igor Karkaroff";;;;;;;;;;
