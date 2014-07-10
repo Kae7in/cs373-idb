@@ -126,6 +126,11 @@ class School(Location):
 
 class House(School):
     school = models.ForeignKey(School, related_name = 'houses')
+    ghost = models.ForeignKey(Character, related_name = 'houses_haunted')
+    colors = models.CharField(max_length=100)
+    mascot = models.CharField(max_length=100)
+    quote = models.CharField(max_length=500)
+    quote_by = models.CharField(max_length=100)
     
     def __str__(self):
         return self.name
