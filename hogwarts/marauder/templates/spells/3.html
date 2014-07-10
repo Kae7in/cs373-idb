@@ -1,0 +1,35 @@
+{% extends "spells/base.html" %}
+
+{% block alias %}
+Disarming Charm
+{% endblock alias %}
+
+
+{% block image_url %}
+{{ STATIC_URL }}images/disarming-charm.gif
+{% endblock image_url %}
+
+{% block info_group %}
+<li class='list-group-item'>Creator: Merlin</li>
+<li class='list-group-item'>Incantation: Expelliarmus</li>
+<li class='list-group-item'> Type: Defensive Spell</li>
+<li class='list-group-item'>Effected Creatures: Anything holding something</li>
+<li class='list-group-item'> Difficulty: Easy</li>
+{% endblock info_group %}
+
+
+{% block effect_description %}
+<p>Shoots a jet of scarlet red light that forces the victim to release whatever they are holding at the time, which is typically a wand. May also know an opponent off their feet. Capable of also rebounding an opponents spell to leave them vulnerable.</p>
+
+<p>This spells is a very popular spell typically used in dueling. It was first seen used by Professor Snape when teaching the students how to defend themselves during the scare when the chamber of secrets was opened.</p>
+
+
+{% endblock effect_description %}
+
+
+
+{% block uses %}
+<p> Known as the signature spell of <a href='/characters/3'>Harry Potter </a>, which he used on numerous occasions including the Battle of the Department of Mysteries, Battle of the Seven Potters. This spell was also used against Voldemort when he returned to power and clashed with his killing curse resulting in priori incantatem. Also most famously known to have been the spell which Harry used to rebound Voldemort's killing curse, resulting in the final death of the dark lord.
+</p>
+
+{% endblock uses %}

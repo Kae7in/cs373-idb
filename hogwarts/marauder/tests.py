@@ -397,8 +397,17 @@ class HouseTest(TestCase):
     def setUp(self):
     
         house = lm.House()
+        character = lm.Character()
+        character.name = 'Fat Friar'
+        character.save()
+		
         house.name = "Hufflepuff"
         house.description = "Nobody wants to be a Hufflepuff."
+        house.quote = 'You might belong in Hufflepuff, Where they are just and loyal, Those patient Hufflepuffs are true, And unafraid of toil.'
+        house.quote_by = 'Sorting Hat'
+        house.colors = 'Yellow and Black'
+        house.mascot = 'Badger'
+        house.ghost = character
 
         school2 = lm.School()
         school2.name = "Hogwarts"
@@ -417,6 +426,12 @@ class HouseTest(TestCase):
         self.assertEqual("Hufflepuff", house_created.name)
         self.assertEqual("Nobody wants to be a Hufflepuff.", house_created.description)
         self.assertEqual("images/empty.jpg", house_created.image)
+
+        self.assertEqual(lm.Character.objects.first(), house_created.ghost)
+        self.assertEqual('You might belong in Hufflepuff, Where they are just and loyal, Those patient Hufflepuffs are true, And unafraid of toil.', house_created.quote)
+        self.assertEqual('Sorting Hat', house_created.quote_by)
+        self.assertEqual('Yellow and Black', house_created.colors)
+        self.assertEqual('Badger', house_created.mascot)
 
     def test_house_string(self):
         house = lm.House.objects.first()

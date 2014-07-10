@@ -1,0 +1,30 @@
+{% extends "spells/base.html" %}
+
+{% block alias %}
+Boggart Banishing Charm
+{% endblock alias %}
+
+
+{% block image_url %}
+{{ STATIC_URL }}images/boggart-banishing-charm.gif
+{% endblock image_url %}
+
+{% block info_group %}
+<li class='list-group-item'>Creator: Unknown</li>
+<li class='list-group-item'>Incantation: Riddikulus</li>
+<li class='list-group-item'> Type: Charm</li>
+<li class='list-group-item'>Effected Creatures: Boggarts</li>
+<li class='list-group-item'> Difficulty: Easy to Moderate</li>
+{% endblock info_group %}
+
+
+{% block effect_description %}
+<p>causes a Boggart to assume a form that is hilarious to the caster</p>
+{% endblock effect_description %}
+
+
+
+{% block uses %}
+<p>Lupin teaches this to his third year class</p>
+<a href='/characters/3'>Harry Potter </a> during the Triwizard Tournament.</p>
+{% endblock uses %}
