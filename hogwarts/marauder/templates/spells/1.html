@@ -1,54 +1,35 @@
-{% extends "characters/base.html" %}
+{% extends "spells/base.html" %}
 
-{% block spell_name %}
+{% block alias %}
 Patronus Charm
-{% endblock spell_name %}
+{% endblock alias %}
 
 
 {% block image_url %}
-
+{{ STATIC_URL }}images/patronus-charm.gif
 {% endblock image_url %}
 
-{% block spell_type %}
-Defensive Charm
-{% endblock spell_type %}
+{% block info_group %}
+<li class='list-group-item'>Creator: Ancient Wizard</li>
+<li class='list-group-item'>Incantation: Expecto Patronum</li>
+<li class='list-group-item'> Type: Defensive Spell</li>
+<li class='list-group-item'>Effected Creatures: Dementors and Lethifolds</li>
+<li class='list-group-item'> Difficulty: Extremely Hard</li>
+{% endblock info_group %}
 
-
-{% block incantation %}
-Expecto Patronum
-{% endblock incantation %}
-
-{% block aliases %}
-patronus charm
-{% endblock aliases %}
-
-{% block creator %}
-Ancient Wizard
-{% endblock creator %}
 
 {% block effect_description %}
-<p>Conjures a silver guardian spirit made of pure positive energy used to repel dark creatures such as <a href='/creatures/1'>Dementors</a> and Lethifolds and can be either corporeal or not.</p>
+<p>Conjures a silver guardian spirit made of pure positive energy used to repel dark creatures such as Dementors and Lethifolds and can be either corporeal or not.</p>
 
 <p>In a weaker form, a Patronus takes the form of smoke or vapor which can halt dark creatures but is not nearly strong enough to repel them. In its stronger form, a Patronus takes the form of some creature (corporeal form) that relates to the casters' personality and is by far more powerful than the non-corporeal form and able to repel dark creatures in large groups.</p>
+
+<p>This is very powerful and advanced magic, well beyond the capabilities of most students and even fully fledged wizards and witches. It requires the caster focus on the happiest memory that they can think of which often translates into the strength of the spell itself. Dark wizards and witches are typically unable to cast this spell either due to their already existing affinity for dark creatures and that there is a chance that the spell may backfire on them. <a href='/characters/3'>Harry Potter </a> was able to learn this from Remus Lupin during his third year to repel Dementor attacks.</p>
 
 {% endblock effect_description %}
 
 
 
-
-{% block affected_creatures %}
-<a href='/creatures/1'>Dementors</a><br/>
-{% endblock affected_creatures %}
-
-{% block misc %}
-<p>This is a very powerful spell that even many qualified witches and wizards cannot conjure. It requires the caster focus on the happiest memory that they can think of which often translates into the strength of the spell itself. Dark wizards and witches are typically unable to cast this spell either due to their already existing affinity for dark creatures and that there is a chance that the spell may backfire on them. Harry Potter was able to learn this from Remus Lupin during his third year to repel <a href='/creatures/1'>Dementor</a> attacks.</p>
-{% endblock misc %}
-
-{% block difficulty %}
-<p>Very Powerful and advanced magic, well beyond the capabilities of most students and even fully fledged wizards and witches.</p>
-{% endblock difficulty %}
-
 {% block uses %}
-<p> <a href='/characters/3'>Harry Potter</a> to repel a huge number of <a href='/creatures/1'>Dementors</a> from his past self and Sirius Black, teaches this to the members of Dumbledore's Army; Severus Snape uses his to guide Harry and Ron Weasley to the sword of Gryffindor; Various members of the <a href='/stories/3'>Order of the Phoenix</a> to send messages.
+<p> <a href='/characters/3'>Harry Potter</a> to repel a huge number of Dementors from his past self and Sirius Black, teaches this to the members of Dumbledore's Army; Severus Snape uses his to guide Harry and Ron Weasley to the sword of Gryffindor; Various members of the <a href='/stories/3'>Order of the Phoenix</a> to send messages.</p>
 
 {% endblock uses %}
