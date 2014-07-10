@@ -32,7 +32,7 @@ class CharacterTest(TestCase):
         r2.descriptor2 = 'son'
         r2.save()
 
-        self.assertTrue(argus.is_squib)
+        self.assertTrue(argus.is_squib())
 
     def test_harry_character(self):
         harry = lm.Character()
@@ -52,7 +52,7 @@ class CharacterTest(TestCase):
         r1.descriptor2 = 'professor'
         r1.save()
 
-        self.assertFalse(harry.is_squib)
+        self.assertFalse(harry.is_squib())
         self.assertEqual(harry.birthday, "7/31/1980")
         self.assertTrue(harry.magical)
 
@@ -74,7 +74,7 @@ class CharacterTest(TestCase):
         r1.descriptor2 = 'father'
         r1.save()
 
-        self.assertFalse(malfoy.is_squib)
+        self.assertFalse(malfoy.is_squib())
         self.assertEqual(malfoy.birthday, "6/5/1980")
         self.assertTrue(malfoy.magical)
 
