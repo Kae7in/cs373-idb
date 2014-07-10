@@ -94,6 +94,7 @@ class Potion(models.Model):
     difficulty = models.CharField(max_length = 1, choices = DIFFICULTIES)
     effects = models.TextField()
     notable_uses = models.TextField()
+    physical_description = models.TextField()
     ingredients = models.ManyToManyField(Ingredient, related_name = 'potions', null=True, blank=True)
     image = models.ImageField(upload_to = 'images/potions', default = 'images/empty.jpg')
 
