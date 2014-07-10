@@ -151,8 +151,8 @@ class Book(models.Model):
     description = models.TextField()
     author = models.ForeignKey(Character, related_name = 'books_published', blank=True, null=True)
     subjects = models.ManyToManyField(Character, null=True, blank=True, related_name='books_starred')
-    publisher = models.CharField(max_length = 200)
-    published_date = models.DateField()
+    publisher = models.CharField(max_length = 200, null=True, blank=True)
+    published_date = models.DateField(null=True, blank=True)
     image = models.ImageField(upload_to = 'images/books', default = 'images/empty.jpg')
 
     def __str__(self):              
