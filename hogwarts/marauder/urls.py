@@ -39,8 +39,9 @@ urlpatterns = patterns('django.views.generic.simple',
     (r'^shops/1$', TemplateView.as_view(template_name='shops/1.html')),
     (r'^shops/2$', TemplateView.as_view(template_name='shops/2.html')),
     (r'^shops/3$', TemplateView.as_view(template_name='shops/3.html')),
-
-    #Potions
-    (r'^potions/$', TemplateView.as_view(template_name='potions/index.html')),
-    (r'^potions/1$', TemplateView.as_view(template_name='potions/1.html')),
+    #Stories
+    (r'^stories/$', TemplateView.as_view(template_name='stories/index.html')),
+    (r'^stories/1$', TemplateView.as_view(template_name='stories/1.html')),
+    (r'^stories/2$', TemplateView.as_view(template_name='stories/2.html')),
+    (r'^stories/3$', TemplateView.as_view(template_name='stories/3.html')),
 )
