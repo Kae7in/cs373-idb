@@ -277,11 +277,10 @@ class PotionTest(TestCase):
         potion = lm.Potion()
         potion.title = "Felix Felices"
         potion.difficulty = 'A'
-        potion.description = "Its color is molten gold..."
+        potion.physical_description = "Its color is molten gold..."
         potion.recipe = 'Add to the cauldron an Ashwinder egg and horseradish before heating...'
         potion.effects = "Increases the drinker's luck. Overdose can..."
-        potion.usages = "Hermoine, Ginny and Ron used Felix Felices to evade the curses of Death Eaters..."
-        potion.more_info = "Also called \"Liquid Luck\", Felix Felices was invented..."
+        potion.notable_uses = "Hermoine, Ginny and Ron used Felix Felices to evade the curses of Death Eaters..."
         potion.save()
     
     def test_create_potion(self):
@@ -292,11 +291,10 @@ class PotionTest(TestCase):
         
         self.assertEqual("Felix Felices", potion_created.title)
         self.assertEqual("A", potion_created.difficulty)
-        self.assertEqual("Its color is molten gold...", potion_created.description)
+        self.assertEqual("Its color is molten gold...", potion_created.physical_description)
         self.assertEqual("Add to the cauldron an Ashwinder egg and horseradish before heating...", potion_created.recipe)
         self.assertEqual("Increases the drinker's luck. Overdose can...", potion_created.effects)
-        self.assertEqual("Hermoine, Ginny and Ron used Felix Felices to evade the curses of Death Eaters...", potion_created.usages)
-        self.assertEqual("Also called \"Liquid Luck\", Felix Felices was invented...", potion_created.more_info)
+        self.assertEqual("Hermoine, Ginny and Ron used Felix Felices to evade the curses of Death Eaters...", potion_created.notable_uses)
         self.assertEqual("images/empty.jpg", potion_created.image)
         all_ingredients = potion_created.ingredients.all()
         self.assertEqual(len(all_ingredients), 0)
@@ -446,8 +444,9 @@ class ArtifactTest(TestCase):
 
         artifact.name = "Pensieve"
         artifact.description = "The Pensieve is an object used to review memories. It has the appearance of a shallow stone basin, into which are carved runes and strange symbols. It is filled with a silvery substance that appears to be a cloud-like liquid/gas; the collected memories of people who have siphoned their recollections into it. Memories can then be viewed from a non-participant, third-person point of view."
-        artifact.owner = wizzy
         artifact.shop = shop
+        artifact.save()
+        artifact.owners.add(wizzy)
         artifact.save()
 
     def test_artifact_create(self):
@@ -467,10 +466,11 @@ class ArtifactTest(TestCase):
         a.save()
         self.assertEqual(a.image, "images/dummy-artifact.jpg")
 
-    def test_artifact_owner(self):
+    def test_artifact_owners(self):
         a = lm.Artifact.objects.first()
         w = lm.Character.objects.first()
-        self.assertEqual(a.owner, w)
+        owners = a.owners.all()
+        self.assertEqual(owners[0], w)
         # self.assertIs(a.owner, w) # TODO: Why are they different instances?
 
         # Reverse lookup. 
@@ -482,7 +482,6 @@ class ArtifactTest(TestCase):
         s = lm.Shop.objects.first()
         self.assertEqual(a.shop, s)
         self.assertEqual(a.shop.name, "Weasleys' Wizard Wheezes")
-        # self.assertIs(a.owner, w) # TODO: Why are they different instances?
 
         # Reverse lookup 
         artifact = s.artifacts.first()
@@ -499,6 +498,8 @@ class BookTest(TestCase):
         tales_of_beedle.name = "Tales Of Beedle The Bard"
         tales_of_beedle.description = "A book of stories that are pretty ok"
         tales_of_beedle.author = beedle
+        tales_of_beedle.published_date = date(1200, 1, 1)
+        tales_of_beedle.publisher = "Bludger's Books" 
         tales_of_beedle.save()
 
         brothers = lm.Story()
@@ -513,12 +514,22 @@ class BookTest(TestCase):
         book   = lm.Book.objects.first()
         self.assertEqual(book.name, "Tales Of Beedle The Bard")
         self.assertEqual(book.description, "A book of stories that are pretty ok")
+        self.assertEqual(book.published_date, date(1200, 1, 1))
+        self.assertEqual(book.publisher, "Bludger's Books")
 
     def test_book_author(self):
         book   = lm.Book.objects.first()
         author = lm.Character.objects.first()
         self.assertEqual(book.author, author)
-        self.assertEqual(author.books.first(), book)
+        self.assertEqual(author.books_published.first(), book)
+
+    def test_book_subjects(self):
+        book   = lm.Book.objects.first()
+        author = lm.Character.objects.first()
+        beedle = book.author
+        book.subjects.add(beedle)
+        book.save()
+        self.assertEqual(book.subjects.all()[0], beedle)
 
     def test_book_story(self):
         book   = lm.Book.objects.first()
@@ -568,7 +579,6 @@ class RelationshipTest(TestCase):
         rel.descriptor1 = "BEST FRIENDS FOREVER! <3"
         rel.save()
         
-
     def test_create_relationship(self):
         rel = lm.Relationship.objects.first()
         self.assertEqual(rel.character1, lm.Character.objects.first())
