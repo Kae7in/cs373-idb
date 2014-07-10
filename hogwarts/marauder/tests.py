@@ -34,6 +34,50 @@ class CharacterTest(TestCase):
 
         self.assertTrue(argus.is_squib)
 
+    def test_harry_character(self):
+        harry = lm.Character()
+        harry.name = 'Harry Potter'
+        harry.magical = True
+        harry.birthday = "7/31/1980"
+        harry.save()
+
+        snape = lm.Character()
+        snape.magical = True
+        snape.save()
+
+        r1 = lm.Relationship()
+        r1.character1 = harry
+        r1.descriptor1 = 'student'
+        r1.character2 = snape
+        r1.descriptor2 = 'professor'
+        r1.save()
+
+        self.assertFalse(harry.is_squib)
+        self.assertEqual(harry.birthday, "7/31/1980")
+        self.assertTrue(harry.magical)
+
+    def test_malfoy_character(self):
+        malfoy = lm.Character()
+        malfoy.name = 'Draco Malfoy'
+        malfoy.magical = True
+        malfoy.birthday = "6/5/1980"
+        malfoy.save()
+
+        dad = lm.Character()
+        dad.magical = True
+        dad.save()
+
+        r1 = lm.Relationship()
+        r1.character1 = malfoy
+        r1.descriptor1 = 'son'
+        r1.character2 = dad
+        r1.descriptor2 = 'father'
+        r1.save()
+
+        self.assertFalse(malfoy.is_squib)
+        self.assertEqual(malfoy.birthday, "6/5/1980")
+        self.assertTrue(malfoy.magical)
+
 
 class CreatureTest(TestCase):
     def setUp(self):
@@ -481,3 +525,83 @@ class BookTest(TestCase):
         story  = lm.Story.objects.first()
         self.assertEqual(story.book, book)
         self.assertEqual(book.story.first(), story)
+
+class IngredientTest(TestCase):
+    def setUp(self):
+        ingredient = lm.Ingredient()
+        ingredient.name = "Hippogriff Talon"
+        hippogriff = lm.Creature()
+        hippogriff.name = "Hippogriff"
+        hippogriff.description = "."
+        hippogriff.classification = "Beast"
+        hippogriff.rating = "3"
+        hippogriff.save()
+        ingredient.creature = hippogriff
+        ingredient.save()
+
+    def test_ingredient_create(self):
+        ing   = lm.Ingredient.objects.first()
+        self.assertEqual(ing.name, "Hippogriff Talon")
+        self.assertEqual(ing, lm.Ingredient.objects.first())
+
+    def test_ingredient_attributes(self):
+        ing = lm.Ingredient.objects.first()
+        self.assertEqual(ing.name, "Hippogriff Talon")
+        self.assertEqual(ing.creature, lm.Creature.objects.first())
+
+
+    def test_ingredient_relationship(self):
+        ingredient   = lm.Ingredient.objects.first()
+        self.assertEqual(ingredient.creature, lm.Creature.objects.first())
+
+class RelationshipTest(TestCase):
+    def setUp(self):
+        char1 = lm.Character()
+        char1.name = "Harry Potter"
+        char1.save()
+        char2 = lm.Character()
+        char2.name = "Ron Weasley" 
+        char2.save()
+        rel = lm.Relationship()
+        rel.character1 = char1
+        rel.character2 = char2
+        rel.descriptor1 = "BEST FRIENDS FOREVER! <3"
+        rel.save()
+        
+
+    def test_create_relationship(self):
+        rel = lm.Relationship.objects.first()
+        self.assertEqual(rel.character1, lm.Character.objects.first())
+        self.assertEqual(rel.character2, lm.Character.objects.all()[1])
+        self.assertEqual(rel.descriptor1, "BEST FRIENDS FOREVER! <3")
+        
+    def test_create_relationship2(self):
+        rel = lm.Relationship.objects.first()
+        self.assertEqual(rel.character1.name, lm.Character.objects.first().name)
+        self.assertEqual(rel.character2.name, lm.Character.objects.all()[1].name)
+
+class AcademicTest(TestCase):
+    def setUp(self):
+        snape = lm.Character()
+        snape.name = "Severus Snape"
+        snape.save()
+        hogwarts = lm.School()
+        hogwarts.name = "Hogwarts School of Witchcraft and Wizardry"
+        hogwarts.save()
+        
+        academic = lm.Academic()
+        academic.school = hogwarts
+        academic.character = snape
+        academic.descriptor = "professor"
+        academic.save()
+
+    def test_create_academic(self):
+        academic = lm.Academic.objects.first()
+        self.assertEqual(academic.character.name, "Severus Snape")
+        self.assertEqual(academic.descriptor, "professor")
+        self.assertEqual(academic.school.name, "Hogwarts School of Witchcraft and Wizardry")
+
+    def test_create_academic2(self):
+        academic = lm.Academic.objects.first()
+        self.assertEqual(academic.character, lm.Character.objects.first())
+        self.assertEqual(academic.school, lm.School.objects.first())  

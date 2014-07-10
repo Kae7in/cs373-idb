@@ -2,31 +2,35 @@ from django.db import models
 # Create your models here.
 class Character(models.Model):
     #descriptors
-    character_id = models.CharField(max_length = 100)
     name = models.CharField(max_length = 100)
-    birthday = models.CharField(max_length = 100)
+    wand = models.CharField(max_length = 150)
     description = models.TextField()
     magical = models.BooleanField(default=True)
-    quotes = models.TextField()
-    images = models.ImageField(upload_to = 'images/characters', default = 'images/empty.jpg')
+    quote = models.TextField()
+    quote_by = models.CharField(max_length = 200)
+    image = models.ImageField(upload_to = 'images/characters', default = 'images/empty.jpg')
 
     #relationships
-    creature = models.ForeignKey('Creature', related_name="characters", blank=True, null=True)
-    shop = models.ForeignKey('Shop', related_name="owners", blank=True, null=True)
+    creature = models.ForeignKey('Creature', blank=True, null=True, related_name = 'characters')
+    house = models.ForeignKey('House', blank=True, null=True, related_name = 'students')
+    shop = models.ForeignKey('Shop', blank=True, null=True, related_name='owners')
 
     def is_squib(self):
         for relation in self.relationships.all():
             if(relation.character1 == self):
-                other_id = relation.character2
+                other_id = relation.character2.id
                 other_desc = relation.descriptor2
             else:
                 other_id = relation.character1.id
                 other_desc = relation.descriptor1
             if(other_desc == 'mother' or other_desc == 'father'):
                 parent = Character.objects.get(pk=other_id)
-                if(parent.magical):
+                if(parent.magical and self.magical == False):
                     return True
         return False
+
+    def __str__(self):
+        return self.name
 
 class Creature(models.Model):
     name = models.CharField(max_length=50)
@@ -76,6 +80,9 @@ class Ingredient(models.Model):
     name = models.CharField(max_length = 100)
     creature = models.ForeignKey('Creature', null=True, blank=True, related_name = 'ingredients')
 
+    def __str__(self):
+        return self.name
+
 class Potion(models.Model):
 
     DIFFICULTIES = (
@@ -85,15 +92,11 @@ class Potion(models.Model):
     )
     title = models.CharField(max_length = 100)
     difficulty = models.CharField(max_length = 1, choices = DIFFICULTIES)
-    description = models.TextField()
     effects = models.TextField()
-    recipe = models.TextField()
-    usages = models.TextField()
-    more_info = models.TextField()
+    notable_uses = models.TextField()
+    physical_description = models.TextField()
     ingredients = models.ManyToManyField(Ingredient, related_name = 'potions', null=True, blank=True)
     image = models.ImageField(upload_to = 'images/potions', default = 'images/empty.jpg')
-    characters = models.ManyToManyField(Character, related_name = 'potions', blank=True, null=True)
-    other_potions = models.ManyToManyField('Potion', related_name = 'potions', blank=True, null=True)
 
     def __str__(self):
         return self.title
@@ -122,20 +125,20 @@ class School(Location):
         return self.name
 
 class House(School):
-    school = models.ForeignKey(School, related_name = 'child_houses')
+    school = models.ForeignKey(School, related_name = 'houses')
     
     def __str__(self):
         return self.name
 
 class Shop(Location):
-    location = models.ForeignKey(Location, related_name = 'child_shops', blank=True, null=True)
+    location = models.ForeignKey(Location, related_name = 'shops', blank=True, null=True)
 
 class Artifact(models.Model):
     name = models.CharField(max_length=100)
     description = models.TextField()
     kind = models.CharField(max_length=100, blank=True)
     image = models.ImageField(upload_to='images/artifacts', default='images/empty.jpg')
-    owner = models.ForeignKey(Character, related_name = 'artifacts', blank=True, null=True)
+    owners = models.ManyToManyField(Character, related_name = 'artifacts', blank=True, null=True)
     shop  = models.ForeignKey(Shop, related_name='artifacts', blank=True, null=True)
 
     def __str__(self):              
@@ -144,7 +147,11 @@ class Artifact(models.Model):
 class Book(models.Model):
     name = models.CharField(max_length=100)
     description = models.TextField()
-    author = models.ForeignKey(Character, related_name = 'books', blank=True, null=True)
+    author = models.ForeignKey(Character, related_name = 'books_published', blank=True, null=True)
+    subjects = models.ManyToManyField(Character, null=True, blank=True, related_name='books_starred')
+    publisher = models.CharField(max_length = 200, null=True, blank=True)
+    published_date = models.DateField(null=True, blank=True)
+    image = models.ImageField(upload_to = 'images/books', default = 'images/empty.jpg')
 
     def __str__(self):              
         return self.name
@@ -158,6 +165,7 @@ class Story(models.Model):
     characters = models.ManyToManyField('Character', related_name = 'stories')
     artifacts = models.ManyToManyField('Artifact', related_name = 'stories')
     locations = models.ManyToManyField('Location', related_name = 'stories')
+    image = models.ImageField(upload_to = 'images/stories', default = 'images/empty.jpg')
 
     def century(self):
         return self.date.year // 100 + 1
@@ -181,10 +189,8 @@ class Academic(models.Model):
     descriptor = models.CharField(max_length=10, choices=DESCRIPTORS)
 
 class Relationship(models.Model):
-    #descriptors
-    relation_id = models.CharField(max_length = 100)
-
     #relationships
     character1 = models.ForeignKey(Character, related_name = "relationship1", blank=True, null=True)
     character2 = models.ForeignKey(Character, related_name = "relationship2", blank=True, null=True)
-    descriptor1 = models.TextField()
+    descriptor1 = models.CharField(max_length='100')
+    descriptor2 = models.CharField(max_length='100')
