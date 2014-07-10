@@ -446,8 +446,9 @@ class ArtifactTest(TestCase):
 
         artifact.name = "Pensieve"
         artifact.description = "The Pensieve is an object used to review memories. It has the appearance of a shallow stone basin, into which are carved runes and strange symbols. It is filled with a silvery substance that appears to be a cloud-like liquid/gas; the collected memories of people who have siphoned their recollections into it. Memories can then be viewed from a non-participant, third-person point of view."
-        artifact.owner = wizzy
         artifact.shop = shop
+        artifact.save()
+        artifact.owners.add(wizzy)
         artifact.save()
 
     def test_artifact_create(self):
@@ -467,10 +468,11 @@ class ArtifactTest(TestCase):
         a.save()
         self.assertEqual(a.image, "images/dummy-artifact.jpg")
 
-    def test_artifact_owner(self):
+    def test_artifact_owners(self):
         a = lm.Artifact.objects.first()
         w = lm.Character.objects.first()
-        self.assertEqual(a.owner, w)
+        owners = a.owners.all()
+        self.assertEqual(owners[0], w)
         # self.assertIs(a.owner, w) # TODO: Why are they different instances?
 
         # Reverse lookup. 
@@ -482,7 +484,6 @@ class ArtifactTest(TestCase):
         s = lm.Shop.objects.first()
         self.assertEqual(a.shop, s)
         self.assertEqual(a.shop.name, "Weasleys' Wizard Wheezes")
-        # self.assertIs(a.owner, w) # TODO: Why are they different instances?
 
         # Reverse lookup 
         artifact = s.artifacts.first()
@@ -499,6 +500,8 @@ class BookTest(TestCase):
         tales_of_beedle.name = "Tales Of Beedle The Bard"
         tales_of_beedle.description = "A book of stories that are pretty ok"
         tales_of_beedle.author = beedle
+        tales_of_beedle.published_date = date(1200, 1, 1)
+        tales_of_beedle.publisher = "Bludger's Books" 
         tales_of_beedle.save()
 
         brothers = lm.Story()
@@ -513,12 +516,22 @@ class BookTest(TestCase):
         book   = lm.Book.objects.first()
         self.assertEqual(book.name, "Tales Of Beedle The Bard")
         self.assertEqual(book.description, "A book of stories that are pretty ok")
+        self.assertEqual(book.published_date, date(1200, 1, 1))
+        self.assertEqual(book.publisher, "Bludger's Books")
 
     def test_book_author(self):
         book   = lm.Book.objects.first()
         author = lm.Character.objects.first()
         self.assertEqual(book.author, author)
-        self.assertEqual(author.books.first(), book)
+        self.assertEqual(author.books_published.first(), book)
+
+    def test_book_subjects(self):
+        book   = lm.Book.objects.first()
+        author = lm.Character.objects.first()
+        beedle = book.author
+        book.subjects.add(beedle)
+        book.save()
+        self.assertEqual(book.subjects.all()[0], beedle)
 
     def test_book_story(self):
         book   = lm.Book.objects.first()
@@ -568,7 +581,6 @@ class RelationshipTest(TestCase):
         rel.descriptor1 = "BEST FRIENDS FOREVER! <3"
         rel.save()
         
-
     def test_create_relationship(self):
         rel = lm.Relationship.objects.first()
         self.assertEqual(rel.character1, lm.Character.objects.first())
