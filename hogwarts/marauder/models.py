@@ -126,7 +126,7 @@ class School(Location):
     def __str__(self):
         return self.name
 
-class House(Location):
+class House(School):
     school = models.ForeignKey(School, related_name = 'houses')
     
     def __str__(self):
