@@ -277,11 +277,10 @@ class PotionTest(TestCase):
         potion = lm.Potion()
         potion.title = "Felix Felices"
         potion.difficulty = 'A'
-        potion.description = "Its color is molten gold..."
+        potion.physical_description = "Its color is molten gold..."
         potion.recipe = 'Add to the cauldron an Ashwinder egg and horseradish before heating...'
         potion.effects = "Increases the drinker's luck. Overdose can..."
-        potion.usages = "Hermoine, Ginny and Ron used Felix Felices to evade the curses of Death Eaters..."
-        potion.more_info = "Also called \"Liquid Luck\", Felix Felices was invented..."
+        potion.notable_uses = "Hermoine, Ginny and Ron used Felix Felices to evade the curses of Death Eaters..."
         potion.save()
     
     def test_create_potion(self):
@@ -292,11 +291,10 @@ class PotionTest(TestCase):
         
         self.assertEqual("Felix Felices", potion_created.title)
         self.assertEqual("A", potion_created.difficulty)
-        self.assertEqual("Its color is molten gold...", potion_created.description)
+        self.assertEqual("Its color is molten gold...", potion_created.physical_description)
         self.assertEqual("Add to the cauldron an Ashwinder egg and horseradish before heating...", potion_created.recipe)
         self.assertEqual("Increases the drinker's luck. Overdose can...", potion_created.effects)
-        self.assertEqual("Hermoine, Ginny and Ron used Felix Felices to evade the curses of Death Eaters...", potion_created.usages)
-        self.assertEqual("Also called \"Liquid Luck\", Felix Felices was invented...", potion_created.more_info)
+        self.assertEqual("Hermoine, Ginny and Ron used Felix Felices to evade the curses of Death Eaters...", potion_created.notable_uses)
         self.assertEqual("images/empty.jpg", potion_created.image)
         all_ingredients = potion_created.ingredients.all()
         self.assertEqual(len(all_ingredients), 0)

@@ -93,6 +93,7 @@ class Potion(models.Model):
     title = models.CharField(max_length = 100)
     difficulty = models.CharField(max_length = 1, choices = DIFFICULTIES)
     effects = models.TextField()
+    recipe = models.TextField()
     notable_uses = models.TextField()
     physical_description = models.TextField()
     ingredients = models.ManyToManyField(Ingredient, related_name = 'potions', null=True, blank=True)
