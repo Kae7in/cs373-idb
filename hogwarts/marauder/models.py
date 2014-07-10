@@ -6,7 +6,7 @@ class Character(models.Model):
     wand = models.CharField(max_length = 150)
     description = models.TextField()
     magical = models.BooleanField(default=True)
-    quotes = models.TextField()
+    quote = models.TextField()
     quote_by = models.CharField(max_length = 200)
     image = models.ImageField(upload_to = 'images/characters', default = 'images/empty.jpg')
 
@@ -126,7 +126,7 @@ class School(Location):
     def __str__(self):
         return self.name
 
-class House(Location):
+class House(School):
     school = models.ForeignKey(School, related_name = 'houses')
     
     def __str__(self):
