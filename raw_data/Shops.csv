@@ -1,3 +1,4 @@
-Weasley's Wizard Wheezes,A joke shop that sells many types of magical gag items and gifts,photo,Fred and George Weasley,Diagon Alley
-Ollivander's Wand Shop,A wand shop where wizards go to typically get their first wand or a replacement should something have happened to the original.,photo,Garrick Ollivander,Diagon Alley
-Borgin and Burks's,"A small shop that typically sells trinkets and artifacts, most, if not all, of which have dark purposes as they are typically associated with dark magic.",photo,Mr. Borgin and Mr. Burk,Knockturn Alley
+name;description;kind;image;Owners;Locations
+Weasley's Wizard Wheezes;A joke shop that sells many types of magical gag items and gifts;shop;None;Fred Weasley, George Weasley;Diagon Alley, Hogsmeade
+Ollivander's Wand Shop;A wand shop where wizards go to typically get their first wand or a replacement should something have happened to the original.;shop;None;Garrick Ollivander;Diagon Alley, Hogsmeade
+Borgin and Burkes's;A small shop that typically sells trinkets and artifacts, most, if not all, of which have dark purposes as they are typically associated with dark magic.;shop;None;Mr. Borgin, Mr. Burk;Knockturn Alley
