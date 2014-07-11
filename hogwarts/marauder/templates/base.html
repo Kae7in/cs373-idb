@@ -11,7 +11,6 @@
 		<script src="{{ STATIC_URL }}js/bootstrap.min.js"></script>
 		{% block scripts %}{% endblock scripts %}
 	</head>
-  
   <body>
     <div class="jumbotron customjumbo">
 			<h1 class="text-center">Marauder's Map</h1>
@@ -39,7 +38,7 @@
               </h2>
             </div>  <!-- /panel-heading -->
 
-            <div id="collapseOne" class="panel-collapse collapse">
+            <div id="collapseOne" class="panel-collapse collapse {% block character_active %}{% endblock character_active %}">
               <ul class="panel-body">                  
                 <h5><a href="../characters/1">Albus Dumbledore</a></h3> 
                 <h5><a href="../characters/2">Ariana Dumbledore</a></h3>
@@ -55,7 +54,7 @@
               </h2>
             </div>  <!-- /panel-heading -->
 
-            <div id="collapseTwo" class="panel-collapse collapse">
+            <div id="collapseTwo" class="panel-collapse collapse {% block story_active %}{% endblock story_active %}">
               <ul class="panel-body">                  
                 <h5><a href="../stories/1">Deathly Hallows</a></h3> 
                 <h5><a href="../stories/2">The Boy Who Lived</a></h3>
@@ -71,7 +70,7 @@
               </h2>
             </div>  <!-- /panel-heading -->
 
-            <div id="collapseThree" class="panel-collapse collapse">
+            <div id="collapseThree" class="panel-collapse collapse {% block artifact_active %}{% endblock artifact_active %}">
               <div class="panel-body">                  
                 <h5><a href="../artifacts/1">Pensieve</a></h3> 
                 <h5><a href="../artifacts/2">Elder Wand</a></h3>
@@ -87,7 +86,7 @@
               </h2>
             </div>  <!-- /panel-heading -->
 
-            <div id="collapseFour" class="panel-collapse collapse">
+            <div id="collapseFour" class="panel-collapse collapse {% block spell_active %}{% endblock spell_active %}">
               <div class="panel-body">                  
                 <h5><a href="../spells/1">Patronus Charm</a></h3> 
                 <h5><a href="../spells/2">Boggart Vanishing Charm</a></h3>
@@ -103,7 +102,7 @@
               </h2>
             </div>  <!-- /panel-heading -->
 
-            <div id="collapseFive" class="panel-collapse collapse">
+            <div id="collapseFive" class="panel-collapse collapse {% block potion_active %}{% endblock potion_active %}">
               <div class="panel-body">                  
                 <h5><a href="../potions/1">Amortentia</a></h3> 
                 <h5><a href="../potions/2">Veritaserum</a></h3>
