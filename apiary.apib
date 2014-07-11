@@ -1,0 +1,538 @@
+FORMAT: 1A
+HOST: http://domoench.pythonanywhere.com/api/
+
+# Marauders Map
+An API to access resources in our [Harry Potter database](https://github.com/Kae7in/cs373-idb)
+
+
+## Characters Collection [/characters]
+### List all Characters [GET]
++ Response 200 (application/json)
+
+        [{
+            "id": 1, 
+            "name": "Albus Dumbledore", 
+            "wand": "15 inch elder wood with thestral hair",
+            "description": "Albus Dumbledore is considered one of the greatest headmaster of Hogwarts School of Witchcraft and Wizardry and the most powerful wizard of his time. Dumbledore holds the Order of Merlin, First Class, for Grand Sorcery. He was the headmaster while Harry Potter attended school and also a professor while Tom Riddle, who would later become Voldemort, attended school. Dumbledore founded the Order of the Phoenix, a resistance against the reign of the dark wizard Voldemort, and he was the only wizard of which Voldemort was afraid.",
+            "magical": true,
+            "birthday": "1881-01-01",
+            "quote": "It does not do to dwell on dreams and forget to live. Remember that.",
+            "quote_by": "Albus Dumbledore"
+        }, {
+            "id": 2, 
+            "name": "Hermione Granger", 
+            "wand": "12 & 3/4" walnut dragon heartstring",
+            "description": "A wizard girl",
+            "magical": true,
+            "birthday": null,
+            "quotes": null,
+            "quote_by": null
+        }]
+
+## Character [/characters/{id}]
+A single Character object with all its details
+
++ Parameters
+    + id (required, number, `1`) ... Numeric `id` of the Character to perform action with.
+
+### Retrieve a Character [GET]
++ Response 200 (application/json)
+
+    + Header
+
+            Content-type: UTF-8
+
+    + Body
+
+            {
+                "id": 1, 
+                "name": "Albus Dumbledore", 
+                "wand": "15 inch elder wood with thestral hair",
+                "description": "Albus Dumbledore is considered one of the greatest headmaster of Hogwarts School of Witchcraft and Wizardry and the most powerful wizard of his time. Dumbledore holds the Order of Merlin, First Class, for Grand Sorcery. He was the headmaster while Harry Potter attended school and also a professor while Tom Riddle, who would later become Voldemort, attended school. Dumbledore founded the Order of the Phoenix, a resistance against the reign of the dark wizard Voldemort, and he was the only wizard of which Voldemort was afraid.",
+                "magical": true,
+                "birthday": "1881-01-01",
+                "quote": "It does not do to dwell on dreams and forget to live. Remember that.",
+                "quote_by": "Albus Dumbledore"
+            }
+
+## Location Collection [/locations]
+### List all Locations [GET]
++ Response 200 (application/json)
+
+        [
+            {
+                "id": "1",
+                "name": "Diagon Alley",
+                "description": "A shopping area in the form of an stoned paved alley that is located in London. It has an assortment of shops and restaurants and is also the home to the wizard bank of Gringots. It is typically the shopping district where all students go to purchase their supplies for the upcoming school year.",
+                "kind": null
+            },{
+                "id": "2",
+                "name": "Hogsmeade",
+                "description": "The only All-wizarding village in Britain, Hogsmeade is a small villiage that contains a few shops and pubs that both third year or higher students and teachers tend to go some when a school trip has been planned.",
+                "kind": null
+            }
+        ]
+        
+## Location [/locations/{id}]
+A single Location object with all its details
+
++ Parameters
+    + id (required, number, `1`) ... Numeric `id` of the Location to perform action with.
+
+### Retrieve a Location [GET]
++ Response 200 (application/json)
+
+    + Header
+
+            Content-type: UTF-8
+
+    + Body
+
+            {
+                "id": "1",
+                "name": "Diagon Alley",
+                "description": "A shopping area in the form of an stoned paved alley that is located in London. It has an assortment of shops and restaurants and is also the home to the wizard bank of Gringots. It is typically the shopping district where all students go to purchase their supplies for the upcoming school year.",
+                "kind": null
+            }
+
+## Houses Collection [/houses]
+### List all Houses [GET]
++ Response 200 (application/json)
+
+        [{
+            "id": 1,
+            "name": "Gryffindor",
+            "description": "Everyone wants to be in Gryffindor.",
+            "school": 1,
+            "ghost": "Nearly-Headless Nick",
+            "colors": "Red and gold",
+            "mascot": "Lion",
+            "quote": "You might belong in Gryffindor, Where dwell the brave at heart, Their daring, nerve and chivalry set Gryffindors apart.",
+            "quote_by": "Sorting Hat"
+            
+        }, {
+            "id": 2,
+            "name": Slytherin,
+            "description": "Well, not everyone.",
+            "school": 1,
+            "ghost": "The Bloody Baron",
+            "colors": "Green and silver",
+            "mascot": "Serpent",
+            "quote": "Or perhaps in Slytherin, You'll make your real friends, Those cunning folk use any means, To achieve their ends.",
+            "quote_by": "Sorting Hat"
+        }]
+
+## House [/houses/{id}]
+A single House object with all its details
+
++ Parameters
+    + id (required, number, `1`) ... Numeric `id` of the House to perform action with.
+
+### Retrieve a House [GET]
++ Response 200 (application/json)
+
+    + Header
+
+            Content-type: UTF-8
+
+    + Body
+
+            {
+                "id": 1,
+                "name": "Gryffindor",
+                "description": "Everyone wants to be in Gryffindor.",
+                "school": 1,
+                "ghost": "Nearly-Headless Nick",
+                "colors": "Red and gold",
+                "mascot": "Lion",
+                "quote": "You might belong in Gryffindor, Where dwell the brave at heart, Their daring, nerve and chivalry set Gryffindors apart.",
+                "quote_by": "Sorting Hat"
+            }
+
+## Schools Collection [/schools]
+### List all Schools [GET]
++ Response 200 (application/json)
+
+        [{
+            "id": 1,
+            "name": "Hogwarts",
+            "description": "Land of Harry",
+            "country": "United Kingdom"
+        }, {
+            "id": 2,
+            "name": "Beauxbatons Academy of Magic",
+            "description": "Fleur Delacour Foreveurmour!",
+            "country": "France"
+        }]
+
+## School [/schools/{id}]
+A single School object with all its details
+
++ Parameters
+    + id (required, number, `1`) ... Numeric `id` of the School to perform action with.
+
+### Retrieve a School [GET]
++ Response 200 (application/json)
+
+    + Header
+
+            Content-type: UTF-8
+
+    + Body
+
+            {
+                "id": 1,
+                "name": "Hogwarts",
+                "description": "Land of Harry",
+                "country": "United Kingdom"
+            }
+
+## Stories Collection [/stories]
+### List all Stories [GET]
++ Response 200 (application/json)
+
+        [{
+            "id": 1,
+            "name": "Deathly Hallows",
+            "description": "Harry Potter was born on July 31st, 1980, to Lily and James Potter. His parents were members of the Order of the Phoenix, an organization dedicated to bringing about the ruin of Lord Voldemort. From birth, he lived in hiding with his parents after Voldemort marked him, and Neville Longbottom, for death. Neville was born just a few hours before Harry Potter. Voldemort feared the boys because of The Prophecy.",
+            "date": "13th Century",
+            "book": 2,
+            "kind": "Legend",
+            "characters": [3, 1, 21],
+            "artifacts": [1, 3, 6],
+            "locations": []
+        }, {
+            "id": 1,
+            "name": "The Boy Who Lived",
+            "description": "Harry Potter was born on July 31st, 1980, to Lily and James Potter. His parents were members of the Order of the Phoenix, an organization dedicated to bringing about the ruin of Lord Voldemort. From birth, he lived in hiding with his parents after Voldemort marked him, and Neville Longbottom, for death. Neville was born just a few hours before Harry Potter. Voldemort feared the boys because of The Prophecy.",
+            "date": "1980-10-31",
+            "book": 2,
+            "kind": "History",
+            "characters": [3, 1, 21],
+            "artifacts": [1],
+            "locations": [3]
+        }]
+
+## Story [/stories/{id}]
+A single Story object with all its details
+
++ Parameters
+    + id (required, number, `1`) ... Numeric `id` of the Story to perform action with.
+
+### Retrieve a Story [GET]
++ Response 200 (application/json)
+
+    + Header
+
+            Content-type: UTF-8
+
+    + Body
+
+            {
+                "id": 1,
+                "name": "Deathly Hallows",
+                "description": "Harry Potter was born on July 31st, 1980, to Lily and James Potter. His parents were members of the Order of the Phoenix, an organization dedicated to bringing about the ruin of Lord Voldemort. From birth, he lived in hiding with his parents after Voldemort marked him, and Neville Longbottom, for death. Neville was born just a few hours before Harry Potter. Voldemort feared the boys because of The Prophecy.",
+                "date": "13th Century",
+                "book": 2,
+                "kind": "Legend",
+                "characters": [3, 1, 21],
+                "artifacts": [1, 3, 6],
+                "locations": []
+            }
+
+## Artifacts Collection [/artifacts]
+### List all Artifacts [GET]
++ Response 200 (application/json)
+
+        [{
+            "id": 1,
+            "name": "Pensieve",
+            "description": "The Pensieve is an object used to review memories. It has the appearance of a shallow stone basin, into which are carved runes and strange symbols. It is filled with a silvery substance that appears to be a cloud-like liquid/gas; the collected memories of people who have siphoned their recollections into it. Memories can then be viewed from a non-participant, third-person point of view.",
+            "owners": [1, 5]
+            "stories": null,
+            "kind": "",
+            "shop": null
+        }, {
+            "id": 2,
+            "name": "Elder Wand",
+            "description": "The Elder Wand is one of the fabled Deathly Hallows. In the "Tale of the Three Brothers" it was the first Hallow created, bestowed on Antioch Peverell, supposedly by Death himself after the wizard requested, as his bounty, the most powerful wand in the history of wizardkind. According to legend, whoever reunited it with the other two Hallows, the Resurrection Stone and the Cloak of Invisibility, would become the Master of Death.",
+            "owners": [6],
+            "stories": [1, 4],
+            "kind": "Deathly Hallows",
+            "shop": null
+        }]
+
+## Artifact [/artifacts/{id}]
+A single Artifact object with all its details
+
++ Parameters
+    + id (required, number, `1`) ... Numeric `id` of the Artifact to perform action with.
+
+### Retrieve a Artifact [GET]
++ Response 200 (application/json)
+
+    + Header
+
+            Content-type: UTF-8
+
+    + Body
+
+            {
+                "id": 1,
+                "name": "Pensieve",
+                "description": "The Pensieve is an object used to review memories. It has the appearance of a shallow stone basin, into which are carved runes and strange symbols. It is filled with a silvery substance that appears to be a cloud-like liquid/gas; the collected memories of people who have siphoned their recollections into it. Memories can then be viewed from a non-participant, third-person point of view.",
+                "owners": [1, 5]
+                "stories": null,
+                "kind": "",
+                "shop": null
+            }
+
+
+## Books Collection [/books]
+### List all Books [GET]
++ Response 200 (application/json)
+
+        [{
+            "id": 1,
+            "name": "The Tales of Beedle The Bard",
+            "description": "The Tales of Beedle the Bard is a collection of stories written for young wizards and witches, published by Chelf Press. They were popular bedtime stories for centuries, with the result that The Wizard and the Hopping Pot and The Fountain of Fair Fortune were as familiar to many of the students at Hogwarts as Cinderella and Sleeping Beauty are to various Muggle children.",
+            "author": 6,
+            "subjects": [3, 1],
+            "publisher": null,
+            "published_date": null
+        }, {
+            "id": 2,
+            "name": "Magical Me",
+            "description": "Magical Me is the autobiography of Gilderoy Lockhart, part of his collected works. It includes much of his (later proven false) achievements.",
+            "author": 21,
+            "subjects": [5],
+            "publisher": null,
+            "published_date": null
+        }]
+
+## Book [/books/{id}]
+A single Book object with all its details
+
++ Parameters
+    + id (required, number, `1`) ... Numeric `id` of the Book to perform action with.
+
+### Retrieve a Book [GET]
++ Response 200 (application/json)
+
+    + Header
+
+            Content-type: UTF-8
+
+    + Body
+
+            {
+                "id": 1,
+                "name": "The Tales of Beedle The Bard",
+                "description": "The Tales of Beedle the Bard is a collection of stories written for young wizards and witches, published by Chelf Press. They were popular bedtime stories for centuries, with the result that The Wizard and the Hopping Pot and The Fountain of Fair Fortune were as familiar to many of the students at Hogwarts as Cinderella and Sleeping Beauty are to various Muggle children.",
+                "author": 6,
+                "subjects": [3, 1],
+                "publisher": null,
+                "published_date": null
+            }
+
+## Potions Collection [/potions]
+### List all Potions [GET]
++ Response 200 (application/json)
+
+        [{
+            "id": 1,
+            "title": "Veritaserum",
+            "difficulty": "Advanced",
+            "physical_description": "No color and no odor.",
+            "effects": "The drinker is forced to answer any question with whatever they believe is the truth.",
+            "recipe": "It must be brewed for 28 days, or one lunar phase.",
+            "notable_uses": "Veritaserum was used When Dumbledore found out that Barty Crouch Jr. was disguised as Alastor Moody, the Defence Against the Dark Arts teacher.",
+            "ingredients": [3, 1]
+        }, {
+            "id": 2,
+            "title": "Felix Felices",
+            "difficulty": "Advanced",
+            "physical_description": "Its color is molten gold. When inside a cauldron, drops of the liquid will leap above the surface",
+            "effects": "Increases the luck of the drinker. Overdose can induce giddiness and recklessness. Large quantities can be toxic.",
+            "recipe": "Add to the cauldron an Ashwinder egg and horseradish before heating. Then add a juiced squill bulb and stir. Add chopped Murtlap tentacle to mixture and heat again. Then add a dash of tincture of thyme before stirring slowly. Add ground Occamy eggshell. Stir slowly and heat again. Sprinkle powdered common rue over the mixture before stirring and heating again. Then make a figure-eight motion over the cauldron with the wand and say the incantation, Felixempra!. Needs to be brewed for six months.",
+            "notable_uses": "Hermoine, Ginny and Ron used Felix Felices to evade the curses of Death Eaters. Horace Slughorn used this potion at 24 and 57 years old. It gave him one perfect day each time. Professor Slughorn awarded Harry enough potion for 12 hours of luck for producing the most effective Draught of Living Death potion of anyone in his class.",
+            "ingredients": [6]
+        }]
+
+## Potion [/potions/{id}]
+A single Potion object with all its details
+
++ Parameters
+    + id (required, number, `1`) ... Numeric `id` of the Potion to perform action with.
+
+### Retrieve a Potion [GET]
++ Response 200 (application/json)
+
+    + Header
+
+            Content-type: UTF-8
+
+    + Body
+
+            {
+                "id": 1,
+                "title": "Veritaserum",
+                "difficulty": "Advanced",
+                "physical_description": "No color and no odor.",
+                "effects": "The drinker is forced to answer any question with whatever they believe is the truth.",
+                "recipe": "It must be brewed for 28 days, or one lunar phase.",
+                "notable_uses": "Veritaserum was used When Dumbledore found out that Barty Crouch Jr. was disguised as Alastor Moody, the Defence Against the Dark Arts teacher.",
+                "ingredients": [3, 1]
+            }
+
+## Spells Collection [/spells]
+### List all Spells [GET]
++ Response 200 (application/json)
+
+        [{
+            "id": 1,
+            "incantation": "Expecto Patronum",
+            "alias": "Patronus Charm",
+            "effect": "Conjures a silver guardian spirit made of pure positive energy used to repel dark creatures such as Dementors and Lethifolds and can be either corporeal or not. In a weaker form, a Patronus takes the form of smoke or vapor which can halt dark creatures but is not nearly strong enough to repel them. In its stronger form, a Patronus takes the form of some creature (corporeal form) that relates to the casters' personality and is by far more powerful than the non-corporeal form and able to repel dark creatures in large groups.",
+            "creator": "Ancient Wizard"
+        }, {
+            "id": 2,
+            "incantation": "Riddikulus",
+            "alias": "Riddikulus Charm",
+            "effect": "Causes a boggart to assume a form that is hilarious to the caster.",
+            "creator": null
+        }]
+
+## Spell [/spells/{id}]
+A single Spell object with all its details
+
++ Parameters
+    + id (required, number, `1`) ... Numeric `id` of the Spell to perform action with.
+
+### Retrieve a Spell [GET]
++ Response 200 (application/json)
+
+    + Header
+
+            Content-type: UTF-8
+
+    + Body
+
+            {  
+                "id": 1,
+                "incantation": "Expecto Patronum",
+                "alias": "Patronus Charm",
+                "effect": "Conjures a silver guardian spirit made of pure positive energy used to repel dark creatures such as Dementors and Lethifolds and can be either corporeal or not. In a weaker form, a Patronus takes the form of smoke or vapor which can halt dark creatures but is not nearly strong enough to repel them. In its stronger form, a Patronus takes the form of some creature (corporeal form) that relates to the casters' personality and is by far more powerful than the non-corporeal form and able to repel dark creatures in large groups.",
+                "creator": "Ancient Wizard"
+            }
+
+## Shops Collection [/shops]
+### List all Shops [GET]
++ Response 200 (application/json)
+
+        [{
+            "id": 1,
+            "name": "Weasley's Wizard Wheezes",
+            "description": "A joke shop that sells many types of magical gag items and gifts."
+        }, {
+            "id": 2,
+            "name": "Ollivander's Wand Shop",
+            "description": "A wand shop where wizards go to typically get their first wand or a replacement should something have happened to the original."
+        }]
+
+## Shop [/shops/{id}]
+A single Shop object with all its details
+
++ Parameters
+    + id (required, number, `1`) ... Numeric `id` of the Shop to perform action with.
+
+### Retrieve a Shop [GET]
++ Response 200 (application/json)
+
+    + Header
+
+            Content-type: UTF-8
+
+    + Body
+
+            {
+                "id": 1,
+                "name": "Weasley's Wizard Wheezes",
+                "description": "A joke shop that sells many types of magical gag items and gifts."
+            }
+            
+## Creatures Collection [/creatures]
+### List all Creatures [GET]
++ Response 200 (application/json)
+
+        [{
+            "id": 1,
+            "name": "Giant",
+            "description": "A giant is a very large humanoid which can potentially grow to approximately twenty five feet tall and appear to be a large human. Some may appear as large and hairy humanoids, while others resemble humongous-sized people, and some may even have bestial features (i.e. protuding sharp molars). A powerful and nearly unstoppable race, giants generally aggregate themselves in tribes since their numbers have greatly dwindled in recent centuries. A giant tribe is led by the strongest giant, known as the Gurg.",
+            "classification": "Being",
+            "rating": "Unknown"
+        }, {
+            "id": 2,
+            "name": "Acromantula",
+            "description": "An Acromantula is a species of giant spider, native to the rainforests of Southeast Asia, particularly Borneo where it inhabits dense jungles. Acromantulas are believed to be a wizard-bred species, designed to guard dwellings or treasure hoards, and were first created before the Ban on Experimental Breeding in 1965. These giant spiders, with a taste for human flesh, were first spotted in 1794.",
+            "classification": "Beast",
+            "rating": "XXXXX"
+        }]
+
+## Creature [/creatures/{id}]
+A single Creature object with all its details
+
++ Parameters
+    + id (required, number, `1`) ... Numeric `id` of the Creature to perform action with.
+
+### Retrieve a Creature [GET]
++ Response 200 (application/json)
+
+    + Header
+
+            Content-type: UTF-8
+
+    + Body
+
+            {
+                "id": 1,
+                "name": "Giant",
+                "description": "A giant is a very large humanoid which can potentially grow to approximately twenty five feet tall and appear to be a large human. Some may appear as large and hairy humanoids, while others resemble humongous-sized people, and some may even have bestial features (i.e. protuding sharp molars). A powerful and nearly unstoppable race, giants generally aggregate themselves in tribes since their numbers have greatly dwindled in recent centuries. A giant tribe is led by the strongest giant, known as the Gurg.",
+                "classification": "Being",
+                "rating": "Unknown"
+            }
+            
+## Ingredients Collection [/ingredients]
+### List all Ingredients [GET]
++ Response 200 (application/json)
+
+        [{
+            "id": 1,
+            "name": "Murtlap tentacle",
+            "creature": 3
+        }, {
+            "id": 2,
+            "name": "Horseradish",
+            "creature": null
+        }]
+
+## Ingredient [/ingredients/{id}]
+A single Ingredient object with all its details
+
++ Parameters
+    + id (required, number, `1`) ... Numeric `id` of the Ingredient to perform action with.
+
+### Retrieve an Ingredient [GET]
++ Response 200 (application/json)
+
+    + Header
+
+            Content-type: UTF-8
+
+    + Body
+
+            {
+                "id": 1,
+                "name": "Murtlap tentacle",
+                "creature": 3
+            }
