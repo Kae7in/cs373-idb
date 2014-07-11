@@ -1,3 +1,21 @@
+commit abc519751c77ad6217450ee75385e264d4d31590
+Author: Kaelin <kae7in@gmail.com>
+Date:   Thu Jul 10 20:54:15 2014 -0500
+
+    removed file
+
+commit efedea7717ac479f7dc9b8e0677e5844a126b26d
+Author: Kaelin <kae7in@gmail.com>
+Date:   Thu Jul 10 20:53:12 2014 -0500
+
+    fixed tests.out
+
+commit 2f12297e6e74c834a93ff4151a1031632bb76826
+Author: Kaelin <kae7in@gmail.com>
+Date:   Thu Jul 10 20:51:12 2014 -0500
+
+    created IDB.log and tests.out
+
 commit 229fa933bfcf5447f34676ffecddbe23831ae44e
 Merge: 83c9044 d61618b
 Author: David Ouyang Moench <domoench@gmail.com>
