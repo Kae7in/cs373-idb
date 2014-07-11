@@ -15,8 +15,19 @@ class Character(models.Model):
     house = models.ForeignKey('House', blank=True, null=True, related_name = 'students')
     shop = models.ForeignKey('Shop', blank=True, null=True, related_name='owners')
 
+    def relationships(self):
+        relationships = []
+        for relation in self.relationships1.all():
+            relationships.append(relation)
+        for relation in self.relationships2.all():
+            relationships.append(relation)
+        return relationships
+
     def is_squib(self):
-        for relation in self.relationships.all():
+        if(self.magical == True):
+            return False
+        magic_parents = 0
+        for relation in self.relationships():
             if(relation.character1 == self):
                 other_id = relation.character2.id
                 other_desc = relation.descriptor2
@@ -25,9 +36,9 @@ class Character(models.Model):
                 other_desc = relation.descriptor1
             if(other_desc == 'mother' or other_desc == 'father'):
                 parent = Character.objects.get(pk=other_id)
-                if(parent.magical and self.magical == False):
-                    return True
-        return False
+                if(parent.magical):
+                    magic_parents += 1
+        return magic_parents == 2
 
     def __str__(self):
         return self.name
@@ -127,12 +138,17 @@ class School(Location):
 
 class House(School):
     school = models.ForeignKey(School, related_name = 'houses')
+    ghost = models.ForeignKey(Character, related_name = 'houses_haunted')
+    colors = models.CharField(max_length=100)
+    mascot = models.CharField(max_length=100)
+    quote = models.CharField(max_length=500)
+    quote_by = models.CharField(max_length=100)
     
     def __str__(self):
         return self.name
 
 class Shop(Location):
-    location = models.ForeignKey(Location, related_name = 'shops', blank=True, null=True)
+    locations = models.ManyToManyField(Location, related_name = 'shops', blank=True, null=True)
 
 class Artifact(models.Model):
     name = models.CharField(max_length=100)
@@ -191,7 +207,7 @@ class Academic(models.Model):
 
 class Relationship(models.Model):
     #relationships
-    character1 = models.ForeignKey(Character, related_name = "relationship1", blank=True, null=True)
-    character2 = models.ForeignKey(Character, related_name = "relationship2", blank=True, null=True)
+    character1 = models.ForeignKey(Character, related_name = "relationships1", blank=True, null=True)
+    character2 = models.ForeignKey(Character, related_name = "relationships2", blank=True, null=True)
     descriptor1 = models.CharField(max_length='100')
     descriptor2 = models.CharField(max_length='100')
