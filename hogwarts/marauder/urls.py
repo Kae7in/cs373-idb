@@ -44,4 +44,6 @@ urlpatterns = patterns('django.views.generic.simple',
     (r'^stories/1$', TemplateView.as_view(template_name='stories/1.html')),
     (r'^stories/2$', TemplateView.as_view(template_name='stories/2.html')),
     (r'^stories/3$', TemplateView.as_view(template_name='stories/3.html')),
+    #Citation
+    (r'^citations/$', TemplateView.as_view(template_name='citations.html')),
 )
