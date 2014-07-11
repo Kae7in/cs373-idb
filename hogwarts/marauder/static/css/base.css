@@ -3,7 +3,7 @@
 .info-group-list { display: table; }
 
 .main-image img { 
-	width: 250px;
+	width: 350px;
 	margin-bottom: 20px !important;
 }
 
@@ -25,7 +25,10 @@
 	color: white;
 }
 
-#content { margin: 0px auto 20px; }
+#content { 
+	margin: 0px auto 20px; 
+	padding-left: 60px;
+}
 
 .uppercase { text-transform: uppercase;}
 
@@ -37,4 +40,13 @@
 }
 	.nav-stacked {
 	max-width: 300px;
+}
+
+#sidebar li, #sidebar h5, #sidebar h2, body {
+	font-family: 'Open Sans';
+	font-weight: 600;
+}
+
+#content h1, #content h3 {
+  	font-weight: 900;
 }

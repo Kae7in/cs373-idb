@@ -1,16 +1,19 @@
 {% extends "artifacts/base.html" %}
 
+{% block artifact_active %}
+in
+{% endblock artifact_active %}
+
 {% block name %}
 Invisibility Cloak
 {% endblock name %}
 
 {% block info_group %}
 <li class='list-group-item'>Deathly Hallows</li>
-<li class='list-group-item'>Owned by <a href="/characters/3">Harry Potter</a></li>
 {% endblock info_group %}
 
 {% block image_url %}
-{{ STATIC_URL }}images/invisibility-cloak.jpg
+{{ STATIC_URL }}images/invisibility-cloak.gif
 {% endblock image_url %}
 
 {% block description %}
@@ -18,10 +21,12 @@ Invisibility Cloak
 {% endblock description %}
 
 {% block stories %}
-<div class='row'>
-	<div class='col-md-12'>
-		<h3>STORIES</h3>
-    <p>The Three Brothers</p>
-	</div>
-</div>
+<a href='/stories/1'>Deathly Hallows</a>
 {% endblock stories %}
+
+{% block owners %}
+Ignotus Peverell<br/>
+James Potter<br/>
+<a href='/characters/1'>Albus Dumbledore</a><br/>
+<a href='/characters/3'>Harry Potter</a>
+{% endblock owners %}

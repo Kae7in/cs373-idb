@@ -32,7 +32,7 @@ class CharacterTest(TestCase):
         r2.descriptor2 = 'son'
         r2.save()
 
-        self.assertTrue(argus.is_squib)
+        self.assertTrue(argus.is_squib())
 
     def test_harry_character(self):
         harry = lm.Character()
@@ -52,7 +52,7 @@ class CharacterTest(TestCase):
         r1.descriptor2 = 'professor'
         r1.save()
 
-        self.assertFalse(harry.is_squib)
+        self.assertFalse(harry.is_squib())
         self.assertEqual(harry.birthday, "7/31/1980")
         self.assertTrue(harry.magical)
 
@@ -74,7 +74,7 @@ class CharacterTest(TestCase):
         r1.descriptor2 = 'father'
         r1.save()
 
-        self.assertFalse(malfoy.is_squib)
+        self.assertFalse(malfoy.is_squib())
         self.assertEqual(malfoy.birthday, "6/5/1980")
         self.assertTrue(malfoy.magical)
 
@@ -137,11 +137,11 @@ class ShopTest(TestCase):
         location = lm.Location()
         location.name = 'Diagon Alley'
         location.save()
-        shop.location = location
+        shop.locations.add(location)
         shop.save()
 
         first_shop = lm.Shop.objects.first()
-        self.assertEqual(first_shop.location, location)
+        self.assertEqual(first_shop.locations.all().first(), location)
 
     def test_shop_with_owners(self):       
         shop = lm.Shop.objects.first()
@@ -277,11 +277,10 @@ class PotionTest(TestCase):
         potion = lm.Potion()
         potion.title = "Felix Felices"
         potion.difficulty = 'A'
-        potion.description = "Its color is molten gold..."
+        potion.physical_description = "Its color is molten gold..."
         potion.recipe = 'Add to the cauldron an Ashwinder egg and horseradish before heating...'
         potion.effects = "Increases the drinker's luck. Overdose can..."
-        potion.usages = "Hermoine, Ginny and Ron used Felix Felices to evade the curses of Death Eaters..."
-        potion.more_info = "Also called \"Liquid Luck\", Felix Felices was invented..."
+        potion.notable_uses = "Hermoine, Ginny and Ron used Felix Felices to evade the curses of Death Eaters..."
         potion.save()
     
     def test_create_potion(self):
@@ -292,11 +291,10 @@ class PotionTest(TestCase):
         
         self.assertEqual("Felix Felices", potion_created.title)
         self.assertEqual("A", potion_created.difficulty)
-        self.assertEqual("Its color is molten gold...", potion_created.description)
+        self.assertEqual("Its color is molten gold...", potion_created.physical_description)
         self.assertEqual("Add to the cauldron an Ashwinder egg and horseradish before heating...", potion_created.recipe)
         self.assertEqual("Increases the drinker's luck. Overdose can...", potion_created.effects)
-        self.assertEqual("Hermoine, Ginny and Ron used Felix Felices to evade the curses of Death Eaters...", potion_created.usages)
-        self.assertEqual("Also called \"Liquid Luck\", Felix Felices was invented...", potion_created.more_info)
+        self.assertEqual("Hermoine, Ginny and Ron used Felix Felices to evade the curses of Death Eaters...", potion_created.notable_uses)
         self.assertEqual("images/empty.jpg", potion_created.image)
         all_ingredients = potion_created.ingredients.all()
         self.assertEqual(len(all_ingredients), 0)
@@ -399,8 +397,17 @@ class HouseTest(TestCase):
     def setUp(self):
     
         house = lm.House()
+        character = lm.Character()
+        character.name = 'Fat Friar'
+        character.save()
+		
         house.name = "Hufflepuff"
         house.description = "Nobody wants to be a Hufflepuff."
+        house.quote = 'You might belong in Hufflepuff, Where they are just and loyal, Those patient Hufflepuffs are true, And unafraid of toil.'
+        house.quote_by = 'Sorting Hat'
+        house.colors = 'Yellow and Black'
+        house.mascot = 'Badger'
+        house.ghost = character
 
         school2 = lm.School()
         school2.name = "Hogwarts"
@@ -419,6 +426,12 @@ class HouseTest(TestCase):
         self.assertEqual("Hufflepuff", house_created.name)
         self.assertEqual("Nobody wants to be a Hufflepuff.", house_created.description)
         self.assertEqual("images/empty.jpg", house_created.image)
+
+        self.assertEqual(lm.Character.objects.first(), house_created.ghost)
+        self.assertEqual('You might belong in Hufflepuff, Where they are just and loyal, Those patient Hufflepuffs are true, And unafraid of toil.', house_created.quote)
+        self.assertEqual('Sorting Hat', house_created.quote_by)
+        self.assertEqual('Yellow and Black', house_created.colors)
+        self.assertEqual('Badger', house_created.mascot)
 
     def test_house_string(self):
         house = lm.House.objects.first()

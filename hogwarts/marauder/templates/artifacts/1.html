@@ -1,21 +1,23 @@
 {% extends "artifacts/base.html" %}
 
+{% block artifact_active %}
+in
+{% endblock artifact_active %}
+
 {% block name %}
 Pensieve
 {% endblock name %}
 
-{% block info_group %}
-<li class='list-group-item'>Owned by <a href="/characters/1">Albus Dumbledore</a></li>
-{% endblock info_group %}
-
 {% block image_url %}
-{{ STATIC_URL }}images/pensieve.png
+{{ STATIC_URL }}images/pensieve.gif
 {% endblock image_url %}
 
 {% block description %}
-<p>The Pensieve is an object used to review memories. It has the appearance of a 
-shallow stone basin, into which are carved runes and strange symbols. It is 
-filled with a silvery substance that appears to be a cloud-like liquid/gas; 
-the collected memories of people who have siphoned their recollections into it. 
-Memories can then be viewed from a non-participant, third-person point of view.</p>
+<p> The Pensieve is an object used to review memories. It has the appearance of a shallow stone basin, into which are carved runes and strange symbols. It is filled with a silvery substance that appears to be a cloud-like liquid/gas, the collected memories of people who have siphoned their recollections into it. Memories can then be viewed from a non-participant, third-person point of view.
+</p>
 {% endblock description %}
+
+{% block owners %}
+<a href='/characters/1'>Albus Dumbledore</a><br/>
+Severus Snape
+{% endblock owners %}
