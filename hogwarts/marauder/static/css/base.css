@@ -1,3 +1,5 @@
+@import url('http://fonts.googleapis.com/css?family=Open+Sans:200,300');
+
 .info-group-list { display: table; }
 
 .main-image img { 
@@ -6,7 +8,21 @@
 }
 
 .jumbotron {
-font-family: 'Special Elite';
+	font-family: 'Open Sans';
+	background: url('../images/marauders.jpg');
+	background-size: cover;
+	padding-top: 100px;
+	padding-bottom: 100px;
+}
+
+.jumbotron h1 {
+	font-size: 7em;
+	color: white;
+}
+
+.jumbotron p {
+	font-size: 2em;
+	color: white;
 }
 
 #content { 
@@ -20,9 +36,17 @@ font-family: 'Special Elite';
 
 
 .category{
-font-family: 'Special Elite';
-
+	font-family: 'Open Sans';
 }
-.nav-stacked {
-max-width: 300px;
+	.nav-stacked {
+	max-width: 300px;
+}
+
+#sidebar li, #sidebar h5, #sidebar h2, body {
+	font-family: 'Open Sans';
+	font-weight: 600;
+}
+
+#content h1, #content h3 {
+  	font-weight: 900;
 }
