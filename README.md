@@ -11,5 +11,5 @@ cs373-idb
 
 ## Links
 * PythonAnywhere Live Version: http://domoench.pythonanywhere.com/
-* Apiary Docs: http://docs.potter.apiary.io/
-* Apiaray Mock Server: http://potter.apiary-mock.com/
+* Apiary Docs: http://docs.maraudersmap.apiary.io/ 
+* Apiaray Mock Server: http://maraudersmap.apiary-mock.com 
