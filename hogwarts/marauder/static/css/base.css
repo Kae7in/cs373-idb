@@ -5,6 +5,13 @@
 	margin-bottom: 20px !important;
 }
 
+.big-image img {
+    width: 400px;
+    margin-bottom: 20px !important;
+
+}
+
+
 .jumbotron {
 font-family: 'Special Elite';
 }

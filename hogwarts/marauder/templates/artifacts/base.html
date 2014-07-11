@@ -2,15 +2,16 @@
 
 {% block content %}
 <div class='row'>
-  <div class='col-md-8 col-sm-6 info-group'>
+  <div class='col-xs-12 col-md-8 col-sm-6 info-group'>
     <h1 class="uppercase">{% block name %}{% endblock name %}</h1>
     <ul class='list-group info-group-list'>
       {% block info_group %}{% endblock info_group %}
     </ul>
-  </div>
+</div>
 
-  <div class='col-md-4 col-sm-6 main-image'>
-    <center><img class='center list-group-item' src='{% block image_url %}{% endblock image_url %}'></center>
+<div class='row'>
+  <div class='col-xs-12 col-md-12 col-sm-12' class="big-image">
+    <img class='center list-group-item' src='{% block image_url %}{% endblock image_url %}'>
   </div>
 </div>
 
