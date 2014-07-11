@@ -82,7 +82,7 @@ a:hover {
 
 #myfooter {
   display: table;
-  position: absolute;
+  position: relative;
   bottom: 0;
   width: 100%;
   /* Set the fixed height of the footer here */
@@ -93,10 +93,10 @@ a:hover {
 
 #footertxt {
   display: table-cell;
-  vertical-align: bottom;
   text-align: center;
+  padding-top: 35px;
   padding-bottom: 10px;  
-  font-family: 'Special Elite', sans-serif;  
+  font-family: 'Open Sans';  
   font-size: 16px;
 
 }

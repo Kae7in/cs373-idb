@@ -13,7 +13,9 @@
 
 }
 
-
+a:hover {
+    text-decoration: none;
+}
 .jumbotron {
 	font-family: 'Open Sans';
 	background: url('../images/marauders.jpg');
