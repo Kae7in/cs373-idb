@@ -1,7 +1,7 @@
 FORMAT: 1A
 HOST: http://domoench.pythonanywhere.com/api/
 
-# potter
+# Marauders Map
 An API to access resources in our [Harry Potter database](https://github.com/Kae7in/cs373-idb)
 
 
@@ -507,9 +507,13 @@ A single Creature object with all its details
 + Response 200 (application/json)
 
         [{
-           TODO
+            "id": 1,
+            "name": "Murtlap tentacle",
+            "creature": 3
         }, {
-           TODO
+            "id": 2,
+            "name": "Horseradish",
+            "creature": null
         }]
 
 ## Ingredient [/ingredients/{id}]
@@ -529,6 +533,6 @@ A single Ingredient object with all its details
 
             {
                 "id": 1,
-                "name": "",
+                "name": "Murtlap tentacle",
                 "creature": 3
             }

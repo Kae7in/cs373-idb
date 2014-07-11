@@ -7,6 +7,15 @@
 	margin-bottom: 20px !important;
 }
 
+.big-image img {
+    width: 400px;
+    margin-bottom: 20px !important;
+
+}
+
+a:hover {
+    text-decoration: none;
+}
 .jumbotron {
 	font-family: 'Open Sans';
 	background: url('../images/marauders.jpg');

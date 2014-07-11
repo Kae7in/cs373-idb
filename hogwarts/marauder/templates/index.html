@@ -13,14 +13,17 @@
 </head>
 <body>
 <div id="wrap">
+  <a style="display:block" href="/">
 		<div class="jumbotron splash">
 			<h1 class="text-center">Marauder's Map</h1>
 			<p class="text-center">Brought to you by The Six Potters</p>
 		</div>
+  </a>
     <div id="content">
 
-    <div class="row">
+        <div class='row'>
         <div class="panel-group category" id="accordion">
+            <div class="row">
             <div class="col-md-4">
                 <div class="panel">
                     <div class="panel-heading">
@@ -56,8 +59,44 @@
                     </div> <!-- /collapseOne -->
                 </div>  <!-- /panel panel-default -->
             </div>  <!-- /col-md-4 -->
-
             <div class="col-md-4">
+                <div class="panel">
+                    <div class="panel-heading">
+                      <h2 class="panel-title">
+                      <a data-toggle="collapse" data-parent="#accordion" href="#collapseSix">Stories</a>
+                      </h2>
+                    </div>  <!-- /panel-heading -->
+
+                    <div id="collapseSix" class="panel-collapse collapse">
+                        <div class="panel-body">                  
+                            <h3><a href="stories/1">Deathly Hallows</a></h3> 
+                            <h3><a href="stories/2">The Boy Who Lived</a></h3>
+                            <h3><a href="stories/3">Statute of Secrecy</a></h3>
+                        </div>  <!-- /panel-body -->
+                    </div> <!-- /collapseOne -->
+                </div>  <!-- /panel panel-default -->
+            </div>  <!-- /col-md-4 -->
+        </div>
+        <div class='row'>
+            <center>
+            <div class="col-md-6">
+                <div class="panel">
+                    <div class="panel-heading">
+                      <h2 class="panel-title">
+                      <a data-toggle="collapse" data-parent="#accordion" href="#collapseFive">Spells</a>
+                      </h2>
+                    </div>  <!-- /panel-heading -->
+
+                    <div id="collapseFive" class="panel-collapse collapse">
+                        <div class="panel-body">                  
+                            <h3><a href="spells/1">Patronus Charm</a></h3> 
+                            <h3><a href="spells/2">Ridikkulus</a></h3>
+                            <h3><a href="spells/3">Expelliarmus</a></h3>
+                        </div>  <!-- /panel-body -->
+                    </div> <!-- /collapseOne -->
+                </div>  <!-- /panel panel-default -->
+            </div>  <!-- /col-md-4 -->
+            <div class="col-md-6">
                 <div class="panel">
                     <div class="panel-heading">
                       <h2 class="panel-title">
@@ -73,10 +112,11 @@
                         </div>  <!-- /panel-body -->
                     </div> <!-- /collapseOne -->
                 </div>  <!-- /panel panel-default -->
+                </center>
             </div>  <!-- /col-md-4 -->
+        </div>
       </div>  <!-- /accordion -->
-  </div>  <!-- /row -->
-
+    </div>
 <!--
         <div class="row">
             <div class="col-md-3"></div>
@@ -96,8 +136,8 @@
 -->
     </div>  <!--/content-->
 
-    <div id="myfooter">
-        <div id="footertxt">
+    <div class='row' id="myfooter">
+        <div id="footertxt" class='col-md-12'>
         <p>The Six Potters are Amanda Steinwedel, Angela Hsu, David Moench, Isabella Bhardwaj, Kaelin D. Hooper, and Stephen Arnett</p>
         </div>  <!--/footertxt-->
     </div>  <!--/footer-->
