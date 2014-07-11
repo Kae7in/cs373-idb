@@ -10,6 +10,10 @@ International Statute of Wizarding Secrecy
 <li class='list-group-item'>A History of Magic</li>
 {% endblock info_group %}
 
+{% block image_url %}
+{{ STATIC_URL }}images/ministry-of-magic.png
+{% endblock image_url %}
+
 {% block description %}
 <p>The International Statute of Wizarding Secrecy is a law in the wizarding rule first signed in 1689, then officially established in 1692. This law protects the wizarding community from Muggles, hiding their existence from their world.</p>
 
@@ -23,7 +27,7 @@ International Statute of Wizarding Secrecy
 {% endblock description %}
 
 {% block characters %}
-Wendelin the Weird
+Wendelin the Weird<br/>
 Nearly-Headless Nick
 {% endblock characters %}
 

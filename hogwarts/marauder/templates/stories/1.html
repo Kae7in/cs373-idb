@@ -10,6 +10,10 @@ Deathly Hallows
 <li class='list-group-item'>As told in The Tales of Beedle the Bard</li>
 {% endblock info_group %}
 
+{% block image_url %}
+{{ STATIC_URL }}images/deathly-hallows.png
+{% endblock image_url %}
+
 {% block description %}
 <p>The Deathly Hallows are three powerful magical objects created by Death given to three brothers, Antioch Peverell, Cadmus Peverell, and Ignotus Peverell. Many years ago, the Peverell brothers were travelling at twilight and reached an uncrossable river. Since they were wizards, they simply created a bridge to cross. Death stopped them, congragulating them on escaping him, and offered each an object of their choosing. Antioch received the <a href='/artifacts/2'>Elder Wand</a>, the most powerful wand of all time. Cadmus received the Resurrection Stone, a stone which could bring the dead back to life. Finally, Ignotus received the <a href='/artifacts/3'>Cloak of Invisibility,</a> as he did not trust Death and wanted to continue escaping him.</p>
 
@@ -20,8 +24,8 @@ Deathly Hallows
 {% endblock description %}
 
 {% block characters %}
-Antioch Peverell
-Cadmus Peverell
+Antioch Peverell<br/>
+Cadmus Peverell<br/>
 Ignotus Peverell<br/>
 <a href='/characters/1'>Albus Dumbledore</a><br/>
 <a href='/characters/3'>Harry Potter</a>

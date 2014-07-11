@@ -10,6 +10,10 @@ The Boy Who Lived
 <li class='list-group-item'>The Rise and Fall of the Dark Arts</li>
 {% endblock info_group %}
 
+{% block image_url %}
+{{ STATIC_URL }}images/the-boy-who-lived.jpg
+{% endblock image_url %}
+
 {% block description %}
 <p><a href='/characters/3'>Harry Potter</a> was born on July 31st, 1980, to Lily and James Potter. His parents were members of the Order of the Phoenix, an organization dedicated to bringing about the ruin of Lord Voldemort. From birth, he lived in hiding with his parents after Voldemort marked him, and Neville Longbottom, for death. Neville was born just a few hours before Harry Potter. Voldemort feared the boys because of The Prophecy.</p>
 
@@ -23,9 +27,9 @@ The Boy Who Lived
 {% endblock description %}
 
 {% block characters %}
-Lord Voldemort
-<a href='/characters/3'>Harry Potter</a>
-Lily Evans
+Lord Voldemort<br/>
+<a href='/characters/3'>Harry Potter</a><br/>
+Lily Evans<br/>
 James Potter
 
 {% endblock characters %}
