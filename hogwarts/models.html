@@ -1,0 +1,1720 @@
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+<html><head><title>Python: module marauder.models</title>
+</head><body bgcolor="#f0f0f8">
+
+<table width="100%" cellspacing=0 cellpadding=2 border=0 summary="heading">
+<tr bgcolor="#7799ee">
+<td valign=bottom>&nbsp;<br>
+<font color="#ffffff" face="helvetica, arial">&nbsp;<br><big><big><strong><a href="marauder.html"><font color="#ffffff">marauder</font></a>.models</strong></big></big></font></td
+><td align=right valign=bottom
+><font color="#ffffff" face="helvetica, arial"><a href=".">index</a><br><a href="file:/Users/david/Desktop/cs373-idb/hogwarts/marauder/models.py">/Users/david/Desktop/cs373-idb/hogwarts/marauder/models.py</a></font></td></tr></table>
+    <p></p>
+<p>
+<table width="100%" cellspacing=0 cellpadding=2 border=0 summary="section">
+<tr bgcolor="#aa55cc">
+<td colspan=3 valign=bottom>&nbsp;<br>
+<font color="#ffffff" face="helvetica, arial"><big><strong>Modules</strong></big></font></td></tr>
+    
+<tr><td bgcolor="#aa55cc"><tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</tt></td><td>&nbsp;</td>
+<td width="100%"><table width="100%" summary="list"><tr><td width="25%" valign=top><a href="django.db.models.html">django.db.models</a><br>
+</td><td width="25%" valign=top></td><td width="25%" valign=top></td><td width="25%" valign=top></td></tr></table></td></tr></table><p>
+<table width="100%" cellspacing=0 cellpadding=2 border=0 summary="section">
+<tr bgcolor="#ee77aa">
+<td colspan=3 valign=bottom>&nbsp;<br>
+<font color="#ffffff" face="helvetica, arial"><big><strong>Classes</strong></big></font></td></tr>
+    
+<tr><td bgcolor="#ee77aa"><tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</tt></td><td>&nbsp;</td>
+<td width="100%"><dl>
+<dt><font face="helvetica, arial"><a href="django.db.models.base.html#Model">django.db.models.base.Model</a>(django.db.models.base.NewBase)
+</font></dt><dd>
+<dl>
+<dt><font face="helvetica, arial"><a href="marauder.models.html#Academic">Academic</a>
+</font></dt><dt><font face="helvetica, arial"><a href="marauder.models.html#Artifact">Artifact</a>
+</font></dt><dt><font face="helvetica, arial"><a href="marauder.models.html#Book">Book</a>
+</font></dt><dt><font face="helvetica, arial"><a href="marauder.models.html#Character">Character</a>
+</font></dt><dt><font face="helvetica, arial"><a href="marauder.models.html#Creature">Creature</a>
+</font></dt><dt><font face="helvetica, arial"><a href="marauder.models.html#Ingredient">Ingredient</a>
+</font></dt><dt><font face="helvetica, arial"><a href="marauder.models.html#Location">Location</a>
+</font></dt><dd>
+<dl>
+<dt><font face="helvetica, arial"><a href="marauder.models.html#School">School</a>
+</font></dt><dd>
+<dl>
+<dt><font face="helvetica, arial"><a href="marauder.models.html#House">House</a>
+</font></dt></dl>
+</dd>
+<dt><font face="helvetica, arial"><a href="marauder.models.html#Shop">Shop</a>
+</font></dt></dl>
+</dd>
+<dt><font face="helvetica, arial"><a href="marauder.models.html#Potion">Potion</a>
+</font></dt><dt><font face="helvetica, arial"><a href="marauder.models.html#Relationship">Relationship</a>
+</font></dt><dt><font face="helvetica, arial"><a href="marauder.models.html#Spell">Spell</a>
+</font></dt><dt><font face="helvetica, arial"><a href="marauder.models.html#Story">Story</a>
+</font></dt></dl>
+</dd>
+</dl>
+ <p>
+<table width="100%" cellspacing=0 cellpadding=2 border=0 summary="section">
+<tr bgcolor="#ffc8d8">
+<td colspan=3 valign=bottom>&nbsp;<br>
+<font color="#000000" face="helvetica, arial"><a name="Academic">class <strong>Academic</strong></a>(<a href="django.db.models.base.html#Model">django.db.models.base.Model</a>)</font></td></tr>
+    
+<tr bgcolor="#ffc8d8"><td rowspan=2><tt>&nbsp;&nbsp;&nbsp;</tt></td>
+<td colspan=2><tt><a href="#Academic">Academic</a>(id,&nbsp;character_id,&nbsp;school_id,&nbsp;descriptor)<br>&nbsp;</tt></td></tr>
+<tr><td>&nbsp;</td>
+<td width="100%"><dl><dt>Method resolution order:</dt>
+<dd><a href="marauder.models.html#Academic">Academic</a></dd>
+<dd><a href="django.db.models.base.html#Model">django.db.models.base.Model</a></dd>
+<dd>django.db.models.base.NewBase</dd>
+<dd><a href="__builtin__.html#object">__builtin__.object</a></dd>
+</dl>
+<hr>
+Methods defined here:<br>
+<dl><dt><a name="Academic-get_descriptor_display"><strong>get_descriptor_display</strong></a> = _curried(*moreargs, **morekwargs)</dt></dl>
+
+<strong>objects</strong> = &lt;django.db.models.manager.Manager object&gt;
+<hr>
+Data descriptors defined here:<br>
+<dl><dt><strong>character</strong></dt>
+</dl>
+<dl><dt><strong>school</strong></dt>
+</dl>
+<hr>
+Data and other attributes defined here:<br>
+<dl><dt><strong>DESCRIPTORS</strong> = (('founder', 'founder'), ('student', 'student'), ('professor', 'professor'), ('headmaster', 'headmaster'), ('staff', 'staff'))</dl>
+
+<dl><dt><strong>DoesNotExist</strong> = &lt;class 'marauder.models.DoesNotExist'&gt;</dl>
+
+<dl><dt><strong>MultipleObjectsReturned</strong> = &lt;class 'marauder.models.MultipleObjectsReturned'&gt;</dl>
+
+<hr>
+Methods inherited from <a href="django.db.models.base.html#Model">django.db.models.base.Model</a>:<br>
+<dl><dt><a name="Academic-__eq__"><strong>__eq__</strong></a>(self, other)</dt></dl>
+
+<dl><dt><a name="Academic-__hash__"><strong>__hash__</strong></a>(self)</dt></dl>
+
+<dl><dt><a name="Academic-__init__"><strong>__init__</strong></a>(self, *args, **kwargs)</dt></dl>
+
+<dl><dt><a name="Academic-__ne__"><strong>__ne__</strong></a>(self, other)</dt></dl>
+
+<dl><dt><a name="Academic-__reduce__"><strong>__reduce__</strong></a>(self)</dt><dd><tt>Provides&nbsp;pickling&nbsp;support.&nbsp;Normally,&nbsp;this&nbsp;just&nbsp;dispatches&nbsp;to&nbsp;Python's<br>
+standard&nbsp;handling.&nbsp;However,&nbsp;for&nbsp;models&nbsp;with&nbsp;deferred&nbsp;field&nbsp;loading,&nbsp;we<br>
+need&nbsp;to&nbsp;do&nbsp;things&nbsp;manually,&nbsp;as&nbsp;they're&nbsp;dynamically&nbsp;created&nbsp;classes&nbsp;and<br>
+only&nbsp;module-level&nbsp;classes&nbsp;can&nbsp;be&nbsp;pickled&nbsp;by&nbsp;the&nbsp;default&nbsp;path.</tt></dd></dl>
+
+<dl><dt><a name="Academic-__repr__"><strong>__repr__</strong></a>(self)</dt></dl>
+
+<dl><dt><a name="Academic-__str__"><strong>__str__</strong></a>(self)</dt></dl>
+
+<dl><dt><a name="Academic-clean"><strong>clean</strong></a>(self)</dt><dd><tt>Hook&nbsp;for&nbsp;doing&nbsp;any&nbsp;extra&nbsp;model-wide&nbsp;validation&nbsp;after&nbsp;<a href="#Academic-clean">clean</a>()&nbsp;has&nbsp;been<br>
+called&nbsp;on&nbsp;every&nbsp;field&nbsp;by&nbsp;self.<strong>clean_fields</strong>.&nbsp;Any&nbsp;ValidationError&nbsp;raised<br>
+by&nbsp;this&nbsp;method&nbsp;will&nbsp;not&nbsp;be&nbsp;associated&nbsp;with&nbsp;a&nbsp;particular&nbsp;field;&nbsp;it&nbsp;will<br>
+have&nbsp;a&nbsp;special-case&nbsp;association&nbsp;with&nbsp;the&nbsp;field&nbsp;defined&nbsp;by&nbsp;NON_FIELD_ERRORS.</tt></dd></dl>
+
+<dl><dt><a name="Academic-clean_fields"><strong>clean_fields</strong></a>(self, exclude<font color="#909090">=None</font>)</dt><dd><tt>Cleans&nbsp;all&nbsp;fields&nbsp;and&nbsp;raises&nbsp;a&nbsp;ValidationError&nbsp;containing&nbsp;message_dict<br>
+of&nbsp;all&nbsp;validation&nbsp;errors&nbsp;if&nbsp;any&nbsp;occur.</tt></dd></dl>
+
+<dl><dt><a name="Academic-date_error_message"><strong>date_error_message</strong></a>(self, lookup_type, field, unique_for)</dt></dl>
+
+<dl><dt><a name="Academic-delete"><strong>delete</strong></a>(self, using<font color="#909090">=None</font>)</dt></dl>
+
+<dl><dt><a name="Academic-full_clean"><strong>full_clean</strong></a>(self, exclude<font color="#909090">=None</font>, validate_unique<font color="#909090">=True</font>)</dt><dd><tt>Calls&nbsp;clean_fields,&nbsp;clean,&nbsp;and&nbsp;validate_unique,&nbsp;on&nbsp;the&nbsp;model,<br>
+and&nbsp;raises&nbsp;a&nbsp;``ValidationError``&nbsp;for&nbsp;any&nbsp;errors&nbsp;that&nbsp;occurred.</tt></dd></dl>
+
+<dl><dt><a name="Academic-prepare_database_save"><strong>prepare_database_save</strong></a>(self, unused)</dt></dl>
+
+<dl><dt><a name="Academic-save"><strong>save</strong></a>(self, force_insert<font color="#909090">=False</font>, force_update<font color="#909090">=False</font>, using<font color="#909090">=None</font>, update_fields<font color="#909090">=None</font>)</dt><dd><tt>Saves&nbsp;the&nbsp;current&nbsp;instance.&nbsp;Override&nbsp;this&nbsp;in&nbsp;a&nbsp;subclass&nbsp;if&nbsp;you&nbsp;want&nbsp;to<br>
+control&nbsp;the&nbsp;saving&nbsp;process.<br>
+&nbsp;<br>
+The&nbsp;'force_insert'&nbsp;and&nbsp;'force_update'&nbsp;parameters&nbsp;can&nbsp;be&nbsp;used&nbsp;to&nbsp;insist<br>
+that&nbsp;the&nbsp;"save"&nbsp;must&nbsp;be&nbsp;an&nbsp;SQL&nbsp;insert&nbsp;or&nbsp;update&nbsp;(or&nbsp;equivalent&nbsp;for<br>
+non-SQL&nbsp;backends),&nbsp;respectively.&nbsp;Normally,&nbsp;they&nbsp;should&nbsp;not&nbsp;be&nbsp;set.</tt></dd></dl>
+
+<dl><dt><a name="Academic-save_base"><strong>save_base</strong></a>(self, raw<font color="#909090">=False</font>, force_insert<font color="#909090">=False</font>, force_update<font color="#909090">=False</font>, using<font color="#909090">=None</font>, update_fields<font color="#909090">=None</font>)</dt><dd><tt>Handles&nbsp;the&nbsp;parts&nbsp;of&nbsp;saving&nbsp;which&nbsp;should&nbsp;be&nbsp;done&nbsp;only&nbsp;once&nbsp;per&nbsp;save,<br>
+yet&nbsp;need&nbsp;to&nbsp;be&nbsp;done&nbsp;in&nbsp;raw&nbsp;saves,&nbsp;too.&nbsp;This&nbsp;includes&nbsp;some&nbsp;sanity<br>
+checks&nbsp;and&nbsp;signal&nbsp;sending.<br>
+&nbsp;<br>
+The&nbsp;'raw'&nbsp;argument&nbsp;is&nbsp;telling&nbsp;save_base&nbsp;not&nbsp;to&nbsp;save&nbsp;any&nbsp;parent<br>
+models&nbsp;and&nbsp;not&nbsp;to&nbsp;do&nbsp;any&nbsp;changes&nbsp;to&nbsp;the&nbsp;values&nbsp;before&nbsp;save.&nbsp;This<br>
+is&nbsp;used&nbsp;by&nbsp;fixture&nbsp;loading.</tt></dd></dl>
+
+<dl><dt><a name="Academic-serializable_value"><strong>serializable_value</strong></a>(self, field_name)</dt><dd><tt>Returns&nbsp;the&nbsp;value&nbsp;of&nbsp;the&nbsp;field&nbsp;name&nbsp;for&nbsp;this&nbsp;instance.&nbsp;If&nbsp;the&nbsp;field&nbsp;is<br>
+a&nbsp;foreign&nbsp;key,&nbsp;returns&nbsp;the&nbsp;id&nbsp;value,&nbsp;instead&nbsp;of&nbsp;the&nbsp;object.&nbsp;If&nbsp;there's<br>
+no&nbsp;Field&nbsp;object&nbsp;with&nbsp;this&nbsp;name&nbsp;on&nbsp;the&nbsp;model,&nbsp;the&nbsp;model&nbsp;attribute's<br>
+value&nbsp;is&nbsp;returned&nbsp;directly.<br>
+&nbsp;<br>
+Used&nbsp;to&nbsp;serialize&nbsp;a&nbsp;field's&nbsp;value&nbsp;(in&nbsp;the&nbsp;serializer,&nbsp;or&nbsp;form&nbsp;output,<br>
+for&nbsp;example).&nbsp;Normally,&nbsp;you&nbsp;would&nbsp;just&nbsp;access&nbsp;the&nbsp;attribute&nbsp;directly<br>
+and&nbsp;not&nbsp;use&nbsp;this&nbsp;method.</tt></dd></dl>
+
+<dl><dt><a name="Academic-unique_error_message"><strong>unique_error_message</strong></a>(self, model_class, unique_check)</dt></dl>
+
+<dl><dt><a name="Academic-validate_unique"><strong>validate_unique</strong></a>(self, exclude<font color="#909090">=None</font>)</dt><dd><tt>Checks&nbsp;unique&nbsp;constraints&nbsp;on&nbsp;the&nbsp;model&nbsp;and&nbsp;raises&nbsp;``ValidationError``<br>
+if&nbsp;any&nbsp;failed.</tt></dd></dl>
+
+<hr>
+Data descriptors inherited from <a href="django.db.models.base.html#Model">django.db.models.base.Model</a>:<br>
+<dl><dt><strong>pk</strong></dt>
+</dl>
+<hr>
+Data descriptors inherited from django.db.models.base.NewBase:<br>
+<dl><dt><strong>__dict__</strong></dt>
+<dd><tt>dictionary&nbsp;for&nbsp;instance&nbsp;variables&nbsp;(if&nbsp;defined)</tt></dd>
+</dl>
+<dl><dt><strong>__weakref__</strong></dt>
+<dd><tt>list&nbsp;of&nbsp;weak&nbsp;references&nbsp;to&nbsp;the&nbsp;object&nbsp;(if&nbsp;defined)</tt></dd>
+</dl>
+</td></tr></table> <p>
+<table width="100%" cellspacing=0 cellpadding=2 border=0 summary="section">
+<tr bgcolor="#ffc8d8">
+<td colspan=3 valign=bottom>&nbsp;<br>
+<font color="#000000" face="helvetica, arial"><a name="Artifact">class <strong>Artifact</strong></a>(<a href="django.db.models.base.html#Model">django.db.models.base.Model</a>)</font></td></tr>
+    
+<tr bgcolor="#ffc8d8"><td rowspan=2><tt>&nbsp;&nbsp;&nbsp;</tt></td>
+<td colspan=2><tt><a href="#Artifact">Artifact</a>(id,&nbsp;name,&nbsp;description,&nbsp;kind,&nbsp;image,&nbsp;shop_id)<br>&nbsp;</tt></td></tr>
+<tr><td>&nbsp;</td>
+<td width="100%"><dl><dt>Method resolution order:</dt>
+<dd><a href="marauder.models.html#Artifact">Artifact</a></dd>
+<dd><a href="django.db.models.base.html#Model">django.db.models.base.Model</a></dd>
+<dd>django.db.models.base.NewBase</dd>
+<dd><a href="__builtin__.html#object">__builtin__.object</a></dd>
+</dl>
+<hr>
+Methods defined here:<br>
+<dl><dt><a name="Artifact-__str__"><strong>__str__</strong></a>(self)</dt></dl>
+
+<strong>objects</strong> = &lt;django.db.models.manager.Manager object&gt;
+<hr>
+Data descriptors defined here:<br>
+<dl><dt><strong>image</strong></dt>
+<dd><tt>Just&nbsp;like&nbsp;the&nbsp;FileDescriptor,&nbsp;but&nbsp;for&nbsp;ImageFields.&nbsp;The&nbsp;only&nbsp;difference&nbsp;is<br>
+assigning&nbsp;the&nbsp;width/height&nbsp;to&nbsp;the&nbsp;width_field/height_field,&nbsp;if&nbsp;appropriate.</tt></dd>
+</dl>
+<dl><dt><strong>owners</strong></dt>
+</dl>
+<dl><dt><strong>shop</strong></dt>
+</dl>
+<dl><dt><strong>stories</strong></dt>
+</dl>
+<hr>
+Data and other attributes defined here:<br>
+<dl><dt><strong>DoesNotExist</strong> = &lt;class 'marauder.models.DoesNotExist'&gt;</dl>
+
+<dl><dt><strong>MultipleObjectsReturned</strong> = &lt;class 'marauder.models.MultipleObjectsReturned'&gt;</dl>
+
+<hr>
+Methods inherited from <a href="django.db.models.base.html#Model">django.db.models.base.Model</a>:<br>
+<dl><dt><a name="Artifact-__eq__"><strong>__eq__</strong></a>(self, other)</dt></dl>
+
+<dl><dt><a name="Artifact-__hash__"><strong>__hash__</strong></a>(self)</dt></dl>
+
+<dl><dt><a name="Artifact-__init__"><strong>__init__</strong></a>(self, *args, **kwargs)</dt></dl>
+
+<dl><dt><a name="Artifact-__ne__"><strong>__ne__</strong></a>(self, other)</dt></dl>
+
+<dl><dt><a name="Artifact-__reduce__"><strong>__reduce__</strong></a>(self)</dt><dd><tt>Provides&nbsp;pickling&nbsp;support.&nbsp;Normally,&nbsp;this&nbsp;just&nbsp;dispatches&nbsp;to&nbsp;Python's<br>
+standard&nbsp;handling.&nbsp;However,&nbsp;for&nbsp;models&nbsp;with&nbsp;deferred&nbsp;field&nbsp;loading,&nbsp;we<br>
+need&nbsp;to&nbsp;do&nbsp;things&nbsp;manually,&nbsp;as&nbsp;they're&nbsp;dynamically&nbsp;created&nbsp;classes&nbsp;and<br>
+only&nbsp;module-level&nbsp;classes&nbsp;can&nbsp;be&nbsp;pickled&nbsp;by&nbsp;the&nbsp;default&nbsp;path.</tt></dd></dl>
+
+<dl><dt><a name="Artifact-__repr__"><strong>__repr__</strong></a>(self)</dt></dl>
+
+<dl><dt><a name="Artifact-clean"><strong>clean</strong></a>(self)</dt><dd><tt>Hook&nbsp;for&nbsp;doing&nbsp;any&nbsp;extra&nbsp;model-wide&nbsp;validation&nbsp;after&nbsp;<a href="#Artifact-clean">clean</a>()&nbsp;has&nbsp;been<br>
+called&nbsp;on&nbsp;every&nbsp;field&nbsp;by&nbsp;self.<strong>clean_fields</strong>.&nbsp;Any&nbsp;ValidationError&nbsp;raised<br>
+by&nbsp;this&nbsp;method&nbsp;will&nbsp;not&nbsp;be&nbsp;associated&nbsp;with&nbsp;a&nbsp;particular&nbsp;field;&nbsp;it&nbsp;will<br>
+have&nbsp;a&nbsp;special-case&nbsp;association&nbsp;with&nbsp;the&nbsp;field&nbsp;defined&nbsp;by&nbsp;NON_FIELD_ERRORS.</tt></dd></dl>
+
+<dl><dt><a name="Artifact-clean_fields"><strong>clean_fields</strong></a>(self, exclude<font color="#909090">=None</font>)</dt><dd><tt>Cleans&nbsp;all&nbsp;fields&nbsp;and&nbsp;raises&nbsp;a&nbsp;ValidationError&nbsp;containing&nbsp;message_dict<br>
+of&nbsp;all&nbsp;validation&nbsp;errors&nbsp;if&nbsp;any&nbsp;occur.</tt></dd></dl>
+
+<dl><dt><a name="Artifact-date_error_message"><strong>date_error_message</strong></a>(self, lookup_type, field, unique_for)</dt></dl>
+
+<dl><dt><a name="Artifact-delete"><strong>delete</strong></a>(self, using<font color="#909090">=None</font>)</dt></dl>
+
+<dl><dt><a name="Artifact-full_clean"><strong>full_clean</strong></a>(self, exclude<font color="#909090">=None</font>, validate_unique<font color="#909090">=True</font>)</dt><dd><tt>Calls&nbsp;clean_fields,&nbsp;clean,&nbsp;and&nbsp;validate_unique,&nbsp;on&nbsp;the&nbsp;model,<br>
+and&nbsp;raises&nbsp;a&nbsp;``ValidationError``&nbsp;for&nbsp;any&nbsp;errors&nbsp;that&nbsp;occurred.</tt></dd></dl>
+
+<dl><dt><a name="Artifact-prepare_database_save"><strong>prepare_database_save</strong></a>(self, unused)</dt></dl>
+
+<dl><dt><a name="Artifact-save"><strong>save</strong></a>(self, force_insert<font color="#909090">=False</font>, force_update<font color="#909090">=False</font>, using<font color="#909090">=None</font>, update_fields<font color="#909090">=None</font>)</dt><dd><tt>Saves&nbsp;the&nbsp;current&nbsp;instance.&nbsp;Override&nbsp;this&nbsp;in&nbsp;a&nbsp;subclass&nbsp;if&nbsp;you&nbsp;want&nbsp;to<br>
+control&nbsp;the&nbsp;saving&nbsp;process.<br>
+&nbsp;<br>
+The&nbsp;'force_insert'&nbsp;and&nbsp;'force_update'&nbsp;parameters&nbsp;can&nbsp;be&nbsp;used&nbsp;to&nbsp;insist<br>
+that&nbsp;the&nbsp;"save"&nbsp;must&nbsp;be&nbsp;an&nbsp;SQL&nbsp;insert&nbsp;or&nbsp;update&nbsp;(or&nbsp;equivalent&nbsp;for<br>
+non-SQL&nbsp;backends),&nbsp;respectively.&nbsp;Normally,&nbsp;they&nbsp;should&nbsp;not&nbsp;be&nbsp;set.</tt></dd></dl>
+
+<dl><dt><a name="Artifact-save_base"><strong>save_base</strong></a>(self, raw<font color="#909090">=False</font>, force_insert<font color="#909090">=False</font>, force_update<font color="#909090">=False</font>, using<font color="#909090">=None</font>, update_fields<font color="#909090">=None</font>)</dt><dd><tt>Handles&nbsp;the&nbsp;parts&nbsp;of&nbsp;saving&nbsp;which&nbsp;should&nbsp;be&nbsp;done&nbsp;only&nbsp;once&nbsp;per&nbsp;save,<br>
+yet&nbsp;need&nbsp;to&nbsp;be&nbsp;done&nbsp;in&nbsp;raw&nbsp;saves,&nbsp;too.&nbsp;This&nbsp;includes&nbsp;some&nbsp;sanity<br>
+checks&nbsp;and&nbsp;signal&nbsp;sending.<br>
+&nbsp;<br>
+The&nbsp;'raw'&nbsp;argument&nbsp;is&nbsp;telling&nbsp;save_base&nbsp;not&nbsp;to&nbsp;save&nbsp;any&nbsp;parent<br>
+models&nbsp;and&nbsp;not&nbsp;to&nbsp;do&nbsp;any&nbsp;changes&nbsp;to&nbsp;the&nbsp;values&nbsp;before&nbsp;save.&nbsp;This<br>
+is&nbsp;used&nbsp;by&nbsp;fixture&nbsp;loading.</tt></dd></dl>
+
+<dl><dt><a name="Artifact-serializable_value"><strong>serializable_value</strong></a>(self, field_name)</dt><dd><tt>Returns&nbsp;the&nbsp;value&nbsp;of&nbsp;the&nbsp;field&nbsp;name&nbsp;for&nbsp;this&nbsp;instance.&nbsp;If&nbsp;the&nbsp;field&nbsp;is<br>
+a&nbsp;foreign&nbsp;key,&nbsp;returns&nbsp;the&nbsp;id&nbsp;value,&nbsp;instead&nbsp;of&nbsp;the&nbsp;object.&nbsp;If&nbsp;there's<br>
+no&nbsp;Field&nbsp;object&nbsp;with&nbsp;this&nbsp;name&nbsp;on&nbsp;the&nbsp;model,&nbsp;the&nbsp;model&nbsp;attribute's<br>
+value&nbsp;is&nbsp;returned&nbsp;directly.<br>
+&nbsp;<br>
+Used&nbsp;to&nbsp;serialize&nbsp;a&nbsp;field's&nbsp;value&nbsp;(in&nbsp;the&nbsp;serializer,&nbsp;or&nbsp;form&nbsp;output,<br>
+for&nbsp;example).&nbsp;Normally,&nbsp;you&nbsp;would&nbsp;just&nbsp;access&nbsp;the&nbsp;attribute&nbsp;directly<br>
+and&nbsp;not&nbsp;use&nbsp;this&nbsp;method.</tt></dd></dl>
+
+<dl><dt><a name="Artifact-unique_error_message"><strong>unique_error_message</strong></a>(self, model_class, unique_check)</dt></dl>
+
+<dl><dt><a name="Artifact-validate_unique"><strong>validate_unique</strong></a>(self, exclude<font color="#909090">=None</font>)</dt><dd><tt>Checks&nbsp;unique&nbsp;constraints&nbsp;on&nbsp;the&nbsp;model&nbsp;and&nbsp;raises&nbsp;``ValidationError``<br>
+if&nbsp;any&nbsp;failed.</tt></dd></dl>
+
+<hr>
+Data descriptors inherited from <a href="django.db.models.base.html#Model">django.db.models.base.Model</a>:<br>
+<dl><dt><strong>pk</strong></dt>
+</dl>
+<hr>
+Data descriptors inherited from django.db.models.base.NewBase:<br>
+<dl><dt><strong>__dict__</strong></dt>
+<dd><tt>dictionary&nbsp;for&nbsp;instance&nbsp;variables&nbsp;(if&nbsp;defined)</tt></dd>
+</dl>
+<dl><dt><strong>__weakref__</strong></dt>
+<dd><tt>list&nbsp;of&nbsp;weak&nbsp;references&nbsp;to&nbsp;the&nbsp;object&nbsp;(if&nbsp;defined)</tt></dd>
+</dl>
+</td></tr></table> <p>
+<table width="100%" cellspacing=0 cellpadding=2 border=0 summary="section">
+<tr bgcolor="#ffc8d8">
+<td colspan=3 valign=bottom>&nbsp;<br>
+<font color="#000000" face="helvetica, arial"><a name="Book">class <strong>Book</strong></a>(<a href="django.db.models.base.html#Model">django.db.models.base.Model</a>)</font></td></tr>
+    
+<tr bgcolor="#ffc8d8"><td rowspan=2><tt>&nbsp;&nbsp;&nbsp;</tt></td>
+<td colspan=2><tt><a href="#Book">Book</a>(id,&nbsp;name,&nbsp;description,&nbsp;author_id,&nbsp;publisher,&nbsp;published_date,&nbsp;image)<br>&nbsp;</tt></td></tr>
+<tr><td>&nbsp;</td>
+<td width="100%"><dl><dt>Method resolution order:</dt>
+<dd><a href="marauder.models.html#Book">Book</a></dd>
+<dd><a href="django.db.models.base.html#Model">django.db.models.base.Model</a></dd>
+<dd>django.db.models.base.NewBase</dd>
+<dd><a href="__builtin__.html#object">__builtin__.object</a></dd>
+</dl>
+<hr>
+Methods defined here:<br>
+<dl><dt><a name="Book-__str__"><strong>__str__</strong></a>(self)</dt></dl>
+
+<strong>objects</strong> = &lt;django.db.models.manager.Manager object&gt;
+<hr>
+Data descriptors defined here:<br>
+<dl><dt><strong>author</strong></dt>
+</dl>
+<dl><dt><strong>image</strong></dt>
+<dd><tt>Just&nbsp;like&nbsp;the&nbsp;FileDescriptor,&nbsp;but&nbsp;for&nbsp;ImageFields.&nbsp;The&nbsp;only&nbsp;difference&nbsp;is<br>
+assigning&nbsp;the&nbsp;width/height&nbsp;to&nbsp;the&nbsp;width_field/height_field,&nbsp;if&nbsp;appropriate.</tt></dd>
+</dl>
+<dl><dt><strong>story</strong></dt>
+</dl>
+<dl><dt><strong>subjects</strong></dt>
+</dl>
+<hr>
+Data and other attributes defined here:<br>
+<dl><dt><strong>DoesNotExist</strong> = &lt;class 'marauder.models.DoesNotExist'&gt;</dl>
+
+<dl><dt><strong>MultipleObjectsReturned</strong> = &lt;class 'marauder.models.MultipleObjectsReturned'&gt;</dl>
+
+<hr>
+Methods inherited from <a href="django.db.models.base.html#Model">django.db.models.base.Model</a>:<br>
+<dl><dt><a name="Book-__eq__"><strong>__eq__</strong></a>(self, other)</dt></dl>
+
+<dl><dt><a name="Book-__hash__"><strong>__hash__</strong></a>(self)</dt></dl>
+
+<dl><dt><a name="Book-__init__"><strong>__init__</strong></a>(self, *args, **kwargs)</dt></dl>
+
+<dl><dt><a name="Book-__ne__"><strong>__ne__</strong></a>(self, other)</dt></dl>
+
+<dl><dt><a name="Book-__reduce__"><strong>__reduce__</strong></a>(self)</dt><dd><tt>Provides&nbsp;pickling&nbsp;support.&nbsp;Normally,&nbsp;this&nbsp;just&nbsp;dispatches&nbsp;to&nbsp;Python's<br>
+standard&nbsp;handling.&nbsp;However,&nbsp;for&nbsp;models&nbsp;with&nbsp;deferred&nbsp;field&nbsp;loading,&nbsp;we<br>
+need&nbsp;to&nbsp;do&nbsp;things&nbsp;manually,&nbsp;as&nbsp;they're&nbsp;dynamically&nbsp;created&nbsp;classes&nbsp;and<br>
+only&nbsp;module-level&nbsp;classes&nbsp;can&nbsp;be&nbsp;pickled&nbsp;by&nbsp;the&nbsp;default&nbsp;path.</tt></dd></dl>
+
+<dl><dt><a name="Book-__repr__"><strong>__repr__</strong></a>(self)</dt></dl>
+
+<dl><dt><a name="Book-clean"><strong>clean</strong></a>(self)</dt><dd><tt>Hook&nbsp;for&nbsp;doing&nbsp;any&nbsp;extra&nbsp;model-wide&nbsp;validation&nbsp;after&nbsp;<a href="#Book-clean">clean</a>()&nbsp;has&nbsp;been<br>
+called&nbsp;on&nbsp;every&nbsp;field&nbsp;by&nbsp;self.<strong>clean_fields</strong>.&nbsp;Any&nbsp;ValidationError&nbsp;raised<br>
+by&nbsp;this&nbsp;method&nbsp;will&nbsp;not&nbsp;be&nbsp;associated&nbsp;with&nbsp;a&nbsp;particular&nbsp;field;&nbsp;it&nbsp;will<br>
+have&nbsp;a&nbsp;special-case&nbsp;association&nbsp;with&nbsp;the&nbsp;field&nbsp;defined&nbsp;by&nbsp;NON_FIELD_ERRORS.</tt></dd></dl>
+
+<dl><dt><a name="Book-clean_fields"><strong>clean_fields</strong></a>(self, exclude<font color="#909090">=None</font>)</dt><dd><tt>Cleans&nbsp;all&nbsp;fields&nbsp;and&nbsp;raises&nbsp;a&nbsp;ValidationError&nbsp;containing&nbsp;message_dict<br>
+of&nbsp;all&nbsp;validation&nbsp;errors&nbsp;if&nbsp;any&nbsp;occur.</tt></dd></dl>
+
+<dl><dt><a name="Book-date_error_message"><strong>date_error_message</strong></a>(self, lookup_type, field, unique_for)</dt></dl>
+
+<dl><dt><a name="Book-delete"><strong>delete</strong></a>(self, using<font color="#909090">=None</font>)</dt></dl>
+
+<dl><dt><a name="Book-full_clean"><strong>full_clean</strong></a>(self, exclude<font color="#909090">=None</font>, validate_unique<font color="#909090">=True</font>)</dt><dd><tt>Calls&nbsp;clean_fields,&nbsp;clean,&nbsp;and&nbsp;validate_unique,&nbsp;on&nbsp;the&nbsp;model,<br>
+and&nbsp;raises&nbsp;a&nbsp;``ValidationError``&nbsp;for&nbsp;any&nbsp;errors&nbsp;that&nbsp;occurred.</tt></dd></dl>
+
+<dl><dt><a name="Book-prepare_database_save"><strong>prepare_database_save</strong></a>(self, unused)</dt></dl>
+
+<dl><dt><a name="Book-save"><strong>save</strong></a>(self, force_insert<font color="#909090">=False</font>, force_update<font color="#909090">=False</font>, using<font color="#909090">=None</font>, update_fields<font color="#909090">=None</font>)</dt><dd><tt>Saves&nbsp;the&nbsp;current&nbsp;instance.&nbsp;Override&nbsp;this&nbsp;in&nbsp;a&nbsp;subclass&nbsp;if&nbsp;you&nbsp;want&nbsp;to<br>
+control&nbsp;the&nbsp;saving&nbsp;process.<br>
+&nbsp;<br>
+The&nbsp;'force_insert'&nbsp;and&nbsp;'force_update'&nbsp;parameters&nbsp;can&nbsp;be&nbsp;used&nbsp;to&nbsp;insist<br>
+that&nbsp;the&nbsp;"save"&nbsp;must&nbsp;be&nbsp;an&nbsp;SQL&nbsp;insert&nbsp;or&nbsp;update&nbsp;(or&nbsp;equivalent&nbsp;for<br>
+non-SQL&nbsp;backends),&nbsp;respectively.&nbsp;Normally,&nbsp;they&nbsp;should&nbsp;not&nbsp;be&nbsp;set.</tt></dd></dl>
+
+<dl><dt><a name="Book-save_base"><strong>save_base</strong></a>(self, raw<font color="#909090">=False</font>, force_insert<font color="#909090">=False</font>, force_update<font color="#909090">=False</font>, using<font color="#909090">=None</font>, update_fields<font color="#909090">=None</font>)</dt><dd><tt>Handles&nbsp;the&nbsp;parts&nbsp;of&nbsp;saving&nbsp;which&nbsp;should&nbsp;be&nbsp;done&nbsp;only&nbsp;once&nbsp;per&nbsp;save,<br>
+yet&nbsp;need&nbsp;to&nbsp;be&nbsp;done&nbsp;in&nbsp;raw&nbsp;saves,&nbsp;too.&nbsp;This&nbsp;includes&nbsp;some&nbsp;sanity<br>
+checks&nbsp;and&nbsp;signal&nbsp;sending.<br>
+&nbsp;<br>
+The&nbsp;'raw'&nbsp;argument&nbsp;is&nbsp;telling&nbsp;save_base&nbsp;not&nbsp;to&nbsp;save&nbsp;any&nbsp;parent<br>
+models&nbsp;and&nbsp;not&nbsp;to&nbsp;do&nbsp;any&nbsp;changes&nbsp;to&nbsp;the&nbsp;values&nbsp;before&nbsp;save.&nbsp;This<br>
+is&nbsp;used&nbsp;by&nbsp;fixture&nbsp;loading.</tt></dd></dl>
+
+<dl><dt><a name="Book-serializable_value"><strong>serializable_value</strong></a>(self, field_name)</dt><dd><tt>Returns&nbsp;the&nbsp;value&nbsp;of&nbsp;the&nbsp;field&nbsp;name&nbsp;for&nbsp;this&nbsp;instance.&nbsp;If&nbsp;the&nbsp;field&nbsp;is<br>
+a&nbsp;foreign&nbsp;key,&nbsp;returns&nbsp;the&nbsp;id&nbsp;value,&nbsp;instead&nbsp;of&nbsp;the&nbsp;object.&nbsp;If&nbsp;there's<br>
+no&nbsp;Field&nbsp;object&nbsp;with&nbsp;this&nbsp;name&nbsp;on&nbsp;the&nbsp;model,&nbsp;the&nbsp;model&nbsp;attribute's<br>
+value&nbsp;is&nbsp;returned&nbsp;directly.<br>
+&nbsp;<br>
+Used&nbsp;to&nbsp;serialize&nbsp;a&nbsp;field's&nbsp;value&nbsp;(in&nbsp;the&nbsp;serializer,&nbsp;or&nbsp;form&nbsp;output,<br>
+for&nbsp;example).&nbsp;Normally,&nbsp;you&nbsp;would&nbsp;just&nbsp;access&nbsp;the&nbsp;attribute&nbsp;directly<br>
+and&nbsp;not&nbsp;use&nbsp;this&nbsp;method.</tt></dd></dl>
+
+<dl><dt><a name="Book-unique_error_message"><strong>unique_error_message</strong></a>(self, model_class, unique_check)</dt></dl>
+
+<dl><dt><a name="Book-validate_unique"><strong>validate_unique</strong></a>(self, exclude<font color="#909090">=None</font>)</dt><dd><tt>Checks&nbsp;unique&nbsp;constraints&nbsp;on&nbsp;the&nbsp;model&nbsp;and&nbsp;raises&nbsp;``ValidationError``<br>
+if&nbsp;any&nbsp;failed.</tt></dd></dl>
+
+<hr>
+Data descriptors inherited from <a href="django.db.models.base.html#Model">django.db.models.base.Model</a>:<br>
+<dl><dt><strong>pk</strong></dt>
+</dl>
+<hr>
+Data descriptors inherited from django.db.models.base.NewBase:<br>
+<dl><dt><strong>__dict__</strong></dt>
+<dd><tt>dictionary&nbsp;for&nbsp;instance&nbsp;variables&nbsp;(if&nbsp;defined)</tt></dd>
+</dl>
+<dl><dt><strong>__weakref__</strong></dt>
+<dd><tt>list&nbsp;of&nbsp;weak&nbsp;references&nbsp;to&nbsp;the&nbsp;object&nbsp;(if&nbsp;defined)</tt></dd>
+</dl>
+</td></tr></table> <p>
+<table width="100%" cellspacing=0 cellpadding=2 border=0 summary="section">
+<tr bgcolor="#ffc8d8">
+<td colspan=3 valign=bottom>&nbsp;<br>
+<font color="#000000" face="helvetica, arial"><a name="Character">class <strong>Character</strong></a>(<a href="django.db.models.base.html#Model">django.db.models.base.Model</a>)</font></td></tr>
+    
+<tr bgcolor="#ffc8d8"><td rowspan=2><tt>&nbsp;&nbsp;&nbsp;</tt></td>
+<td colspan=2><tt><a href="#Character">Character</a>(id,&nbsp;name,&nbsp;wand,&nbsp;description,&nbsp;magical,&nbsp;quote,&nbsp;quote_by,&nbsp;image,&nbsp;creature_id,&nbsp;house_id,&nbsp;shop_id)<br>&nbsp;</tt></td></tr>
+<tr><td>&nbsp;</td>
+<td width="100%"><dl><dt>Method resolution order:</dt>
+<dd><a href="marauder.models.html#Character">Character</a></dd>
+<dd><a href="django.db.models.base.html#Model">django.db.models.base.Model</a></dd>
+<dd>django.db.models.base.NewBase</dd>
+<dd><a href="__builtin__.html#object">__builtin__.object</a></dd>
+</dl>
+<hr>
+Methods defined here:<br>
+<dl><dt><a name="Character-__str__"><strong>__str__</strong></a>(self)</dt></dl>
+
+<dl><dt><a name="Character-is_squib"><strong>is_squib</strong></a>(self)</dt></dl>
+
+<strong>objects</strong> = &lt;django.db.models.manager.Manager object&gt;
+<dl><dt><a name="Character-relationships"><strong>relationships</strong></a>(self)</dt></dl>
+
+<hr>
+Data descriptors defined here:<br>
+<dl><dt><strong>academic_statuses</strong></dt>
+</dl>
+<dl><dt><strong>artifacts</strong></dt>
+</dl>
+<dl><dt><strong>books_published</strong></dt>
+</dl>
+<dl><dt><strong>books_starred</strong></dt>
+</dl>
+<dl><dt><strong>creature</strong></dt>
+</dl>
+<dl><dt><strong>house</strong></dt>
+</dl>
+<dl><dt><strong>houses_haunted</strong></dt>
+</dl>
+<dl><dt><strong>image</strong></dt>
+<dd><tt>Just&nbsp;like&nbsp;the&nbsp;FileDescriptor,&nbsp;but&nbsp;for&nbsp;ImageFields.&nbsp;The&nbsp;only&nbsp;difference&nbsp;is<br>
+assigning&nbsp;the&nbsp;width/height&nbsp;to&nbsp;the&nbsp;width_field/height_field,&nbsp;if&nbsp;appropriate.</tt></dd>
+</dl>
+<dl><dt><strong>relationships1</strong></dt>
+</dl>
+<dl><dt><strong>relationships2</strong></dt>
+</dl>
+<dl><dt><strong>shop</strong></dt>
+</dl>
+<dl><dt><strong>stories</strong></dt>
+</dl>
+<hr>
+Data and other attributes defined here:<br>
+<dl><dt><strong>DoesNotExist</strong> = &lt;class 'marauder.models.DoesNotExist'&gt;</dl>
+
+<dl><dt><strong>MultipleObjectsReturned</strong> = &lt;class 'marauder.models.MultipleObjectsReturned'&gt;</dl>
+
+<hr>
+Methods inherited from <a href="django.db.models.base.html#Model">django.db.models.base.Model</a>:<br>
+<dl><dt><a name="Character-__eq__"><strong>__eq__</strong></a>(self, other)</dt></dl>
+
+<dl><dt><a name="Character-__hash__"><strong>__hash__</strong></a>(self)</dt></dl>
+
+<dl><dt><a name="Character-__init__"><strong>__init__</strong></a>(self, *args, **kwargs)</dt></dl>
+
+<dl><dt><a name="Character-__ne__"><strong>__ne__</strong></a>(self, other)</dt></dl>
+
+<dl><dt><a name="Character-__reduce__"><strong>__reduce__</strong></a>(self)</dt><dd><tt>Provides&nbsp;pickling&nbsp;support.&nbsp;Normally,&nbsp;this&nbsp;just&nbsp;dispatches&nbsp;to&nbsp;Python's<br>
+standard&nbsp;handling.&nbsp;However,&nbsp;for&nbsp;models&nbsp;with&nbsp;deferred&nbsp;field&nbsp;loading,&nbsp;we<br>
+need&nbsp;to&nbsp;do&nbsp;things&nbsp;manually,&nbsp;as&nbsp;they're&nbsp;dynamically&nbsp;created&nbsp;classes&nbsp;and<br>
+only&nbsp;module-level&nbsp;classes&nbsp;can&nbsp;be&nbsp;pickled&nbsp;by&nbsp;the&nbsp;default&nbsp;path.</tt></dd></dl>
+
+<dl><dt><a name="Character-__repr__"><strong>__repr__</strong></a>(self)</dt></dl>
+
+<dl><dt><a name="Character-clean"><strong>clean</strong></a>(self)</dt><dd><tt>Hook&nbsp;for&nbsp;doing&nbsp;any&nbsp;extra&nbsp;model-wide&nbsp;validation&nbsp;after&nbsp;<a href="#Character-clean">clean</a>()&nbsp;has&nbsp;been<br>
+called&nbsp;on&nbsp;every&nbsp;field&nbsp;by&nbsp;self.<strong>clean_fields</strong>.&nbsp;Any&nbsp;ValidationError&nbsp;raised<br>
+by&nbsp;this&nbsp;method&nbsp;will&nbsp;not&nbsp;be&nbsp;associated&nbsp;with&nbsp;a&nbsp;particular&nbsp;field;&nbsp;it&nbsp;will<br>
+have&nbsp;a&nbsp;special-case&nbsp;association&nbsp;with&nbsp;the&nbsp;field&nbsp;defined&nbsp;by&nbsp;NON_FIELD_ERRORS.</tt></dd></dl>
+
+<dl><dt><a name="Character-clean_fields"><strong>clean_fields</strong></a>(self, exclude<font color="#909090">=None</font>)</dt><dd><tt>Cleans&nbsp;all&nbsp;fields&nbsp;and&nbsp;raises&nbsp;a&nbsp;ValidationError&nbsp;containing&nbsp;message_dict<br>
+of&nbsp;all&nbsp;validation&nbsp;errors&nbsp;if&nbsp;any&nbsp;occur.</tt></dd></dl>
+
+<dl><dt><a name="Character-date_error_message"><strong>date_error_message</strong></a>(self, lookup_type, field, unique_for)</dt></dl>
+
+<dl><dt><a name="Character-delete"><strong>delete</strong></a>(self, using<font color="#909090">=None</font>)</dt></dl>
+
+<dl><dt><a name="Character-full_clean"><strong>full_clean</strong></a>(self, exclude<font color="#909090">=None</font>, validate_unique<font color="#909090">=True</font>)</dt><dd><tt>Calls&nbsp;clean_fields,&nbsp;clean,&nbsp;and&nbsp;validate_unique,&nbsp;on&nbsp;the&nbsp;model,<br>
+and&nbsp;raises&nbsp;a&nbsp;``ValidationError``&nbsp;for&nbsp;any&nbsp;errors&nbsp;that&nbsp;occurred.</tt></dd></dl>
+
+<dl><dt><a name="Character-prepare_database_save"><strong>prepare_database_save</strong></a>(self, unused)</dt></dl>
+
+<dl><dt><a name="Character-save"><strong>save</strong></a>(self, force_insert<font color="#909090">=False</font>, force_update<font color="#909090">=False</font>, using<font color="#909090">=None</font>, update_fields<font color="#909090">=None</font>)</dt><dd><tt>Saves&nbsp;the&nbsp;current&nbsp;instance.&nbsp;Override&nbsp;this&nbsp;in&nbsp;a&nbsp;subclass&nbsp;if&nbsp;you&nbsp;want&nbsp;to<br>
+control&nbsp;the&nbsp;saving&nbsp;process.<br>
+&nbsp;<br>
+The&nbsp;'force_insert'&nbsp;and&nbsp;'force_update'&nbsp;parameters&nbsp;can&nbsp;be&nbsp;used&nbsp;to&nbsp;insist<br>
+that&nbsp;the&nbsp;"save"&nbsp;must&nbsp;be&nbsp;an&nbsp;SQL&nbsp;insert&nbsp;or&nbsp;update&nbsp;(or&nbsp;equivalent&nbsp;for<br>
+non-SQL&nbsp;backends),&nbsp;respectively.&nbsp;Normally,&nbsp;they&nbsp;should&nbsp;not&nbsp;be&nbsp;set.</tt></dd></dl>
+
+<dl><dt><a name="Character-save_base"><strong>save_base</strong></a>(self, raw<font color="#909090">=False</font>, force_insert<font color="#909090">=False</font>, force_update<font color="#909090">=False</font>, using<font color="#909090">=None</font>, update_fields<font color="#909090">=None</font>)</dt><dd><tt>Handles&nbsp;the&nbsp;parts&nbsp;of&nbsp;saving&nbsp;which&nbsp;should&nbsp;be&nbsp;done&nbsp;only&nbsp;once&nbsp;per&nbsp;save,<br>
+yet&nbsp;need&nbsp;to&nbsp;be&nbsp;done&nbsp;in&nbsp;raw&nbsp;saves,&nbsp;too.&nbsp;This&nbsp;includes&nbsp;some&nbsp;sanity<br>
+checks&nbsp;and&nbsp;signal&nbsp;sending.<br>
+&nbsp;<br>
+The&nbsp;'raw'&nbsp;argument&nbsp;is&nbsp;telling&nbsp;save_base&nbsp;not&nbsp;to&nbsp;save&nbsp;any&nbsp;parent<br>
+models&nbsp;and&nbsp;not&nbsp;to&nbsp;do&nbsp;any&nbsp;changes&nbsp;to&nbsp;the&nbsp;values&nbsp;before&nbsp;save.&nbsp;This<br>
+is&nbsp;used&nbsp;by&nbsp;fixture&nbsp;loading.</tt></dd></dl>
+
+<dl><dt><a name="Character-serializable_value"><strong>serializable_value</strong></a>(self, field_name)</dt><dd><tt>Returns&nbsp;the&nbsp;value&nbsp;of&nbsp;the&nbsp;field&nbsp;name&nbsp;for&nbsp;this&nbsp;instance.&nbsp;If&nbsp;the&nbsp;field&nbsp;is<br>
+a&nbsp;foreign&nbsp;key,&nbsp;returns&nbsp;the&nbsp;id&nbsp;value,&nbsp;instead&nbsp;of&nbsp;the&nbsp;object.&nbsp;If&nbsp;there's<br>
+no&nbsp;Field&nbsp;object&nbsp;with&nbsp;this&nbsp;name&nbsp;on&nbsp;the&nbsp;model,&nbsp;the&nbsp;model&nbsp;attribute's<br>
+value&nbsp;is&nbsp;returned&nbsp;directly.<br>
+&nbsp;<br>
+Used&nbsp;to&nbsp;serialize&nbsp;a&nbsp;field's&nbsp;value&nbsp;(in&nbsp;the&nbsp;serializer,&nbsp;or&nbsp;form&nbsp;output,<br>
+for&nbsp;example).&nbsp;Normally,&nbsp;you&nbsp;would&nbsp;just&nbsp;access&nbsp;the&nbsp;attribute&nbsp;directly<br>
+and&nbsp;not&nbsp;use&nbsp;this&nbsp;method.</tt></dd></dl>
+
+<dl><dt><a name="Character-unique_error_message"><strong>unique_error_message</strong></a>(self, model_class, unique_check)</dt></dl>
+
+<dl><dt><a name="Character-validate_unique"><strong>validate_unique</strong></a>(self, exclude<font color="#909090">=None</font>)</dt><dd><tt>Checks&nbsp;unique&nbsp;constraints&nbsp;on&nbsp;the&nbsp;model&nbsp;and&nbsp;raises&nbsp;``ValidationError``<br>
+if&nbsp;any&nbsp;failed.</tt></dd></dl>
+
+<hr>
+Data descriptors inherited from <a href="django.db.models.base.html#Model">django.db.models.base.Model</a>:<br>
+<dl><dt><strong>pk</strong></dt>
+</dl>
+<hr>
+Data descriptors inherited from django.db.models.base.NewBase:<br>
+<dl><dt><strong>__dict__</strong></dt>
+<dd><tt>dictionary&nbsp;for&nbsp;instance&nbsp;variables&nbsp;(if&nbsp;defined)</tt></dd>
+</dl>
+<dl><dt><strong>__weakref__</strong></dt>
+<dd><tt>list&nbsp;of&nbsp;weak&nbsp;references&nbsp;to&nbsp;the&nbsp;object&nbsp;(if&nbsp;defined)</tt></dd>
+</dl>
+</td></tr></table> <p>
+<table width="100%" cellspacing=0 cellpadding=2 border=0 summary="section">
+<tr bgcolor="#ffc8d8">
+<td colspan=3 valign=bottom>&nbsp;<br>
+<font color="#000000" face="helvetica, arial"><a name="Creature">class <strong>Creature</strong></a>(<a href="django.db.models.base.html#Model">django.db.models.base.Model</a>)</font></td></tr>
+    
+<tr bgcolor="#ffc8d8"><td rowspan=2><tt>&nbsp;&nbsp;&nbsp;</tt></td>
+<td colspan=2><tt><a href="#Creature">Creature</a>(id,&nbsp;name,&nbsp;description,&nbsp;classification,&nbsp;rating,&nbsp;image)<br>&nbsp;</tt></td></tr>
+<tr><td>&nbsp;</td>
+<td width="100%"><dl><dt>Method resolution order:</dt>
+<dd><a href="marauder.models.html#Creature">Creature</a></dd>
+<dd><a href="django.db.models.base.html#Model">django.db.models.base.Model</a></dd>
+<dd>django.db.models.base.NewBase</dd>
+<dd><a href="__builtin__.html#object">__builtin__.object</a></dd>
+</dl>
+<hr>
+Methods defined here:<br>
+<dl><dt><a name="Creature-__str__"><strong>__str__</strong></a>(self)</dt></dl>
+
+<dl><dt><a name="Creature-get_classification_display"><strong>get_classification_display</strong></a> = _curried(*moreargs, **morekwargs)</dt></dl>
+
+<dl><dt><a name="Creature-get_rating_display"><strong>get_rating_display</strong></a> = _curried(*moreargs, **morekwargs)</dt></dl>
+
+<dl><dt><a name="Creature-neutralize"><strong>neutralize</strong></a>(self, incantation)</dt></dl>
+
+<strong>objects</strong> = &lt;django.db.models.manager.Manager object&gt;
+<dl><dt><a name="Creature-potions"><strong>potions</strong></a>(self)</dt></dl>
+
+<hr>
+Data descriptors defined here:<br>
+<dl><dt><strong>characters</strong></dt>
+</dl>
+<dl><dt><strong>image</strong></dt>
+<dd><tt>Just&nbsp;like&nbsp;the&nbsp;FileDescriptor,&nbsp;but&nbsp;for&nbsp;ImageFields.&nbsp;The&nbsp;only&nbsp;difference&nbsp;is<br>
+assigning&nbsp;the&nbsp;width/height&nbsp;to&nbsp;the&nbsp;width_field/height_field,&nbsp;if&nbsp;appropriate.</tt></dd>
+</dl>
+<dl><dt><strong>ingredients</strong></dt>
+</dl>
+<dl><dt><strong>spells</strong></dt>
+</dl>
+<hr>
+Data and other attributes defined here:<br>
+<dl><dt><strong>CLASS_CHOICES</strong> = (('Beast', 'Beast'), ('Being', 'Being'), ('NB', 'Non-being'), ('Spirit', 'Spirit'))</dl>
+
+<dl><dt><strong>DoesNotExist</strong> = &lt;class 'marauder.models.DoesNotExist'&gt;</dl>
+
+<dl><dt><strong>MultipleObjectsReturned</strong> = &lt;class 'marauder.models.MultipleObjectsReturned'&gt;</dl>
+
+<dl><dt><strong>RATING_CHOICES</strong> = ((0, 'Unknown'), (1, 'X'), (2, 'XX'), (3, 'XXX'), (4, 'XXXX'), (5, 'XXXXX'))</dl>
+
+<hr>
+Methods inherited from <a href="django.db.models.base.html#Model">django.db.models.base.Model</a>:<br>
+<dl><dt><a name="Creature-__eq__"><strong>__eq__</strong></a>(self, other)</dt></dl>
+
+<dl><dt><a name="Creature-__hash__"><strong>__hash__</strong></a>(self)</dt></dl>
+
+<dl><dt><a name="Creature-__init__"><strong>__init__</strong></a>(self, *args, **kwargs)</dt></dl>
+
+<dl><dt><a name="Creature-__ne__"><strong>__ne__</strong></a>(self, other)</dt></dl>
+
+<dl><dt><a name="Creature-__reduce__"><strong>__reduce__</strong></a>(self)</dt><dd><tt>Provides&nbsp;pickling&nbsp;support.&nbsp;Normally,&nbsp;this&nbsp;just&nbsp;dispatches&nbsp;to&nbsp;Python's<br>
+standard&nbsp;handling.&nbsp;However,&nbsp;for&nbsp;models&nbsp;with&nbsp;deferred&nbsp;field&nbsp;loading,&nbsp;we<br>
+need&nbsp;to&nbsp;do&nbsp;things&nbsp;manually,&nbsp;as&nbsp;they're&nbsp;dynamically&nbsp;created&nbsp;classes&nbsp;and<br>
+only&nbsp;module-level&nbsp;classes&nbsp;can&nbsp;be&nbsp;pickled&nbsp;by&nbsp;the&nbsp;default&nbsp;path.</tt></dd></dl>
+
+<dl><dt><a name="Creature-__repr__"><strong>__repr__</strong></a>(self)</dt></dl>
+
+<dl><dt><a name="Creature-clean"><strong>clean</strong></a>(self)</dt><dd><tt>Hook&nbsp;for&nbsp;doing&nbsp;any&nbsp;extra&nbsp;model-wide&nbsp;validation&nbsp;after&nbsp;<a href="#Creature-clean">clean</a>()&nbsp;has&nbsp;been<br>
+called&nbsp;on&nbsp;every&nbsp;field&nbsp;by&nbsp;self.<strong>clean_fields</strong>.&nbsp;Any&nbsp;ValidationError&nbsp;raised<br>
+by&nbsp;this&nbsp;method&nbsp;will&nbsp;not&nbsp;be&nbsp;associated&nbsp;with&nbsp;a&nbsp;particular&nbsp;field;&nbsp;it&nbsp;will<br>
+have&nbsp;a&nbsp;special-case&nbsp;association&nbsp;with&nbsp;the&nbsp;field&nbsp;defined&nbsp;by&nbsp;NON_FIELD_ERRORS.</tt></dd></dl>
+
+<dl><dt><a name="Creature-clean_fields"><strong>clean_fields</strong></a>(self, exclude<font color="#909090">=None</font>)</dt><dd><tt>Cleans&nbsp;all&nbsp;fields&nbsp;and&nbsp;raises&nbsp;a&nbsp;ValidationError&nbsp;containing&nbsp;message_dict<br>
+of&nbsp;all&nbsp;validation&nbsp;errors&nbsp;if&nbsp;any&nbsp;occur.</tt></dd></dl>
+
+<dl><dt><a name="Creature-date_error_message"><strong>date_error_message</strong></a>(self, lookup_type, field, unique_for)</dt></dl>
+
+<dl><dt><a name="Creature-delete"><strong>delete</strong></a>(self, using<font color="#909090">=None</font>)</dt></dl>
+
+<dl><dt><a name="Creature-full_clean"><strong>full_clean</strong></a>(self, exclude<font color="#909090">=None</font>, validate_unique<font color="#909090">=True</font>)</dt><dd><tt>Calls&nbsp;clean_fields,&nbsp;clean,&nbsp;and&nbsp;validate_unique,&nbsp;on&nbsp;the&nbsp;model,<br>
+and&nbsp;raises&nbsp;a&nbsp;``ValidationError``&nbsp;for&nbsp;any&nbsp;errors&nbsp;that&nbsp;occurred.</tt></dd></dl>
+
+<dl><dt><a name="Creature-prepare_database_save"><strong>prepare_database_save</strong></a>(self, unused)</dt></dl>
+
+<dl><dt><a name="Creature-save"><strong>save</strong></a>(self, force_insert<font color="#909090">=False</font>, force_update<font color="#909090">=False</font>, using<font color="#909090">=None</font>, update_fields<font color="#909090">=None</font>)</dt><dd><tt>Saves&nbsp;the&nbsp;current&nbsp;instance.&nbsp;Override&nbsp;this&nbsp;in&nbsp;a&nbsp;subclass&nbsp;if&nbsp;you&nbsp;want&nbsp;to<br>
+control&nbsp;the&nbsp;saving&nbsp;process.<br>
+&nbsp;<br>
+The&nbsp;'force_insert'&nbsp;and&nbsp;'force_update'&nbsp;parameters&nbsp;can&nbsp;be&nbsp;used&nbsp;to&nbsp;insist<br>
+that&nbsp;the&nbsp;"save"&nbsp;must&nbsp;be&nbsp;an&nbsp;SQL&nbsp;insert&nbsp;or&nbsp;update&nbsp;(or&nbsp;equivalent&nbsp;for<br>
+non-SQL&nbsp;backends),&nbsp;respectively.&nbsp;Normally,&nbsp;they&nbsp;should&nbsp;not&nbsp;be&nbsp;set.</tt></dd></dl>
+
+<dl><dt><a name="Creature-save_base"><strong>save_base</strong></a>(self, raw<font color="#909090">=False</font>, force_insert<font color="#909090">=False</font>, force_update<font color="#909090">=False</font>, using<font color="#909090">=None</font>, update_fields<font color="#909090">=None</font>)</dt><dd><tt>Handles&nbsp;the&nbsp;parts&nbsp;of&nbsp;saving&nbsp;which&nbsp;should&nbsp;be&nbsp;done&nbsp;only&nbsp;once&nbsp;per&nbsp;save,<br>
+yet&nbsp;need&nbsp;to&nbsp;be&nbsp;done&nbsp;in&nbsp;raw&nbsp;saves,&nbsp;too.&nbsp;This&nbsp;includes&nbsp;some&nbsp;sanity<br>
+checks&nbsp;and&nbsp;signal&nbsp;sending.<br>
+&nbsp;<br>
+The&nbsp;'raw'&nbsp;argument&nbsp;is&nbsp;telling&nbsp;save_base&nbsp;not&nbsp;to&nbsp;save&nbsp;any&nbsp;parent<br>
+models&nbsp;and&nbsp;not&nbsp;to&nbsp;do&nbsp;any&nbsp;changes&nbsp;to&nbsp;the&nbsp;values&nbsp;before&nbsp;save.&nbsp;This<br>
+is&nbsp;used&nbsp;by&nbsp;fixture&nbsp;loading.</tt></dd></dl>
+
+<dl><dt><a name="Creature-serializable_value"><strong>serializable_value</strong></a>(self, field_name)</dt><dd><tt>Returns&nbsp;the&nbsp;value&nbsp;of&nbsp;the&nbsp;field&nbsp;name&nbsp;for&nbsp;this&nbsp;instance.&nbsp;If&nbsp;the&nbsp;field&nbsp;is<br>
+a&nbsp;foreign&nbsp;key,&nbsp;returns&nbsp;the&nbsp;id&nbsp;value,&nbsp;instead&nbsp;of&nbsp;the&nbsp;object.&nbsp;If&nbsp;there's<br>
+no&nbsp;Field&nbsp;object&nbsp;with&nbsp;this&nbsp;name&nbsp;on&nbsp;the&nbsp;model,&nbsp;the&nbsp;model&nbsp;attribute's<br>
+value&nbsp;is&nbsp;returned&nbsp;directly.<br>
+&nbsp;<br>
+Used&nbsp;to&nbsp;serialize&nbsp;a&nbsp;field's&nbsp;value&nbsp;(in&nbsp;the&nbsp;serializer,&nbsp;or&nbsp;form&nbsp;output,<br>
+for&nbsp;example).&nbsp;Normally,&nbsp;you&nbsp;would&nbsp;just&nbsp;access&nbsp;the&nbsp;attribute&nbsp;directly<br>
+and&nbsp;not&nbsp;use&nbsp;this&nbsp;method.</tt></dd></dl>
+
+<dl><dt><a name="Creature-unique_error_message"><strong>unique_error_message</strong></a>(self, model_class, unique_check)</dt></dl>
+
+<dl><dt><a name="Creature-validate_unique"><strong>validate_unique</strong></a>(self, exclude<font color="#909090">=None</font>)</dt><dd><tt>Checks&nbsp;unique&nbsp;constraints&nbsp;on&nbsp;the&nbsp;model&nbsp;and&nbsp;raises&nbsp;``ValidationError``<br>
+if&nbsp;any&nbsp;failed.</tt></dd></dl>
+
+<hr>
+Data descriptors inherited from <a href="django.db.models.base.html#Model">django.db.models.base.Model</a>:<br>
+<dl><dt><strong>pk</strong></dt>
+</dl>
+<hr>
+Data descriptors inherited from django.db.models.base.NewBase:<br>
+<dl><dt><strong>__dict__</strong></dt>
+<dd><tt>dictionary&nbsp;for&nbsp;instance&nbsp;variables&nbsp;(if&nbsp;defined)</tt></dd>
+</dl>
+<dl><dt><strong>__weakref__</strong></dt>
+<dd><tt>list&nbsp;of&nbsp;weak&nbsp;references&nbsp;to&nbsp;the&nbsp;object&nbsp;(if&nbsp;defined)</tt></dd>
+</dl>
+</td></tr></table> <p>
+<table width="100%" cellspacing=0 cellpadding=2 border=0 summary="section">
+<tr bgcolor="#ffc8d8">
+<td colspan=3 valign=bottom>&nbsp;<br>
+<font color="#000000" face="helvetica, arial"><a name="House">class <strong>House</strong></a>(<a href="marauder.models.html#School">School</a>)</font></td></tr>
+    
+<tr bgcolor="#ffc8d8"><td rowspan=2><tt>&nbsp;&nbsp;&nbsp;</tt></td>
+<td colspan=2><tt><a href="#House">House</a>(id,&nbsp;name,&nbsp;description,&nbsp;kind,&nbsp;image,&nbsp;location_ptr_id,&nbsp;country,&nbsp;school_ptr_id,&nbsp;school_id,&nbsp;ghost_id,&nbsp;colors,&nbsp;mascot,&nbsp;quote,&nbsp;quote_by)<br>&nbsp;</tt></td></tr>
+<tr><td>&nbsp;</td>
+<td width="100%"><dl><dt>Method resolution order:</dt>
+<dd><a href="marauder.models.html#House">House</a></dd>
+<dd><a href="marauder.models.html#School">School</a></dd>
+<dd><a href="marauder.models.html#Location">Location</a></dd>
+<dd><a href="django.db.models.base.html#Model">django.db.models.base.Model</a></dd>
+<dd>django.db.models.base.NewBase</dd>
+<dd><a href="__builtin__.html#object">__builtin__.object</a></dd>
+</dl>
+<hr>
+Methods defined here:<br>
+<dl><dt><a name="House-__str__"><strong>__str__</strong></a>(self)</dt></dl>
+
+<strong>objects</strong> = &lt;django.db.models.manager.Manager object&gt;
+<hr>
+Data descriptors defined here:<br>
+<dl><dt><strong>ghost</strong></dt>
+</dl>
+<dl><dt><strong>school</strong></dt>
+</dl>
+<dl><dt><strong>school_ptr</strong></dt>
+</dl>
+<dl><dt><strong>students</strong></dt>
+</dl>
+<hr>
+Data and other attributes defined here:<br>
+<dl><dt><strong>DoesNotExist</strong> = &lt;class 'marauder.models.DoesNotExist'&gt;</dl>
+
+<dl><dt><strong>MultipleObjectsReturned</strong> = &lt;class 'marauder.models.MultipleObjectsReturned'&gt;</dl>
+
+<hr>
+Data descriptors inherited from <a href="marauder.models.html#School">School</a>:<br>
+<dl><dt><strong>academic_statuses</strong></dt>
+</dl>
+<dl><dt><strong>house</strong></dt>
+</dl>
+<dl><dt><strong>houses</strong></dt>
+</dl>
+<dl><dt><strong>location_ptr</strong></dt>
+</dl>
+<hr>
+Data descriptors inherited from <a href="marauder.models.html#Location">Location</a>:<br>
+<dl><dt><strong>image</strong></dt>
+<dd><tt>Just&nbsp;like&nbsp;the&nbsp;FileDescriptor,&nbsp;but&nbsp;for&nbsp;ImageFields.&nbsp;The&nbsp;only&nbsp;difference&nbsp;is<br>
+assigning&nbsp;the&nbsp;width/height&nbsp;to&nbsp;the&nbsp;width_field/height_field,&nbsp;if&nbsp;appropriate.</tt></dd>
+</dl>
+<dl><dt><strong>shop</strong></dt>
+</dl>
+<dl><dt><strong>shops</strong></dt>
+</dl>
+<dl><dt><strong>stories</strong></dt>
+</dl>
+<hr>
+Methods inherited from <a href="django.db.models.base.html#Model">django.db.models.base.Model</a>:<br>
+<dl><dt><a name="House-__eq__"><strong>__eq__</strong></a>(self, other)</dt></dl>
+
+<dl><dt><a name="House-__hash__"><strong>__hash__</strong></a>(self)</dt></dl>
+
+<dl><dt><a name="House-__init__"><strong>__init__</strong></a>(self, *args, **kwargs)</dt></dl>
+
+<dl><dt><a name="House-__ne__"><strong>__ne__</strong></a>(self, other)</dt></dl>
+
+<dl><dt><a name="House-__reduce__"><strong>__reduce__</strong></a>(self)</dt><dd><tt>Provides&nbsp;pickling&nbsp;support.&nbsp;Normally,&nbsp;this&nbsp;just&nbsp;dispatches&nbsp;to&nbsp;Python's<br>
+standard&nbsp;handling.&nbsp;However,&nbsp;for&nbsp;models&nbsp;with&nbsp;deferred&nbsp;field&nbsp;loading,&nbsp;we<br>
+need&nbsp;to&nbsp;do&nbsp;things&nbsp;manually,&nbsp;as&nbsp;they're&nbsp;dynamically&nbsp;created&nbsp;classes&nbsp;and<br>
+only&nbsp;module-level&nbsp;classes&nbsp;can&nbsp;be&nbsp;pickled&nbsp;by&nbsp;the&nbsp;default&nbsp;path.</tt></dd></dl>
+
+<dl><dt><a name="House-__repr__"><strong>__repr__</strong></a>(self)</dt></dl>
+
+<dl><dt><a name="House-clean"><strong>clean</strong></a>(self)</dt><dd><tt>Hook&nbsp;for&nbsp;doing&nbsp;any&nbsp;extra&nbsp;model-wide&nbsp;validation&nbsp;after&nbsp;<a href="#House-clean">clean</a>()&nbsp;has&nbsp;been<br>
+called&nbsp;on&nbsp;every&nbsp;field&nbsp;by&nbsp;self.<strong>clean_fields</strong>.&nbsp;Any&nbsp;ValidationError&nbsp;raised<br>
+by&nbsp;this&nbsp;method&nbsp;will&nbsp;not&nbsp;be&nbsp;associated&nbsp;with&nbsp;a&nbsp;particular&nbsp;field;&nbsp;it&nbsp;will<br>
+have&nbsp;a&nbsp;special-case&nbsp;association&nbsp;with&nbsp;the&nbsp;field&nbsp;defined&nbsp;by&nbsp;NON_FIELD_ERRORS.</tt></dd></dl>
+
+<dl><dt><a name="House-clean_fields"><strong>clean_fields</strong></a>(self, exclude<font color="#909090">=None</font>)</dt><dd><tt>Cleans&nbsp;all&nbsp;fields&nbsp;and&nbsp;raises&nbsp;a&nbsp;ValidationError&nbsp;containing&nbsp;message_dict<br>
+of&nbsp;all&nbsp;validation&nbsp;errors&nbsp;if&nbsp;any&nbsp;occur.</tt></dd></dl>
+
+<dl><dt><a name="House-date_error_message"><strong>date_error_message</strong></a>(self, lookup_type, field, unique_for)</dt></dl>
+
+<dl><dt><a name="House-delete"><strong>delete</strong></a>(self, using<font color="#909090">=None</font>)</dt></dl>
+
+<dl><dt><a name="House-full_clean"><strong>full_clean</strong></a>(self, exclude<font color="#909090">=None</font>, validate_unique<font color="#909090">=True</font>)</dt><dd><tt>Calls&nbsp;clean_fields,&nbsp;clean,&nbsp;and&nbsp;validate_unique,&nbsp;on&nbsp;the&nbsp;model,<br>
+and&nbsp;raises&nbsp;a&nbsp;``ValidationError``&nbsp;for&nbsp;any&nbsp;errors&nbsp;that&nbsp;occurred.</tt></dd></dl>
+
+<dl><dt><a name="House-prepare_database_save"><strong>prepare_database_save</strong></a>(self, unused)</dt></dl>
+
+<dl><dt><a name="House-save"><strong>save</strong></a>(self, force_insert<font color="#909090">=False</font>, force_update<font color="#909090">=False</font>, using<font color="#909090">=None</font>, update_fields<font color="#909090">=None</font>)</dt><dd><tt>Saves&nbsp;the&nbsp;current&nbsp;instance.&nbsp;Override&nbsp;this&nbsp;in&nbsp;a&nbsp;subclass&nbsp;if&nbsp;you&nbsp;want&nbsp;to<br>
+control&nbsp;the&nbsp;saving&nbsp;process.<br>
+&nbsp;<br>
+The&nbsp;'force_insert'&nbsp;and&nbsp;'force_update'&nbsp;parameters&nbsp;can&nbsp;be&nbsp;used&nbsp;to&nbsp;insist<br>
+that&nbsp;the&nbsp;"save"&nbsp;must&nbsp;be&nbsp;an&nbsp;SQL&nbsp;insert&nbsp;or&nbsp;update&nbsp;(or&nbsp;equivalent&nbsp;for<br>
+non-SQL&nbsp;backends),&nbsp;respectively.&nbsp;Normally,&nbsp;they&nbsp;should&nbsp;not&nbsp;be&nbsp;set.</tt></dd></dl>
+
+<dl><dt><a name="House-save_base"><strong>save_base</strong></a>(self, raw<font color="#909090">=False</font>, force_insert<font color="#909090">=False</font>, force_update<font color="#909090">=False</font>, using<font color="#909090">=None</font>, update_fields<font color="#909090">=None</font>)</dt><dd><tt>Handles&nbsp;the&nbsp;parts&nbsp;of&nbsp;saving&nbsp;which&nbsp;should&nbsp;be&nbsp;done&nbsp;only&nbsp;once&nbsp;per&nbsp;save,<br>
+yet&nbsp;need&nbsp;to&nbsp;be&nbsp;done&nbsp;in&nbsp;raw&nbsp;saves,&nbsp;too.&nbsp;This&nbsp;includes&nbsp;some&nbsp;sanity<br>
+checks&nbsp;and&nbsp;signal&nbsp;sending.<br>
+&nbsp;<br>
+The&nbsp;'raw'&nbsp;argument&nbsp;is&nbsp;telling&nbsp;save_base&nbsp;not&nbsp;to&nbsp;save&nbsp;any&nbsp;parent<br>
+models&nbsp;and&nbsp;not&nbsp;to&nbsp;do&nbsp;any&nbsp;changes&nbsp;to&nbsp;the&nbsp;values&nbsp;before&nbsp;save.&nbsp;This<br>
+is&nbsp;used&nbsp;by&nbsp;fixture&nbsp;loading.</tt></dd></dl>
+
+<dl><dt><a name="House-serializable_value"><strong>serializable_value</strong></a>(self, field_name)</dt><dd><tt>Returns&nbsp;the&nbsp;value&nbsp;of&nbsp;the&nbsp;field&nbsp;name&nbsp;for&nbsp;this&nbsp;instance.&nbsp;If&nbsp;the&nbsp;field&nbsp;is<br>
+a&nbsp;foreign&nbsp;key,&nbsp;returns&nbsp;the&nbsp;id&nbsp;value,&nbsp;instead&nbsp;of&nbsp;the&nbsp;object.&nbsp;If&nbsp;there's<br>
+no&nbsp;Field&nbsp;object&nbsp;with&nbsp;this&nbsp;name&nbsp;on&nbsp;the&nbsp;model,&nbsp;the&nbsp;model&nbsp;attribute's<br>
+value&nbsp;is&nbsp;returned&nbsp;directly.<br>
+&nbsp;<br>
+Used&nbsp;to&nbsp;serialize&nbsp;a&nbsp;field's&nbsp;value&nbsp;(in&nbsp;the&nbsp;serializer,&nbsp;or&nbsp;form&nbsp;output,<br>
+for&nbsp;example).&nbsp;Normally,&nbsp;you&nbsp;would&nbsp;just&nbsp;access&nbsp;the&nbsp;attribute&nbsp;directly<br>
+and&nbsp;not&nbsp;use&nbsp;this&nbsp;method.</tt></dd></dl>
+
+<dl><dt><a name="House-unique_error_message"><strong>unique_error_message</strong></a>(self, model_class, unique_check)</dt></dl>
+
+<dl><dt><a name="House-validate_unique"><strong>validate_unique</strong></a>(self, exclude<font color="#909090">=None</font>)</dt><dd><tt>Checks&nbsp;unique&nbsp;constraints&nbsp;on&nbsp;the&nbsp;model&nbsp;and&nbsp;raises&nbsp;``ValidationError``<br>
+if&nbsp;any&nbsp;failed.</tt></dd></dl>
+
+<hr>
+Data descriptors inherited from <a href="django.db.models.base.html#Model">django.db.models.base.Model</a>:<br>
+<dl><dt><strong>pk</strong></dt>
+</dl>
+<hr>
+Data descriptors inherited from django.db.models.base.NewBase:<br>
+<dl><dt><strong>__dict__</strong></dt>
+<dd><tt>dictionary&nbsp;for&nbsp;instance&nbsp;variables&nbsp;(if&nbsp;defined)</tt></dd>
+</dl>
+<dl><dt><strong>__weakref__</strong></dt>
+<dd><tt>list&nbsp;of&nbsp;weak&nbsp;references&nbsp;to&nbsp;the&nbsp;object&nbsp;(if&nbsp;defined)</tt></dd>
+</dl>
+</td></tr></table> <p>
+<table width="100%" cellspacing=0 cellpadding=2 border=0 summary="section">
+<tr bgcolor="#ffc8d8">
+<td colspan=3 valign=bottom>&nbsp;<br>
+<font color="#000000" face="helvetica, arial"><a name="Ingredient">class <strong>Ingredient</strong></a>(<a href="django.db.models.base.html#Model">django.db.models.base.Model</a>)</font></td></tr>
+    
+<tr bgcolor="#ffc8d8"><td rowspan=2><tt>&nbsp;&nbsp;&nbsp;</tt></td>
+<td colspan=2><tt><a href="#Ingredient">Ingredient</a>(id,&nbsp;name,&nbsp;creature_id)<br>&nbsp;</tt></td></tr>
+<tr><td>&nbsp;</td>
+<td width="100%"><dl><dt>Method resolution order:</dt>
+<dd><a href="marauder.models.html#Ingredient">Ingredient</a></dd>
+<dd><a href="django.db.models.base.html#Model">django.db.models.base.Model</a></dd>
+<dd>django.db.models.base.NewBase</dd>
+<dd><a href="__builtin__.html#object">__builtin__.object</a></dd>
+</dl>
+<hr>
+Methods defined here:<br>
+<dl><dt><a name="Ingredient-__str__"><strong>__str__</strong></a>(self)</dt></dl>
+
+<strong>objects</strong> = &lt;django.db.models.manager.Manager object&gt;
+<hr>
+Data descriptors defined here:<br>
+<dl><dt><strong>creature</strong></dt>
+</dl>
+<dl><dt><strong>potions</strong></dt>
+</dl>
+<hr>
+Data and other attributes defined here:<br>
+<dl><dt><strong>DoesNotExist</strong> = &lt;class 'marauder.models.DoesNotExist'&gt;</dl>
+
+<dl><dt><strong>MultipleObjectsReturned</strong> = &lt;class 'marauder.models.MultipleObjectsReturned'&gt;</dl>
+
+<hr>
+Methods inherited from <a href="django.db.models.base.html#Model">django.db.models.base.Model</a>:<br>
+<dl><dt><a name="Ingredient-__eq__"><strong>__eq__</strong></a>(self, other)</dt></dl>
+
+<dl><dt><a name="Ingredient-__hash__"><strong>__hash__</strong></a>(self)</dt></dl>
+
+<dl><dt><a name="Ingredient-__init__"><strong>__init__</strong></a>(self, *args, **kwargs)</dt></dl>
+
+<dl><dt><a name="Ingredient-__ne__"><strong>__ne__</strong></a>(self, other)</dt></dl>
+
+<dl><dt><a name="Ingredient-__reduce__"><strong>__reduce__</strong></a>(self)</dt><dd><tt>Provides&nbsp;pickling&nbsp;support.&nbsp;Normally,&nbsp;this&nbsp;just&nbsp;dispatches&nbsp;to&nbsp;Python's<br>
+standard&nbsp;handling.&nbsp;However,&nbsp;for&nbsp;models&nbsp;with&nbsp;deferred&nbsp;field&nbsp;loading,&nbsp;we<br>
+need&nbsp;to&nbsp;do&nbsp;things&nbsp;manually,&nbsp;as&nbsp;they're&nbsp;dynamically&nbsp;created&nbsp;classes&nbsp;and<br>
+only&nbsp;module-level&nbsp;classes&nbsp;can&nbsp;be&nbsp;pickled&nbsp;by&nbsp;the&nbsp;default&nbsp;path.</tt></dd></dl>
+
+<dl><dt><a name="Ingredient-__repr__"><strong>__repr__</strong></a>(self)</dt></dl>
+
+<dl><dt><a name="Ingredient-clean"><strong>clean</strong></a>(self)</dt><dd><tt>Hook&nbsp;for&nbsp;doing&nbsp;any&nbsp;extra&nbsp;model-wide&nbsp;validation&nbsp;after&nbsp;<a href="#Ingredient-clean">clean</a>()&nbsp;has&nbsp;been<br>
+called&nbsp;on&nbsp;every&nbsp;field&nbsp;by&nbsp;self.<strong>clean_fields</strong>.&nbsp;Any&nbsp;ValidationError&nbsp;raised<br>
+by&nbsp;this&nbsp;method&nbsp;will&nbsp;not&nbsp;be&nbsp;associated&nbsp;with&nbsp;a&nbsp;particular&nbsp;field;&nbsp;it&nbsp;will<br>
+have&nbsp;a&nbsp;special-case&nbsp;association&nbsp;with&nbsp;the&nbsp;field&nbsp;defined&nbsp;by&nbsp;NON_FIELD_ERRORS.</tt></dd></dl>
+
+<dl><dt><a name="Ingredient-clean_fields"><strong>clean_fields</strong></a>(self, exclude<font color="#909090">=None</font>)</dt><dd><tt>Cleans&nbsp;all&nbsp;fields&nbsp;and&nbsp;raises&nbsp;a&nbsp;ValidationError&nbsp;containing&nbsp;message_dict<br>
+of&nbsp;all&nbsp;validation&nbsp;errors&nbsp;if&nbsp;any&nbsp;occur.</tt></dd></dl>
+
+<dl><dt><a name="Ingredient-date_error_message"><strong>date_error_message</strong></a>(self, lookup_type, field, unique_for)</dt></dl>
+
+<dl><dt><a name="Ingredient-delete"><strong>delete</strong></a>(self, using<font color="#909090">=None</font>)</dt></dl>
+
+<dl><dt><a name="Ingredient-full_clean"><strong>full_clean</strong></a>(self, exclude<font color="#909090">=None</font>, validate_unique<font color="#909090">=True</font>)</dt><dd><tt>Calls&nbsp;clean_fields,&nbsp;clean,&nbsp;and&nbsp;validate_unique,&nbsp;on&nbsp;the&nbsp;model,<br>
+and&nbsp;raises&nbsp;a&nbsp;``ValidationError``&nbsp;for&nbsp;any&nbsp;errors&nbsp;that&nbsp;occurred.</tt></dd></dl>
+
+<dl><dt><a name="Ingredient-prepare_database_save"><strong>prepare_database_save</strong></a>(self, unused)</dt></dl>
+
+<dl><dt><a name="Ingredient-save"><strong>save</strong></a>(self, force_insert<font color="#909090">=False</font>, force_update<font color="#909090">=False</font>, using<font color="#909090">=None</font>, update_fields<font color="#909090">=None</font>)</dt><dd><tt>Saves&nbsp;the&nbsp;current&nbsp;instance.&nbsp;Override&nbsp;this&nbsp;in&nbsp;a&nbsp;subclass&nbsp;if&nbsp;you&nbsp;want&nbsp;to<br>
+control&nbsp;the&nbsp;saving&nbsp;process.<br>
+&nbsp;<br>
+The&nbsp;'force_insert'&nbsp;and&nbsp;'force_update'&nbsp;parameters&nbsp;can&nbsp;be&nbsp;used&nbsp;to&nbsp;insist<br>
+that&nbsp;the&nbsp;"save"&nbsp;must&nbsp;be&nbsp;an&nbsp;SQL&nbsp;insert&nbsp;or&nbsp;update&nbsp;(or&nbsp;equivalent&nbsp;for<br>
+non-SQL&nbsp;backends),&nbsp;respectively.&nbsp;Normally,&nbsp;they&nbsp;should&nbsp;not&nbsp;be&nbsp;set.</tt></dd></dl>
+
+<dl><dt><a name="Ingredient-save_base"><strong>save_base</strong></a>(self, raw<font color="#909090">=False</font>, force_insert<font color="#909090">=False</font>, force_update<font color="#909090">=False</font>, using<font color="#909090">=None</font>, update_fields<font color="#909090">=None</font>)</dt><dd><tt>Handles&nbsp;the&nbsp;parts&nbsp;of&nbsp;saving&nbsp;which&nbsp;should&nbsp;be&nbsp;done&nbsp;only&nbsp;once&nbsp;per&nbsp;save,<br>
+yet&nbsp;need&nbsp;to&nbsp;be&nbsp;done&nbsp;in&nbsp;raw&nbsp;saves,&nbsp;too.&nbsp;This&nbsp;includes&nbsp;some&nbsp;sanity<br>
+checks&nbsp;and&nbsp;signal&nbsp;sending.<br>
+&nbsp;<br>
+The&nbsp;'raw'&nbsp;argument&nbsp;is&nbsp;telling&nbsp;save_base&nbsp;not&nbsp;to&nbsp;save&nbsp;any&nbsp;parent<br>
+models&nbsp;and&nbsp;not&nbsp;to&nbsp;do&nbsp;any&nbsp;changes&nbsp;to&nbsp;the&nbsp;values&nbsp;before&nbsp;save.&nbsp;This<br>
+is&nbsp;used&nbsp;by&nbsp;fixture&nbsp;loading.</tt></dd></dl>
+
+<dl><dt><a name="Ingredient-serializable_value"><strong>serializable_value</strong></a>(self, field_name)</dt><dd><tt>Returns&nbsp;the&nbsp;value&nbsp;of&nbsp;the&nbsp;field&nbsp;name&nbsp;for&nbsp;this&nbsp;instance.&nbsp;If&nbsp;the&nbsp;field&nbsp;is<br>
+a&nbsp;foreign&nbsp;key,&nbsp;returns&nbsp;the&nbsp;id&nbsp;value,&nbsp;instead&nbsp;of&nbsp;the&nbsp;object.&nbsp;If&nbsp;there's<br>
+no&nbsp;Field&nbsp;object&nbsp;with&nbsp;this&nbsp;name&nbsp;on&nbsp;the&nbsp;model,&nbsp;the&nbsp;model&nbsp;attribute's<br>
+value&nbsp;is&nbsp;returned&nbsp;directly.<br>
+&nbsp;<br>
+Used&nbsp;to&nbsp;serialize&nbsp;a&nbsp;field's&nbsp;value&nbsp;(in&nbsp;the&nbsp;serializer,&nbsp;or&nbsp;form&nbsp;output,<br>
+for&nbsp;example).&nbsp;Normally,&nbsp;you&nbsp;would&nbsp;just&nbsp;access&nbsp;the&nbsp;attribute&nbsp;directly<br>
+and&nbsp;not&nbsp;use&nbsp;this&nbsp;method.</tt></dd></dl>
+
+<dl><dt><a name="Ingredient-unique_error_message"><strong>unique_error_message</strong></a>(self, model_class, unique_check)</dt></dl>
+
+<dl><dt><a name="Ingredient-validate_unique"><strong>validate_unique</strong></a>(self, exclude<font color="#909090">=None</font>)</dt><dd><tt>Checks&nbsp;unique&nbsp;constraints&nbsp;on&nbsp;the&nbsp;model&nbsp;and&nbsp;raises&nbsp;``ValidationError``<br>
+if&nbsp;any&nbsp;failed.</tt></dd></dl>
+
+<hr>
+Data descriptors inherited from <a href="django.db.models.base.html#Model">django.db.models.base.Model</a>:<br>
+<dl><dt><strong>pk</strong></dt>
+</dl>
+<hr>
+Data descriptors inherited from django.db.models.base.NewBase:<br>
+<dl><dt><strong>__dict__</strong></dt>
+<dd><tt>dictionary&nbsp;for&nbsp;instance&nbsp;variables&nbsp;(if&nbsp;defined)</tt></dd>
+</dl>
+<dl><dt><strong>__weakref__</strong></dt>
+<dd><tt>list&nbsp;of&nbsp;weak&nbsp;references&nbsp;to&nbsp;the&nbsp;object&nbsp;(if&nbsp;defined)</tt></dd>
+</dl>
+</td></tr></table> <p>
+<table width="100%" cellspacing=0 cellpadding=2 border=0 summary="section">
+<tr bgcolor="#ffc8d8">
+<td colspan=3 valign=bottom>&nbsp;<br>
+<font color="#000000" face="helvetica, arial"><a name="Location">class <strong>Location</strong></a>(<a href="django.db.models.base.html#Model">django.db.models.base.Model</a>)</font></td></tr>
+    
+<tr bgcolor="#ffc8d8"><td rowspan=2><tt>&nbsp;&nbsp;&nbsp;</tt></td>
+<td colspan=2><tt><a href="#Location">Location</a>(id,&nbsp;name,&nbsp;description,&nbsp;kind,&nbsp;image)<br>&nbsp;</tt></td></tr>
+<tr><td>&nbsp;</td>
+<td width="100%"><dl><dt>Method resolution order:</dt>
+<dd><a href="marauder.models.html#Location">Location</a></dd>
+<dd><a href="django.db.models.base.html#Model">django.db.models.base.Model</a></dd>
+<dd>django.db.models.base.NewBase</dd>
+<dd><a href="__builtin__.html#object">__builtin__.object</a></dd>
+</dl>
+<hr>
+Methods defined here:<br>
+<dl><dt><a name="Location-__str__"><strong>__str__</strong></a>(self)</dt></dl>
+
+<strong>objects</strong> = &lt;django.db.models.manager.Manager object&gt;
+<hr>
+Data descriptors defined here:<br>
+<dl><dt><strong>image</strong></dt>
+<dd><tt>Just&nbsp;like&nbsp;the&nbsp;FileDescriptor,&nbsp;but&nbsp;for&nbsp;ImageFields.&nbsp;The&nbsp;only&nbsp;difference&nbsp;is<br>
+assigning&nbsp;the&nbsp;width/height&nbsp;to&nbsp;the&nbsp;width_field/height_field,&nbsp;if&nbsp;appropriate.</tt></dd>
+</dl>
+<dl><dt><strong>school</strong></dt>
+</dl>
+<dl><dt><strong>shop</strong></dt>
+</dl>
+<dl><dt><strong>shops</strong></dt>
+</dl>
+<dl><dt><strong>stories</strong></dt>
+</dl>
+<hr>
+Data and other attributes defined here:<br>
+<dl><dt><strong>DoesNotExist</strong> = &lt;class 'marauder.models.DoesNotExist'&gt;</dl>
+
+<dl><dt><strong>MultipleObjectsReturned</strong> = &lt;class 'marauder.models.MultipleObjectsReturned'&gt;</dl>
+
+<hr>
+Methods inherited from <a href="django.db.models.base.html#Model">django.db.models.base.Model</a>:<br>
+<dl><dt><a name="Location-__eq__"><strong>__eq__</strong></a>(self, other)</dt></dl>
+
+<dl><dt><a name="Location-__hash__"><strong>__hash__</strong></a>(self)</dt></dl>
+
+<dl><dt><a name="Location-__init__"><strong>__init__</strong></a>(self, *args, **kwargs)</dt></dl>
+
+<dl><dt><a name="Location-__ne__"><strong>__ne__</strong></a>(self, other)</dt></dl>
+
+<dl><dt><a name="Location-__reduce__"><strong>__reduce__</strong></a>(self)</dt><dd><tt>Provides&nbsp;pickling&nbsp;support.&nbsp;Normally,&nbsp;this&nbsp;just&nbsp;dispatches&nbsp;to&nbsp;Python's<br>
+standard&nbsp;handling.&nbsp;However,&nbsp;for&nbsp;models&nbsp;with&nbsp;deferred&nbsp;field&nbsp;loading,&nbsp;we<br>
+need&nbsp;to&nbsp;do&nbsp;things&nbsp;manually,&nbsp;as&nbsp;they're&nbsp;dynamically&nbsp;created&nbsp;classes&nbsp;and<br>
+only&nbsp;module-level&nbsp;classes&nbsp;can&nbsp;be&nbsp;pickled&nbsp;by&nbsp;the&nbsp;default&nbsp;path.</tt></dd></dl>
+
+<dl><dt><a name="Location-__repr__"><strong>__repr__</strong></a>(self)</dt></dl>
+
+<dl><dt><a name="Location-clean"><strong>clean</strong></a>(self)</dt><dd><tt>Hook&nbsp;for&nbsp;doing&nbsp;any&nbsp;extra&nbsp;model-wide&nbsp;validation&nbsp;after&nbsp;<a href="#Location-clean">clean</a>()&nbsp;has&nbsp;been<br>
+called&nbsp;on&nbsp;every&nbsp;field&nbsp;by&nbsp;self.<strong>clean_fields</strong>.&nbsp;Any&nbsp;ValidationError&nbsp;raised<br>
+by&nbsp;this&nbsp;method&nbsp;will&nbsp;not&nbsp;be&nbsp;associated&nbsp;with&nbsp;a&nbsp;particular&nbsp;field;&nbsp;it&nbsp;will<br>
+have&nbsp;a&nbsp;special-case&nbsp;association&nbsp;with&nbsp;the&nbsp;field&nbsp;defined&nbsp;by&nbsp;NON_FIELD_ERRORS.</tt></dd></dl>
+
+<dl><dt><a name="Location-clean_fields"><strong>clean_fields</strong></a>(self, exclude<font color="#909090">=None</font>)</dt><dd><tt>Cleans&nbsp;all&nbsp;fields&nbsp;and&nbsp;raises&nbsp;a&nbsp;ValidationError&nbsp;containing&nbsp;message_dict<br>
+of&nbsp;all&nbsp;validation&nbsp;errors&nbsp;if&nbsp;any&nbsp;occur.</tt></dd></dl>
+
+<dl><dt><a name="Location-date_error_message"><strong>date_error_message</strong></a>(self, lookup_type, field, unique_for)</dt></dl>
+
+<dl><dt><a name="Location-delete"><strong>delete</strong></a>(self, using<font color="#909090">=None</font>)</dt></dl>
+
+<dl><dt><a name="Location-full_clean"><strong>full_clean</strong></a>(self, exclude<font color="#909090">=None</font>, validate_unique<font color="#909090">=True</font>)</dt><dd><tt>Calls&nbsp;clean_fields,&nbsp;clean,&nbsp;and&nbsp;validate_unique,&nbsp;on&nbsp;the&nbsp;model,<br>
+and&nbsp;raises&nbsp;a&nbsp;``ValidationError``&nbsp;for&nbsp;any&nbsp;errors&nbsp;that&nbsp;occurred.</tt></dd></dl>
+
+<dl><dt><a name="Location-prepare_database_save"><strong>prepare_database_save</strong></a>(self, unused)</dt></dl>
+
+<dl><dt><a name="Location-save"><strong>save</strong></a>(self, force_insert<font color="#909090">=False</font>, force_update<font color="#909090">=False</font>, using<font color="#909090">=None</font>, update_fields<font color="#909090">=None</font>)</dt><dd><tt>Saves&nbsp;the&nbsp;current&nbsp;instance.&nbsp;Override&nbsp;this&nbsp;in&nbsp;a&nbsp;subclass&nbsp;if&nbsp;you&nbsp;want&nbsp;to<br>
+control&nbsp;the&nbsp;saving&nbsp;process.<br>
+&nbsp;<br>
+The&nbsp;'force_insert'&nbsp;and&nbsp;'force_update'&nbsp;parameters&nbsp;can&nbsp;be&nbsp;used&nbsp;to&nbsp;insist<br>
+that&nbsp;the&nbsp;"save"&nbsp;must&nbsp;be&nbsp;an&nbsp;SQL&nbsp;insert&nbsp;or&nbsp;update&nbsp;(or&nbsp;equivalent&nbsp;for<br>
+non-SQL&nbsp;backends),&nbsp;respectively.&nbsp;Normally,&nbsp;they&nbsp;should&nbsp;not&nbsp;be&nbsp;set.</tt></dd></dl>
+
+<dl><dt><a name="Location-save_base"><strong>save_base</strong></a>(self, raw<font color="#909090">=False</font>, force_insert<font color="#909090">=False</font>, force_update<font color="#909090">=False</font>, using<font color="#909090">=None</font>, update_fields<font color="#909090">=None</font>)</dt><dd><tt>Handles&nbsp;the&nbsp;parts&nbsp;of&nbsp;saving&nbsp;which&nbsp;should&nbsp;be&nbsp;done&nbsp;only&nbsp;once&nbsp;per&nbsp;save,<br>
+yet&nbsp;need&nbsp;to&nbsp;be&nbsp;done&nbsp;in&nbsp;raw&nbsp;saves,&nbsp;too.&nbsp;This&nbsp;includes&nbsp;some&nbsp;sanity<br>
+checks&nbsp;and&nbsp;signal&nbsp;sending.<br>
+&nbsp;<br>
+The&nbsp;'raw'&nbsp;argument&nbsp;is&nbsp;telling&nbsp;save_base&nbsp;not&nbsp;to&nbsp;save&nbsp;any&nbsp;parent<br>
+models&nbsp;and&nbsp;not&nbsp;to&nbsp;do&nbsp;any&nbsp;changes&nbsp;to&nbsp;the&nbsp;values&nbsp;before&nbsp;save.&nbsp;This<br>
+is&nbsp;used&nbsp;by&nbsp;fixture&nbsp;loading.</tt></dd></dl>
+
+<dl><dt><a name="Location-serializable_value"><strong>serializable_value</strong></a>(self, field_name)</dt><dd><tt>Returns&nbsp;the&nbsp;value&nbsp;of&nbsp;the&nbsp;field&nbsp;name&nbsp;for&nbsp;this&nbsp;instance.&nbsp;If&nbsp;the&nbsp;field&nbsp;is<br>
+a&nbsp;foreign&nbsp;key,&nbsp;returns&nbsp;the&nbsp;id&nbsp;value,&nbsp;instead&nbsp;of&nbsp;the&nbsp;object.&nbsp;If&nbsp;there's<br>
+no&nbsp;Field&nbsp;object&nbsp;with&nbsp;this&nbsp;name&nbsp;on&nbsp;the&nbsp;model,&nbsp;the&nbsp;model&nbsp;attribute's<br>
+value&nbsp;is&nbsp;returned&nbsp;directly.<br>
+&nbsp;<br>
+Used&nbsp;to&nbsp;serialize&nbsp;a&nbsp;field's&nbsp;value&nbsp;(in&nbsp;the&nbsp;serializer,&nbsp;or&nbsp;form&nbsp;output,<br>
+for&nbsp;example).&nbsp;Normally,&nbsp;you&nbsp;would&nbsp;just&nbsp;access&nbsp;the&nbsp;attribute&nbsp;directly<br>
+and&nbsp;not&nbsp;use&nbsp;this&nbsp;method.</tt></dd></dl>
+
+<dl><dt><a name="Location-unique_error_message"><strong>unique_error_message</strong></a>(self, model_class, unique_check)</dt></dl>
+
+<dl><dt><a name="Location-validate_unique"><strong>validate_unique</strong></a>(self, exclude<font color="#909090">=None</font>)</dt><dd><tt>Checks&nbsp;unique&nbsp;constraints&nbsp;on&nbsp;the&nbsp;model&nbsp;and&nbsp;raises&nbsp;``ValidationError``<br>
+if&nbsp;any&nbsp;failed.</tt></dd></dl>
+
+<hr>
+Data descriptors inherited from <a href="django.db.models.base.html#Model">django.db.models.base.Model</a>:<br>
+<dl><dt><strong>pk</strong></dt>
+</dl>
+<hr>
+Data descriptors inherited from django.db.models.base.NewBase:<br>
+<dl><dt><strong>__dict__</strong></dt>
+<dd><tt>dictionary&nbsp;for&nbsp;instance&nbsp;variables&nbsp;(if&nbsp;defined)</tt></dd>
+</dl>
+<dl><dt><strong>__weakref__</strong></dt>
+<dd><tt>list&nbsp;of&nbsp;weak&nbsp;references&nbsp;to&nbsp;the&nbsp;object&nbsp;(if&nbsp;defined)</tt></dd>
+</dl>
+</td></tr></table> <p>
+<table width="100%" cellspacing=0 cellpadding=2 border=0 summary="section">
+<tr bgcolor="#ffc8d8">
+<td colspan=3 valign=bottom>&nbsp;<br>
+<font color="#000000" face="helvetica, arial"><a name="Potion">class <strong>Potion</strong></a>(<a href="django.db.models.base.html#Model">django.db.models.base.Model</a>)</font></td></tr>
+    
+<tr bgcolor="#ffc8d8"><td rowspan=2><tt>&nbsp;&nbsp;&nbsp;</tt></td>
+<td colspan=2><tt><a href="#Potion">Potion</a>(id,&nbsp;title,&nbsp;difficulty,&nbsp;effects,&nbsp;recipe,&nbsp;notable_uses,&nbsp;physical_description,&nbsp;image)<br>&nbsp;</tt></td></tr>
+<tr><td>&nbsp;</td>
+<td width="100%"><dl><dt>Method resolution order:</dt>
+<dd><a href="marauder.models.html#Potion">Potion</a></dd>
+<dd><a href="django.db.models.base.html#Model">django.db.models.base.Model</a></dd>
+<dd>django.db.models.base.NewBase</dd>
+<dd><a href="__builtin__.html#object">__builtin__.object</a></dd>
+</dl>
+<hr>
+Methods defined here:<br>
+<dl><dt><a name="Potion-__str__"><strong>__str__</strong></a>(self)</dt></dl>
+
+<dl><dt><a name="Potion-brew"><strong>brew</strong></a>(self, available_ingredients)</dt></dl>
+
+<dl><dt><a name="Potion-get_difficulty_display"><strong>get_difficulty_display</strong></a> = _curried(*moreargs, **morekwargs)</dt></dl>
+
+<strong>objects</strong> = &lt;django.db.models.manager.Manager object&gt;
+<hr>
+Data descriptors defined here:<br>
+<dl><dt><strong>image</strong></dt>
+<dd><tt>Just&nbsp;like&nbsp;the&nbsp;FileDescriptor,&nbsp;but&nbsp;for&nbsp;ImageFields.&nbsp;The&nbsp;only&nbsp;difference&nbsp;is<br>
+assigning&nbsp;the&nbsp;width/height&nbsp;to&nbsp;the&nbsp;width_field/height_field,&nbsp;if&nbsp;appropriate.</tt></dd>
+</dl>
+<dl><dt><strong>ingredients</strong></dt>
+</dl>
+<hr>
+Data and other attributes defined here:<br>
+<dl><dt><strong>DIFFICULTIES</strong> = (('E', 'Easy'), ('M', 'Moderate'), ('A', 'Advanced'))</dl>
+
+<dl><dt><strong>DoesNotExist</strong> = &lt;class 'marauder.models.DoesNotExist'&gt;</dl>
+
+<dl><dt><strong>MultipleObjectsReturned</strong> = &lt;class 'marauder.models.MultipleObjectsReturned'&gt;</dl>
+
+<hr>
+Methods inherited from <a href="django.db.models.base.html#Model">django.db.models.base.Model</a>:<br>
+<dl><dt><a name="Potion-__eq__"><strong>__eq__</strong></a>(self, other)</dt></dl>
+
+<dl><dt><a name="Potion-__hash__"><strong>__hash__</strong></a>(self)</dt></dl>
+
+<dl><dt><a name="Potion-__init__"><strong>__init__</strong></a>(self, *args, **kwargs)</dt></dl>
+
+<dl><dt><a name="Potion-__ne__"><strong>__ne__</strong></a>(self, other)</dt></dl>
+
+<dl><dt><a name="Potion-__reduce__"><strong>__reduce__</strong></a>(self)</dt><dd><tt>Provides&nbsp;pickling&nbsp;support.&nbsp;Normally,&nbsp;this&nbsp;just&nbsp;dispatches&nbsp;to&nbsp;Python's<br>
+standard&nbsp;handling.&nbsp;However,&nbsp;for&nbsp;models&nbsp;with&nbsp;deferred&nbsp;field&nbsp;loading,&nbsp;we<br>
+need&nbsp;to&nbsp;do&nbsp;things&nbsp;manually,&nbsp;as&nbsp;they're&nbsp;dynamically&nbsp;created&nbsp;classes&nbsp;and<br>
+only&nbsp;module-level&nbsp;classes&nbsp;can&nbsp;be&nbsp;pickled&nbsp;by&nbsp;the&nbsp;default&nbsp;path.</tt></dd></dl>
+
+<dl><dt><a name="Potion-__repr__"><strong>__repr__</strong></a>(self)</dt></dl>
+
+<dl><dt><a name="Potion-clean"><strong>clean</strong></a>(self)</dt><dd><tt>Hook&nbsp;for&nbsp;doing&nbsp;any&nbsp;extra&nbsp;model-wide&nbsp;validation&nbsp;after&nbsp;<a href="#Potion-clean">clean</a>()&nbsp;has&nbsp;been<br>
+called&nbsp;on&nbsp;every&nbsp;field&nbsp;by&nbsp;self.<strong>clean_fields</strong>.&nbsp;Any&nbsp;ValidationError&nbsp;raised<br>
+by&nbsp;this&nbsp;method&nbsp;will&nbsp;not&nbsp;be&nbsp;associated&nbsp;with&nbsp;a&nbsp;particular&nbsp;field;&nbsp;it&nbsp;will<br>
+have&nbsp;a&nbsp;special-case&nbsp;association&nbsp;with&nbsp;the&nbsp;field&nbsp;defined&nbsp;by&nbsp;NON_FIELD_ERRORS.</tt></dd></dl>
+
+<dl><dt><a name="Potion-clean_fields"><strong>clean_fields</strong></a>(self, exclude<font color="#909090">=None</font>)</dt><dd><tt>Cleans&nbsp;all&nbsp;fields&nbsp;and&nbsp;raises&nbsp;a&nbsp;ValidationError&nbsp;containing&nbsp;message_dict<br>
+of&nbsp;all&nbsp;validation&nbsp;errors&nbsp;if&nbsp;any&nbsp;occur.</tt></dd></dl>
+
+<dl><dt><a name="Potion-date_error_message"><strong>date_error_message</strong></a>(self, lookup_type, field, unique_for)</dt></dl>
+
+<dl><dt><a name="Potion-delete"><strong>delete</strong></a>(self, using<font color="#909090">=None</font>)</dt></dl>
+
+<dl><dt><a name="Potion-full_clean"><strong>full_clean</strong></a>(self, exclude<font color="#909090">=None</font>, validate_unique<font color="#909090">=True</font>)</dt><dd><tt>Calls&nbsp;clean_fields,&nbsp;clean,&nbsp;and&nbsp;validate_unique,&nbsp;on&nbsp;the&nbsp;model,<br>
+and&nbsp;raises&nbsp;a&nbsp;``ValidationError``&nbsp;for&nbsp;any&nbsp;errors&nbsp;that&nbsp;occurred.</tt></dd></dl>
+
+<dl><dt><a name="Potion-prepare_database_save"><strong>prepare_database_save</strong></a>(self, unused)</dt></dl>
+
+<dl><dt><a name="Potion-save"><strong>save</strong></a>(self, force_insert<font color="#909090">=False</font>, force_update<font color="#909090">=False</font>, using<font color="#909090">=None</font>, update_fields<font color="#909090">=None</font>)</dt><dd><tt>Saves&nbsp;the&nbsp;current&nbsp;instance.&nbsp;Override&nbsp;this&nbsp;in&nbsp;a&nbsp;subclass&nbsp;if&nbsp;you&nbsp;want&nbsp;to<br>
+control&nbsp;the&nbsp;saving&nbsp;process.<br>
+&nbsp;<br>
+The&nbsp;'force_insert'&nbsp;and&nbsp;'force_update'&nbsp;parameters&nbsp;can&nbsp;be&nbsp;used&nbsp;to&nbsp;insist<br>
+that&nbsp;the&nbsp;"save"&nbsp;must&nbsp;be&nbsp;an&nbsp;SQL&nbsp;insert&nbsp;or&nbsp;update&nbsp;(or&nbsp;equivalent&nbsp;for<br>
+non-SQL&nbsp;backends),&nbsp;respectively.&nbsp;Normally,&nbsp;they&nbsp;should&nbsp;not&nbsp;be&nbsp;set.</tt></dd></dl>
+
+<dl><dt><a name="Potion-save_base"><strong>save_base</strong></a>(self, raw<font color="#909090">=False</font>, force_insert<font color="#909090">=False</font>, force_update<font color="#909090">=False</font>, using<font color="#909090">=None</font>, update_fields<font color="#909090">=None</font>)</dt><dd><tt>Handles&nbsp;the&nbsp;parts&nbsp;of&nbsp;saving&nbsp;which&nbsp;should&nbsp;be&nbsp;done&nbsp;only&nbsp;once&nbsp;per&nbsp;save,<br>
+yet&nbsp;need&nbsp;to&nbsp;be&nbsp;done&nbsp;in&nbsp;raw&nbsp;saves,&nbsp;too.&nbsp;This&nbsp;includes&nbsp;some&nbsp;sanity<br>
+checks&nbsp;and&nbsp;signal&nbsp;sending.<br>
+&nbsp;<br>
+The&nbsp;'raw'&nbsp;argument&nbsp;is&nbsp;telling&nbsp;save_base&nbsp;not&nbsp;to&nbsp;save&nbsp;any&nbsp;parent<br>
+models&nbsp;and&nbsp;not&nbsp;to&nbsp;do&nbsp;any&nbsp;changes&nbsp;to&nbsp;the&nbsp;values&nbsp;before&nbsp;save.&nbsp;This<br>
+is&nbsp;used&nbsp;by&nbsp;fixture&nbsp;loading.</tt></dd></dl>
+
+<dl><dt><a name="Potion-serializable_value"><strong>serializable_value</strong></a>(self, field_name)</dt><dd><tt>Returns&nbsp;the&nbsp;value&nbsp;of&nbsp;the&nbsp;field&nbsp;name&nbsp;for&nbsp;this&nbsp;instance.&nbsp;If&nbsp;the&nbsp;field&nbsp;is<br>
+a&nbsp;foreign&nbsp;key,&nbsp;returns&nbsp;the&nbsp;id&nbsp;value,&nbsp;instead&nbsp;of&nbsp;the&nbsp;object.&nbsp;If&nbsp;there's<br>
+no&nbsp;Field&nbsp;object&nbsp;with&nbsp;this&nbsp;name&nbsp;on&nbsp;the&nbsp;model,&nbsp;the&nbsp;model&nbsp;attribute's<br>
+value&nbsp;is&nbsp;returned&nbsp;directly.<br>
+&nbsp;<br>
+Used&nbsp;to&nbsp;serialize&nbsp;a&nbsp;field's&nbsp;value&nbsp;(in&nbsp;the&nbsp;serializer,&nbsp;or&nbsp;form&nbsp;output,<br>
+for&nbsp;example).&nbsp;Normally,&nbsp;you&nbsp;would&nbsp;just&nbsp;access&nbsp;the&nbsp;attribute&nbsp;directly<br>
+and&nbsp;not&nbsp;use&nbsp;this&nbsp;method.</tt></dd></dl>
+
+<dl><dt><a name="Potion-unique_error_message"><strong>unique_error_message</strong></a>(self, model_class, unique_check)</dt></dl>
+
+<dl><dt><a name="Potion-validate_unique"><strong>validate_unique</strong></a>(self, exclude<font color="#909090">=None</font>)</dt><dd><tt>Checks&nbsp;unique&nbsp;constraints&nbsp;on&nbsp;the&nbsp;model&nbsp;and&nbsp;raises&nbsp;``ValidationError``<br>
+if&nbsp;any&nbsp;failed.</tt></dd></dl>
+
+<hr>
+Data descriptors inherited from <a href="django.db.models.base.html#Model">django.db.models.base.Model</a>:<br>
+<dl><dt><strong>pk</strong></dt>
+</dl>
+<hr>
+Data descriptors inherited from django.db.models.base.NewBase:<br>
+<dl><dt><strong>__dict__</strong></dt>
+<dd><tt>dictionary&nbsp;for&nbsp;instance&nbsp;variables&nbsp;(if&nbsp;defined)</tt></dd>
+</dl>
+<dl><dt><strong>__weakref__</strong></dt>
+<dd><tt>list&nbsp;of&nbsp;weak&nbsp;references&nbsp;to&nbsp;the&nbsp;object&nbsp;(if&nbsp;defined)</tt></dd>
+</dl>
+</td></tr></table> <p>
+<table width="100%" cellspacing=0 cellpadding=2 border=0 summary="section">
+<tr bgcolor="#ffc8d8">
+<td colspan=3 valign=bottom>&nbsp;<br>
+<font color="#000000" face="helvetica, arial"><a name="Relationship">class <strong>Relationship</strong></a>(<a href="django.db.models.base.html#Model">django.db.models.base.Model</a>)</font></td></tr>
+    
+<tr bgcolor="#ffc8d8"><td rowspan=2><tt>&nbsp;&nbsp;&nbsp;</tt></td>
+<td colspan=2><tt><a href="#Relationship">Relationship</a>(id,&nbsp;character1_id,&nbsp;character2_id,&nbsp;descriptor1,&nbsp;descriptor2)<br>&nbsp;</tt></td></tr>
+<tr><td>&nbsp;</td>
+<td width="100%"><dl><dt>Method resolution order:</dt>
+<dd><a href="marauder.models.html#Relationship">Relationship</a></dd>
+<dd><a href="django.db.models.base.html#Model">django.db.models.base.Model</a></dd>
+<dd>django.db.models.base.NewBase</dd>
+<dd><a href="__builtin__.html#object">__builtin__.object</a></dd>
+</dl>
+<hr>
+Methods defined here:<br>
+<strong>objects</strong> = &lt;django.db.models.manager.Manager object&gt;
+<hr>
+Data descriptors defined here:<br>
+<dl><dt><strong>character1</strong></dt>
+</dl>
+<dl><dt><strong>character2</strong></dt>
+</dl>
+<hr>
+Data and other attributes defined here:<br>
+<dl><dt><strong>DoesNotExist</strong> = &lt;class 'marauder.models.DoesNotExist'&gt;</dl>
+
+<dl><dt><strong>MultipleObjectsReturned</strong> = &lt;class 'marauder.models.MultipleObjectsReturned'&gt;</dl>
+
+<hr>
+Methods inherited from <a href="django.db.models.base.html#Model">django.db.models.base.Model</a>:<br>
+<dl><dt><a name="Relationship-__eq__"><strong>__eq__</strong></a>(self, other)</dt></dl>
+
+<dl><dt><a name="Relationship-__hash__"><strong>__hash__</strong></a>(self)</dt></dl>
+
+<dl><dt><a name="Relationship-__init__"><strong>__init__</strong></a>(self, *args, **kwargs)</dt></dl>
+
+<dl><dt><a name="Relationship-__ne__"><strong>__ne__</strong></a>(self, other)</dt></dl>
+
+<dl><dt><a name="Relationship-__reduce__"><strong>__reduce__</strong></a>(self)</dt><dd><tt>Provides&nbsp;pickling&nbsp;support.&nbsp;Normally,&nbsp;this&nbsp;just&nbsp;dispatches&nbsp;to&nbsp;Python's<br>
+standard&nbsp;handling.&nbsp;However,&nbsp;for&nbsp;models&nbsp;with&nbsp;deferred&nbsp;field&nbsp;loading,&nbsp;we<br>
+need&nbsp;to&nbsp;do&nbsp;things&nbsp;manually,&nbsp;as&nbsp;they're&nbsp;dynamically&nbsp;created&nbsp;classes&nbsp;and<br>
+only&nbsp;module-level&nbsp;classes&nbsp;can&nbsp;be&nbsp;pickled&nbsp;by&nbsp;the&nbsp;default&nbsp;path.</tt></dd></dl>
+
+<dl><dt><a name="Relationship-__repr__"><strong>__repr__</strong></a>(self)</dt></dl>
+
+<dl><dt><a name="Relationship-__str__"><strong>__str__</strong></a>(self)</dt></dl>
+
+<dl><dt><a name="Relationship-clean"><strong>clean</strong></a>(self)</dt><dd><tt>Hook&nbsp;for&nbsp;doing&nbsp;any&nbsp;extra&nbsp;model-wide&nbsp;validation&nbsp;after&nbsp;<a href="#Relationship-clean">clean</a>()&nbsp;has&nbsp;been<br>
+called&nbsp;on&nbsp;every&nbsp;field&nbsp;by&nbsp;self.<strong>clean_fields</strong>.&nbsp;Any&nbsp;ValidationError&nbsp;raised<br>
+by&nbsp;this&nbsp;method&nbsp;will&nbsp;not&nbsp;be&nbsp;associated&nbsp;with&nbsp;a&nbsp;particular&nbsp;field;&nbsp;it&nbsp;will<br>
+have&nbsp;a&nbsp;special-case&nbsp;association&nbsp;with&nbsp;the&nbsp;field&nbsp;defined&nbsp;by&nbsp;NON_FIELD_ERRORS.</tt></dd></dl>
+
+<dl><dt><a name="Relationship-clean_fields"><strong>clean_fields</strong></a>(self, exclude<font color="#909090">=None</font>)</dt><dd><tt>Cleans&nbsp;all&nbsp;fields&nbsp;and&nbsp;raises&nbsp;a&nbsp;ValidationError&nbsp;containing&nbsp;message_dict<br>
+of&nbsp;all&nbsp;validation&nbsp;errors&nbsp;if&nbsp;any&nbsp;occur.</tt></dd></dl>
+
+<dl><dt><a name="Relationship-date_error_message"><strong>date_error_message</strong></a>(self, lookup_type, field, unique_for)</dt></dl>
+
+<dl><dt><a name="Relationship-delete"><strong>delete</strong></a>(self, using<font color="#909090">=None</font>)</dt></dl>
+
+<dl><dt><a name="Relationship-full_clean"><strong>full_clean</strong></a>(self, exclude<font color="#909090">=None</font>, validate_unique<font color="#909090">=True</font>)</dt><dd><tt>Calls&nbsp;clean_fields,&nbsp;clean,&nbsp;and&nbsp;validate_unique,&nbsp;on&nbsp;the&nbsp;model,<br>
+and&nbsp;raises&nbsp;a&nbsp;``ValidationError``&nbsp;for&nbsp;any&nbsp;errors&nbsp;that&nbsp;occurred.</tt></dd></dl>
+
+<dl><dt><a name="Relationship-prepare_database_save"><strong>prepare_database_save</strong></a>(self, unused)</dt></dl>
+
+<dl><dt><a name="Relationship-save"><strong>save</strong></a>(self, force_insert<font color="#909090">=False</font>, force_update<font color="#909090">=False</font>, using<font color="#909090">=None</font>, update_fields<font color="#909090">=None</font>)</dt><dd><tt>Saves&nbsp;the&nbsp;current&nbsp;instance.&nbsp;Override&nbsp;this&nbsp;in&nbsp;a&nbsp;subclass&nbsp;if&nbsp;you&nbsp;want&nbsp;to<br>
+control&nbsp;the&nbsp;saving&nbsp;process.<br>
+&nbsp;<br>
+The&nbsp;'force_insert'&nbsp;and&nbsp;'force_update'&nbsp;parameters&nbsp;can&nbsp;be&nbsp;used&nbsp;to&nbsp;insist<br>
+that&nbsp;the&nbsp;"save"&nbsp;must&nbsp;be&nbsp;an&nbsp;SQL&nbsp;insert&nbsp;or&nbsp;update&nbsp;(or&nbsp;equivalent&nbsp;for<br>
+non-SQL&nbsp;backends),&nbsp;respectively.&nbsp;Normally,&nbsp;they&nbsp;should&nbsp;not&nbsp;be&nbsp;set.</tt></dd></dl>
+
+<dl><dt><a name="Relationship-save_base"><strong>save_base</strong></a>(self, raw<font color="#909090">=False</font>, force_insert<font color="#909090">=False</font>, force_update<font color="#909090">=False</font>, using<font color="#909090">=None</font>, update_fields<font color="#909090">=None</font>)</dt><dd><tt>Handles&nbsp;the&nbsp;parts&nbsp;of&nbsp;saving&nbsp;which&nbsp;should&nbsp;be&nbsp;done&nbsp;only&nbsp;once&nbsp;per&nbsp;save,<br>
+yet&nbsp;need&nbsp;to&nbsp;be&nbsp;done&nbsp;in&nbsp;raw&nbsp;saves,&nbsp;too.&nbsp;This&nbsp;includes&nbsp;some&nbsp;sanity<br>
+checks&nbsp;and&nbsp;signal&nbsp;sending.<br>
+&nbsp;<br>
+The&nbsp;'raw'&nbsp;argument&nbsp;is&nbsp;telling&nbsp;save_base&nbsp;not&nbsp;to&nbsp;save&nbsp;any&nbsp;parent<br>
+models&nbsp;and&nbsp;not&nbsp;to&nbsp;do&nbsp;any&nbsp;changes&nbsp;to&nbsp;the&nbsp;values&nbsp;before&nbsp;save.&nbsp;This<br>
+is&nbsp;used&nbsp;by&nbsp;fixture&nbsp;loading.</tt></dd></dl>
+
+<dl><dt><a name="Relationship-serializable_value"><strong>serializable_value</strong></a>(self, field_name)</dt><dd><tt>Returns&nbsp;the&nbsp;value&nbsp;of&nbsp;the&nbsp;field&nbsp;name&nbsp;for&nbsp;this&nbsp;instance.&nbsp;If&nbsp;the&nbsp;field&nbsp;is<br>
+a&nbsp;foreign&nbsp;key,&nbsp;returns&nbsp;the&nbsp;id&nbsp;value,&nbsp;instead&nbsp;of&nbsp;the&nbsp;object.&nbsp;If&nbsp;there's<br>
+no&nbsp;Field&nbsp;object&nbsp;with&nbsp;this&nbsp;name&nbsp;on&nbsp;the&nbsp;model,&nbsp;the&nbsp;model&nbsp;attribute's<br>
+value&nbsp;is&nbsp;returned&nbsp;directly.<br>
+&nbsp;<br>
+Used&nbsp;to&nbsp;serialize&nbsp;a&nbsp;field's&nbsp;value&nbsp;(in&nbsp;the&nbsp;serializer,&nbsp;or&nbsp;form&nbsp;output,<br>
+for&nbsp;example).&nbsp;Normally,&nbsp;you&nbsp;would&nbsp;just&nbsp;access&nbsp;the&nbsp;attribute&nbsp;directly<br>
+and&nbsp;not&nbsp;use&nbsp;this&nbsp;method.</tt></dd></dl>
+
+<dl><dt><a name="Relationship-unique_error_message"><strong>unique_error_message</strong></a>(self, model_class, unique_check)</dt></dl>
+
+<dl><dt><a name="Relationship-validate_unique"><strong>validate_unique</strong></a>(self, exclude<font color="#909090">=None</font>)</dt><dd><tt>Checks&nbsp;unique&nbsp;constraints&nbsp;on&nbsp;the&nbsp;model&nbsp;and&nbsp;raises&nbsp;``ValidationError``<br>
+if&nbsp;any&nbsp;failed.</tt></dd></dl>
+
+<hr>
+Data descriptors inherited from <a href="django.db.models.base.html#Model">django.db.models.base.Model</a>:<br>
+<dl><dt><strong>pk</strong></dt>
+</dl>
+<hr>
+Data descriptors inherited from django.db.models.base.NewBase:<br>
+<dl><dt><strong>__dict__</strong></dt>
+<dd><tt>dictionary&nbsp;for&nbsp;instance&nbsp;variables&nbsp;(if&nbsp;defined)</tt></dd>
+</dl>
+<dl><dt><strong>__weakref__</strong></dt>
+<dd><tt>list&nbsp;of&nbsp;weak&nbsp;references&nbsp;to&nbsp;the&nbsp;object&nbsp;(if&nbsp;defined)</tt></dd>
+</dl>
+</td></tr></table> <p>
+<table width="100%" cellspacing=0 cellpadding=2 border=0 summary="section">
+<tr bgcolor="#ffc8d8">
+<td colspan=3 valign=bottom>&nbsp;<br>
+<font color="#000000" face="helvetica, arial"><a name="School">class <strong>School</strong></a>(<a href="marauder.models.html#Location">Location</a>)</font></td></tr>
+    
+<tr bgcolor="#ffc8d8"><td rowspan=2><tt>&nbsp;&nbsp;&nbsp;</tt></td>
+<td colspan=2><tt><a href="#School">School</a>(id,&nbsp;name,&nbsp;description,&nbsp;kind,&nbsp;image,&nbsp;location_ptr_id,&nbsp;country)<br>&nbsp;</tt></td></tr>
+<tr><td>&nbsp;</td>
+<td width="100%"><dl><dt>Method resolution order:</dt>
+<dd><a href="marauder.models.html#School">School</a></dd>
+<dd><a href="marauder.models.html#Location">Location</a></dd>
+<dd><a href="django.db.models.base.html#Model">django.db.models.base.Model</a></dd>
+<dd>django.db.models.base.NewBase</dd>
+<dd><a href="__builtin__.html#object">__builtin__.object</a></dd>
+</dl>
+<hr>
+Methods defined here:<br>
+<dl><dt><a name="School-__str__"><strong>__str__</strong></a>(self)</dt></dl>
+
+<strong>objects</strong> = &lt;django.db.models.manager.Manager object&gt;
+<hr>
+Data descriptors defined here:<br>
+<dl><dt><strong>academic_statuses</strong></dt>
+</dl>
+<dl><dt><strong>house</strong></dt>
+</dl>
+<dl><dt><strong>houses</strong></dt>
+</dl>
+<dl><dt><strong>location_ptr</strong></dt>
+</dl>
+<hr>
+Data and other attributes defined here:<br>
+<dl><dt><strong>DoesNotExist</strong> = &lt;class 'marauder.models.DoesNotExist'&gt;</dl>
+
+<dl><dt><strong>MultipleObjectsReturned</strong> = &lt;class 'marauder.models.MultipleObjectsReturned'&gt;</dl>
+
+<hr>
+Data descriptors inherited from <a href="marauder.models.html#Location">Location</a>:<br>
+<dl><dt><strong>image</strong></dt>
+<dd><tt>Just&nbsp;like&nbsp;the&nbsp;FileDescriptor,&nbsp;but&nbsp;for&nbsp;ImageFields.&nbsp;The&nbsp;only&nbsp;difference&nbsp;is<br>
+assigning&nbsp;the&nbsp;width/height&nbsp;to&nbsp;the&nbsp;width_field/height_field,&nbsp;if&nbsp;appropriate.</tt></dd>
+</dl>
+<dl><dt><strong>school</strong></dt>
+</dl>
+<dl><dt><strong>shop</strong></dt>
+</dl>
+<dl><dt><strong>shops</strong></dt>
+</dl>
+<dl><dt><strong>stories</strong></dt>
+</dl>
+<hr>
+Methods inherited from <a href="django.db.models.base.html#Model">django.db.models.base.Model</a>:<br>
+<dl><dt><a name="School-__eq__"><strong>__eq__</strong></a>(self, other)</dt></dl>
+
+<dl><dt><a name="School-__hash__"><strong>__hash__</strong></a>(self)</dt></dl>
+
+<dl><dt><a name="School-__init__"><strong>__init__</strong></a>(self, *args, **kwargs)</dt></dl>
+
+<dl><dt><a name="School-__ne__"><strong>__ne__</strong></a>(self, other)</dt></dl>
+
+<dl><dt><a name="School-__reduce__"><strong>__reduce__</strong></a>(self)</dt><dd><tt>Provides&nbsp;pickling&nbsp;support.&nbsp;Normally,&nbsp;this&nbsp;just&nbsp;dispatches&nbsp;to&nbsp;Python's<br>
+standard&nbsp;handling.&nbsp;However,&nbsp;for&nbsp;models&nbsp;with&nbsp;deferred&nbsp;field&nbsp;loading,&nbsp;we<br>
+need&nbsp;to&nbsp;do&nbsp;things&nbsp;manually,&nbsp;as&nbsp;they're&nbsp;dynamically&nbsp;created&nbsp;classes&nbsp;and<br>
+only&nbsp;module-level&nbsp;classes&nbsp;can&nbsp;be&nbsp;pickled&nbsp;by&nbsp;the&nbsp;default&nbsp;path.</tt></dd></dl>
+
+<dl><dt><a name="School-__repr__"><strong>__repr__</strong></a>(self)</dt></dl>
+
+<dl><dt><a name="School-clean"><strong>clean</strong></a>(self)</dt><dd><tt>Hook&nbsp;for&nbsp;doing&nbsp;any&nbsp;extra&nbsp;model-wide&nbsp;validation&nbsp;after&nbsp;<a href="#School-clean">clean</a>()&nbsp;has&nbsp;been<br>
+called&nbsp;on&nbsp;every&nbsp;field&nbsp;by&nbsp;self.<strong>clean_fields</strong>.&nbsp;Any&nbsp;ValidationError&nbsp;raised<br>
+by&nbsp;this&nbsp;method&nbsp;will&nbsp;not&nbsp;be&nbsp;associated&nbsp;with&nbsp;a&nbsp;particular&nbsp;field;&nbsp;it&nbsp;will<br>
+have&nbsp;a&nbsp;special-case&nbsp;association&nbsp;with&nbsp;the&nbsp;field&nbsp;defined&nbsp;by&nbsp;NON_FIELD_ERRORS.</tt></dd></dl>
+
+<dl><dt><a name="School-clean_fields"><strong>clean_fields</strong></a>(self, exclude<font color="#909090">=None</font>)</dt><dd><tt>Cleans&nbsp;all&nbsp;fields&nbsp;and&nbsp;raises&nbsp;a&nbsp;ValidationError&nbsp;containing&nbsp;message_dict<br>
+of&nbsp;all&nbsp;validation&nbsp;errors&nbsp;if&nbsp;any&nbsp;occur.</tt></dd></dl>
+
+<dl><dt><a name="School-date_error_message"><strong>date_error_message</strong></a>(self, lookup_type, field, unique_for)</dt></dl>
+
+<dl><dt><a name="School-delete"><strong>delete</strong></a>(self, using<font color="#909090">=None</font>)</dt></dl>
+
+<dl><dt><a name="School-full_clean"><strong>full_clean</strong></a>(self, exclude<font color="#909090">=None</font>, validate_unique<font color="#909090">=True</font>)</dt><dd><tt>Calls&nbsp;clean_fields,&nbsp;clean,&nbsp;and&nbsp;validate_unique,&nbsp;on&nbsp;the&nbsp;model,<br>
+and&nbsp;raises&nbsp;a&nbsp;``ValidationError``&nbsp;for&nbsp;any&nbsp;errors&nbsp;that&nbsp;occurred.</tt></dd></dl>
+
+<dl><dt><a name="School-prepare_database_save"><strong>prepare_database_save</strong></a>(self, unused)</dt></dl>
+
+<dl><dt><a name="School-save"><strong>save</strong></a>(self, force_insert<font color="#909090">=False</font>, force_update<font color="#909090">=False</font>, using<font color="#909090">=None</font>, update_fields<font color="#909090">=None</font>)</dt><dd><tt>Saves&nbsp;the&nbsp;current&nbsp;instance.&nbsp;Override&nbsp;this&nbsp;in&nbsp;a&nbsp;subclass&nbsp;if&nbsp;you&nbsp;want&nbsp;to<br>
+control&nbsp;the&nbsp;saving&nbsp;process.<br>
+&nbsp;<br>
+The&nbsp;'force_insert'&nbsp;and&nbsp;'force_update'&nbsp;parameters&nbsp;can&nbsp;be&nbsp;used&nbsp;to&nbsp;insist<br>
+that&nbsp;the&nbsp;"save"&nbsp;must&nbsp;be&nbsp;an&nbsp;SQL&nbsp;insert&nbsp;or&nbsp;update&nbsp;(or&nbsp;equivalent&nbsp;for<br>
+non-SQL&nbsp;backends),&nbsp;respectively.&nbsp;Normally,&nbsp;they&nbsp;should&nbsp;not&nbsp;be&nbsp;set.</tt></dd></dl>
+
+<dl><dt><a name="School-save_base"><strong>save_base</strong></a>(self, raw<font color="#909090">=False</font>, force_insert<font color="#909090">=False</font>, force_update<font color="#909090">=False</font>, using<font color="#909090">=None</font>, update_fields<font color="#909090">=None</font>)</dt><dd><tt>Handles&nbsp;the&nbsp;parts&nbsp;of&nbsp;saving&nbsp;which&nbsp;should&nbsp;be&nbsp;done&nbsp;only&nbsp;once&nbsp;per&nbsp;save,<br>
+yet&nbsp;need&nbsp;to&nbsp;be&nbsp;done&nbsp;in&nbsp;raw&nbsp;saves,&nbsp;too.&nbsp;This&nbsp;includes&nbsp;some&nbsp;sanity<br>
+checks&nbsp;and&nbsp;signal&nbsp;sending.<br>
+&nbsp;<br>
+The&nbsp;'raw'&nbsp;argument&nbsp;is&nbsp;telling&nbsp;save_base&nbsp;not&nbsp;to&nbsp;save&nbsp;any&nbsp;parent<br>
+models&nbsp;and&nbsp;not&nbsp;to&nbsp;do&nbsp;any&nbsp;changes&nbsp;to&nbsp;the&nbsp;values&nbsp;before&nbsp;save.&nbsp;This<br>
+is&nbsp;used&nbsp;by&nbsp;fixture&nbsp;loading.</tt></dd></dl>
+
+<dl><dt><a name="School-serializable_value"><strong>serializable_value</strong></a>(self, field_name)</dt><dd><tt>Returns&nbsp;the&nbsp;value&nbsp;of&nbsp;the&nbsp;field&nbsp;name&nbsp;for&nbsp;this&nbsp;instance.&nbsp;If&nbsp;the&nbsp;field&nbsp;is<br>
+a&nbsp;foreign&nbsp;key,&nbsp;returns&nbsp;the&nbsp;id&nbsp;value,&nbsp;instead&nbsp;of&nbsp;the&nbsp;object.&nbsp;If&nbsp;there's<br>
+no&nbsp;Field&nbsp;object&nbsp;with&nbsp;this&nbsp;name&nbsp;on&nbsp;the&nbsp;model,&nbsp;the&nbsp;model&nbsp;attribute's<br>
+value&nbsp;is&nbsp;returned&nbsp;directly.<br>
+&nbsp;<br>
+Used&nbsp;to&nbsp;serialize&nbsp;a&nbsp;field's&nbsp;value&nbsp;(in&nbsp;the&nbsp;serializer,&nbsp;or&nbsp;form&nbsp;output,<br>
+for&nbsp;example).&nbsp;Normally,&nbsp;you&nbsp;would&nbsp;just&nbsp;access&nbsp;the&nbsp;attribute&nbsp;directly<br>
+and&nbsp;not&nbsp;use&nbsp;this&nbsp;method.</tt></dd></dl>
+
+<dl><dt><a name="School-unique_error_message"><strong>unique_error_message</strong></a>(self, model_class, unique_check)</dt></dl>
+
+<dl><dt><a name="School-validate_unique"><strong>validate_unique</strong></a>(self, exclude<font color="#909090">=None</font>)</dt><dd><tt>Checks&nbsp;unique&nbsp;constraints&nbsp;on&nbsp;the&nbsp;model&nbsp;and&nbsp;raises&nbsp;``ValidationError``<br>
+if&nbsp;any&nbsp;failed.</tt></dd></dl>
+
+<hr>
+Data descriptors inherited from <a href="django.db.models.base.html#Model">django.db.models.base.Model</a>:<br>
+<dl><dt><strong>pk</strong></dt>
+</dl>
+<hr>
+Data descriptors inherited from django.db.models.base.NewBase:<br>
+<dl><dt><strong>__dict__</strong></dt>
+<dd><tt>dictionary&nbsp;for&nbsp;instance&nbsp;variables&nbsp;(if&nbsp;defined)</tt></dd>
+</dl>
+<dl><dt><strong>__weakref__</strong></dt>
+<dd><tt>list&nbsp;of&nbsp;weak&nbsp;references&nbsp;to&nbsp;the&nbsp;object&nbsp;(if&nbsp;defined)</tt></dd>
+</dl>
+</td></tr></table> <p>
+<table width="100%" cellspacing=0 cellpadding=2 border=0 summary="section">
+<tr bgcolor="#ffc8d8">
+<td colspan=3 valign=bottom>&nbsp;<br>
+<font color="#000000" face="helvetica, arial"><a name="Shop">class <strong>Shop</strong></a>(<a href="marauder.models.html#Location">Location</a>)</font></td></tr>
+    
+<tr bgcolor="#ffc8d8"><td rowspan=2><tt>&nbsp;&nbsp;&nbsp;</tt></td>
+<td colspan=2><tt><a href="#Shop">Shop</a>(id,&nbsp;name,&nbsp;description,&nbsp;kind,&nbsp;image,&nbsp;location_ptr_id,&nbsp;location_id)<br>&nbsp;</tt></td></tr>
+<tr><td>&nbsp;</td>
+<td width="100%"><dl><dt>Method resolution order:</dt>
+<dd><a href="marauder.models.html#Shop">Shop</a></dd>
+<dd><a href="marauder.models.html#Location">Location</a></dd>
+<dd><a href="django.db.models.base.html#Model">django.db.models.base.Model</a></dd>
+<dd>django.db.models.base.NewBase</dd>
+<dd><a href="__builtin__.html#object">__builtin__.object</a></dd>
+</dl>
+<hr>
+Methods defined here:<br>
+<strong>objects</strong> = &lt;django.db.models.manager.Manager object&gt;
+<hr>
+Data descriptors defined here:<br>
+<dl><dt><strong>artifacts</strong></dt>
+</dl>
+<dl><dt><strong>location</strong></dt>
+</dl>
+<dl><dt><strong>location_ptr</strong></dt>
+</dl>
+<dl><dt><strong>owners</strong></dt>
+</dl>
+<hr>
+Data and other attributes defined here:<br>
+<dl><dt><strong>DoesNotExist</strong> = &lt;class 'marauder.models.DoesNotExist'&gt;</dl>
+
+<dl><dt><strong>MultipleObjectsReturned</strong> = &lt;class 'marauder.models.MultipleObjectsReturned'&gt;</dl>
+
+<hr>
+Methods inherited from <a href="marauder.models.html#Location">Location</a>:<br>
+<dl><dt><a name="Shop-__str__"><strong>__str__</strong></a>(self)</dt></dl>
+
+<hr>
+Data descriptors inherited from <a href="marauder.models.html#Location">Location</a>:<br>
+<dl><dt><strong>image</strong></dt>
+<dd><tt>Just&nbsp;like&nbsp;the&nbsp;FileDescriptor,&nbsp;but&nbsp;for&nbsp;ImageFields.&nbsp;The&nbsp;only&nbsp;difference&nbsp;is<br>
+assigning&nbsp;the&nbsp;width/height&nbsp;to&nbsp;the&nbsp;width_field/height_field,&nbsp;if&nbsp;appropriate.</tt></dd>
+</dl>
+<dl><dt><strong>school</strong></dt>
+</dl>
+<dl><dt><strong>shop</strong></dt>
+</dl>
+<dl><dt><strong>shops</strong></dt>
+</dl>
+<dl><dt><strong>stories</strong></dt>
+</dl>
+<hr>
+Methods inherited from <a href="django.db.models.base.html#Model">django.db.models.base.Model</a>:<br>
+<dl><dt><a name="Shop-__eq__"><strong>__eq__</strong></a>(self, other)</dt></dl>
+
+<dl><dt><a name="Shop-__hash__"><strong>__hash__</strong></a>(self)</dt></dl>
+
+<dl><dt><a name="Shop-__init__"><strong>__init__</strong></a>(self, *args, **kwargs)</dt></dl>
+
+<dl><dt><a name="Shop-__ne__"><strong>__ne__</strong></a>(self, other)</dt></dl>
+
+<dl><dt><a name="Shop-__reduce__"><strong>__reduce__</strong></a>(self)</dt><dd><tt>Provides&nbsp;pickling&nbsp;support.&nbsp;Normally,&nbsp;this&nbsp;just&nbsp;dispatches&nbsp;to&nbsp;Python's<br>
+standard&nbsp;handling.&nbsp;However,&nbsp;for&nbsp;models&nbsp;with&nbsp;deferred&nbsp;field&nbsp;loading,&nbsp;we<br>
+need&nbsp;to&nbsp;do&nbsp;things&nbsp;manually,&nbsp;as&nbsp;they're&nbsp;dynamically&nbsp;created&nbsp;classes&nbsp;and<br>
+only&nbsp;module-level&nbsp;classes&nbsp;can&nbsp;be&nbsp;pickled&nbsp;by&nbsp;the&nbsp;default&nbsp;path.</tt></dd></dl>
+
+<dl><dt><a name="Shop-__repr__"><strong>__repr__</strong></a>(self)</dt></dl>
+
+<dl><dt><a name="Shop-clean"><strong>clean</strong></a>(self)</dt><dd><tt>Hook&nbsp;for&nbsp;doing&nbsp;any&nbsp;extra&nbsp;model-wide&nbsp;validation&nbsp;after&nbsp;<a href="#Shop-clean">clean</a>()&nbsp;has&nbsp;been<br>
+called&nbsp;on&nbsp;every&nbsp;field&nbsp;by&nbsp;self.<strong>clean_fields</strong>.&nbsp;Any&nbsp;ValidationError&nbsp;raised<br>
+by&nbsp;this&nbsp;method&nbsp;will&nbsp;not&nbsp;be&nbsp;associated&nbsp;with&nbsp;a&nbsp;particular&nbsp;field;&nbsp;it&nbsp;will<br>
+have&nbsp;a&nbsp;special-case&nbsp;association&nbsp;with&nbsp;the&nbsp;field&nbsp;defined&nbsp;by&nbsp;NON_FIELD_ERRORS.</tt></dd></dl>
+
+<dl><dt><a name="Shop-clean_fields"><strong>clean_fields</strong></a>(self, exclude<font color="#909090">=None</font>)</dt><dd><tt>Cleans&nbsp;all&nbsp;fields&nbsp;and&nbsp;raises&nbsp;a&nbsp;ValidationError&nbsp;containing&nbsp;message_dict<br>
+of&nbsp;all&nbsp;validation&nbsp;errors&nbsp;if&nbsp;any&nbsp;occur.</tt></dd></dl>
+
+<dl><dt><a name="Shop-date_error_message"><strong>date_error_message</strong></a>(self, lookup_type, field, unique_for)</dt></dl>
+
+<dl><dt><a name="Shop-delete"><strong>delete</strong></a>(self, using<font color="#909090">=None</font>)</dt></dl>
+
+<dl><dt><a name="Shop-full_clean"><strong>full_clean</strong></a>(self, exclude<font color="#909090">=None</font>, validate_unique<font color="#909090">=True</font>)</dt><dd><tt>Calls&nbsp;clean_fields,&nbsp;clean,&nbsp;and&nbsp;validate_unique,&nbsp;on&nbsp;the&nbsp;model,<br>
+and&nbsp;raises&nbsp;a&nbsp;``ValidationError``&nbsp;for&nbsp;any&nbsp;errors&nbsp;that&nbsp;occurred.</tt></dd></dl>
+
+<dl><dt><a name="Shop-prepare_database_save"><strong>prepare_database_save</strong></a>(self, unused)</dt></dl>
+
+<dl><dt><a name="Shop-save"><strong>save</strong></a>(self, force_insert<font color="#909090">=False</font>, force_update<font color="#909090">=False</font>, using<font color="#909090">=None</font>, update_fields<font color="#909090">=None</font>)</dt><dd><tt>Saves&nbsp;the&nbsp;current&nbsp;instance.&nbsp;Override&nbsp;this&nbsp;in&nbsp;a&nbsp;subclass&nbsp;if&nbsp;you&nbsp;want&nbsp;to<br>
+control&nbsp;the&nbsp;saving&nbsp;process.<br>
+&nbsp;<br>
+The&nbsp;'force_insert'&nbsp;and&nbsp;'force_update'&nbsp;parameters&nbsp;can&nbsp;be&nbsp;used&nbsp;to&nbsp;insist<br>
+that&nbsp;the&nbsp;"save"&nbsp;must&nbsp;be&nbsp;an&nbsp;SQL&nbsp;insert&nbsp;or&nbsp;update&nbsp;(or&nbsp;equivalent&nbsp;for<br>
+non-SQL&nbsp;backends),&nbsp;respectively.&nbsp;Normally,&nbsp;they&nbsp;should&nbsp;not&nbsp;be&nbsp;set.</tt></dd></dl>
+
+<dl><dt><a name="Shop-save_base"><strong>save_base</strong></a>(self, raw<font color="#909090">=False</font>, force_insert<font color="#909090">=False</font>, force_update<font color="#909090">=False</font>, using<font color="#909090">=None</font>, update_fields<font color="#909090">=None</font>)</dt><dd><tt>Handles&nbsp;the&nbsp;parts&nbsp;of&nbsp;saving&nbsp;which&nbsp;should&nbsp;be&nbsp;done&nbsp;only&nbsp;once&nbsp;per&nbsp;save,<br>
+yet&nbsp;need&nbsp;to&nbsp;be&nbsp;done&nbsp;in&nbsp;raw&nbsp;saves,&nbsp;too.&nbsp;This&nbsp;includes&nbsp;some&nbsp;sanity<br>
+checks&nbsp;and&nbsp;signal&nbsp;sending.<br>
+&nbsp;<br>
+The&nbsp;'raw'&nbsp;argument&nbsp;is&nbsp;telling&nbsp;save_base&nbsp;not&nbsp;to&nbsp;save&nbsp;any&nbsp;parent<br>
+models&nbsp;and&nbsp;not&nbsp;to&nbsp;do&nbsp;any&nbsp;changes&nbsp;to&nbsp;the&nbsp;values&nbsp;before&nbsp;save.&nbsp;This<br>
+is&nbsp;used&nbsp;by&nbsp;fixture&nbsp;loading.</tt></dd></dl>
+
+<dl><dt><a name="Shop-serializable_value"><strong>serializable_value</strong></a>(self, field_name)</dt><dd><tt>Returns&nbsp;the&nbsp;value&nbsp;of&nbsp;the&nbsp;field&nbsp;name&nbsp;for&nbsp;this&nbsp;instance.&nbsp;If&nbsp;the&nbsp;field&nbsp;is<br>
+a&nbsp;foreign&nbsp;key,&nbsp;returns&nbsp;the&nbsp;id&nbsp;value,&nbsp;instead&nbsp;of&nbsp;the&nbsp;object.&nbsp;If&nbsp;there's<br>
+no&nbsp;Field&nbsp;object&nbsp;with&nbsp;this&nbsp;name&nbsp;on&nbsp;the&nbsp;model,&nbsp;the&nbsp;model&nbsp;attribute's<br>
+value&nbsp;is&nbsp;returned&nbsp;directly.<br>
+&nbsp;<br>
+Used&nbsp;to&nbsp;serialize&nbsp;a&nbsp;field's&nbsp;value&nbsp;(in&nbsp;the&nbsp;serializer,&nbsp;or&nbsp;form&nbsp;output,<br>
+for&nbsp;example).&nbsp;Normally,&nbsp;you&nbsp;would&nbsp;just&nbsp;access&nbsp;the&nbsp;attribute&nbsp;directly<br>
+and&nbsp;not&nbsp;use&nbsp;this&nbsp;method.</tt></dd></dl>
+
+<dl><dt><a name="Shop-unique_error_message"><strong>unique_error_message</strong></a>(self, model_class, unique_check)</dt></dl>
+
+<dl><dt><a name="Shop-validate_unique"><strong>validate_unique</strong></a>(self, exclude<font color="#909090">=None</font>)</dt><dd><tt>Checks&nbsp;unique&nbsp;constraints&nbsp;on&nbsp;the&nbsp;model&nbsp;and&nbsp;raises&nbsp;``ValidationError``<br>
+if&nbsp;any&nbsp;failed.</tt></dd></dl>
+
+<hr>
+Data descriptors inherited from <a href="django.db.models.base.html#Model">django.db.models.base.Model</a>:<br>
+<dl><dt><strong>pk</strong></dt>
+</dl>
+<hr>
+Data descriptors inherited from django.db.models.base.NewBase:<br>
+<dl><dt><strong>__dict__</strong></dt>
+<dd><tt>dictionary&nbsp;for&nbsp;instance&nbsp;variables&nbsp;(if&nbsp;defined)</tt></dd>
+</dl>
+<dl><dt><strong>__weakref__</strong></dt>
+<dd><tt>list&nbsp;of&nbsp;weak&nbsp;references&nbsp;to&nbsp;the&nbsp;object&nbsp;(if&nbsp;defined)</tt></dd>
+</dl>
+</td></tr></table> <p>
+<table width="100%" cellspacing=0 cellpadding=2 border=0 summary="section">
+<tr bgcolor="#ffc8d8">
+<td colspan=3 valign=bottom>&nbsp;<br>
+<font color="#000000" face="helvetica, arial"><a name="Spell">class <strong>Spell</strong></a>(<a href="django.db.models.base.html#Model">django.db.models.base.Model</a>)</font></td></tr>
+    
+<tr bgcolor="#ffc8d8"><td rowspan=2><tt>&nbsp;&nbsp;&nbsp;</tt></td>
+<td colspan=2><tt><a href="#Spell">Spell</a>(id,&nbsp;incantation,&nbsp;alias,&nbsp;effect,&nbsp;creator,&nbsp;notable_uses,&nbsp;unforgivable,&nbsp;kind,&nbsp;image,&nbsp;creature_id)<br>&nbsp;</tt></td></tr>
+<tr><td>&nbsp;</td>
+<td width="100%"><dl><dt>Method resolution order:</dt>
+<dd><a href="marauder.models.html#Spell">Spell</a></dd>
+<dd><a href="django.db.models.base.html#Model">django.db.models.base.Model</a></dd>
+<dd>django.db.models.base.NewBase</dd>
+<dd><a href="__builtin__.html#object">__builtin__.object</a></dd>
+</dl>
+<hr>
+Methods defined here:<br>
+<dl><dt><a name="Spell-__str__"><strong>__str__</strong></a>(self)</dt></dl>
+
+<dl><dt><a name="Spell-get_kind_display"><strong>get_kind_display</strong></a> = _curried(*moreargs, **morekwargs)</dt></dl>
+
+<strong>objects</strong> = &lt;django.db.models.manager.Manager object&gt;
+<hr>
+Data descriptors defined here:<br>
+<dl><dt><strong>creature</strong></dt>
+</dl>
+<dl><dt><strong>image</strong></dt>
+<dd><tt>Just&nbsp;like&nbsp;the&nbsp;FileDescriptor,&nbsp;but&nbsp;for&nbsp;ImageFields.&nbsp;The&nbsp;only&nbsp;difference&nbsp;is<br>
+assigning&nbsp;the&nbsp;width/height&nbsp;to&nbsp;the&nbsp;width_field/height_field,&nbsp;if&nbsp;appropriate.</tt></dd>
+</dl>
+<hr>
+Data and other attributes defined here:<br>
+<dl><dt><strong>DoesNotExist</strong> = &lt;class 'marauder.models.DoesNotExist'&gt;</dl>
+
+<dl><dt><strong>KIND_CHOICES</strong> = (('Transfiguration', 'Transfiguration'), ('Charm', 'Charm'), ('Jinx', 'Jinx'), ('Hex', 'Hex'), ('Curse', 'Curse'), ('Defensive', 'Defensive'), ('Healing', 'Healing'))</dl>
+
+<dl><dt><strong>MultipleObjectsReturned</strong> = &lt;class 'marauder.models.MultipleObjectsReturned'&gt;</dl>
+
+<hr>
+Methods inherited from <a href="django.db.models.base.html#Model">django.db.models.base.Model</a>:<br>
+<dl><dt><a name="Spell-__eq__"><strong>__eq__</strong></a>(self, other)</dt></dl>
+
+<dl><dt><a name="Spell-__hash__"><strong>__hash__</strong></a>(self)</dt></dl>
+
+<dl><dt><a name="Spell-__init__"><strong>__init__</strong></a>(self, *args, **kwargs)</dt></dl>
+
+<dl><dt><a name="Spell-__ne__"><strong>__ne__</strong></a>(self, other)</dt></dl>
+
+<dl><dt><a name="Spell-__reduce__"><strong>__reduce__</strong></a>(self)</dt><dd><tt>Provides&nbsp;pickling&nbsp;support.&nbsp;Normally,&nbsp;this&nbsp;just&nbsp;dispatches&nbsp;to&nbsp;Python's<br>
+standard&nbsp;handling.&nbsp;However,&nbsp;for&nbsp;models&nbsp;with&nbsp;deferred&nbsp;field&nbsp;loading,&nbsp;we<br>
+need&nbsp;to&nbsp;do&nbsp;things&nbsp;manually,&nbsp;as&nbsp;they're&nbsp;dynamically&nbsp;created&nbsp;classes&nbsp;and<br>
+only&nbsp;module-level&nbsp;classes&nbsp;can&nbsp;be&nbsp;pickled&nbsp;by&nbsp;the&nbsp;default&nbsp;path.</tt></dd></dl>
+
+<dl><dt><a name="Spell-__repr__"><strong>__repr__</strong></a>(self)</dt></dl>
+
+<dl><dt><a name="Spell-clean"><strong>clean</strong></a>(self)</dt><dd><tt>Hook&nbsp;for&nbsp;doing&nbsp;any&nbsp;extra&nbsp;model-wide&nbsp;validation&nbsp;after&nbsp;<a href="#Spell-clean">clean</a>()&nbsp;has&nbsp;been<br>
+called&nbsp;on&nbsp;every&nbsp;field&nbsp;by&nbsp;self.<strong>clean_fields</strong>.&nbsp;Any&nbsp;ValidationError&nbsp;raised<br>
+by&nbsp;this&nbsp;method&nbsp;will&nbsp;not&nbsp;be&nbsp;associated&nbsp;with&nbsp;a&nbsp;particular&nbsp;field;&nbsp;it&nbsp;will<br>
+have&nbsp;a&nbsp;special-case&nbsp;association&nbsp;with&nbsp;the&nbsp;field&nbsp;defined&nbsp;by&nbsp;NON_FIELD_ERRORS.</tt></dd></dl>
+
+<dl><dt><a name="Spell-clean_fields"><strong>clean_fields</strong></a>(self, exclude<font color="#909090">=None</font>)</dt><dd><tt>Cleans&nbsp;all&nbsp;fields&nbsp;and&nbsp;raises&nbsp;a&nbsp;ValidationError&nbsp;containing&nbsp;message_dict<br>
+of&nbsp;all&nbsp;validation&nbsp;errors&nbsp;if&nbsp;any&nbsp;occur.</tt></dd></dl>
+
+<dl><dt><a name="Spell-date_error_message"><strong>date_error_message</strong></a>(self, lookup_type, field, unique_for)</dt></dl>
+
+<dl><dt><a name="Spell-delete"><strong>delete</strong></a>(self, using<font color="#909090">=None</font>)</dt></dl>
+
+<dl><dt><a name="Spell-full_clean"><strong>full_clean</strong></a>(self, exclude<font color="#909090">=None</font>, validate_unique<font color="#909090">=True</font>)</dt><dd><tt>Calls&nbsp;clean_fields,&nbsp;clean,&nbsp;and&nbsp;validate_unique,&nbsp;on&nbsp;the&nbsp;model,<br>
+and&nbsp;raises&nbsp;a&nbsp;``ValidationError``&nbsp;for&nbsp;any&nbsp;errors&nbsp;that&nbsp;occurred.</tt></dd></dl>
+
+<dl><dt><a name="Spell-prepare_database_save"><strong>prepare_database_save</strong></a>(self, unused)</dt></dl>
+
+<dl><dt><a name="Spell-save"><strong>save</strong></a>(self, force_insert<font color="#909090">=False</font>, force_update<font color="#909090">=False</font>, using<font color="#909090">=None</font>, update_fields<font color="#909090">=None</font>)</dt><dd><tt>Saves&nbsp;the&nbsp;current&nbsp;instance.&nbsp;Override&nbsp;this&nbsp;in&nbsp;a&nbsp;subclass&nbsp;if&nbsp;you&nbsp;want&nbsp;to<br>
+control&nbsp;the&nbsp;saving&nbsp;process.<br>
+&nbsp;<br>
+The&nbsp;'force_insert'&nbsp;and&nbsp;'force_update'&nbsp;parameters&nbsp;can&nbsp;be&nbsp;used&nbsp;to&nbsp;insist<br>
+that&nbsp;the&nbsp;"save"&nbsp;must&nbsp;be&nbsp;an&nbsp;SQL&nbsp;insert&nbsp;or&nbsp;update&nbsp;(or&nbsp;equivalent&nbsp;for<br>
+non-SQL&nbsp;backends),&nbsp;respectively.&nbsp;Normally,&nbsp;they&nbsp;should&nbsp;not&nbsp;be&nbsp;set.</tt></dd></dl>
+
+<dl><dt><a name="Spell-save_base"><strong>save_base</strong></a>(self, raw<font color="#909090">=False</font>, force_insert<font color="#909090">=False</font>, force_update<font color="#909090">=False</font>, using<font color="#909090">=None</font>, update_fields<font color="#909090">=None</font>)</dt><dd><tt>Handles&nbsp;the&nbsp;parts&nbsp;of&nbsp;saving&nbsp;which&nbsp;should&nbsp;be&nbsp;done&nbsp;only&nbsp;once&nbsp;per&nbsp;save,<br>
+yet&nbsp;need&nbsp;to&nbsp;be&nbsp;done&nbsp;in&nbsp;raw&nbsp;saves,&nbsp;too.&nbsp;This&nbsp;includes&nbsp;some&nbsp;sanity<br>
+checks&nbsp;and&nbsp;signal&nbsp;sending.<br>
+&nbsp;<br>
+The&nbsp;'raw'&nbsp;argument&nbsp;is&nbsp;telling&nbsp;save_base&nbsp;not&nbsp;to&nbsp;save&nbsp;any&nbsp;parent<br>
+models&nbsp;and&nbsp;not&nbsp;to&nbsp;do&nbsp;any&nbsp;changes&nbsp;to&nbsp;the&nbsp;values&nbsp;before&nbsp;save.&nbsp;This<br>
+is&nbsp;used&nbsp;by&nbsp;fixture&nbsp;loading.</tt></dd></dl>
+
+<dl><dt><a name="Spell-serializable_value"><strong>serializable_value</strong></a>(self, field_name)</dt><dd><tt>Returns&nbsp;the&nbsp;value&nbsp;of&nbsp;the&nbsp;field&nbsp;name&nbsp;for&nbsp;this&nbsp;instance.&nbsp;If&nbsp;the&nbsp;field&nbsp;is<br>
+a&nbsp;foreign&nbsp;key,&nbsp;returns&nbsp;the&nbsp;id&nbsp;value,&nbsp;instead&nbsp;of&nbsp;the&nbsp;object.&nbsp;If&nbsp;there's<br>
+no&nbsp;Field&nbsp;object&nbsp;with&nbsp;this&nbsp;name&nbsp;on&nbsp;the&nbsp;model,&nbsp;the&nbsp;model&nbsp;attribute's<br>
+value&nbsp;is&nbsp;returned&nbsp;directly.<br>
+&nbsp;<br>
+Used&nbsp;to&nbsp;serialize&nbsp;a&nbsp;field's&nbsp;value&nbsp;(in&nbsp;the&nbsp;serializer,&nbsp;or&nbsp;form&nbsp;output,<br>
+for&nbsp;example).&nbsp;Normally,&nbsp;you&nbsp;would&nbsp;just&nbsp;access&nbsp;the&nbsp;attribute&nbsp;directly<br>
+and&nbsp;not&nbsp;use&nbsp;this&nbsp;method.</tt></dd></dl>
+
+<dl><dt><a name="Spell-unique_error_message"><strong>unique_error_message</strong></a>(self, model_class, unique_check)</dt></dl>
+
+<dl><dt><a name="Spell-validate_unique"><strong>validate_unique</strong></a>(self, exclude<font color="#909090">=None</font>)</dt><dd><tt>Checks&nbsp;unique&nbsp;constraints&nbsp;on&nbsp;the&nbsp;model&nbsp;and&nbsp;raises&nbsp;``ValidationError``<br>
+if&nbsp;any&nbsp;failed.</tt></dd></dl>
+
+<hr>
+Data descriptors inherited from <a href="django.db.models.base.html#Model">django.db.models.base.Model</a>:<br>
+<dl><dt><strong>pk</strong></dt>
+</dl>
+<hr>
+Data descriptors inherited from django.db.models.base.NewBase:<br>
+<dl><dt><strong>__dict__</strong></dt>
+<dd><tt>dictionary&nbsp;for&nbsp;instance&nbsp;variables&nbsp;(if&nbsp;defined)</tt></dd>
+</dl>
+<dl><dt><strong>__weakref__</strong></dt>
+<dd><tt>list&nbsp;of&nbsp;weak&nbsp;references&nbsp;to&nbsp;the&nbsp;object&nbsp;(if&nbsp;defined)</tt></dd>
+</dl>
+</td></tr></table> <p>
+<table width="100%" cellspacing=0 cellpadding=2 border=0 summary="section">
+<tr bgcolor="#ffc8d8">
+<td colspan=3 valign=bottom>&nbsp;<br>
+<font color="#000000" face="helvetica, arial"><a name="Story">class <strong>Story</strong></a>(<a href="django.db.models.base.html#Model">django.db.models.base.Model</a>)</font></td></tr>
+    
+<tr bgcolor="#ffc8d8"><td rowspan=2><tt>&nbsp;&nbsp;&nbsp;</tt></td>
+<td colspan=2><tt><a href="#Story">Story</a>(id,&nbsp;name,&nbsp;description,&nbsp;date,&nbsp;book_id,&nbsp;kind,&nbsp;image)<br>&nbsp;</tt></td></tr>
+<tr><td>&nbsp;</td>
+<td width="100%"><dl><dt>Method resolution order:</dt>
+<dd><a href="marauder.models.html#Story">Story</a></dd>
+<dd><a href="django.db.models.base.html#Model">django.db.models.base.Model</a></dd>
+<dd>django.db.models.base.NewBase</dd>
+<dd><a href="__builtin__.html#object">__builtin__.object</a></dd>
+</dl>
+<hr>
+Methods defined here:<br>
+<dl><dt><a name="Story-__str__"><strong>__str__</strong></a>(self)</dt></dl>
+
+<dl><dt><a name="Story-century"><strong>century</strong></a>(self)</dt></dl>
+
+<dl><dt><a name="Story-get_next_by_date"><strong>get_next_by_date</strong></a> = _curried(*moreargs, **morekwargs)</dt></dl>
+
+<dl><dt><a name="Story-get_previous_by_date"><strong>get_previous_by_date</strong></a> = _curried(*moreargs, **morekwargs)</dt></dl>
+
+<strong>objects</strong> = &lt;django.db.models.manager.Manager object&gt;
+<hr>
+Data descriptors defined here:<br>
+<dl><dt><strong>artifacts</strong></dt>
+</dl>
+<dl><dt><strong>book</strong></dt>
+</dl>
+<dl><dt><strong>characters</strong></dt>
+</dl>
+<dl><dt><strong>image</strong></dt>
+<dd><tt>Just&nbsp;like&nbsp;the&nbsp;FileDescriptor,&nbsp;but&nbsp;for&nbsp;ImageFields.&nbsp;The&nbsp;only&nbsp;difference&nbsp;is<br>
+assigning&nbsp;the&nbsp;width/height&nbsp;to&nbsp;the&nbsp;width_field/height_field,&nbsp;if&nbsp;appropriate.</tt></dd>
+</dl>
+<dl><dt><strong>locations</strong></dt>
+</dl>
+<hr>
+Data and other attributes defined here:<br>
+<dl><dt><strong>DoesNotExist</strong> = &lt;class 'marauder.models.DoesNotExist'&gt;</dl>
+
+<dl><dt><strong>MultipleObjectsReturned</strong> = &lt;class 'marauder.models.MultipleObjectsReturned'&gt;</dl>
+
+<hr>
+Methods inherited from <a href="django.db.models.base.html#Model">django.db.models.base.Model</a>:<br>
+<dl><dt><a name="Story-__eq__"><strong>__eq__</strong></a>(self, other)</dt></dl>
+
+<dl><dt><a name="Story-__hash__"><strong>__hash__</strong></a>(self)</dt></dl>
+
+<dl><dt><a name="Story-__init__"><strong>__init__</strong></a>(self, *args, **kwargs)</dt></dl>
+
+<dl><dt><a name="Story-__ne__"><strong>__ne__</strong></a>(self, other)</dt></dl>
+
+<dl><dt><a name="Story-__reduce__"><strong>__reduce__</strong></a>(self)</dt><dd><tt>Provides&nbsp;pickling&nbsp;support.&nbsp;Normally,&nbsp;this&nbsp;just&nbsp;dispatches&nbsp;to&nbsp;Python's<br>
+standard&nbsp;handling.&nbsp;However,&nbsp;for&nbsp;models&nbsp;with&nbsp;deferred&nbsp;field&nbsp;loading,&nbsp;we<br>
+need&nbsp;to&nbsp;do&nbsp;things&nbsp;manually,&nbsp;as&nbsp;they're&nbsp;dynamically&nbsp;created&nbsp;classes&nbsp;and<br>
+only&nbsp;module-level&nbsp;classes&nbsp;can&nbsp;be&nbsp;pickled&nbsp;by&nbsp;the&nbsp;default&nbsp;path.</tt></dd></dl>
+
+<dl><dt><a name="Story-__repr__"><strong>__repr__</strong></a>(self)</dt></dl>
+
+<dl><dt><a name="Story-clean"><strong>clean</strong></a>(self)</dt><dd><tt>Hook&nbsp;for&nbsp;doing&nbsp;any&nbsp;extra&nbsp;model-wide&nbsp;validation&nbsp;after&nbsp;<a href="#Story-clean">clean</a>()&nbsp;has&nbsp;been<br>
+called&nbsp;on&nbsp;every&nbsp;field&nbsp;by&nbsp;self.<strong>clean_fields</strong>.&nbsp;Any&nbsp;ValidationError&nbsp;raised<br>
+by&nbsp;this&nbsp;method&nbsp;will&nbsp;not&nbsp;be&nbsp;associated&nbsp;with&nbsp;a&nbsp;particular&nbsp;field;&nbsp;it&nbsp;will<br>
+have&nbsp;a&nbsp;special-case&nbsp;association&nbsp;with&nbsp;the&nbsp;field&nbsp;defined&nbsp;by&nbsp;NON_FIELD_ERRORS.</tt></dd></dl>
+
+<dl><dt><a name="Story-clean_fields"><strong>clean_fields</strong></a>(self, exclude<font color="#909090">=None</font>)</dt><dd><tt>Cleans&nbsp;all&nbsp;fields&nbsp;and&nbsp;raises&nbsp;a&nbsp;ValidationError&nbsp;containing&nbsp;message_dict<br>
+of&nbsp;all&nbsp;validation&nbsp;errors&nbsp;if&nbsp;any&nbsp;occur.</tt></dd></dl>
+
+<dl><dt><a name="Story-date_error_message"><strong>date_error_message</strong></a>(self, lookup_type, field, unique_for)</dt></dl>
+
+<dl><dt><a name="Story-delete"><strong>delete</strong></a>(self, using<font color="#909090">=None</font>)</dt></dl>
+
+<dl><dt><a name="Story-full_clean"><strong>full_clean</strong></a>(self, exclude<font color="#909090">=None</font>, validate_unique<font color="#909090">=True</font>)</dt><dd><tt>Calls&nbsp;clean_fields,&nbsp;clean,&nbsp;and&nbsp;validate_unique,&nbsp;on&nbsp;the&nbsp;model,<br>
+and&nbsp;raises&nbsp;a&nbsp;``ValidationError``&nbsp;for&nbsp;any&nbsp;errors&nbsp;that&nbsp;occurred.</tt></dd></dl>
+
+<dl><dt><a name="Story-prepare_database_save"><strong>prepare_database_save</strong></a>(self, unused)</dt></dl>
+
+<dl><dt><a name="Story-save"><strong>save</strong></a>(self, force_insert<font color="#909090">=False</font>, force_update<font color="#909090">=False</font>, using<font color="#909090">=None</font>, update_fields<font color="#909090">=None</font>)</dt><dd><tt>Saves&nbsp;the&nbsp;current&nbsp;instance.&nbsp;Override&nbsp;this&nbsp;in&nbsp;a&nbsp;subclass&nbsp;if&nbsp;you&nbsp;want&nbsp;to<br>
+control&nbsp;the&nbsp;saving&nbsp;process.<br>
+&nbsp;<br>
+The&nbsp;'force_insert'&nbsp;and&nbsp;'force_update'&nbsp;parameters&nbsp;can&nbsp;be&nbsp;used&nbsp;to&nbsp;insist<br>
+that&nbsp;the&nbsp;"save"&nbsp;must&nbsp;be&nbsp;an&nbsp;SQL&nbsp;insert&nbsp;or&nbsp;update&nbsp;(or&nbsp;equivalent&nbsp;for<br>
+non-SQL&nbsp;backends),&nbsp;respectively.&nbsp;Normally,&nbsp;they&nbsp;should&nbsp;not&nbsp;be&nbsp;set.</tt></dd></dl>
+
+<dl><dt><a name="Story-save_base"><strong>save_base</strong></a>(self, raw<font color="#909090">=False</font>, force_insert<font color="#909090">=False</font>, force_update<font color="#909090">=False</font>, using<font color="#909090">=None</font>, update_fields<font color="#909090">=None</font>)</dt><dd><tt>Handles&nbsp;the&nbsp;parts&nbsp;of&nbsp;saving&nbsp;which&nbsp;should&nbsp;be&nbsp;done&nbsp;only&nbsp;once&nbsp;per&nbsp;save,<br>
+yet&nbsp;need&nbsp;to&nbsp;be&nbsp;done&nbsp;in&nbsp;raw&nbsp;saves,&nbsp;too.&nbsp;This&nbsp;includes&nbsp;some&nbsp;sanity<br>
+checks&nbsp;and&nbsp;signal&nbsp;sending.<br>
+&nbsp;<br>
+The&nbsp;'raw'&nbsp;argument&nbsp;is&nbsp;telling&nbsp;save_base&nbsp;not&nbsp;to&nbsp;save&nbsp;any&nbsp;parent<br>
+models&nbsp;and&nbsp;not&nbsp;to&nbsp;do&nbsp;any&nbsp;changes&nbsp;to&nbsp;the&nbsp;values&nbsp;before&nbsp;save.&nbsp;This<br>
+is&nbsp;used&nbsp;by&nbsp;fixture&nbsp;loading.</tt></dd></dl>
+
+<dl><dt><a name="Story-serializable_value"><strong>serializable_value</strong></a>(self, field_name)</dt><dd><tt>Returns&nbsp;the&nbsp;value&nbsp;of&nbsp;the&nbsp;field&nbsp;name&nbsp;for&nbsp;this&nbsp;instance.&nbsp;If&nbsp;the&nbsp;field&nbsp;is<br>
+a&nbsp;foreign&nbsp;key,&nbsp;returns&nbsp;the&nbsp;id&nbsp;value,&nbsp;instead&nbsp;of&nbsp;the&nbsp;object.&nbsp;If&nbsp;there's<br>
+no&nbsp;Field&nbsp;object&nbsp;with&nbsp;this&nbsp;name&nbsp;on&nbsp;the&nbsp;model,&nbsp;the&nbsp;model&nbsp;attribute's<br>
+value&nbsp;is&nbsp;returned&nbsp;directly.<br>
+&nbsp;<br>
+Used&nbsp;to&nbsp;serialize&nbsp;a&nbsp;field's&nbsp;value&nbsp;(in&nbsp;the&nbsp;serializer,&nbsp;or&nbsp;form&nbsp;output,<br>
+for&nbsp;example).&nbsp;Normally,&nbsp;you&nbsp;would&nbsp;just&nbsp;access&nbsp;the&nbsp;attribute&nbsp;directly<br>
+and&nbsp;not&nbsp;use&nbsp;this&nbsp;method.</tt></dd></dl>
+
+<dl><dt><a name="Story-unique_error_message"><strong>unique_error_message</strong></a>(self, model_class, unique_check)</dt></dl>
+
+<dl><dt><a name="Story-validate_unique"><strong>validate_unique</strong></a>(self, exclude<font color="#909090">=None</font>)</dt><dd><tt>Checks&nbsp;unique&nbsp;constraints&nbsp;on&nbsp;the&nbsp;model&nbsp;and&nbsp;raises&nbsp;``ValidationError``<br>
+if&nbsp;any&nbsp;failed.</tt></dd></dl>
+
+<hr>
+Data descriptors inherited from <a href="django.db.models.base.html#Model">django.db.models.base.Model</a>:<br>
+<dl><dt><strong>pk</strong></dt>
+</dl>
+<hr>
+Data descriptors inherited from django.db.models.base.NewBase:<br>
+<dl><dt><strong>__dict__</strong></dt>
+<dd><tt>dictionary&nbsp;for&nbsp;instance&nbsp;variables&nbsp;(if&nbsp;defined)</tt></dd>
+</dl>
+<dl><dt><strong>__weakref__</strong></dt>
+<dd><tt>list&nbsp;of&nbsp;weak&nbsp;references&nbsp;to&nbsp;the&nbsp;object&nbsp;(if&nbsp;defined)</tt></dd>
+</dl>
+</td></tr></table></td></tr></table>
+</body></html>
