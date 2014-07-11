@@ -148,7 +148,7 @@ class House(School):
         return self.name
 
 class Shop(Location):
-    location = models.ForeignKey(Location, related_name = 'shops', blank=True, null=True)
+    locations = models.ManyToManyField(Location, related_name = 'shops', blank=True, null=True)
 
 class Artifact(models.Model):
     name = models.CharField(max_length=100)

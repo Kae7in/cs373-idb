@@ -137,11 +137,11 @@ class ShopTest(TestCase):
         location = lm.Location()
         location.name = 'Diagon Alley'
         location.save()
-        shop.location = location
+        shop.locations.add(location)
         shop.save()
 
         first_shop = lm.Shop.objects.first()
-        self.assertEqual(first_shop.location, location)
+        self.assertEqual(first_shop.locations.all().first(), location)
 
     def test_shop_with_owners(self):       
         shop = lm.Shop.objects.first()
