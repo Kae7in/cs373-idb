@@ -1,0 +1,64 @@
+{% extends "base.html" %}
+{% block scripts %}
+<link href='http://fonts.googleapis.com/css?family=Neucha' rel='stylesheet' type='text/css'>
+{% endblock scripts %}
+
+{% block content %}
+<div class='row'>
+   	<div class='col-md-12 col-sm-12 col-xs-12'>
+   		<h1 class="uppercase">{% block name %}{% endblock name %}</h1>
+</div>
+
+<div class='row'>
+   	<div class='col-md-6 col-sm-12 col-xs-12'>
+        <div class="list-group info-group-list">
+                <li class='list-group-item'>
+                    <div class='row'>
+                        <div class='infoitem col-md-5'>
+                            Classification
+                        </div>
+                        <div class='infoitem col-md-7'>
+                        {% block classification %}{% endblock classification %}
+                        </div>
+                    </div>
+                </li>
+
+                <li class='list-group-item'>
+                    <div class='row'>
+                        <div class='infoitem col-md-5'>
+                            Rating
+                        </div>
+                        <div class='rating infoitem col-md-7'>
+                            {% block rating %}{% endblock rating %}
+                        </div>
+                    </div>
+               </li>
+        </div>
+    </div>
+
+	<div class='col-md-6 col-sm-6 col-xs-12 main-image'>
+		<img class='list-group-item' src='{% block image_url %}{% endblock image_url %}'>
+	</div>
+</div>
+
+<div class='row'>
+</div>
+
+<div>
+</div>
+
+<div class='row'>
+	<div class='col-md-12'>
+		{% block description %}{% endblock description %}
+	</div>
+</div>
+
+<div class='row'>
+	<div class='col-md-12'>
+		<h3>{% block option %}{% endblock option %}</h3>
+		{% block detail %}
+		{% endblock detail %}
+	</div>
+</div>
+
+{% endblock content %}
