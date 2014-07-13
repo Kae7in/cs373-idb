@@ -32,7 +32,6 @@ a:hover {
 }
 
 #name {
-    margin-top: 2%;
 }
 
 
@@ -42,8 +41,8 @@ img {
     max-width: 300px;
 }
 
-.img-responsive {
-
+body {
+    padding-top: 60px;
 }
 
 .info-group-list {
