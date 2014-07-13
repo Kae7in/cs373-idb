@@ -1,7 +1,7 @@
 @import url('http://fonts.googleapis.com/css?family=Open+Sans:200,300');
 
-
-@media (min-width: @screen-sm-min) {
+/* anything larger than mobile phone */
+@media (min-width: 768px) {
 
     .dropdown-menu li:hover .sub-menu {
         visibility: visible;
@@ -13,12 +13,11 @@
 
 }
 
+/* mobile phones */
 @media (max-width: 768px) {
     #description {
         max-width: 320px;
     }
-
-
 }
 
 a:hover {
@@ -28,11 +27,8 @@ a:hover {
 .uppercase { text-transform: uppercase;}
 
 #content {
-    max-width: 768px;
     margin: 5% 5%;
-    padding-top: 8%;
-
-
+    max-width: 768px;
 }
 
 #name {
@@ -43,6 +39,7 @@ a:hover {
 img {
     display: block; 
     vertical-align: bottom;
+    max-width: 300px;
 }
 
 .img-responsive {
