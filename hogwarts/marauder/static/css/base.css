@@ -20,8 +20,8 @@ a:hover {
 	font-family: 'Open Sans';
 	background: url('../images/marauders.jpg');
 	background-size: cover;
-	padding-top: 50px;
-	padding-bottom: 50px;
+	padding-top: 5%;
+	padding-bottom: 5%;
 }
 
 .jumbotron h1 {
@@ -35,13 +35,13 @@ a:hover {
 }
 
 #content { 
-	margin: 0px auto 20px; 
-	padding-left: 60px;
+	margin: 0% auto 80%; 
+	padding-left: 2%;
 }
 
 .uppercase { text-transform: uppercase;}
 
-.description { margin-top: 20px;}
+.description { margin-top: 3%;}
 
 
 .category{
