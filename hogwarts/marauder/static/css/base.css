@@ -1,9 +1,73 @@
 @import url('http://fonts.googleapis.com/css?family=Open+Sans:200,300');
 
 
-/*
-.info-group-list { display: table; }
+@media (min-width: @screen-sm-min) {
 
+    .dropdown-menu li:hover .sub-menu {
+        visibility: visible;
+    }
+
+    .dropdown:hover .dropdown-menu {
+        display: block;
+    }
+
+}
+
+@media (max-width: 768px) {
+    #description {
+        max-width: 320px;
+
+
+    }
+
+
+}
+
+a:hover {
+    text-decoration: none;
+}
+
+.uppercase { text-transform: uppercase;}
+
+#content {
+    max-width: 768px;
+    margin: 5% 5%;
+
+
+}
+
+#name {
+    margin-top: 0;  
+}
+
+
+img {
+    display: block; 
+    vertical-align: bottom;
+}
+
+.img-responsive {
+
+}
+
+.info-group-list {
+    max-width: 300px;
+}
+
+.rating {
+    font-family: Neucha;
+    color: red;
+    font-size: 3.5em;
+   
+}
+
+#description {
+    padding-top: 2%;
+    padding-right: 5%;
+
+
+}
+/*
 .main-image img { 
 	width: 350px;
 	margin-bottom: 20px !important;
@@ -36,8 +100,8 @@ a:hover {
 	color: white;
 }
 
-#content { 
-	margin: 0% auto 80%; 
+#description { 
+	margin-left: 10px; 
 	padding-left: 2%;
 }
 

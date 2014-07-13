@@ -4,46 +4,45 @@
 {% endblock scripts %}
 
 {% block content %}
-<div class='row'>
-   	<div class='col-md-12 col-sm-12 col-xs-12'>
-   		<h1 class="uppercase">{% block name %}{% endblock name %}</h1>
-    </div>
-</div>
-
-<div class='row'>
-   	<div class='col-md-6 col-sm-12 col-xs-12'>
-        <div class="list-group info-group-list">
-                <li class='list-group-item'>
-                    <div class='row'>
-                        <div class='infoitem col-md-5'>
-                            Classification
-                        </div>
-                        <div class='infoitem col-md-7'>
-                        {% block classification %}{% endblock classification %}
-                        </div>
-                    </div>
-                </li>
-
-                <li class='list-group-item'>
-                    <div class='row'>
-                        <div class='infoitem col-md-5'>
-                            Rating
-                        </div>
-                        <div class='rating infoitem col-md-7'>
-                            {% block rating %}{% endblock rating %}
-                        </div>
-                    </div>
-               </li>
+        <div id="name">
+   		    <h1 class="uppercase">{% block name %}{% endblock name %}</h1>
         </div>
-    </div>
+   	    
+<div class='row'>
+        <div class='col-xs-12 col-s-5 col-md-5'>
+            <div class="list-group info-group-list">
+                    <li class='list-group-item'>
+                        <div class='row'>
+                            <div class='infoitem col-md-5'>
+                                Classification
+                            </div>
+                            <div class='infoitem col-md-7'>
+                            {% block classification %}{% endblock classification %}
+                            </div>
+                        </div>
+                    </li>
 
-	<div class='col-md-6 col-sm-6 col-xs-12 main-image'>
-		<img class='list-group-item' src='{% block image_url %}{% endblock image_url %}'>
-	</div>
+                    <li class='list-group-item'>
+                        <div class='row'>
+                            <div class='infoitem col-md-5'>
+                                Rating
+                            </div>
+                            <div class='rating infoitem col-md-7'>
+                                {% block rating %}{% endblock rating %}
+                            </div>
+                        </div>
+                   </li>
+            </div>  <!--info-group-list-->
+        </div> <!--col-xs-12-->
+
+        <div class='col-xs-12 col-s-7 col-md-7 main-image'>
+            <img class='list-group-item' src='{% block image_url %}{% endblock image_url %}'>
+        </div>
+
 </div>  <!-- row -->
 
 <div class='row'>
-	<div class='col-xs-12'>
+	<div class='col-xs-12' id='description'>
 		{% block description %}{% endblock description %}
 	</div>
 </div>
