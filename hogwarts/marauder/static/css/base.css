@@ -4,7 +4,7 @@
     margin-bottom:0;
 }
 
-
+/*
 .info-group-list { display: table; }
 
 .main-image img { 
@@ -77,10 +77,10 @@ padding-right: 10px;
     font-size: 3.5em;
    
 }
-
+*/
 /* make sidebar nav vertical 
 http://www.jonathanbriehl.com/2014/01/17/vertical-menu-for-bootstrap-3/ */ 
-@media (min-width: 768px) {
+/*@media (min-width: 768px) {
   .sidebar-nav .navbar .navbar-collapse {
     padding: 0;
     max-height: none;
@@ -100,4 +100,4 @@ http://www.jonathanbriehl.com/2014/01/17/vertical-menu-for-bootstrap-3/ */
     padding-bottom: 12px;
   }
 }
-
+*/
