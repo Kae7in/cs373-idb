@@ -72,3 +72,16 @@ padding-right: 10px;
     font-size: 3.5em;
    
 }
+
+@media (max-width: 767px) {
+    #sidebar {
+        display: inline-block;
+        margin-top: 20px;
+        width: 100%;
+    }
+
+    #content {
+        float:none !important;
+        margin-left:0;
+    }
+}
