@@ -22,7 +22,7 @@
   <div class='container-fluid'>
     <!-- navbar -->
     <div class='row'>
-		<div class='col-xs-12 col-sm-2 col-md-2' id='sidebar'>
+		<div class='col-xs-12 col-sm-2 col-md-3' id='sidebar'>
 	    <ul class="nav nav-pills nav-stacked">
         <div class="panel-group category">
           <div class="panel">
@@ -42,9 +42,9 @@
 
             <div id="collapseOne" class="panel-collapse collapse {% block character_active %}{% endblock character_active %}">
               <ul class="panel-body">                  
-                <h5><a href="../characters/1">Albus Dumbledore</a></h3> 
-                <h5><a href="../characters/2">Ariana Dumbledore</a></h3>
-                <h5><a href="../characters/3">Harry Potter</a></h3>
+                <h5><a href="../characters/1">Albus Dumbledore</a></h5> 
+                <h5><a href="../characters/2">Ariana Dumbledore</a></h5>
+                <h5><a href="../characters/3">Harry Potter</a></h5>
               </ul>  <!-- /panel-body -->
             </div> <!-- /collapseOne -->
           </div>  <!-- /panel  -->
@@ -58,9 +58,9 @@
 
             <div id="collapseTwo" class="panel-collapse collapse {% block story_active %}{% endblock story_active %}">
               <ul class="panel-body">                  
-                <h5><a href="../stories/1">Deathly Hallows</a></h3> 
-                <h5><a href="../stories/2">The Boy Who Lived</a></h3>
-                <h5><a href="../stories/3">International Statute of Wizarding Secrecy</a></h3>
+                <h5><a href="../stories/1">Deathly Hallows</a></h5> 
+                <h5><a href="../stories/2">The Boy Who Lived</a></h5>
+                <h5><a href="../stories/3">International Statute of Wizarding Secrecy</a></h5>
               </ul>  <!-- /panel-body -->
             </div> <!-- /collapseTwo -->
           </div>  <!-- /panel  -->
@@ -74,9 +74,9 @@
 
             <div id="collapseThree" class="panel-collapse collapse {% block artifact_active %}{% endblock artifact_active %}">
               <div class="panel-body">                  
-                <h5><a href="../artifacts/1">Pensieve</a></h3> 
-                <h5><a href="../artifacts/2">Elder Wand</a></h3>
-                <h5><a href="../artifacts/3">Invisibility Cloak</a></h3>
+                <h5><a href="../artifacts/1">Pensieve</a></h5> 
+                <h5><a href="../artifacts/2">Elder Wand</a></h5>
+                <h5><a href="../artifacts/3">Invisibility Cloak</a></h5>
               </div>  <!-- /panel-body -->
             </div> <!-- /collapseThree -->
           </div>  <!-- /panel -->
@@ -90,9 +90,9 @@
 
             <div id="collapseFour" class="panel-collapse collapse {% block spell_active %}{% endblock spell_active %}">
               <div class="panel-body">                  
-                <h5><a href="../spells/1">Patronus Charm</a></h3> 
-                <h5><a href="../spells/2">Boggart Vanishing Charm</a></h3>
-                <h5><a href="../spells/3">Disarming Charm</a></h3>
+                <h5><a href="../spells/1">Patronus Charm</a></h5> 
+                <h5><a href="../spells/2">Boggart Vanishing Charm</a></h5>
+                <h5><a href="../spells/3">Disarming Charm</a></h5>
               </div>  <!-- /panel-body -->
             </div> <!-- /collapseFour -->
           </div>  <!-- /panel -->
@@ -106,13 +106,26 @@
 
             <div id="collapseFive" class="panel-collapse collapse {% block potion_active %}{% endblock potion_active %}">
               <div class="panel-body">                  
-                <h5><a href="../potions/1">Amortentia</a></h3> 
-                <h5><a href="../potions/2">Veritaserum</a></h3>
-                <h5><a href="../potions/3">Regeneration Potion</a></h3>
+                <h5><a href="../potions/1">Amortentia</a></h5> 
+                <h5><a href="../potions/2">Veritaserum</a></h5>
+                <h5><a href="../potions/3">Regeneration Potion</a></h5>
               </div>  <!-- /panel-body -->
             </div> <!-- /collapseFive -->
           </div>  <!-- /panel -->
 
+          <div class="panel">
+            <div class="panel-heading">
+              <h2 class="panel-title">
+                <a data-toggle="collapse" href="#collapseSix">Creatures</a>
+              </h2>
+            </div>  <!-- /panel-heading -->
+            <div id="collapseSix" class="panel-collapse collapse {% block creatures_active %}{% endblock creatures_active %}">
+              <div class="panel-body">                  
+                <h5><a href="../creatures/1">Werewolf</a></h5> 
+              </div>  <!-- /panel-body -->
+            </div> <!-- /collapseFive -->
+          </div>  <!-- /panel -->
+          
           <div class='panel'>
             <div class='panel-heading'>
               <h2 class='panel-title'><a href='/citations/'>Citations</a></h2>
@@ -130,7 +143,7 @@
 		</div>  <!-- /side-bar col -->
 	
 
-    <div class='col-xs-12 col-sm-8 col-md-8' id='content'>
+    <div class='col-xs-12 col-sm-8 col-md-7' id='content'>
       {% block content %}{% endblock content %}
     </div>
   

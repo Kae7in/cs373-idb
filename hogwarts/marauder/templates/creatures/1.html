@@ -1,0 +1,34 @@
+{% extends "creatures/base.html" %}
+
+{% block creatures_active %}
+in
+{% endblock creatures_active %}
+
+
+{% block name %}
+Werewolf
+{% endblock name %}
+
+{% block image_url %}
+{{ STATIC_URL }}images/werewolf.gif
+{% endblock image_url %}
+
+{% block classification %}Being when human, Beast when in wolf form{% endblock classification %}
+{% block rating %}XXXXX{% endblock rating %}
+
+
+{% block description %}
+<p>A werewolf is a human being who, upon the complete rising of the full moon, becomes a fearsome and deadly near-wolf. Werewolves can be easily distinguished from regular wolves by their shorter snout, more human-like eyes, the tufted tail, and their mindless hunting of humans whilst in wolf form. At all other times, they appear as normal humans, although they will age prematurely, and will gain a pallor as the moon approaches and then wanes. This condition is caused by infection with lycanthropy, also known as werewolfry.<p>
+
+<p>A werewolf cannot chose whether or not to transform and will no longer remember who they are and would kill even their best friend given the opportunity once transformed. Despite this, they are able to recall everything they have experienced throughout their transformation upon reverting to their human form. A mixture of powdered silver and dittany applied to a fresh bite will seal the wound and allow the victim to live on as a werewolf, although tragic tales are told of witches and wizards begging for death rather than becoming werewolves. The Wolfsbane Potion, invented by Damocles, allows the werewolf to keep their human mind during transformation.</p>
+{% endblock description %}
+
+
+{% block option %}NOTABLE WEREWOLVES{% endblock option %}
+{% block detail %}
+Remus Lupin<br/>
+Anonymous Author of <i>Hairy Snout, Human Heart</i></br/>
+Fenrir Greyback<br/>
+{% endblock detail %}
+
+
