@@ -1,27 +1,31 @@
 {% extends "base.html" %}
 
 {% block content %}
+        <div id="name">
+   		    <h1 class="uppercase">{% block alias %}{% endblock alias %}</h1>
+        </div>
+
 <div class='row'>
    	<div class='col-md-8 col-sm-6 info-group'>
-   		<h1 class="uppercase">{% block alias %}{% endblock alias %}</h1>
    		<ul class='list-group info-group-list'>
 			{% block info_group %}{% endblock info_group %}
 		</ul>
 	</div>
 
 	<div class='col-md-4 col-sm-6 main-image'>
-		<center><img class='center list-group-item' src='{% block image_url %}{% endblock image_url %}'></center>
+		<img class='list-group-item' src='{% block image_url %}{% endblock image_url %}'>
 	</div>
 </div>
 
 <div class='row'>
-	<div class='col-md-12'>
+	<div class='col-md-12 block-text'>
+        <h3>EFFECTS</h3>
 		{% block effect_description %}{% endblock effect_description %}
 	</div>
 </div>
 
 <div class='row'>
-	<div class='col-md-12'>
+	<div class='col-md-12 block-text'>
 		<h3>NOTABLE USES</h3>
 		{% block uses %}
 		{% endblock uses %}

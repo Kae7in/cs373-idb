@@ -1,24 +1,5 @@
 @import url('http://fonts.googleapis.com/css?family=Open+Sans:200,300');
 
-/* anything larger than mobile phone */
-@media (min-width: 768px) {
-
-    .dropdown-menu li:hover .sub-menu {
-        visibility: visible;
-    }
-
-    .dropdown:hover .dropdown-menu {
-        display: block;
-    }
-
-}
-
-/* mobile phones */
-@media (max-width: 768px) {
-    #description {
-        max-width: 320px;
-    }
-}
 
 a:hover {
     text-decoration: none;
@@ -31,12 +12,7 @@ a:hover {
     max-width: 768px;
 }
 
-#name {
-}
-
-
 img {
-    display: block; 
     vertical-align: bottom;
     max-width: 300px;
 }
@@ -59,9 +35,38 @@ body {
 #description {
     padding-top: 2%;
     padding-right: 5%;
+}
 
+.block-text {
+    padding-top: 2%;
+    padding-right: 5%;
 
 }
+
+
+/* anything larger than mobile phone */
+@media (min-width: 768px) {
+
+    .dropdown-menu li:hover .sub-menu {
+        visibility: visible;
+    }
+
+    .dropdown:hover .dropdown-menu {
+        display: block;
+    }
+
+}
+
+/* mobile phones */
+@media (max-width: 768px) {
+    #description, blockquote, .block-text {
+        max-width: 320px;
+    }
+
+}
+
+
+
 /*
 .main-image img { 
 	width: 350px;
