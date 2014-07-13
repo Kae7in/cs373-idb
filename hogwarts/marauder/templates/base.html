@@ -2,7 +2,7 @@
 <html>
 	<head>
 		<title>{% block title %}Marauder's Map{% endblock title %}</title>
-		<meta name=”viewport” content=”width=device-width, initial-scale=1.0″>
+		<meta name=”viewport” content=”width=device-width, initial-scale=1″>
 		<!-- Latest compiled and minified CSS -->
 		<link rel="stylesheet" href="{{ STATIC_URL }}css/bootstrap.min.css">
 		<link rel="stylesheet" href="{{ STATIC_URL }}css/base.css">
@@ -12,52 +12,72 @@
 		{% block scripts %}{% endblock scripts %}
 	</head>
   <body>
+
+<nav class="navbar navbar-inverse" role="navigation">
+  <div class="container-fluid">
+    <!-- Brand and toggle get grouped for better mobile display -->
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+        <span class="sr-only">Toggle navigation</span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+      <a class="navbar-brand" href="#">Brand</a>
+    </div>
+
+    <!-- Collect the nav links, forms, and other content for toggling -->
+    <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+      <ul class="nav navbar-nav">
+        <li class="active"><a href="#">Link</a></li>
+        <li><a href="#">Link</a></li>
+        <li class="dropdown">
+          <a href="#" class="dropdown-toggle" data-toggle="dropdown">Dropdown <span class="caret"></span></a>
+          <ul class="dropdown-menu" role="menu">
+            <li><a href="#">Action</a></li>
+            <li><a href="#">Another action</a></li>
+            <li><a href="#">Something else here</a></li>
+            <li class="divider"></li>
+            <li><a href="#">Separated link</a></li>
+            <li class="divider"></li>
+            <li><a href="#">One more separated link</a></li>
+          </ul>
+        </li>
+      </ul>
+      <form class="navbar-form navbar-left" role="search">
+        <div class="form-group">
+          <input type="text" class="form-control" placeholder="Search">
+        </div>
+        <button type="submit" class="btn btn-default">Submit</button>
+      </form>
+      <ul class="nav navbar-nav navbar-right">
+        <li><a href="#">Link</a></li>
+        <li class="dropdown">
+          <a href="#" class="dropdown-toggle" data-toggle="dropdown">Dropdown <span class="caret"></span></a>
+          <ul class="dropdown-menu" role="menu">
+            <li><a href="#">Action</a></li>
+            <li><a href="#">Another action</a></li>
+            <li><a href="#">Something else here</a></li>
+            <li class="divider"></li>
+            <li><a href="#">Separated link</a></li>
+          </ul>
+        </li>
+      </ul>
+    </div><!-- /.navbar-collapse -->
+  </div><!-- /.container-fluid -->
+</nav>
+
+
   <a href="/">
-    <div class="jumbotron customjumbo">
+    <div class="jumbotron">
+    <div class="container-fluid">
 			<h1 class="text-center">Marauder's Map</h1>
 			<p class="text-center">Brought to you by The Six Potters</p>
 		</div>
+    </div>
   </a>
 
   <div class='container-fluid'>
-    <!-- navbar -->
-
-        <div class="row">
-          <div class="col-xs-12 col-sm-3">
-            <div class="sidebar-nav">
-              <div class="navbar navbar-default" role="navigation">
-                <div class="navbar-header">
-                  <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".sidebar-navbar-collapse">
-                    <span class="sr-only">Toggle navigation</span>
-                    <span class="icon-bar"></span>
-                    <span class="icon-bar"></span>
-                    <span class="icon-bar"></span>
-                  </button>
-                  <span class="visible-xs navbar-brand">Sidebar menu</span>
-                </div>
-                <div class="navbar-collapse collapse sidebar-navbar-collapse">
-                  <ul class="nav navbar-nav">
-                    <li class="active"><a href="#">Menu Item 1</a></li>
-                    <li><a href="#">Menu Item 2</a></li>
-                    <li class="dropdown">
-                      <a href="#" class="dropdown-toggle" data-toggle="dropdown">Dropdown <b class="caret"></b></a>
-                      <ul class="dropdown-menu">
-                        <li><a href="#">Action</a></li>
-                        <li><a href="#">Another action</a></li>
-                        <li><a href="#">Something else here</a></li>
-                        <li class="divider"></li>
-                        <li class="dropdown-header">Nav header</li>
-                        <li><a href="#">Separated link</a></li>
-                        <li><a href="#">One more separated link</a></li>
-                      </ul>
-                    </li>
-                    <li><a href="#">Menu Item 4</a></li>
-                    <li><a href="#">Reviews <span class="badge">1,118</span></a></li>
-                  </ul>
-                </div><!--/.nav-collapse -->
-              </div>
-            </div>
-          </div>
 
     <div class='col-xs-12 col-sm-9' id='content'>
       {% block content %}{% endblock content %}
@@ -65,7 +85,6 @@
   
     <!--For symmetry -->
  <!--   <div class='col-xs-12 col-sm-12 col-md-12'></div>  -->
-    </div> <!-- /row -->
     </div> <!-- /container-fluid -->
 	</body>
 </html>
