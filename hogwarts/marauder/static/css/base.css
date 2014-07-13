@@ -73,13 +73,26 @@ padding-right: 10px;
    
 }
 
-
-@media (max-width: 767px) {
-    #sidebar {
-        width: auto;
-        float: none;
-
-    }
-
-
+/* make sidebar nav vertical 
+http://www.jonathanbriehl.com/2014/01/17/vertical-menu-for-bootstrap-3/ */ 
+@media (min-width: 768px) {
+  .sidebar-nav .navbar .navbar-collapse {
+    padding: 0;
+    max-height: none;
+  }
+  .sidebar-nav .navbar ul {
+    float: none;
+  }
+  .sidebar-nav .navbar ul:not {
+    display: block;
+  }
+  .sidebar-nav .navbar li {
+    float: none;
+    display: block;
+  }
+  .sidebar-nav .navbar li a {
+    padding-top: 12px;
+    padding-bottom: 12px;
+  }
 }
+
