@@ -65,6 +65,13 @@ body {
 
 }
 
+/* desktops */
+@media (min-width: 980px) {
+body {
+    padding-top: 0px;
+}
+
+}
 
 
 /*
