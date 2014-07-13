@@ -48,7 +48,7 @@ a:hover {
 	font-family: 'Open Sans';
 }
 	.nav-stacked {
-	max-width: 300px;
+	width: 100%;
 }
 
 #sidebar li, #sidebar h5, #sidebar h2, body {
@@ -71,4 +71,15 @@ padding-right: 10px;
     color: red;
     font-size: 3.5em;
    
+}
+
+
+@media (max-width: 767px) {
+    #sidebar {
+        width: auto;
+        float: none;
+
+    }
+
+
 }
