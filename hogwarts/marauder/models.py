@@ -12,7 +12,12 @@ class Character(models.Model):
 
     #relationships
     creature = models.ForeignKey('Creature', blank=True, null=True, related_name = 'characters')
-    house = models.ForeignKey('House', blank=True, null=True, related_name = 'students')
+    house = models.ForeignKey('House', blank=True, null=True, related_name = 'members')
+    school = models.ForeignKey('School', blank=True, null=True, related_name = 'students')
+    school_taught = models.ForeignKey('School', blank=True, null=True, related_name = 'professors')
+    school_headmasters = models.ForeignKey('School', blank=True, null=True, related_name = 'headmasters')
+    school_founded = models.ForeignKey('School', blank=True, null=True, related_name = 'founders')
+    school_staffed = models.ForeignKey('School', blank=True, null=True, related_name = 'staff')
     shop = models.ForeignKey('Shop', blank=True, null=True, related_name='owners')
 
     def relationships(self):
@@ -143,6 +148,7 @@ class House(School):
     mascot = models.CharField(max_length=100)
     quote = models.CharField(max_length=500)
     quote_by = models.CharField(max_length=100)
+    founder = models.ForeignKey('Character', related_name = 'house_founded')
     
     def __str__(self):
         return self.name
@@ -192,18 +198,6 @@ class Story(models.Model):
 
     class Meta:
         verbose_name_plural = 'stories'
-
-class Academic(models.Model):
-    DESCRIPTORS = (
-        ('founder', 'founder'),
-        ('student', 'student'),
-        ('professor', 'professor'),
-        ('headmaster', 'headmaster'),
-        ('staff', 'staff')
-    )
-    character = models.ForeignKey(Character, related_name = 'academic_statuses', blank=True, null=True)
-    school = models.ForeignKey(School, related_name = 'academic_statuses', blank=True, null=True)
-    descriptor = models.CharField(max_length=10, choices=DESCRIPTORS)
 
 class Relationship(models.Model):
     #relationships
