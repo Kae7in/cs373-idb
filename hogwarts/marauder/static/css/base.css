@@ -1,7 +1,80 @@
 @import url('http://fonts.googleapis.com/css?family=Open+Sans:200,300');
 
-.info-group-list { display: table; }
 
+a:hover {
+    text-decoration: none;
+}
+
+.uppercase { text-transform: uppercase;}
+
+#content {
+    margin: 5% 5%;
+    max-width: 768px;
+}
+
+img {
+    vertical-align: bottom;
+    max-width: 300px;
+}
+
+body {
+    padding-top: 60px;
+}
+
+.info-group-list {
+    max-width: 300px;
+}
+
+.rating {
+    font-family: Neucha;
+    color: red;
+    font-size: 3.5em;
+   
+}
+
+#description {
+    padding-top: 2%;
+    padding-right: 5%;
+}
+
+.block-text {
+    padding-top: 2%;
+    padding-right: 5%;
+
+}
+
+
+/* anything larger than mobile phone */
+@media (min-width: 768px) {
+
+    .dropdown-menu li:hover .sub-menu {
+        visibility: visible;
+    }
+
+    .dropdown:hover .dropdown-menu {
+        display: block;
+    }
+
+}
+
+/* mobile phones */
+@media (max-width: 768px) {
+    #description, blockquote, .block-text {
+        max-width: 320px;
+    }
+
+}
+
+/* desktops */
+@media (min-width: 980px) {
+body {
+    padding-top: 0px;
+}
+
+}
+
+
+/*
 .main-image img { 
 	width: 350px;
 	margin-bottom: 20px !important;
@@ -20,8 +93,8 @@ a:hover {
 	font-family: 'Open Sans';
 	background: url('../images/marauders.jpg');
 	background-size: cover;
-	padding-top: 50px;
-	padding-bottom: 50px;
+	padding-top: 5%;
+	padding-bottom: 5%;
 }
 
 .jumbotron h1 {
@@ -34,21 +107,21 @@ a:hover {
 	color: white;
 }
 
-#content { 
-	margin: 0px auto 20px; 
-	padding-left: 60px;
+#description { 
+	margin-left: 10px; 
+	padding-left: 2%;
 }
 
 .uppercase { text-transform: uppercase;}
 
-.description { margin-top: 20px;}
+.description { margin-top: 3%;}
 
 
 .category{
 	font-family: 'Open Sans';
 }
 	.nav-stacked {
-	max-width: 300px;
+	width: 100%;
 }
 
 #sidebar li, #sidebar h5, #sidebar h2, body {
@@ -72,3 +145,27 @@ padding-right: 10px;
     font-size: 3.5em;
    
 }
+*/
+/* make sidebar nav vertical 
+http://www.jonathanbriehl.com/2014/01/17/vertical-menu-for-bootstrap-3/ */ 
+/*@media (min-width: 768px) {
+  .sidebar-nav .navbar .navbar-collapse {
+    padding: 0;
+    max-height: none;
+  }
+  .sidebar-nav .navbar ul {
+    float: none;
+  }
+  .sidebar-nav .navbar ul:not {
+    display: block;
+  }
+  .sidebar-nav .navbar li {
+    float: none;
+    display: block;
+  }
+  .sidebar-nav .navbar li a {
+    padding-top: 12px;
+    padding-bottom: 12px;
+  }
+}
+*/
