@@ -78,7 +78,6 @@ class CharacterTest(TestCase):
         self.assertEqual(malfoy.birthday, "6/5/1980")
         self.assertTrue(malfoy.magical)
 
-
 class CreatureTest(TestCase):
     def setUp(self):
         creature = lm.Creature()
@@ -364,17 +363,21 @@ class PotionTest(TestCase):
 
 class SchoolTest(TestCase):
     def setUp(self):
-      
         school = lm.School()
         name = "Durmstrang Institute"
         school.name = name
         description = "These guys don't really like muggle-borns very much. Except Krum I guess."
         school.description = description
+        school.save()
  
+        founder = lm.Character()
+        founder.name = 'Nerida Vulchanova'
+        founder.save()
+
+        school.founders.add(founder)
         school.save()
 
     def test_create_school(self):
-        
         schools = lm.School.objects.all()
         self.assertEqual(len(schools), 1)
         school_created = schools.first()
@@ -382,6 +385,7 @@ class SchoolTest(TestCase):
         self.assertEqual("Durmstrang Institute", school_created.name)
         self.assertEqual("These guys don't really like muggle-borns very much. Except Krum I guess.", school_created.description)
         self.assertEqual("images/empty.jpg", school_created.image)
+        self.assertEqual('Nerida Vulchanova', school_created.founders.all().first().name)
 
     def test_school_string(self):
         school = lm.School.objects.first()
@@ -391,15 +395,50 @@ class SchoolTest(TestCase):
         school = lm.School.objects.first()
         school.image = "images/non_empty.jpg"
         school.save()
-        self.assertEqual(school.image, "images/non_empty.jpg")	 
+        self.assertEqual(school.image, "images/non_empty.jpg")
+
+    def test_school_headmaster(self):
+        igor = lm.Character()
+        igor.name = 'Igor Karkaroff'
+        igor.save()
+
+        school = lm.School.objects.first()
+        school.headmasters.add(igor)
+        school.save()
+
+        self.assertEqual(igor.school_headmastered, school)
+
+    def test_school_professor(self):
+        harfang = lm.Character()
+        harfang.name = 'Harfang Munter'
+        harfang.save()
+
+        school = lm.School.objects.first()
+        school.professors.add(harfang)
+        school.save()
+
+        self.assertEqual(harfang.school_taught, school)
+
+    def test_school_student(self):
+        viktor = lm.Character()
+        viktor.name = 'Viktor Krum'
+        viktor.save()
+
+        school = lm.School.objects.first()
+        school.students.add(viktor)
+
+        self.assertEqual(viktor.school_attended, school)
 
 class HouseTest(TestCase):
     def setUp(self):
-    
         house = lm.House()
-        character = lm.Character()
-        character.name = 'Fat Friar'
-        character.save()
+        ghost = lm.Character()
+        ghost.name = 'Fat Friar'
+        ghost.save()
+
+        founder = lm.Character()
+        founder.name = 'Helga Hufflepuff'
+        founder.save()
 		
         house.name = "Hufflepuff"
         house.description = "Nobody wants to be a Hufflepuff."
@@ -407,7 +446,8 @@ class HouseTest(TestCase):
         house.quote_by = 'Sorting Hat'
         house.colors = 'Yellow and Black'
         house.mascot = 'Badger'
-        house.ghost = character
+        house.ghost = ghost
+        house.founder = founder
 
         school2 = lm.School()
         school2.name = "Hogwarts"
@@ -432,6 +472,7 @@ class HouseTest(TestCase):
         self.assertEqual('Sorting Hat', house_created.quote_by)
         self.assertEqual('Yellow and Black', house_created.colors)
         self.assertEqual('Badger', house_created.mascot)
+        self.assertEqual('Helga Hufflepuff', house_created.founder.name)
 
     def test_house_string(self):
         house = lm.House.objects.first()
@@ -441,7 +482,16 @@ class HouseTest(TestCase):
         house = lm.House.objects.first()
         house.image = "images/non_empty.jpg"
         house.save()
-        self.assertEqual(house.image, "images/non_empty.jpg")	
+        self.assertEqual(house.image, "images/non_empty.jpg")
+
+    def test_student_house(self):
+        student = lm.Character()
+        student.name = 'Cedric Diggory' # T-T
+        hufflepuff = lm.House.objects.first()
+        student.house = hufflepuff
+        student.save()
+
+        self.assertEqual(student, hufflepuff.members.first())
 
 class ArtifactTest(TestCase):
     def setUp(self):
@@ -603,30 +653,4 @@ class RelationshipTest(TestCase):
     def test_create_relationship2(self):
         rel = lm.Relationship.objects.first()
         self.assertEqual(rel.character1.name, lm.Character.objects.first().name)
-        self.assertEqual(rel.character2.name, lm.Character.objects.all()[1].name)
-
-class AcademicTest(TestCase):
-    def setUp(self):
-        snape = lm.Character()
-        snape.name = "Severus Snape"
-        snape.save()
-        hogwarts = lm.School()
-        hogwarts.name = "Hogwarts School of Witchcraft and Wizardry"
-        hogwarts.save()
-        
-        academic = lm.Academic()
-        academic.school = hogwarts
-        academic.character = snape
-        academic.descriptor = "professor"
-        academic.save()
-
-    def test_create_academic(self):
-        academic = lm.Academic.objects.first()
-        self.assertEqual(academic.character.name, "Severus Snape")
-        self.assertEqual(academic.descriptor, "professor")
-        self.assertEqual(academic.school.name, "Hogwarts School of Witchcraft and Wizardry")
-
-    def test_create_academic2(self):
-        academic = lm.Academic.objects.first()
-        self.assertEqual(academic.character, lm.Character.objects.first())
-        self.assertEqual(academic.school, lm.School.objects.first())  
+        self.assertEqual(rel.character2.name, lm.Character.objects.all()[1].name)   

@@ -13,9 +13,9 @@ class Character(models.Model):
     #relationships
     creature = models.ForeignKey('Creature', blank=True, null=True, related_name = 'characters')
     house = models.ForeignKey('House', blank=True, null=True, related_name = 'members')
-    school = models.ForeignKey('School', blank=True, null=True, related_name = 'students')
+    school_attended = models.ForeignKey('School', blank=True, null=True, related_name = 'students')
     school_taught = models.ForeignKey('School', blank=True, null=True, related_name = 'professors')
-    school_headmasters = models.ForeignKey('School', blank=True, null=True, related_name = 'headmasters')
+    school_headmastered = models.ForeignKey('School', blank=True, null=True, related_name = 'headmasters')
     school_founded = models.ForeignKey('School', blank=True, null=True, related_name = 'founders')
     school_staffed = models.ForeignKey('School', blank=True, null=True, related_name = 'staff')
     shop = models.ForeignKey('Shop', blank=True, null=True, related_name='owners')
