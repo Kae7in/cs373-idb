@@ -209,5 +209,5 @@ class Relationship(models.Model):
     #relationships
     character1 = models.ForeignKey(Character, related_name = "relationships1", blank=True, null=True)
     character2 = models.ForeignKey(Character, related_name = "relationships2", blank=True, null=True)
-    descriptor1 = models.CharField(max_length='100')
-    descriptor2 = models.CharField(max_length='100')
+    descriptor1 = models.CharField(max_length=100)
+    descriptor2 = models.CharField(max_length=100)
