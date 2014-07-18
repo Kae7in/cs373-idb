@@ -1,142 +1,110 @@
 <!DOCTYPE html>
-<html>
-	<head>
-		<title>{% block title %}Marauder's Map{% endblock title %}</title>
-		<meta name=”viewport” content=”width=device-width, initial-scale=1.0″>
-		<!-- Latest compiled and minified CSS -->
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="">
+    <meta name="author" content="">
+
+    <title>{% block title %}Marauder's Map{% endblock title %}</title>
+
 		<link rel="stylesheet" href="{{ STATIC_URL }}css/bootstrap.min.css">
 		<link rel="stylesheet" href="{{ STATIC_URL }}css/base.css">
     <link href='http://fonts.googleapis.com/css?family=Special+Elite' rel='stylesheet' type='text/css'>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
 		<script src="{{ STATIC_URL }}js/bootstrap.min.js"></script>
-		{% block scripts %}{% endblock scripts %}
-	</head>
+
+    {% block scripts %}{% endblock scripts %}
+  </head>
+
   <body>
-  <a style="display:block" href="/">
-    <div class="jumbotron customjumbo">
-			<h1 class="text-center">Marauder's Map</h1>
-			<p class="text-center">Brought to you by The Six Potters</p>
-		</div>
-  </a>
+<div class="container-fluid">
+    <div class="row">
+    <nav class="navbar navbar-inverse navbar-fixed-top" role="navigation">
+      <div class="container-fluid">
+        <div class="navbar-header">
+          <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+            <span class="sr-only">Toggle navigation</span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+          </button>
+          <a class="navbar-brand" href="#">Marauder's Map</a>
+        </div>
 
-  <div class='container-fluid'>
-    <!-- navbar -->
-    <div class='row'>
-		<div class='col-xs-12 col-sm-2 col-md-2' id='sidebar'>
-	    <ul class="nav nav-pills nav-stacked">
-        <div class="panel-group category">
-          <div class="panel">
-              <div class="panel-heading">
-                  <h2 class="panel-title">
-                    <li><a href="/">Home</a></li>
-                  </h2>
-              </div>  <!-- /panel-heading -->
-          </div>  <!-- /panel -->
 
-          <div class="panel">
-            <div class="panel-heading">
-              <h2 class="panel-title">
-                <a data-toggle="collapse" href="#collapseOne">Characters</a>
-              </h2>
-            </div>  <!-- /panel-heading -->
+    <!-- Collect the nav links, forms, and other content for toggling -->
+    <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+      <ul class="nav navbar-nav">
+        <li><a href="/">Home</a></li>
+        <li class="dropdown">
+          <a href="#" class="dropdown-toggle" data-toggle="dropdown">Characters<span class="caret"></span></a>
+          <ul class="dropdown-menu" role="menu">
+            <li><a href="../characters/1">Albus Dumbledore</a></li>
+            <li><a href="../characters/2">Ariana Dumbledore</a></li>
+            <li><a href="../characters/3">Harry Potter</a></li>
+          </ul>
+        </li>
 
-            <div id="collapseOne" class="panel-collapse collapse {% block character_active %}{% endblock character_active %}">
-              <ul class="panel-body">                  
-                <h5><a href="../characters/1">Albus Dumbledore</a></h3> 
-                <h5><a href="../characters/2">Ariana Dumbledore</a></h3>
-                <h5><a href="../characters/3">Harry Potter</a></h3>
-              </ul>  <!-- /panel-body -->
-            </div> <!-- /collapseOne -->
-          </div>  <!-- /panel  -->
+        <li class="dropdown">
+          <a href="#" class="dropdown-toggle" data-toggle="dropdown">Stories<span class="caret"></span></a>
+          <ul class="dropdown-menu" role="menu">
+            <li><a href="../stories/1">Deathly Hallows</a></li>
+            <li><a href="../stories/2">The Boy Who Lived</a></li>
+            <li><a href="../stories/3">International Statute of Wizarding Secrecy</a></li>
+          </ul>
+        </li>
 
-          <div class="panel">
-            <div class="panel-heading">
-              <h2 class="panel-title">
-                <a data-toggle="collapse" href="#collapseTwo">Stories</a>
-              </h2>
-            </div>  <!-- /panel-heading -->
+        <li class="dropdown">
+          <a href="#" class="dropdown-toggle" data-toggle="dropdown">Artifacts<span class="caret"></span></a>
+          <ul class="dropdown-menu" role="menu">
+            <li><a href="../artifacts/1">Pensieve</a></li>
+            <li><a href="../artifacts/2">Elder Wand</a></li>
+            <li><a href="../artifacts/3">Invisibility Cloak</a></li>
+          </ul>
+        </li>
 
-            <div id="collapseTwo" class="panel-collapse collapse {% block story_active %}{% endblock story_active %}">
-              <ul class="panel-body">                  
-                <h5><a href="../stories/1">Deathly Hallows</a></h3> 
-                <h5><a href="../stories/2">The Boy Who Lived</a></h3>
-                <h5><a href="../stories/3">International Statute of Wizarding Secrecy</a></h3>
-              </ul>  <!-- /panel-body -->
-            </div> <!-- /collapseTwo -->
-          </div>  <!-- /panel  -->
+        <li class="dropdown">
+          <a href="#" class="dropdown-toggle" data-toggle="dropdown">Spells<span class="caret"></span></a>
+          <ul class="dropdown-menu" role="menu">
+            <li><a href="../spells/1">Patronus Charm</a></li>
+            <li><a href="../spells/2">Boggart Vanishing Charm</a></li>
+            <li><a href="../spells/3">Disarming Charm</a></li>
+          </ul>
+        </li>
 
-          <div class="panel">
-            <div class="panel-heading">
-              <h2 class="panel-title">
-                <a data-toggle="collapse" href="#collapseThree">Artifacts</a>
-              </h2>
-            </div>  <!-- /panel-heading -->
+        <li class="dropdown">
+          <a href="#" class="dropdown-toggle" data-toggle="dropdown">Potions<span class="caret"></span></a>
+          <ul class="dropdown-menu" role="menu">
+            <li><a href="../potions/1">Amortentia</a></li>
+            <li><a href="../potions/2">Veritaserum</a></li>
+            <li><a href="../potions/3">Regeneration Potion</a></li>
+          </ul>
+        </li>
 
-            <div id="collapseThree" class="panel-collapse collapse {% block artifact_active %}{% endblock artifact_active %}">
-              <div class="panel-body">                  
-                <h5><a href="../artifacts/1">Pensieve</a></h3> 
-                <h5><a href="../artifacts/2">Elder Wand</a></h3>
-                <h5><a href="../artifacts/3">Invisibility Cloak</a></h3>
-              </div>  <!-- /panel-body -->
-            </div> <!-- /collapseThree -->
-          </div>  <!-- /panel -->
+        <li class="dropdown">
+          <a href="#" class="dropdown-toggle" data-toggle="dropdown">Creatures<span class="caret"></span></a>
+          <ul class="dropdown-menu" role="menu">
+            <li><a href="../creatures/1">Werewolf</a></li>
+            <li><a href="../creatures/2">Thestral</a></li>
+            <li><a href="../creatures/3">Dementor</a></li>
+          </ul>
+        </li>
+      </ul>
+    </div><!-- /.navbar-collapse -->
+  </div><!-- /.container-fluid -->
+</nav>
+</div> <!--row-->
 
-          <div class="panel">
-            <div class="panel-heading">
-              <h2 class="panel-title">
-                <a data-toggle="collapse" href="#collapseFour">Spells</a>
-              </h2>
-            </div>  <!-- /panel-heading -->
 
-            <div id="collapseFour" class="panel-collapse collapse {% block spell_active %}{% endblock spell_active %}">
-              <div class="panel-body">                  
-                <h5><a href="../spells/1">Patronus Charm</a></h3> 
-                <h5><a href="../spells/2">Boggart Vanishing Charm</a></h3>
-                <h5><a href="../spells/3">Disarming Charm</a></h3>
-              </div>  <!-- /panel-body -->
-            </div> <!-- /collapseFour -->
-          </div>  <!-- /panel -->
-          
-          <div class="panel">
-            <div class="panel-heading">
-              <h2 class="panel-title">
-                <a data-toggle="collapse" href="#collapseFive">Potions</a>
-              </h2>
-            </div>  <!-- /panel-heading -->
+      <!-- Example row of columns -->
+      <div class="row">
+        <div class="col-xs-12" id='content'>
+            {% block content %}{% endblock content %}
+        </div>
+      </div>
 
-            <div id="collapseFive" class="panel-collapse collapse {% block potion_active %}{% endblock potion_active %}">
-              <div class="panel-body">                  
-                <h5><a href="../potions/1">Amortentia</a></h3> 
-                <h5><a href="../potions/2">Veritaserum</a></h3>
-                <h5><a href="../potions/3">Regeneration Potion</a></h3>
-              </div>  <!-- /panel-body -->
-            </div> <!-- /collapseFive -->
-          </div>  <!-- /panel -->
+</div> <!-- all container -->
 
-          <div class='panel'>
-            <div class='panel-heading'>
-              <h2 class='panel-title'><a href='/citations/'>Citations</a></h2>
-            </div>
-          </div>
 
-          <div class='panel'>
-            <div class='panel-heading'>
-              <h2 class='panel-title'><a href='http://docs.maraudersmap.apiary.io/'>Apiary Doc</a></h2>
-            </div>
-          </div>
-        </div> <!-- /panel-group -->
-
-      </ul> 
-		</div>  <!-- /side-bar col -->
-	
-
-    <div class='col-xs-12 col-sm-8 col-md-8' id='content'>
-      {% block content %}{% endblock content %}
-    </div>
-  
-    <!--For symmetry -->
-    <div class='col-xs-12 col-sm-2 col-md-2'></div>
-    </div> <!-- /row -->
-    </div> <!-- /container-fluid -->
-	</body>
-</html>
