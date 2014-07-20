@@ -1,7 +1,8 @@
 from django.shortcuts import render
+from django.views import generic
+from marauder.models import Creature
 
-def index(request):
-    return render(request, 'index.html')
 
-def creature_detail(request, topic, creature_id):
-    return render(request, '{0}/{1}.html'.format(topic, creature_id))
+class DetailView(generic.DetailView):
+    model = Creature
+    template_name = 'creatures/base.html'

@@ -1,7 +1,8 @@
 from django.conf.urls import patterns, url
+from django.views.generic import TemplateView
 from marauder import views
 
 urlpatterns = patterns('',
-    url(r'^$', views.index, name='index'),
-    url(r'^(?P<topic>\w+)/(?P<creature_id>\d+)/$', views.creature_detail, name='creature_detail'),    
+    url(r'^creatures/(?P<pk>\d+)/$', views.DetailView.as_view(), name='detail'),
+
 )
