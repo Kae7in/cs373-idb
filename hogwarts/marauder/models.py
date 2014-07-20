@@ -51,9 +51,10 @@ class Creature(models.Model):
                      ('NB', 'Non-being'),
                      ('Spirit', 'Spirit'))
     classification = models.CharField(max_length=6, choices=CLASS_CHOICES)
-    RATING_CHOICES = ((0, 'Unknown'), (1,'X'),(2,'XX'),(3,'XXX'),(4,'XXXX'),(5,'XXXXX'))
-    rating = models.IntegerField(choices=RATING_CHOICES)
-    image = models.ImageField(upload_to='images/creatures')
+    RATING_CHOICES = (('X','X'),('XX','XX'),('XXX','XXX'),('XXXX','XXXX'),('XXXXX','XXXXX'))
+    notable = models.TextField(null=True, blank=True)
+    rating = models.CharField(max_length=10, choices=RATING_CHOICES, blank=True)
+    image = models.ImageField(upload_to='images/')
 
     def __str__(self):
         return self.name
