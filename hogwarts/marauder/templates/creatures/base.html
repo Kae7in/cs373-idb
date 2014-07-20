@@ -5,7 +5,7 @@
 
 {% block content %}
         <div id="name">
-   		    <h1 class="uppercase">{% block name %}{% endblock name %}</h1>
+   		    <h1 class="uppercase">{% block name %}{{ creature.name }}{% endblock name %}</h1>
         </div>
    	    
 <div class='row'>
@@ -17,7 +17,7 @@
                                 Classification
                             </div>
                             <div class='infoitem col-md-7'>
-                            {% block classification %}{% endblock classification %}
+                            {% block classification %}{{ creature.classification }}{% endblock classification %}
                             </div>
                         </div>
                     </li>
@@ -28,7 +28,7 @@
                                 Rating
                             </div>
                             <div class='rating infoitem col-md-7'>
-                                {% block rating %}{% endblock rating %}
+                                {% block rating %}{{ creature.rating }}{% endblock rating %}
                             </div>
                         </div>
                    </li>
@@ -45,7 +45,7 @@
 
 <div class='row'>
 	<div class='col-xs-12' id='description'>
-		{% block description %}{% endblock description %}
+		{% block description %}{{ creature.description }}{% endblock description %}
 	</div>
 </div>
 
