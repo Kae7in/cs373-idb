@@ -18,7 +18,7 @@ BASE_DIR = os.path.dirname(os.path.dirname(__file__))
 SECRET_KEY = 'ex629+bp_*v#e8*b2#&%f!z9p_ass74vn^o=wi30jjdp=1kv-*'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+#DEBUG = True
 
 TEMPLATE_DEBUG = True
 
@@ -35,7 +35,8 @@ INSTALLED_APPS = (
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
-    'marauder'
+    'marauder',
+    'south'
 )
 
 MIDDLEWARE_CLASSES = (
@@ -62,6 +63,10 @@ DATABASES = {
         'PASSWORD': 'lemonsherbert',
         'HOST': 'mysql.server',
     }
+}
+
+SOUTH_DATABASE_ADAPTERS = {
+   'default': 'south.db.mysql'
 }
 
 # Internationalization
