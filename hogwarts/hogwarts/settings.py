@@ -18,7 +18,7 @@ BASE_DIR = os.path.dirname(os.path.dirname(__file__))
 SECRET_KEY = 'ex629+bp_*v#e8*b2#&%f!z9p_ass74vn^o=wi30jjdp=1kv-*'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+DEBUG = False
 
 TEMPLATE_DEBUG = True
 
@@ -69,6 +69,9 @@ DATABASES = {
 SOUTH_DATABASE_ADAPTERS = {
    'default': 'south.db.mysql'
 }
+
+SOUTH_TESTS_MIGRATE = False
+SKIP_SOUTH_TESTS = True
 
 # Internationalization
 # https://docs.djangoproject.com/en/1.6/topics/i18n/
