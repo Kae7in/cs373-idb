@@ -1,13 +1,11 @@
 """
 Django settings for hogwarts project.
-
 For more information on this file, see
 https://docs.djangoproject.com/en/1.6/topics/settings/
 
 For the full list of settings and their values, see
 https://docs.djangoproject.com/en/1.6/ref/settings/
 """
-
 # Build paths inside the project like this: os.path.join(BASE_DIR, ...)
 import os
 BASE_DIR = os.path.dirname(os.path.dirname(__file__))
@@ -20,7 +18,7 @@ BASE_DIR = os.path.dirname(os.path.dirname(__file__))
 SECRET_KEY = 'ex629+bp_*v#e8*b2#&%f!z9p_ass74vn^o=wi30jjdp=1kv-*'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+#DEBUG = True
 
 TEMPLATE_DEBUG = True
 
@@ -38,6 +36,7 @@ INSTALLED_APPS = (
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'marauder',
+    'south'
 )
 
 MIDDLEWARE_CLASSES = (
@@ -58,10 +57,16 @@ WSGI_APPLICATION = 'hogwarts.wsgi.application'
 # https://docs.djangoproject.com/en/1.6/ref/settings/#databases
 
 DATABASES = {
-    'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': os.path.join(BASE_DIR, 'db.sqlite3'),
+    'default': { 'ENGINE': 'mysql.connector.django',
+        'NAME': 'domoench$default',
+        'USER': 'domoench',
+        'PASSWORD': 'lemonsherbert',
+        'HOST': 'mysql.server',
     }
+}
+
+SOUTH_DATABASE_ADAPTERS = {
+   'default': 'south.db.mysql'
 }
 
 # Internationalization

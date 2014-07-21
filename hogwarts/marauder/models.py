@@ -12,7 +12,12 @@ class Character(models.Model):
 
     #relationships
     creature = models.ForeignKey('Creature', blank=True, null=True, related_name = 'characters')
-    house = models.ForeignKey('House', blank=True, null=True, related_name = 'students')
+    house = models.ForeignKey('House', blank=True, null=True, related_name = 'members')
+    school_attended = models.ForeignKey('School', blank=True, null=True, related_name = 'students')
+    school_taught = models.ForeignKey('School', blank=True, null=True, related_name = 'professors')
+    school_headmastered = models.ForeignKey('School', blank=True, null=True, related_name = 'headmasters')
+    school_founded = models.ForeignKey('School', blank=True, null=True, related_name = 'founders')
+    school_staffed = models.ForeignKey('School', blank=True, null=True, related_name = 'staff')
     shop = models.ForeignKey('Shop', blank=True, null=True, related_name='owners')
 
     def relationships(self):
@@ -52,9 +57,9 @@ class Creature(models.Model):
                      ('NB', 'Non-being'),
                      ('Spirit', 'Spirit'))
     classification = models.CharField(max_length=6, choices=CLASS_CHOICES)
-    RATING_CHOICES = (('X','X'),('XX','XX'),('XXX','XXX'),('XXXX','XXXX'),('XXXXX','XXXXX'))
+    RATING_CHOICES = ((0, 'Unknown'), (1,'X'),(2,'XX'),(3,'XXX'),(4,'XXXX'),(5,'XXXXX'))
     notable = models.TextField(null=True, blank=True)
-    rating = models.CharField(max_length=10, choices=RATING_CHOICES, blank=True)
+    rating = models.IntegerField(default=0, choices=RATING_CHOICES, blank=True)
     image = models.ImageField(upload_to='images/')
 
     def __str__(self):
@@ -124,7 +129,7 @@ class Potion(models.Model):
         return 'Explosion!'
 
 class Location(models.Model):
-    name = models.CharField(max_length=40)
+    name = models.CharField(max_length=100)
     description = models.TextField()
     kind = models.CharField(max_length=20)
     image = models.ImageField(upload_to = 'images/locations', default = 'images/empty.jpg')
@@ -145,6 +150,7 @@ class House(School):
     mascot = models.CharField(max_length=100)
     quote = models.CharField(max_length=500)
     quote_by = models.CharField(max_length=100)
+    founder = models.ForeignKey('Character', related_name = 'house_founded')
     
     def __str__(self):
         return self.name
@@ -194,18 +200,6 @@ class Story(models.Model):
 
     class Meta:
         verbose_name_plural = 'stories'
-
-class Academic(models.Model):
-    DESCRIPTORS = (
-        ('founder', 'founder'),
-        ('student', 'student'),
-        ('professor', 'professor'),
-        ('headmaster', 'headmaster'),
-        ('staff', 'staff')
-    )
-    character = models.ForeignKey(Character, related_name = 'academic_statuses', blank=True, null=True)
-    school = models.ForeignKey(School, related_name = 'academic_statuses', blank=True, null=True)
-    descriptor = models.CharField(max_length=10, choices=DESCRIPTORS)
 
 class Relationship(models.Model):
     #relationships
