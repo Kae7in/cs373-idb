@@ -148,7 +148,7 @@ class House(School):
     ghost = models.ForeignKey(Character, related_name = 'houses_haunted')
     colors = models.CharField(max_length=100)
     mascot = models.CharField(max_length=100)
-    quote = models.CharField(max_length=500)
+    quote = models.TextField()
     quote_by = models.CharField(max_length=100)
     founder = models.ForeignKey('Character', related_name = 'house_founded')
     
