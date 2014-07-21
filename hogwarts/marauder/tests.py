@@ -241,6 +241,7 @@ class SpellTest(TestCase):
         spell.notable_uses = "Harry used it for dementors."
         spell.unforgivable = False 
         spell.kind = 'Charm'
+        spell.difficulty = 'Extremely Diffucult'
         spell.save()
         
     def test_create_spell(self):

@@ -90,7 +90,7 @@ class Spell(models.Model):
     DIFFICULTY_CHOICES = (('Easy', 'Easy'),
                     ('Moderate', 'Moderate'),
                     ('Hard', 'Hard'),
-                    ('Extremely Hard', 'Extremely Hard'))
+                    ('Extremely Difficult', 'Extremely Diffult'))
     difficulty = models.CharField(max_length=20, choices=DIFFICULTY_CHOICES)
     kind = models.CharField(max_length=20, choices=KIND_CHOICES)
     image = models.ImageField(upload_to='images/')
