@@ -127,8 +127,12 @@
                     </div>  <!-- /panel-heading -->
 
                     <div id="collapseSix" class="panel-collapse collapse">
-                        <div class="panel-body">                  
-                            <h3><a href="creatures/1">Werewolf</a></h3> 
+                        <div class="panel-body">
+                            {% if model_items['Creature'] %}
+                                {% for creature in model_items['Creature'] %}                                                   
+                                    <h3><a href="creatures/{{ creature.pk }}">{{ creature.name }}</a></h3> 
+                                {% endfor %}
+                            {% endif %}
                         </div>  <!-- /panel-body -->
                     </div> <!-- /collapseOne -->
                 </div>  <!-- /panel panel-default -->

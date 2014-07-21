@@ -28,7 +28,7 @@
                                 Rating:
                             </div>
                             <div class='rating infoitem col-md-7'>
-                                {% block rating %}{{ creature.rating }}{% endblock rating %}
+                                {% block rating %}{{ creature.get_rating_display }}{% endblock rating %}
                             </div>
                         </div>
                    </li>

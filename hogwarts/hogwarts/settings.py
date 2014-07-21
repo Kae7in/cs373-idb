@@ -18,7 +18,7 @@ BASE_DIR = os.path.dirname(os.path.dirname(__file__))
 SECRET_KEY = 'ex629+bp_*v#e8*b2#&%f!z9p_ass74vn^o=wi30jjdp=1kv-*'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-#DEBUG = True
+DEBUG = True
 
 TEMPLATE_DEBUG = True
 
@@ -36,7 +36,6 @@ INSTALLED_APPS = (
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'marauder',
-    'south'
 )
 
 MIDDLEWARE_CLASSES = (
@@ -57,11 +56,11 @@ WSGI_APPLICATION = 'hogwarts.wsgi.application'
 # https://docs.djangoproject.com/en/1.6/ref/settings/#databases
 
 DATABASES = {
-    'default': { 'ENGINE': 'mysql.connector.django',
+    'default': { 'ENGINE': 'django.db.backends.sqlite3',
         'NAME': 'domoench$default',
-        'USER': 'domoench',
-        'PASSWORD': 'lemonsherbert',
-        'HOST': 'mysql.server',
+        'USER': 'root',
+        'PASSWORD': 'lemonsherbet',
+        'HOST': 'localhost',
     }
 }
 
