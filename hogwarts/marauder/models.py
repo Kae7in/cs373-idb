@@ -124,7 +124,7 @@ class Potion(models.Model):
         return 'Explosion!'
 
 class Location(models.Model):
-    name = models.CharField(max_length=40)
+    name = models.CharField(max_length=100)
     description = models.TextField()
     kind = models.CharField(max_length=20)
     image = models.ImageField(upload_to = 'images/locations', default = 'images/empty.jpg')
