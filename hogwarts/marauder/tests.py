@@ -96,6 +96,7 @@ class CreatureTest(TestCase):
         self.assertEqual(creature.description, 'Goblins are mysterious and good with money.\n')
         self.assertEqual(creature.classification, 'Being')
         self.assertEqual(creature.rating, 3)
+        self.assertEqual(creature.get_rating_display(), 'XXX')
 
     def test_string_creature(self):
         creature = lm.Creature.objects.first()
