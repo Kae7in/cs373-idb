@@ -14,7 +14,7 @@
                     <li class='list-group-item'>
                         <div class='row'>
                             <div class='infoitem col-md-5'>
-                                Classification
+                                Classification:
                             </div>
                             <div class='infoitem col-md-7'>
                             {% block classification %}{{ creature.classification }}{% endblock classification %}
@@ -25,7 +25,7 @@
                     <li class='list-group-item'>
                         <div class='row'>
                             <div class='infoitem col-md-5'>
-                                Rating
+                                Rating:
                             </div>
                             <div class='rating infoitem col-md-7'>
                                 {% block rating %}{{ creature.rating }}{% endblock rating %}
@@ -51,9 +51,12 @@
 
 <div class='row'>
 	<div class='col-xs-12'>
-		<h3>{% block option %}{% endblock option %}</h3>
-		{% block detail %}
-		{% endblock detail %}
+        {% if creature.notable %}
+            <h3>{% block option %}Notable {{ creature.plural }}{% endblock option %}</h3>
+            {% block detail %}
+            {{ creature.notable }}
+            {% endblock detail %}
+        {% endif %}
 	</div>
 </div>
 

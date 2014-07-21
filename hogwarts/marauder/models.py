@@ -8,7 +8,7 @@ class Character(models.Model):
     magical = models.BooleanField(default=True)
     quote = models.TextField()
     quote_by = models.CharField(max_length = 200)
-    image = models.ImageField(upload_to = 'images/characters', default = 'images/empty.jpg')
+    image = models.ImageField(upload_to = 'images/', default = 'images/empty.jpg')
 
     #relationships
     creature = models.ForeignKey('Creature', blank=True, null=True, related_name = 'characters')
@@ -45,6 +45,7 @@ class Character(models.Model):
 
 class Creature(models.Model):
     name = models.CharField(max_length=50)
+    plural = models.CharField(max_length=50)
     description = models.TextField()
     CLASS_CHOICES = (('Beast', 'Beast'),
                      ('Being', 'Being'),
@@ -80,7 +81,7 @@ class Spell(models.Model):
                     ('Defensive', 'Defensive'),
                     ('Healing', 'Healing'))
     kind = models.CharField(max_length=20, choices=KIND_CHOICES)
-    image = models.ImageField(upload_to='images/spells')
+    image = models.ImageField(upload_to='images/')
 
     # affects certain creatures
     creature = models.ForeignKey('Creature', blank=True, null=True, related_name='spells')
@@ -109,7 +110,7 @@ class Potion(models.Model):
     notable_uses = models.TextField()
     physical_description = models.TextField()
     ingredients = models.ManyToManyField(Ingredient, related_name = 'potions', null=True, blank=True)
-    image = models.ImageField(upload_to = 'images/potions', default = 'images/empty.jpg')
+    image = models.ImageField(upload_to = 'images/', default = 'images/empty.jpg')
 
     def __str__(self):
         return self.title
@@ -155,7 +156,7 @@ class Artifact(models.Model):
     name = models.CharField(max_length=100)
     description = models.TextField()
     kind = models.CharField(max_length=100, blank=True)
-    image = models.ImageField(upload_to='images/artifacts', default='images/empty.jpg')
+    image = models.ImageField(upload_to='images/', default='images/empty.jpg')
     owners = models.ManyToManyField(Character, related_name = 'artifacts', blank=True, null=True)
     shop  = models.ForeignKey(Shop, related_name='artifacts', blank=True, null=True)
 
@@ -169,7 +170,7 @@ class Book(models.Model):
     subjects = models.ManyToManyField(Character, null=True, blank=True, related_name='books_starred')
     publisher = models.CharField(max_length = 200, null=True, blank=True)
     published_date = models.DateField(null=True, blank=True)
-    image = models.ImageField(upload_to = 'images/books', default = 'images/empty.jpg')
+    image = models.ImageField(upload_to = 'images/', default = 'images/empty.jpg')
 
     def __str__(self):              
         return self.name
@@ -183,7 +184,7 @@ class Story(models.Model):
     characters = models.ManyToManyField('Character', related_name = 'stories')
     artifacts = models.ManyToManyField('Artifact', related_name = 'stories')
     locations = models.ManyToManyField('Location', related_name = 'stories')
-    image = models.ImageField(upload_to = 'images/stories', default = 'images/empty.jpg')
+    image = models.ImageField(upload_to = 'images/', default = 'images/empty.jpg')
 
     def century(self):
         return self.date.year // 100 + 1
