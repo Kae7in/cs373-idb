@@ -14,6 +14,8 @@ class Character(models.Model):
     creature = models.ForeignKey('Creature', blank=True, null=True, related_name = 'characters')
     house = models.ForeignKey('House', blank=True, null=True, related_name = 'students')
     shop = models.ForeignKey('Shop', blank=True, null=True, related_name='owners')
+    
+    hidden = models.BooleanField(default=False) 
 
     def relationships(self):
         relationships = []
@@ -56,6 +58,7 @@ class Creature(models.Model):
     notable = models.TextField(null=True, blank=True)
     rating = models.CharField(max_length=10, choices=RATING_CHOICES, blank=True)
     image = models.ImageField(upload_to='images/')
+    hidden = models.BooleanField(default=False)
 
     def __str__(self):
         return self.name
