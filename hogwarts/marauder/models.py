@@ -19,6 +19,8 @@ class Character(models.Model):
     school_founded = models.ForeignKey('School', blank=True, null=True, related_name = 'founders')
     school_staffed = models.ForeignKey('School', blank=True, null=True, related_name = 'staff')
     shop = models.ForeignKey('Shop', blank=True, null=True, related_name='owners')
+    
+    hidden = models.BooleanField(default=False) 
 
     def relationships(self):
         relationships = []
@@ -60,6 +62,7 @@ class Creature(models.Model):
     RATING_CHOICES = ((0, 'Unknown'), (1,'X'),(2,'XX'),(3,'XXX'),(4,'XXXX'),(5,'XXXXX'))
     rating = models.IntegerField(default=0, choices=RATING_CHOICES, blank=True)
     image = models.ImageField(upload_to='images/')
+    hidden = models.BooleanField(default=False)
 
     def __str__(self):
         return self.name
