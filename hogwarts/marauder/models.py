@@ -58,7 +58,6 @@ class Creature(models.Model):
                      ('Spirit', 'Spirit'))
     classification = models.CharField(max_length=6, choices=CLASS_CHOICES)
     RATING_CHOICES = ((0, 'Unknown'), (1,'X'),(2,'XX'),(3,'XXX'),(4,'XXXX'),(5,'XXXXX'))
-    notable = models.TextField(null=True, blank=True)
     rating = models.IntegerField(default=0, choices=RATING_CHOICES, blank=True)
     image = models.ImageField(upload_to='images/')
 
@@ -139,7 +138,7 @@ class Location(models.Model):
 
 class School(Location):
     country = models.CharField(max_length=20)
-    
+
     def __str__(self):
         return self.name
 
@@ -151,7 +150,7 @@ class House(School):
     quote = models.TextField()
     quote_by = models.CharField(max_length=100)
     founder = models.ForeignKey('Character', related_name = 'house_founded')
-    
+
     def __str__(self):
         return self.name
 
@@ -166,7 +165,7 @@ class Artifact(models.Model):
     owners = models.ManyToManyField(Character, related_name = 'artifacts', blank=True, null=True)
     shop  = models.ForeignKey(Shop, related_name='artifacts', blank=True, null=True)
 
-    def __str__(self):              
+    def __str__(self):
         return self.name
 
 class Book(models.Model):
@@ -178,7 +177,7 @@ class Book(models.Model):
     published_date = models.DateField(null=True, blank=True)
     image = models.ImageField(upload_to = 'images/', default = 'images/empty.jpg')
 
-    def __str__(self):              
+    def __str__(self):
         return self.name
 
 class Story(models.Model):
