@@ -17,7 +17,7 @@
                                 Classification:
                             </div>
                             <div class='infoitem col-md-7'>
-                            {% block classification %}{{ creature.classification }}{% endblock classification %}
+                            {% block classification %}{{ creature.get_classification_display }}{% endblock classification %}
                             </div>
                         </div>
                     </li>
