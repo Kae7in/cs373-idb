@@ -57,22 +57,21 @@ class CharacterRestView(RestView):
 
     def GET(self, character_id):
         # Pull the character row from the model. TODO
-        #c = Character.objects.get(pk=character_id) 
+        c = Character.objects.get(pk=character_id) 
 
         # Manipulate the python dict into the appropriate form
-        c = {
-            "id": 1, 
-            "name": "Albus Dumbledore", 
-            "wand": "15 inch elder wood with thestral hair",
-            "description": "Albus Dumbledore is considered one of the greatest headmaster of Hogwarts School of Witchcraft and Wizardry and the most powerful wizard of his time. Dumbledore holds the Order of Merlin, First Class, for Grand Sorcery. He was the headmaster while Harry Potter attended school and also a professor while Tom Riddle, who would later become Voldemort, attended school. Dumbledore founded the Order of the Phoenix, a resistance against the reign of the dark wizard Voldemort, and he was the only wizard of which Voldemort was afraid.",
-            "magical": True,
-            "birthday": "1881-01-01",
-            "quote": "It does not do to dwell on dreams and forget to live. Remember that.",
-            "quote_by": "Albus Dumbledore"
+        data = {
+            "id": c.id, 
+            "name": c.name, 
+            "wand": c.wand if c.wand else None,
+            "description": c.description,
+            "magical": c.magical,
+            "quote": c.quote if c.quote else None,
+            "quote_by": c.quote_by if c.quote_by else None 
         }
         
         # Form the python dict into a JSON HTTP response 
-        return JSONResponse(c)
+        return JSONResponse(data)
 
 class JSONResponse(HttpResponse):
     def __init__(self, data):
