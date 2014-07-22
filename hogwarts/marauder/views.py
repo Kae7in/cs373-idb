@@ -2,9 +2,6 @@ from django.shortcuts import render
 from django.views import generic
 from marauder.models import *
 
-class IndexView(generic.ListView):
-    template_name = 'index.html'
-
 class CreatureView(generic.DetailView):
     model = Creature
     template_name = 'creatures/base.html'
