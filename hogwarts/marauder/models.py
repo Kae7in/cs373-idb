@@ -90,12 +90,12 @@ class Spell(models.Model):
     DIFFICULTY_CHOICES = (('Easy', 'Easy'),
                     ('Moderate', 'Moderate'),
                     ('Hard', 'Hard'),
-                    ('Extremely Difficult', 'Extremely Diffult'))
+                    ('Extremely Difficult', 'Extremely Difficult'))
     difficulty = models.CharField(max_length=20, choices=DIFFICULTY_CHOICES)
     kind = models.CharField(max_length=20, choices=KIND_CHOICES)
     image = models.ImageField(upload_to='images/')
 
-    # affects certain creatures
+     # affects certain creatures
     creature = models.ForeignKey('Creature', blank=True, null=True, related_name='spells')
 
     def __str__(self):
