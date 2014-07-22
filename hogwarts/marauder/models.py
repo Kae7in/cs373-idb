@@ -95,7 +95,7 @@ class Spell(models.Model):
     kind = models.CharField(max_length=20, choices=KIND_CHOICES)
     image = models.ImageField(upload_to='images/')
 
-    # affects certain creatures
+     # affects certain creatures
     creature = models.ForeignKey('Creature', blank=True, null=True, related_name='spells')
 
     def __str__(self):
