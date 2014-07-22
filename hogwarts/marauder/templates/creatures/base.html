@@ -21,17 +21,20 @@
                             </div>
                         </div>
                     </li>
-
+                {% if creature.rating != 0 %}
                     <li class='list-group-item'>
                         <div class='row'>
                             <div class='infoitem col-md-5'>
                                 Rating:
                             </div>
                             <div class='rating infoitem col-md-7'>
+
                                 {% block rating %}{{ creature.get_rating_display }}{% endblock rating %}
+
                             </div>
                         </div>
                    </li>
+                 {% endif %}
             </div>  <!--info-group-list-->
         </div> <!--col-xs-12-->
 
