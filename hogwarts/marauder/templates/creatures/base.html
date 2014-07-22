@@ -7,7 +7,7 @@
         <div id="name">
    		    <h1 class="uppercase">{% block name %}{{ creature.name }}{% endblock name %}</h1>
         </div>
-   	    
+
 <div class='row'>
         <div class='col-xs-12 col-sm-5 col-md-5'>
             <div class="list-group info-group-list">
@@ -28,7 +28,7 @@
                                 Rating:
                             </div>
                             <div class='rating infoitem col-md-7'>
-                                {% block rating %}{{ creature.rating }}{% endblock rating %}
+                                {% block rating %}{{ creature.get_rating_display }}{% endblock rating %}
                             </div>
                         </div>
                    </li>
