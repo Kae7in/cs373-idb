@@ -87,8 +87,21 @@ class PotionRestView(RestView):
         "recipe": p.recipe if p.recipe else None,
         "notable uses": p.notable_uses
     }
-    return JSONResponse(data)
+        return JSONResponse(data)
          
+class CreatureRestView(RestView):
+    def GET(self, creature_id):
+        c = Creature.objects.get(pk=creature_id)
+
+        data = {
+            "id": c.id,
+            "name": c.name,
+            "classification": c.classification,
+            "rating": c.rating,
+            "description": c.description
+        }
+
+        return JSONResponse(data)
         
 
 class JSONResponse(HttpResponse):
