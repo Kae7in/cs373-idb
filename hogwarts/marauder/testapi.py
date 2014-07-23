@@ -94,11 +94,11 @@ class TestPotionAPI(TestCase):
         expected = {
             "id": p.id, 
             "name": p.name, 
-            "difficulty": p.wand if p.wand else None,
-            "physical_description": p.description,
-            "effects": p.magical,
-            "recipe": p.quote if p.quote else None,
-            "notable_uses": p.quote_by if p.quote_by else None
+            "difficulty": p.difficulty
+            "physical_description": p.physical_description,
+            "effects": p.effects,
+            "recipe": p.recipe,
+            "notable_uses": p.notable_uses
         }
         self.assertEqual(response, expected)
 
@@ -108,3 +108,50 @@ class TestPotionAPI(TestCase):
         response = self.fetch_url(url)
         expected = [{'id':1, 'name': 'AmortentiaTest', 'difficulty':'Advanced', 'physical_description':'Steam rises from Amortentia in coil-like designs', 'effects':'Amortentia is the most powerful of the love potions', 'recipe':'The ingredients are 7 rose thorns...', 'notable_uses':'Department of Mysteries'}, {'id':24, 'name':'VeritaserumTest', 'difficulty':'Advanced', 'physical_description':'No color and no odor.', 'effects':'You have to tell the truth.', 'recipe':'Unknown', 'notable_uses':'Umbridge'}]
         self.assertEqual(response, expected)
+
+
+class TestCreatureAPI(TestCase):
+
+    @classmethod
+    def setUpClass(self):
+        c = Creature.objects.create(
+            id=1,
+            name='HippogriffTest',
+            description='magnificent',
+            classification='Beast',
+            rating='XXX'
+        )
+        c2 = Creature.objects.create(
+            id=24,
+            name='WerewolfTest',
+            description='wolf-men/women-people',
+            classification='Beast',
+            rating='XXX'
+        )
+
+    def fetch_url(self, url):
+        client = Client()
+        response = client.get(url)
+        return json.loads(response.content.decode("utf-8"))
+
+
+    def testDetail(self):
+        c = Creature.objects.all()[0]
+        url = reverse('creature_api', kwargs={'id': c.id})
+        response = self.fetch_url(url)
+        expected = {
+            "id": c.id, 
+            "name": c.name, 
+            "description": c.description,
+            "classification": c.classification,
+            "rating": c.rating
+        }
+        self.assertEqual(response, expected)
+
+    def testIndex(self):
+        all_creatures = Creature.objects.all()
+        url = reverse('characters_api')
+        response = self.fetch_url(url)
+        expected = [{'id':1, 'name':'HippogriffTest', 'description':'magnificent', 'classification':'Beast', 'rating':'XXX'},{'id':24, 'name':'WerewolfTest', 'description':'wolf-men/women-people', 'classification':'Beast', 'rating':'XXX'}]
+        self.assertEqual(response, expected)
+
