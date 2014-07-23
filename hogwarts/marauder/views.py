@@ -99,16 +99,13 @@ class CharacterRestView(RestView):
         return JSONResponse(data)
 
     def get_collection(self):
-        # Pull the character row from the model. 
         characters = Character.objects.all()
 
-        # Manipulate the python dict to conform to our API 
         data = []
         for character in characters:
             element = self.formatCharacterData(character)
             data.append(element) 
         
-        # Form the python dict into a JSON HTTP response 
         return JSONResponse(data)
 
     def formatCharacterData(self, c):
@@ -151,6 +148,44 @@ class ArtifactRestView(RestView):
             "shop": a.shop.id if a.shop else None,
         }
 
+
+class StoryRestView(RestView):
+
+    def get_item(self, story_id):
+        # Pull the story row from the model. 
+        s = Story.objects.get(pk=story_id) 
+
+        # Manipulate the python dict to conform to our API 
+        data = self.formatStoryData(s)
+        
+        # Form the python dict into a JSON HTTP response 
+        return JSONResponse(data)
+
+    def get_collection(self):
+        stories = Story.objects.all()
+
+        data = []
+        for story in stories:
+            element = self.formatCharacterData(story)
+            data.append(element) 
+        
+        return JSONResponse(data)
+
+    def formatStoryData(self, s):
+        """
+        Form the given story object into a dictionary that meets API
+        specification.
+        """
+        return {
+            "name": s.name,
+            "description": s.description,
+            "date": s.date,
+            "kind": s.kind,
+            "characters": [c.id for c in s.characters.all()],
+            "artifacts": [a.id for a in s.artifacts.all()],
+            "quote": s.quote if s.quote else None, 
+            "quote_by": s.quote_by if s.quote_by else None
+        }
 
 class SpellRestView(RestView):
     def get_item(self, spell_id):
