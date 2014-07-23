@@ -7,7 +7,20 @@
 <div class='row'>
    	<div class='col-md-5 col-sm-6 info-group'>
    		<ul class='list-group info-group-list'>
-			{% block info_group %}{% endblock info_group %}
+			<li class='list-group-item'>
+				Difficulty: {{potion.difficulty}}
+			</li>
+			<li class ='list-group-item'>
+				Physical Description:</br>{{potion.physical_description}}
+			</li>
+			{% if potion.ingredients.all %}
+			<li class='list-group-item'>
+				Ingredients:</br>
+				{% for ingredient in potion.ingredients.all %}	
+					{{ingredient.name}}</br>
+			</li>
+		</ul>
+
 	</div>
 
 	<div class='col-md-5 col-sm-6 main-image'>
