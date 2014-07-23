@@ -80,12 +80,12 @@ class PotionRestView(RestView):
 
         data = {
             "id": p.id,
-            "name": p.title,
+            "title": p.title,
             "difficulty": p.difficulty,
+            "physical_description": p.physical_description,        
             "effects": p.effects,
-            "physical description": p.physical_description,        
             "recipe": p.recipe if p.recipe else None,
-            "notable uses": p.notable_uses
+            "notable_uses": p.notable_uses
         }
         return JSONResponse(data)
          
@@ -96,9 +96,9 @@ class CreatureRestView(RestView):
         data = {
             "id": c.id,
             "name": c.name,
+            "description": c.description,
             "classification": c.classification,
-            "rating": c.rating,
-            "description": c.description
+            "rating": c.rating
         }
 
         return JSONResponse(data)
