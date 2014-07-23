@@ -18,7 +18,7 @@ BASE_DIR = os.path.dirname(os.path.dirname(__file__))
 SECRET_KEY = 'ex629+bp_*v#e8*b2#&%f!z9p_ass74vn^o=wi30jjdp=1kv-*'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = False
+DEBUG = True
 
 TEMPLATE_DEBUG = True
 
@@ -36,7 +36,7 @@ INSTALLED_APPS = (
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'marauder',
-    'south'
+#    'south'
 )
 
 MIDDLEWARE_CLASSES = (
@@ -58,11 +58,10 @@ WSGI_APPLICATION = 'hogwarts.wsgi.application'
 
 DATABASES = {
     'default': { 'ENGINE': 'mysql.connector.django',
-        'NAME': 'domoench$default',
-        'USER': 'domoench',
-        'PASSWORD': 'lemonsherbert',
-        'HOST': 'mysql.server',
-        'TEST_NAME': 'domoench$test_default',
+        'NAME': 'marauder',
+        'USER': 'root',
+        'PASSWORD': 'root',
+        'HOST': 'localhost',
     }
 }
 
