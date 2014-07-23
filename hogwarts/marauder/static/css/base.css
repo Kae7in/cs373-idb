@@ -1,6 +1,15 @@
 @import url('http://fonts.googleapis.com/css?family=Open+Sans:200,300');
 
-
+.pagination .current, .pagination .cardinality {
+  position: relative;
+  float: left;
+  padding: 6px 12px;
+  margin-left: -1px;
+  line-height: 1.42857143;
+  text-decoration: none;
+  background-color: #fff;
+  border: 1px solid #ddd;;
+}
 a:hover {
     text-decoration: none;
 }

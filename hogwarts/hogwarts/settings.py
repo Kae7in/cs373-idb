@@ -8,6 +8,7 @@ https://docs.djangoproject.com/en/1.6/ref/settings/
 """
 # Build paths inside the project like this: os.path.join(BASE_DIR, ...)
 import os
+from django.conf.global_settings import TEMPLATE_CONTEXT_PROCESSORS
 BASE_DIR = os.path.dirname(os.path.dirname(__file__))
 
 
@@ -22,6 +23,7 @@ DEBUG = False
 
 TEMPLATE_DEBUG = True
 
+TEMPLATE_CONTEXT_PROCESSORS += ('django.core.context_processors.request')
 
 ALLOWED_HOSTS = []
 
@@ -36,7 +38,8 @@ INSTALLED_APPS = (
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'marauder',
-    'south'
+    'south',
+    'django_tables2'
 )
 
 MIDDLEWARE_CLASSES = (

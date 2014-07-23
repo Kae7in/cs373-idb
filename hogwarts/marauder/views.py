@@ -1,6 +1,8 @@
 from django.shortcuts import render
 from django.views import generic
 from marauder.models import *
+from marauder.tables import *
+from django_tables2 import SingleTableView
 
 # Creature Views
 class CreatureListView(generic.ListView):
@@ -20,13 +22,11 @@ class CreatureDetailView(generic.DetailView):
         return context
 
 # Character Views
-class CharacterListView(generic.ListView):
+class CharacterListView(SingleTableView):
     model = Character
     template_name = 'characters/index.html'
-
-    def get_context_data(self, **kwargs):
-        context = super(CharacterListView, self).get_context_data(**kwargs)
-        return context
+    table_class = CharacterTable
+    table_pagination = {'per_page': 10}
 
 class CharacterDetailView(generic.DetailView):
     model = Character
