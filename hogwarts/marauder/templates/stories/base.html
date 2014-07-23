@@ -1,50 +1,77 @@
 {% extends "base.html" %}
 
 {% block content %}
-        <div id="name">
-   		    <h1 class="uppercase">{% block name %}{% endblock name %}</h1>
-        </div>
+<div id="name">
+    <h1 class="uppercase">{{ story.name }}</h1>
+</div>
+
 <div class='row'>
    	<div class='col-md-5 col-sm-5 info-group'>
    		<ul class='list-group info-group-list'>
-			{% block info_group %}{% endblock info_group %}
+			<li class='list-group-item'>{{ story.kind|capfirst }}</li>
+			<li class='list-group-item'>{{ story.formatted_date }}</li>
+			{% if story.book %}
+				<li class='list-group-item'>
+					As told in <a href="{% url 'book' story.book.id %}">{{ story.book.name }}</a>
+				</li>
+			{% endif %}
 		</ul>
+		<blockquote>
+			<p>{{ story.quote|safe }}</p>
+			<footer>{{ story.quote_by }}</footer>
+		</blockquote>
 	</div>
 
-	<div class='col-md-5 col-sm-5 main-image'>
-		<img class='list-group-item' src='{% block image_url %}{% endblock image_url %}'>
+	<div class='col-xs-12 col-md-6 col-sm-6'>
+		<div class='main-image'>
+			<img class='list-group-item' src='{{ story.image.url }}'>
+		</div>
 	</div>
-
-    <div class='col-md-2 col-sm-2'></div>
 </div>
 
 <div class='row'>
 	<div class='col-md-12' id='description'>
-		{% block description %}{% endblock description %}
+		{{ story.description|safe }}
 	</div>
 </div>
 
-<div class='row'>
-	<div class='col-md-12'>
-		<h3>CHARACTERS</h3>
-		{% block characters %}
-		{% endblock characters %}
+{% if story.characters.all %}
+	<div class='row'>
+		<div class='col-md-12'>
+			<h3>CHARACTERS</h3>
+			{% for character in story.characters.all %}
+				{% if not character.hidden %}
+					<a href="{% url 'character' character.id %}">
+				{% endif %}
+				{{ character.name }}
+				{% if not character.hidden %}
+					</a>
+				{% endif %}
+				<br/>
+			{% endfor %}
+		</div>
 	</div>
-</div>
+{% endif %}
 
-<div class='row'>
-	<div class='col-md-12'>
-		<h3>ARTIFACTS</h3>
-		{% block artifacts %}
-		{% endblock artifacts %}
+{% if story.artifacts.all %}
+	<div class='row'>
+		<div class='col-md-12'>
+			<h3>ARTIFACTS</h3>
+			{% for artifact in story.artifacts.all %}
+				<a href="{% url 'artifact' artifact.id %}">{{ artifact.name }}</a><br/>
+			{% endfor %}
+		</div>
 	</div>
-</div>
+{% endif %}
 
-<div class='row'>
-	<div class='col-md-12'>
-		<h3>SETTINGS</h3>
-		{% block settings %}
-		{% endblock settings %}
+{% if story.locations.all %}
+	<div class='row'>
+		<div class='col-md-12'>
+			<h3>SETTINGS</h3>
+			{% for setting in story.locations.all %}
+				<a href="{% url 'location' setting.id %}">{{ setting.name }}</a><br/>
+			{% endfor %}
+		</div>
 	</div>
-</div>
+{% endif %}
 {% endblock content %}
