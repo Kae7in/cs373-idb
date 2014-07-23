@@ -1,60 +1,152 @@
 {% extends "base.html" %}
 
+{% block scripts %}
+<link href='http://fonts.googleapis.com/css?family=Neucha' rel='stylesheet' type='text/css'>
+{% endblock scripts %}
+
 {% block content %}
         <div id="name">
-   		    <h1 class="uppercase">{% block name %}{% endblock name %}</h1>
+   		    <h1 class="uppercase">{{ character.name }}</h1>
         </div>
 <div class='row'>
    	<div class='col-xs-12 col-md-6 col-sm-6 info-group'>
    		<ul class='list-group info-group-list'>
-			{% block info_group %}{% endblock info_group %}
+			<li class='list-group-item'>
+				{% if character.magical %}
+					{% if character.sex == 'F' %}
+				  		Witch
+					{% else %}
+				   		Wizard
+					{% endif %}
+				{% elif character.is_squib %}
+					Squib
+				{% else %}
+					Muggle
+				{% endif %}
+			</li>
+			{% if character.school_founded %}
+			<li class='list-group-item'>
+				Founded {{ character.school_founded.name }}
+			</li>
+			{% endif %}
+			{% if character.school_headmastered %}
+			<li class='list-group-item'>
+				Headmaster at {{ character.school_headmastered.name }}
+			</li>
+			{% endif %}
+			{% if character.school_taught %}
+			<li class='list-group-item'>
+				Professor at {{ character.school_taught.name }}
+			</li>
+			{% endif %}
+			{% if character.school_staffed %}
+			<li class='list-group-item'>
+				Staff at {{ character.school_taught.name }}
+			</li>
+			{% endif %}
+			{% if character.school_attended %}
+			<li class='list-group-item'>
+				Attended {{ character.school_attended.name }}
+			</li>
+			{% endif %}
+			{% if character.house or character.house_founded %}
+			<li class='list-group-item'>
+				{% if character.house_founded.all %}Founded {% endif %}
+				{% if character.houses_haunted.all %}Haunts {% endif %}
+				{{ character.house.name }} House
+			</li>
+			{% endif %}
+			{% if character.wand %}
+			<li class='list-group-item'>
+				{{ character.wand }}
+			</li>
+			{% endif %}
+			{% if character.shop %}
+			<li class='list-group-item'>
+				{{ character.shop.name }}
+			</li>
+			{% endif %}
 		</ul>
 		<blockquote>
-			<p>{% block quote %}{% endblock quote %}</p>
-			<footer>{% block quote_footer %}{% endblock quote_footer %}</footer>
+			<p>{{ character.quote|safe }}</p>
+			<footer>{{ character.quote_by }}</footer>
 		</blockquote>
 	</div>
 
-	<div class='col-xs-12 col-md-6 col-sm-6 main-image'>
-		<img class='list-group-item' src='{% block image_url %}{% endblock image_url %}'>
+	<div class='col-xs-12 col-md-6 col-sm-6'>
+		<div class='main-image'>
+			<img class='list-group-item' src='{{ character.image.url }}'>
+		</div>
 	</div>
 </div>
 
 <div class='row'>
 	<div class='col-md-12' id='description'>
-		{% block description %}{% endblock description %}
+		{{ character.description|safe }}
 	</div>
 </div>
 
-<div class='row'>
-	<div class='col-md-12'>
-		<h3>STORIES</h3>
-		{% block stories %}
-		{% endblock stories %}
+{% if character.stories.all %}
+ 	<div class='row'>
+	  	<div class='col-md-12'>
+			<h3>STORIES</h3>
+			{% for story in character.stories.all %}
+		  		{{ story.name }}<br/>
+			{% endfor %}
+		</div>
 	</div>
-</div>
+{% endif %}
 
-<div class='row'>
-	<div class='col-md-12'>
-		<h3>BIBLIOGRAPHY</h3>
-		{% block bibliography %}
-		{% endblock bibliography %}
+{% if character.books_authored.all or character.books_starred.all %}
+	<div class='row'>
+		<div class='col-md-12'>
+			<h3>BIBLIOGRAPHY</h3>
+			{% for book in character.books_authored.all %}
+				{{ book.name }} (Author)<br/>
+			{% endfor %}
+			{% for book in character.books_starred.all %}
+				{{ book.name }} (Subject)<br/>
+			{% endfor %}
+		</div>
 	</div>
-</div>
+{% endif %}
 
-<div class='row'>
-	<div class='col-md-12'>
-		<h3>ARTIFACTS</h3>
-		{% block artifacts %}
-		{% endblock artifacts %}
+{% if character.artifacts.all %}
+	<div class='row'>
+		<div class='col-md-12'>
+			<h3>ARTIFACTS</h3>
+			{% for artifact in character.artifacts.all %}
+				<a href="{% url 'artifact' artifact.id %}">{{ artifact.name }}</a><br/>
+			{% endfor %}
+		</div>
 	</div>
-</div>
+{% endif %}
 
-<div class='row'>
-	<div class='col-md-12'>
-		<h3>FAMILY RELATIONSHIPS</h3>
-		{% block relationships %}
-		{% endblock relationships %}
+{% if character.relationships1.all or character.relationships2.all %}
+	<div class='row'>
+		<div class='col-md-12'>
+			<h3>FAMILY RELATIONSHIPS</h3>
+			{% for relation1 in character.relationships1.all %}
+				{% if not relation1.character2.hidden %}
+				 	<a href="{% url 'character' relation1.character2.id %}">
+				{% endif %}
+				{{ relation1.character2.name }}
+				{% if not relation1.character2.hidden %}
+					</a>
+				{% endif %}
+				({{ relation1.descriptor2 }})<br/>
+			{% endfor %}
+			{% for relation2 in character.relationships2.all %}
+				{% if not relation2.character1.hidden %}
+				 	<a href="{% url 'character' relation2.character1.id %}">
+				{% endif %}
+				{{ relation2.character1.name }}
+				{% if not relation2.character1.hidden %}
+					</a>
+				{% endif %}
+				({{ relation1.descriptor2 }})<br/>
+			{% endfor %}
+		</div>
 	</div>
-</div>
+{% endif %}
 {% endblock content %}

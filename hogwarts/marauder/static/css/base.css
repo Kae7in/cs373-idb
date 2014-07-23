@@ -1,6 +1,15 @@
 @import url('http://fonts.googleapis.com/css?family=Open+Sans:200,300');
 
-
+.pagination .current, .pagination .cardinality {
+  position: relative;
+  float: left;
+  padding: 6px 12px;
+  margin-left: -1px;
+  line-height: 1.42857143;
+  text-decoration: none;
+  background-color: #fff;
+  border: 1px solid #ddd;;
+}
 a:hover {
     text-decoration: none;
 }
@@ -8,8 +17,9 @@ a:hover {
 .uppercase { text-transform: uppercase;}
 
 #content {
-    margin: 5% 5%;
-    max-width: 768px;
+    margin: auto;
+    width: 90%;
+    max-width: 900px;
 }
 
 img {
@@ -18,7 +28,7 @@ img {
 }
 
 body {
-    padding-top: 60px;
+    padding: 100px 0px !important;
 }
 
 .info-group-list {
@@ -73,6 +83,7 @@ body {
 
 }
 
+.main-image { width: 80%; }
 
 /*
 .main-image img { 

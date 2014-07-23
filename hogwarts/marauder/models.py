@@ -3,9 +3,13 @@ from django.db import models
 class Character(models.Model):
     #descriptors
     name = models.CharField(max_length = 100)
-    wand = models.CharField(max_length = 150)
+    wand = models.CharField(max_length = 150, null=True, blank=True)
     description = models.TextField()
     magical = models.BooleanField(default=True)
+    SEX_CHOICES = (('F', 'Female'),
+                     ('M', 'Male'),
+                     ('NB', 'Non-binary'))
+    sex = models.CharField(max_length=2, choices=SEX_CHOICES)
     quote = models.TextField()
     quote_by = models.CharField(max_length = 200)
     image = models.ImageField(upload_to = 'images/', default = 'images/empty.jpg')
@@ -90,12 +94,12 @@ class Spell(models.Model):
     DIFFICULTY_CHOICES = (('Easy', 'Easy'),
                     ('Moderate', 'Moderate'),
                     ('Hard', 'Hard'),
-                    ('Extremely Difficult', 'Extremely Diffult'))
+                    ('Extremely Difficult', 'Extremely Difficult'))
     difficulty = models.CharField(max_length=20, choices=DIFFICULTY_CHOICES)
     kind = models.CharField(max_length=20, choices=KIND_CHOICES)
     image = models.ImageField(upload_to='images/')
 
-    # affects certain creatures
+     # affects certain creatures
     creature = models.ForeignKey('Creature', blank=True, null=True, related_name='spells')
 
     def __str__(self):
@@ -195,8 +199,10 @@ class Story(models.Model):
     book = models.ForeignKey(Book, related_name = 'story', null=True, blank=True)
     kind = models.CharField(max_length=20)
     characters = models.ManyToManyField('Character', related_name = 'stories')
-    artifacts = models.ManyToManyField('Artifact', related_name = 'stories')
-    locations = models.ManyToManyField('Location', related_name = 'stories')
+    artifacts = models.ManyToManyField('Artifact', related_name = 'stories', null=True, blank=True)
+    locations = models.ManyToManyField('Location', related_name = 'stories', null=True, blank=True)
+    quote = models.TextField(null=True, blank=True)
+    quote_by = models.CharField(max_length=100, null=True, blank=True)
     image = models.ImageField(upload_to = 'images/', default = 'images/empty.jpg')
 
     def century(self):
