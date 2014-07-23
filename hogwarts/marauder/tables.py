@@ -8,3 +8,14 @@ class CharacterTable(tables.Table):
         model = Character
         fields = ("name", "magical", "sex", "creature", "school_attended", "house")
         attrs = {"class": "table table-striped table-bordered table-hover"}
+
+class StoryTable(tables.Table):
+    date = tables.TemplateColumn("{{ record.formatted_date }}")
+    name = tables.TemplateColumn('''
+    	<a href='{% url "story" record.pk %}'>{{ record.name }}</a>''')
+    kind = tables.TemplateColumn("{{ record.kind|capfirst }}")
+
+    class Meta:
+        model = Story
+        fields = ("name", "kind", "date")
+        attrs = {"class": "table table-striped table-bordered table-hover"}

@@ -56,8 +56,8 @@ class PotionDetailView(generic.DetailView):
 class StoryListView(SingleTableView):
     model = Story
     template_name = 'stories/index.html'
-    #table_class = StoryTable
-    #table_pagination = {'per_page': 10}
+    table_class = StoryTable
+    table_pagination = {'per_page': 10}
 
 class StoryDetailView(generic.DetailView):
     model = Story
