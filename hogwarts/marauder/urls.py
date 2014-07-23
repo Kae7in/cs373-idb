@@ -12,5 +12,10 @@ urlpatterns = patterns('',
     url(r'^stories/(?P<pk>\d+)/$', views.StoriesView.as_view(), name='stories'),
 
     # API
-    url(r'^api/characters/(?P<id>\d+)/$', views.CharacterRestView())
+    url(r'^api/characters/$', views.CharacterRestView(), name='characters_api'),
+    url(r'^api/characters/(?P<id>\d+)/$', views.CharacterRestView(), name='character_api')
+    url(r'^api/spells/$', views.SpellRestView(), name='spells_api'),
+    url(r'^api/spells/(?P<id>\d+)/$', views.SpellRestView(), name='spell_api')
+    url(r'^api/shops/$', views.ShopRestView(), name='shops_api'),
+    url(r'^api/shops/(?P<id>\d+)/$', views.ShopRestView(), name='shop_api')
 )

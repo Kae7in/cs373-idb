@@ -40,7 +40,7 @@ class ArtifactsView(generic.DetailView):
 class RestView(object):
   """
     Serves API GET requests with a JSON response. This is the base class
-    which delgates to model-specific subclasses.
+    which delegates to model-specific subclasses.
   """
 
   # Dispatch to the proper child method implementation
@@ -51,16 +51,33 @@ class RestView(object):
           response.status_code = 405
           return response
 
-      return getattr(self, request.method)(kwargs['id'])
+      if 'id' in kwargs:
+          return getattr(self, 'get_item')(kwargs['id'])
+      else:
+          return getattr(self, 'get_collection')()
+
 
 class CharacterRestView(RestView):
 
-    def GET(self, character_id):
+    def get_item(self, character_id):
         # Pull the character row from the model. 
         c = Character.objects.get(pk=character_id) 
 
         # Manipulate the python dict to conform to our API 
         data = self.formatCharacterData(c)
+        
+        # Form the python dict into a JSON HTTP response 
+        return JSONResponse(data)
+
+    def get_collection(self):
+        # Pull the character row from the model. 
+        characters = Character.objects.all()
+
+        # Manipulate the python dict to conform to our API 
+        data = []
+        for character in characters:
+            element = self.formatCharacterData(character)
+            data.append(element) 
         
         # Form the python dict into a JSON HTTP response 
         return JSONResponse(data)
@@ -78,6 +95,78 @@ class CharacterRestView(RestView):
             "magical": c.magical,
             "quote": c.quote if c.quote else None,
             "quote_by": c.quote_by if c.quote_by else None
+        }
+
+class SpellRestView(RestView):
+    def get_item(self, spell_id):
+        # get the spell from the model
+        s = Spell.objects.get(pk=spell_id)
+
+        # fetch data in acceptable format for api
+        data = self.formatSpellData(s)
+
+        # return JSON HTTP response
+        return JSONResponse(data)
+
+    def get_collection(self):
+        # get all spells from the model
+        spells = Spell.objects.all()
+
+        # fetch data in acceptable format for api
+        data = []
+        for spell in spells:
+            element = self.formatSpellData(spell)
+            data.append(element)
+
+        # return JSON HTTP response
+        return JSONResponse(data)
+
+    def formatSpellData(self, s):
+        return {
+            "id": s.id,
+            "incantation": s.incantation,
+            "alias": s.alias,
+            "effect": s.effect,
+            "creator": s.creator,
+            "notable_uses": s.notable_uses,
+            "unforgivable": s.unforgivable,
+            "KIND_CHOICES": s.KIND_CHOICES,
+            "DIFFICULTY_CHOICES": s.DIFFICULTY_CHOICES,
+            "difficulty": s.difficulty,
+            "kind": s.kind,
+            "image": s.image,
+            "creature": s.creature if s.creature else None
+        }
+
+
+class ShopRestView(RestView):
+    def get_item(self, spell_id):
+        # get the shop from the model
+        s = Shop.objects.get(pk=shop_id)
+
+        # fetch data in acceptable format for api
+        data = self.formatShopData(s)
+
+        # return JSON HTTP response
+        return JSONResponse(data)
+
+    def get_collection(self):
+        # get all shop from the model
+        shop = Shop.objects.all()
+
+        # fetch data in acceptable format for api
+        data = []
+        for spell in shop:
+            element = self.formatShopData(spell)
+            data.append(element)
+
+        # return JSON HTTP response
+        return JSONResponse(data)
+
+    def formatShopData(self, s):
+        return {
+            "id": s.id,
+            "locations": s.locations if s.locations else None
         }
 
 class JSONResponse(HttpResponse):
