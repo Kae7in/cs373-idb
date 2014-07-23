@@ -14,4 +14,5 @@ urlpatterns = patterns('',
     # API
     url(r'^api/characters/(?P<id>\d+)/$', views.CharacterRestView())
     url(r'^api/potions/(?P<id>\d+)/$', views.PotionRestView())
+    url(r'^api/creatures/(?P<id>\d+)/$', views.CreatureRestView())
 )

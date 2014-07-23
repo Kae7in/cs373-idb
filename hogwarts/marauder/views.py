@@ -76,17 +76,17 @@ class CharacterRestView(RestView):
 class PotionRestView(RestView):
 
     def GET(self, potion_id):
-    p = Potion.objects.get(pk=potion_id)
+        p = Potion.objects.get(pk=potion_id)
 
-    data = {
-        "id": p.id,
-        "name": p.title,
-        "difficulty": p.difficulty,
-        "effects": p.effects,
-        "physical description": p.physical_description,        
-        "recipe": p.recipe if p.recipe else None,
-        "notable uses": p.notable_uses
-    }
+        data = {
+            "id": p.id,
+            "name": p.title,
+            "difficulty": p.difficulty,
+            "effects": p.effects,
+            "physical description": p.physical_description,        
+            "recipe": p.recipe if p.recipe else None,
+            "notable uses": p.notable_uses
+        }
         return JSONResponse(data)
          
 class CreatureRestView(RestView):
