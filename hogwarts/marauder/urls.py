@@ -26,6 +26,9 @@ urlpatterns = patterns('',
     url(r'^api/characters/$', views.CharacterRestView(), name='characters_api'),
     url(r'^api/characters/(?P<id>\d+)/$', views.CharacterRestView(), name='character_api'),
 
+    url(r'^api/stories/$', views.StoryRestView(), name='stories_api'),
+    url(r'^api/stories/(?P<id>\d+)/$', views.StoryRestView(), name='story_api'),
+
     url(r'^api/spells/$', views.SpellRestView(), name='spells_api'),
     url(r'^api/spells/(?P<id>\d+)/$', views.SpellRestView(), name='spell_api'),
 
