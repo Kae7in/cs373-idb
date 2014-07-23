@@ -23,8 +23,8 @@ urlpatterns = patterns('',
     url(r'^stories/(?P<pk>\d+)/$', views.StoryDetailView.as_view(), name='story'),
 
     # API
-    url(r'^api/characters/(?P<id>\d+)/$', views.CharacterRestView())
-    url(r'^api/potions/(?P<id>\d+)/$', views.PotionRestView())
+    url(r'^api/characters/(?P<id>\d+)/$', views.CharacterRestView()),
+    url(r'^api/potions/(?P<id>\d+)/$', views.PotionRestView()),
     url(r'^api/creatures/(?P<id>\d+)/$', views.CreatureRestView())
 
 )
