@@ -28,7 +28,7 @@ img {
 }
 
 body {
-    padding: 80px 0px !important;
+    padding: 100px 0px !important;
 }
 
 .info-group-list {
@@ -83,6 +83,7 @@ body {
 
 }
 
+.main-image { width: 80%; }
 
 /*
 .main-image img { 
