@@ -5,6 +5,7 @@ import json
 from marauder.models import *
 from marauder.tables import *
 from django_tables2 import SingleTableView
+from django.http import Http404
 
 # Creature Views
 class CreatureListView(generic.ListView):
@@ -27,6 +28,7 @@ class CreatureDetailView(generic.DetailView):
 class CharacterListView(SingleTableView):
     model = Character
     template_name = 'characters/index.html'
+    queryset = Character.objects.filter(hidden=False)
     table_class = CharacterTable
     table_pagination = {'per_page': 10}
 
@@ -36,6 +38,8 @@ class CharacterDetailView(generic.DetailView):
 
     def get_context_data(self, **kwargs):
         context = super(CharacterDetailView, self).get_context_data(**kwargs)
+        if kwargs['object'].hidden:
+            raise Http404
         return context
 
 # Spell Views
