@@ -1,6 +1,8 @@
 from django.conf.urls import patterns, url
 from django.views.generic import TemplateView
 from marauder import views
+from django.conf import settings
+from django.conf.urls.static import static
 
 urlpatterns = patterns('',
     (r'^$', TemplateView.as_view(template_name='index.html')),
@@ -27,4 +29,4 @@ urlpatterns = patterns('',
     url(r'^api/potions/(?P<id>\d+)/$', views.PotionRestView()),
     url(r'^api/creatures/(?P<id>\d+)/$', views.CreatureRestView())
 
-)
+) + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)

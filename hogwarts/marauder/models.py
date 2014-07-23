@@ -23,8 +23,8 @@ class Character(models.Model):
     school_founded = models.ForeignKey('School', blank=True, null=True, related_name = 'founders')
     school_staffed = models.ForeignKey('School', blank=True, null=True, related_name = 'staff')
     shop = models.ForeignKey('Shop', blank=True, null=True, related_name='owners')
-    
-    hidden = models.BooleanField(default=False) 
+
+    hidden = models.BooleanField(default=False)
 
     def relationships(self):
         relationships = []
@@ -143,7 +143,7 @@ class Location(models.Model):
     name = models.CharField(max_length=100)
     description = models.TextField()
     kind = models.CharField(max_length=20)
-    image = models.ImageField(upload_to = 'images/locations', default = 'images/empty.jpg')
+    image = models.ImageField(upload_to = 'images/', default = 'images/empty.jpg')
 
     def __str__(self):
         return self.name
