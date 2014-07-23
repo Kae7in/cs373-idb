@@ -3,9 +3,13 @@ from django.db import models
 class Character(models.Model):
     #descriptors
     name = models.CharField(max_length = 100)
-    wand = models.CharField(max_length = 150)
+    wand = models.CharField(max_length = 150, null=True, blank=True)
     description = models.TextField()
     magical = models.BooleanField(default=True)
+    SEX_CHOICES = (('F', 'Female'),
+                     ('M', 'Male'),
+                     ('NB', 'Non-binary'))
+    sex = models.CharField(max_length=2, choices=SEX_CHOICES)
     quote = models.TextField()
     quote_by = models.CharField(max_length = 200)
     image = models.ImageField(upload_to = 'images/', default = 'images/empty.jpg')
