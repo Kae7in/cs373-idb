@@ -1,4 +1,5 @@
 from django.db import models
+import inflect
 # Create your models here.
 class Character(models.Model):
     #descriptors
@@ -210,6 +211,15 @@ class Story(models.Model):
 
     def __str__(self):
         return self.name
+
+    def formatted_date(self):
+        if(self.date.month == 1 and self.date.day == 1):
+            if(self.date.year % 100 == 0):
+                p = inflect.engine()
+                return "%s Century" %(p.ordinal(self.century()))
+            else:
+                return self.date.year
+        return self.date.strftime("%B %d, %Y")
 
     class Meta:
         verbose_name_plural = 'stories'

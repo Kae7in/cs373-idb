@@ -232,6 +232,18 @@ class StoryTest(TestCase):
         story = lm.Story.objects.first()
         self.assertEqual(story.century(), 13)
 
+    def test_formatted_date_story(self):
+        story = lm.Story.objects.first()
+        self.assertEqual(story.formatted_date(), "13th Century")
+
+        story.date = story.date.replace(year = 1981)
+        story.save()
+        self.assertEqual(story.formatted_date(), 1981)
+
+        story.date = story.date.replace(month = 5)
+        story.save()
+        self.assertEqual(story.formatted_date(), "May 01, 1981")
+
 class SpellTest(TestCase):
     def setUp(self):
         spell = lm.Spell()
