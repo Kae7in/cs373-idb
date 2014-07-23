@@ -40,7 +40,7 @@ class ArtifactsView(generic.DetailView):
 class RestView(object):
   """
     Serves API GET requests with a JSON response. This is the base class
-    which delgates to model-specific subclasses.
+    which delegates to model-specific subclasses.
   """
 
   # Dispatch to the proper child method implementation
@@ -51,16 +51,33 @@ class RestView(object):
           response.status_code = 405
           return response
 
-      return getattr(self, request.method)(kwargs['id'])
+      if 'id' in kwargs:
+          return getattr(self, 'get_item')(kwargs['id'])
+      else:
+          return getattr(self, 'get_collection')()
+
 
 class CharacterRestView(RestView):
 
-    def GET(self, character_id):
+    def get_item(self, character_id):
         # Pull the character row from the model. 
         c = Character.objects.get(pk=character_id) 
 
         # Manipulate the python dict to conform to our API 
         data = self.formatCharacterData(c)
+        
+        # Form the python dict into a JSON HTTP response 
+        return JSONResponse(data)
+
+    def get_collection(self):
+        # Pull the character row from the model. 
+        characters = Character.objects.all()
+
+        # Manipulate the python dict to conform to our API 
+        data = []
+        for character in characters:
+            element = self.formatCharacterData(character)
+            data.append(element) 
         
         # Form the python dict into a JSON HTTP response 
         return JSONResponse(data)

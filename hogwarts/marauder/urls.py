@@ -12,5 +12,6 @@ urlpatterns = patterns('',
     url(r'^stories/(?P<pk>\d+)/$', views.StoriesView.as_view(), name='stories'),
 
     # API
-    url(r'^api/characters/(?P<id>\d+)/$', views.CharacterRestView())
+    url(r'^api/characters/$', views.CharacterRestView(), name='characters_api'),
+    url(r'^api/characters/(?P<id>\d+)/$', views.CharacterRestView(), name='character_api')
 )
