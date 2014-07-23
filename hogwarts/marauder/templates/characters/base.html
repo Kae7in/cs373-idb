@@ -91,7 +91,7 @@
 	  	<div class='col-md-12'>
 			<h3>STORIES</h3>
 			{% for story in character.stories.all %}
-		  		{{ story.name }}<br/>
+		  		<a href="{% url 'story' story.id %}">{{ story.name }}</a><br/>
 			{% endfor %}
 		</div>
 	</div>
@@ -102,10 +102,10 @@
 		<div class='col-md-12'>
 			<h3>BIBLIOGRAPHY</h3>
 			{% for book in character.books_authored.all %}
-				{{ book.name }} (Author)<br/>
+				<a href="{% url 'book' book.id %}">{{ book.name }}</a> (Author)<br/>
 			{% endfor %}
 			{% for book in character.books_starred.all %}
-				{{ book.name }} (Subject)<br/>
+				<a href="{% url 'book' book.id %}">{{ book.name }}</a> (Subject)<br/>
 			{% endfor %}
 		</div>
 	</div>
