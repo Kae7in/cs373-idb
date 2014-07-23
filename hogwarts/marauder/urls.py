@@ -22,7 +22,7 @@ urlpatterns = patterns('',
     #Spells
     url(r'^spells/(?P<pk>\d+)/$', views.SpellDetailView.as_view(), name='spell'),
     #Stories
-    url(r'^stories/$', views.StoryListView.as_view(), name='characters'),
+    url(r'^stories/$', views.StoryListView.as_view(), name='stories'),
     url(r'^stories/(?P<pk>\d+)/$', views.StoryDetailView.as_view(), name='story'),
     #Books
     url(r'^books/$', views.BookListView.as_view(), name='books'),
