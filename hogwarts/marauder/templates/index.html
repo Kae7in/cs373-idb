@@ -11,7 +11,7 @@
 <link rel="stylesheet" href="{{ STATIC_URL }}css/splash.css">
 
 </head>
-<body>
+<body style='padding:0px !important;'>
 <div id="wrap">
   <a style="display:block" href="/">
 		<div class="jumbotron splash">
@@ -19,28 +19,13 @@
 			<p class="text-center">Brought to you by The Six Potters</p>
 		</div>
   </a>
-    <div id="content">
-
+    <div id="container-fluid">
         <div class='row'>
-        <div class="panel-group category" id="accordion">
-            <div class="row">
-            <div class="col-md-4">
-                <div class="panel">
-                    <div class="panel-heading">
-                      <h2 class="panel-title">
-                      <a data-toggle="collapse" data-parent="#accordion" href="#collapseOne">Characters</a>
-                      </h2>
-                    </div>  <!-- /panel-heading -->
-
-                    <div id="collapseOne" class="panel-collapse collapse">
-                        <div class="panel-body">                  
-                            <h3><a href="characters/1">Albus Dumbledore</a></h3> 
-                            <h3><a href="characters/2">Ariana Dumbledore</a></h3>
-                            <h3><a href="characters/3">Harry Potter</a></h3>
-                        </div>  <!-- /panel-body -->
-                    </div> <!-- /collapseOne -->
-                </div>  <!-- /panel panel-default -->
-            </div>  <!-- /col-md-4 -->
+            <div class='col-md-4'>
+                <h2 class="panel-title">
+                    <a href="{% url 'characters' %}">Characters</a>
+                </h2>
+            </div>
 
             <div class="col-md-4">
                 <div class="panel">

@@ -199,8 +199,10 @@ class Story(models.Model):
     book = models.ForeignKey(Book, related_name = 'story', null=True, blank=True)
     kind = models.CharField(max_length=20)
     characters = models.ManyToManyField('Character', related_name = 'stories')
-    artifacts = models.ManyToManyField('Artifact', related_name = 'stories')
-    locations = models.ManyToManyField('Location', related_name = 'stories')
+    artifacts = models.ManyToManyField('Artifact', related_name = 'stories', null=True, blank=True)
+    locations = models.ManyToManyField('Location', related_name = 'stories', null=True, blank=True)
+    quote = models.TextField(null=True, blank=True)
+    quote_by = models.CharField(max_length=100, null=True, blank=True)
     image = models.ImageField(upload_to = 'images/', default = 'images/empty.jpg')
 
     def century(self):
