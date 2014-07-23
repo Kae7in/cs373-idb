@@ -53,9 +53,19 @@ class PotionDetailView(generic.DetailView):
     template_name = 'potions/base.html'
 
 # Story Views
+class StoryListView(SingleTableView):
+    model = Story
+    template_name = 'stories/index.html'
+    table_class = StoryTable
+    table_pagination = {'per_page': 10}
+
 class StoryDetailView(generic.DetailView):
     model = Story
     template_name = 'stories/base.html'
+
+    def get_context_data(self, **kwargs):
+        context = super(StoryDetailView, self).get_context_data(**kwargs)
+        return context
 
 # Artifact Views
 class ArtifactDetailView(generic.DetailView):
@@ -63,7 +73,34 @@ class ArtifactDetailView(generic.DetailView):
     template_name = 'artifacts/base.html'
 
 # Book Views
+class BookListView(SingleTableView):
+    model = Book
+    template_name = 'books/index.html'
+    #table_class = StoryTable
+    #table_pagination = {'per_page': 10}
+
+class BookDetailView(generic.DetailView):
+    model = Book
+    template_name = 'books/base.html'
+
+    def get_context_data(self, **kwargs):
+        context = super(BookDetailView, self).get_context_data(**kwargs)
+        return context
+
 # Location Views
+class LocationListView(SingleTableView):
+    model = Location
+    template_name = 'locations/index.html'
+    #table_class = StoryTable
+    #table_pagination = {'per_page': 10}
+
+class LocationDetailView(generic.DetailView):
+    model = Location
+    template_name = 'locations/base.html'
+
+    def get_context_data(self, **kwargs):
+        context = super(LocationDetailView, self).get_context_data(**kwargs)
+        return context
 """
   RESTful API
   
