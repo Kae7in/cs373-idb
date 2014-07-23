@@ -24,7 +24,7 @@
                             <div class='infoitem col-md-5'>
                                 Rating:
                             </div>
-                            <div class='rating infoitem col-md-7'>
+                            <div class='rating infoitem col-md-7' style='font-family:Neucha;'>
 
                                 {% block rating %}{{ creature.get_rating_display }}{% endblock rating %}
 
@@ -45,7 +45,7 @@
 
 <div class='row'>
 	<div class='col-xs-12' id='description'>
-		{% block description %}{{ creature.description }}{% endblock description %}
+		{% block description %}{{ creature.description|safe }}{% endblock description %}
 	</div>
 </div>
 
