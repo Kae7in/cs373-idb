@@ -13,4 +13,6 @@ urlpatterns = patterns('',
     url(r'^spells/(?P<pk>\d+)/$', views.SpellsView.as_view(), name='spells'),
     url(r'^stories/(?P<pk>\d+)/$', views.StoriesView.as_view(), name='stories'),
 
+    # API
+    url(r'^api/characters/(?P<id>\d+)/$', views.CharacterRestView())
 )
