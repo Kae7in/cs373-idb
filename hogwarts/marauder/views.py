@@ -97,6 +97,78 @@ class CharacterRestView(RestView):
             "quote_by": c.quote_by if c.quote_by else None
         }
 
+class SpellRestView(RestView):
+    def get_item(self, spell_id):
+        # get the spell from the model
+        s = Spell.objects.get(pk=spell_id)
+
+        # fetch data in acceptable format for api
+        data = self.formatSpellData(s)
+
+        # return JSON HTTP response
+        return JSONResponse(data)
+
+    def get_collection(self):
+        # get all spells from the model
+        spells = Spell.objects.all()
+
+        # fetch data in acceptable format for api
+        data = []
+        for spell in spells:
+            element = self.formatSpellData(spell)
+            data.append(element)
+
+        # return JSON HTTP response
+        return JSONResponse(data)
+
+    def formatSpellData(self, s):
+        return {
+            "id": s.id,
+            "incantation": s.incantation,
+            "alias": s.alias,
+            "effect": s.effect,
+            "creator": s.creator,
+            "notable_uses": s.notable_uses,
+            "unforgivable": s.unforgivable,
+            "KIND_CHOICES": s.KIND_CHOICES,
+            "DIFFICULTY_CHOICES": s.DIFFICULTY_CHOICES,
+            "difficulty": s.difficulty,
+            "kind": s.kind,
+            "image": s.image,
+            "creature": s.creature if s.creature else None
+        }
+
+
+class ShopRestView(RestView):
+    def get_item(self, spell_id):
+        # get the shop from the model
+        s = Shop.objects.get(pk=shop_id)
+
+        # fetch data in acceptable format for api
+        data = self.formatShopData(s)
+
+        # return JSON HTTP response
+        return JSONResponse(data)
+
+    def get_collection(self):
+        # get all shop from the model
+        shop = Shop.objects.all()
+
+        # fetch data in acceptable format for api
+        data = []
+        for spell in shop:
+            element = self.formatShopData(spell)
+            data.append(element)
+
+        # return JSON HTTP response
+        return JSONResponse(data)
+
+    def formatShopData(self, s):
+        return {
+            "id": s.id,
+            "locations": s.locations if s.locations else None
+        }
+
 class JSONResponse(HttpResponse):
     def __init__(self, data):
         super(JSONResponse, self).__init__(
