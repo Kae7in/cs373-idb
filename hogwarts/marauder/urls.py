@@ -3,7 +3,9 @@ from django.views.generic import TemplateView
 from marauder import views
 
 urlpatterns = patterns('',
-    url(r'^$', views.IndexView.as_view(), name='index'),
+    (r'^$', TemplateView.as_view(template_name='index.html')),
+    (r'^base.html$', TemplateView.as_view(template_name='base.html')),
+    (r'^splash.html$', TemplateView.as_view(template_name='splash.html')),
     url(r'^creatures/(?P<pk>\d+)/$', views.CreatureView.as_view(), name='creatures'),
     url(r'^characters/(?P<pk>\d+)/$', views.CharacterView.as_view(), name='characters'),
     url(r'^potions/(?P<pk>\d+)/$', views.PotionsView.as_view(), name='potions'),

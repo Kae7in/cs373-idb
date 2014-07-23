@@ -4,9 +4,6 @@ from django.http import HttpResponse
 import json
 from marauder.models import *
 
-class IndexView(generic.ListView):
-    template_name = 'index.html'
-
 class CreatureView(generic.DetailView):
     model = Creature
     template_name = 'creatures/base.html'
@@ -56,22 +53,29 @@ class RestView(object):
 class CharacterRestView(RestView):
 
     def GET(self, character_id):
-        # Pull the character row from the model. TODO
+        # Pull the character row from the model. 
         c = Character.objects.get(pk=character_id) 
 
-        # Manipulate the python dict into the appropriate form
-        data = {
+        # Manipulate the python dict to conform to our API 
+        data = self.formatCharacterData(c)
+        
+        # Form the python dict into a JSON HTTP response 
+        return JSONResponse(data)
+
+    def formatCharacterData(self, c):
+        """
+        Form the given character object into a dictionary that meets API
+        specification.
+        """
+        return {
             "id": c.id, 
             "name": c.name, 
             "wand": c.wand if c.wand else None,
             "description": c.description,
             "magical": c.magical,
             "quote": c.quote if c.quote else None,
-            "quote_by": c.quote_by if c.quote_by else None 
+            "quote_by": c.quote_by if c.quote_by else None
         }
-        
-        # Form the python dict into a JSON HTTP response 
-        return JSONResponse(data)
 
 class PotionRestView(RestView):
 
