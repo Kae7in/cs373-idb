@@ -17,8 +17,9 @@ a:hover {
 .uppercase { text-transform: uppercase;}
 
 #content {
-    margin: 5% 5%;
-    max-width: 768px;
+    margin: auto;
+    width: 90%;
+    max-width: 900px;
 }
 
 img {
@@ -27,7 +28,7 @@ img {
 }
 
 body {
-    padding-top: 60px;
+    padding: 60px 0px !important;
 }
 
 .info-group-list {
