@@ -24,42 +24,44 @@
 					Muggle
 				{% endif %}
 			</li>
-			{% if character.school_founded is not None %}
+			{% if character.school_founded %}
 			<li class='list-group-item'>
 				Founded {{ character.school_founded.name }}
 			</li>
 			{% endif %}
-			{% if character.school_headmastered is not None %}
+			{% if character.school_headmastered %}
 			<li class='list-group-item'>
 				Headmaster at {{ character.school_headmastered.name }}
 			</li>
 			{% endif %}
-			{% if character.school_taught is not None %}
+			{% if character.school_taught %}
 			<li class='list-group-item'>
 				Professor at {{ character.school_taught.name }}
 			</li>
 			{% endif %}
-			{% if character.school_staffed is not None %}
+			{% if character.school_staffed %}
 			<li class='list-group-item'>
 				Staff at {{ character.school_taught.name }}
 			</li>
 			{% endif %}
-			{% if character.school_attended is not None %}
+			{% if character.school_attended %}
 			<li class='list-group-item'>
 				Attended {{ character.school_attended.name }}
 			</li>
 			{% endif %}
-			{% if character.house is not None or character.house_founded is not None %}
+			{% if character.house or character.house_founded %}
 			<li class='list-group-item'>
-				{% if character.house_founded is not None %}Founded {% endif %}{{ character.house.name }} House
+				{% if character.house_founded.all %}Founded {% endif %}
+				{% if character.houses_haunted.all %}Haunts {% endif %}
+				{{ character.house.name }} House
 			</li>
 			{% endif %}
-			{% if character.wand is not None %}
+			{% if character.wand %}
 			<li class='list-group-item'>
 				{{ character.wand }}
 			</li>
 			{% endif %}
-			{% if character.shop is not None %}
+			{% if character.shop %}
 			<li class='list-group-item'>
 				{{ character.shop.name }}
 			</li>
@@ -93,7 +95,7 @@
 	</div>
 {% endif %}
 
-{% if character.books_authored or character.books_starred %}
+{% if character.books_authored.all or character.books_starred.all %}
 	<div class='row'>
 		<div class='col-md-12'>
 			<h3>BIBLIOGRAPHY</h3>
@@ -107,26 +109,40 @@
 	</div>
 {% endif %}
 
-{% if character.artifacts %}
+{% if character.artifacts.all %}
 	<div class='row'>
 		<div class='col-md-12'>
 			<h3>ARTIFACTS</h3>
-			{% for character.artifacts.all %}
-				{{ character.artifact.name }}
+			{% for artifact in character.artifacts.all %}
+				<a href="{% url 'artifact' artifact.id %}">{{ artifact.name }}</a><br/>
 			{% endfor %}
 		</div>
 	</div>
 {% endif %}
 
-{% if character.relationships1 or character.relationships2 %}
+{% if character.relationships1.all or character.relationships2.all %}
 	<div class='row'>
 		<div class='col-md-12'>
 			<h3>FAMILY RELATIONSHIPS</h3>
 			{% for relation1 in character.relationships1.all %}
-				{{ relation1.character2.name }} ({{ relation1.descriptor2 }})<br/>
+				{% if not relation1.character2.hidden %}
+				 	<a href="{% url 'character' relation1.character2.id %}">
+				{% endif %}
+				{{ relation1.character2.name }}
+				{% if not relation1.character2.hidden %}
+					</a>
+				{% endif %}
+				({{ relation1.descriptor2 }})<br/>
 			{% endfor %}
 			{% for relation2 in character.relationships2.all %}
-				{{ relation2.character1.name }} ({{ relation2.descriptor1 }})<br/>
+				{% if not relation2.character1.hidden %}
+				 	<a href="{% url 'character' relation2.character1.id %}">
+				{% endif %}
+				{{ relation2.character1.name }}
+				{% if not relation2.character1.hidden %}
+					</a>
+				{% endif %}
+				({{ relation1.descriptor2 }})<br/>
 			{% endfor %}
 		</div>
 	</div>
