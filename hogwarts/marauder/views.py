@@ -3,31 +3,63 @@ from django.views import generic
 from django.http import HttpResponse
 import json
 from marauder.models import *
+from marauder.tables import *
+from django_tables2 import SingleTableView
 
-class CreatureView(generic.DetailView):
+# Creature Views
+class CreatureListView(generic.ListView):
+    model = Creature
+    template_name = 'creatures/index.html'
+
+    def get_context_data(self, **kwargs):
+        context = super(CreatureListView, self).get_context_data(**kwargs)
+        return context
+
+class CreatureDetailView(generic.DetailView):
     model = Creature
     template_name = 'creatures/base.html'
 
-class CharacterView(generic.DetailView):
+    def get_context_data(self, **kwargs):
+        context = super(CreatureDetailView, self).get_context_data(**kwargs)
+        return context
+
+# Character Views
+class CharacterListView(SingleTableView):
+    model = Character
+    template_name = 'characters/index.html'
+    table_class = CharacterTable
+    table_pagination = {'per_page': 10}
+
+class CharacterDetailView(generic.DetailView):
     model = Character
     template_name = 'characters/base.html'
 
-class SpellsView(generic.DetailView):
+    def get_context_data(self, **kwargs):
+        context = super(CharacterDetailView, self).get_context_data(**kwargs)
+        return context
+
+# Spell Views
+class SpellDetailView(generic.DetailView):
     model = Spell
     template_name = 'spells/base.html'
 
-class PotionsView(generic.DetailView):
+# Potion Views
+class PotionDetailView(generic.DetailView):
     model = Potion
     template_name = 'potions/base.html'
 
-class StoriesView(generic.DetailView):
+# Story Views
+class StoryDetailView(generic.DetailView):
     model = Story
     template_name = 'stories/base.html'
 
-class ArtifactsView(generic.DetailView):
+# Artifact Views
+class ArtifactDetailView(generic.DetailView):
     model = Artifact
     template_name = 'artifacts/base.html'
 
+# Book Views
+# Location Views
 """
   RESTful API
   
