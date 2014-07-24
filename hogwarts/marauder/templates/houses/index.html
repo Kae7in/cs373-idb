@@ -1,0 +1,9 @@
+{% extends "base.html" %}
+
+{% block content %}
+	<div id='house-list'>
+		{% for house in houses %}
+			<a href='{% url "house" house.id %}'><img src='{{ house.image.url }}'/></a>
+		{% endfor %}
+	</div>
+{% endblock content %}

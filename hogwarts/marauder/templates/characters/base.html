@@ -12,7 +12,15 @@
    	<div class='col-xs-12 col-md-6 col-sm-6 info-group'>
    		<ul class='list-group info-group-list'>
 			<li class='list-group-item'>
-				{% if character.magical %}
+				{% if character.creature %}
+					{% if not character.creature.hidden %}
+						<a href='{% url "creature" character.creature.id %}'>
+					{% endif %}
+					{{ character.creature.name }}
+					{% if not character.creature.hidden %}
+						</a>
+					{% endif %}
+				{% elif character.magical %}
 					{% if character.sex == 'F' %}
 				  		Witch
 					{% else %}

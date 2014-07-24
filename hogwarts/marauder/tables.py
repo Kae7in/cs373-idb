@@ -4,6 +4,26 @@ from marauder.models import *
 class CharacterTable(tables.Table):
     name = tables.TemplateColumn('''
     	<a href='{% url "character" record.pk %}'>{{ record.name }}</a>''')
+    creature = tables.TemplateColumn('''
+        {% if record.creature and not record.creature.hidden %}
+            <a href='{% url "creature" record.creature.id %}'>
+        {% endif %}
+        {{ record.creature.name }}
+        {% if record.creature and not record.creature.hidden %}
+            </a>
+        {% endif %}''')
+    school_attended = tables.TemplateColumn('''
+        {% if record.school_attended %}
+            <a href='{% url "school" record.school_attended.id %}'>
+                {{ record.school_attended.name }}
+            </a>
+        {% endif %}''')
+    house = tables.TemplateColumn('''
+        {% if record.house %}
+            <a href='{% url "house" record.house.id %}'>
+                {{ record.house.name }}
+            </a>
+        {% endif %}''')
     class Meta:
         model = Character
         fields = ("name", "magical", "sex", "creature", "school_attended", "house")

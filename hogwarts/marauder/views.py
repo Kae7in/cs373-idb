@@ -66,12 +66,6 @@ class PotionDetailView(generic.DetailView):
     model = Potion
     template_name = 'potions/base.html'
 
-    def get_context_data(self, **kwargs):
-        context = super(PotionDetailView, self).get_context_data(**kwargs)
-        if kwargs['object'].hidden:
-            raise Http404
-        return context
-
 # Story Views
 class StoryListView(SingleTableView):
     model = Story
@@ -140,6 +134,11 @@ class ShopDetailView(generic.DetailView):
 class HouseListView(generic.ListView):
     model = House
     template_name = 'houses/index.html'
+
+    def get_context_data(self, **kwargs):
+        context = super(HouseListView, self).get_context_data(**kwargs)
+        context['houses'] = House.objects.all()
+        return context
 
 class HouseDetailView(generic.DetailView):
     model = House

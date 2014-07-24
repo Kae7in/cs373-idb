@@ -10,6 +10,15 @@
   background-color: #fff;
   border: 1px solid #ddd;;
 }
+
+#house-list {
+  text-align: center;
+}
+
+#house-list img {
+  padding: 50px;
+}
+
 a:hover {
     text-decoration: none;
 }
@@ -27,7 +36,7 @@ a:hover {
     max-width: 900px;
 }
 
-img {
+.main-img {
     vertical-align: bottom;
     max-width: 300px;
 }
