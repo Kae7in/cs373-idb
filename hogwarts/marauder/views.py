@@ -85,7 +85,6 @@ class RestView(object):
       else:
           return getattr(self, 'get_collection')()
 
-
 class CharacterRestView(RestView):
 
     def get_item(self, character_id):
@@ -166,7 +165,7 @@ class StoryRestView(RestView):
 
         data = []
         for story in stories:
-            element = self.formatCharacterData(story)
+            element = self.formatStoryData(story)
             data.append(element) 
         
         return JSONResponse(data)
@@ -176,14 +175,16 @@ class StoryRestView(RestView):
         Form the given story object into a dictionary that meets API
         specification.
         """
+        characters = s.characters.all()
+        artifacts = s.artifacts.all()
         return {
             "id": s.id,
             "name": s.name,
             "description": s.description,
-            "date": s.date,
-            "kind": s.kind,
-            "characters": [c.id for c in s.characters.all()],
-            "artifacts": [a.id for a in s.artifacts.all()],
+            "date": s.date.isoformat(),
+            "kind": s.kind if s.kind else None,
+            "characters": [c.id for c in characters] if characters else None,
+            "artifacts": [a.id for a in artifacts] if artifacts else None,
             "quote": s.quote if s.quote else None, 
             "quote_by": s.quote_by if s.quote_by else None
         }

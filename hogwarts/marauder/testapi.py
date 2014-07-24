@@ -3,6 +3,7 @@ from django.test import TestCase, TransactionTestCase
 from django.test.client import Client
 from django.core.urlresolvers import reverse
 from marauder.models import *
+from datetime import date
 import json
 
 def fetch_url(url):
@@ -33,7 +34,6 @@ class TestCharacterAPI(TransactionTestCase):
             quote="Die, basilisk!",
             quote_by='neville on the battlefield',
             sex='M',
-
         )
 
     def testDetail(self):
@@ -110,10 +110,9 @@ class TestPotionAPI(TransactionTestCase):
         self.assertEqual(response, expected)
 
 
-class TestCreatureAPI(TestCase):
+class TestCreatureAPI(TransactionTestCase):
 
-    @classmethod
-    def setUpClass(self):
+    def setUp(self):
         c = Creature.objects.create(
             id=1,
             name='HippogriffTest',
@@ -200,4 +199,45 @@ class TestArtifactAPI(TransactionTestCase):
         url = reverse('artifacts_api')
         response = fetch_url(url)
         expected = [{'shop': None, 'kind': 'asdfasdf', 'name': 'Sword of Griffyndor', 'description': 'this is a mighty sword', 'owners': [3, 5], 'id': 1}, {'shop': None, 'kind': 'some wand thing', 'name': 'Elder Wand', 'description': "I can't believe he unearthed Dumbledore's tomb. Rude.", 'owners': [], 'id': 3}]
+        self.assertEqual(response, expected)
+
+class TestStoryAPI(TransactionTestCase):
+
+    def setUp(self):
+        s1 = Story.objects.create(
+            id = 1,
+            name = 'Deathly Hallows',
+            description = 'Three bros doin shit',
+            kind = 'legend',
+            date = date(1200, 1, 1),
+            quote = 'la la la',
+            quote_by = 'someone',
+        )
+        s2 = Story.objects.create(
+            id = 2,
+            name = 'Another Story',
+            description = 'Riveting',
+            date = date(1987, 1, 1),
+        )
+
+    def testDetail(self):
+        story = Story.objects.get(pk=2)
+        url = reverse('story_api', kwargs={'id': 2})
+        response = fetch_url(url)
+        expected = {
+            'date': '1987-01-01', 'name': 'Another Story', 'kind': None, 
+            'characters': None, 'id': 2, 'quote_by': None, 
+            'description': 'Riveting', 'artifacts': None, 'quote': None} 
+        self.assertEqual(response, expected)
+
+    def testIndex(self):
+        url = reverse('stories_api')
+        response = fetch_url(url)
+        expected = [
+            {'artifacts': None, 'characters': None, 'date': '1200-01-01', 
+             'description': 'Three bros doin shit', 'id': 1, 'kind': 'legend', 
+             'name': 'Deathly Hallows', 'quote': 'la la la', 'quote_by': 'someone'},
+            {'artifacts': None, 'characters': None, 'date': '1987-01-01', 
+             'description': 'Riveting', 'id': 2, 'kind': None, 'name': 'Another Story',
+             'quote': None, 'quote_by': None}]
         self.assertEqual(response, expected)
