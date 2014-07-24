@@ -4,39 +4,37 @@
 
 {% block content %}
         <div id="name">
-   		    <h1 class="uppercase">{% block alias %}{{ spell.incantation }}{% endblock alias %}</h1>
+   		    <h1 class="uppercase">{{ spell.incantation }}</h1>
         </div>
 
 <div class='row'>
    	<div class='col-md-8 col-sm-6 info-group'>
    		<ul class='list-group info-group-list'>
-			{% block info_group %}
 			<li class='list-group-item'><strong>Alias:</strong> {{ spell.alias }}</li>
 			<li class='list-group-item'><strong>Creator:</strong> {{ spell.creator }}</li>
 			<li class='list-group-item'><strong>Kind:</strong> {{ spell.kind }}</li>
 			<li class='list-group-item'><strong>Difficulty:</strong> {{ spell.difficulty }}</li>
-			{% endblock info_group %}
 		</ul>
 	</div>
 
-	<div class='col-md-4 col-sm-6 main-image'>
-		<img class='list-group-item' src='{% block image_url %}{{ spell.image.url }}{% endblock image_url %}'>
+	<div class='col-md-4 col-sm-6'>
+		<div class='main-image'>
+			<img class='list-group-item' src='{{ spell.image.url }}'>
+		</div>
 	</div>
 </div>
 
 <div class='row'>
 	<div class='col-md-12 block-text'>
         <h3>EFFECTS</h3>
-		{% block effect_description %}{{ spell.effect }}{% endblock effect_description %}
+		{{ spell.effect }}
 	</div>
 </div>
 
 <div class='row'>
 	<div class='col-md-12 block-text'>
 		<h3>NOTABLE USES</h3>
-		{% block uses %}
 		{{ spell.notable_uses }}
-		{% endblock uses %}
 	</div>
 </div>
 
