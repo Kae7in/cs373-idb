@@ -261,10 +261,27 @@ class ShopRestView(RestView):
 
 class PotionRestView(RestView):
 
-    def GET(self, potion_id):
-        p = Potion.objects.get(pk=potion_id)
+    def get_item(self, potion_id):
+        
+        potion = Potions.objects.get(pk=potion_id)
 
-        data = {
+        data = self.formatPotionData(potion)
+
+        return JSONResponse(data)
+
+    def get_collection(self):
+        potions = Potion.objects.all()
+
+        data = []
+        for potion in potions:
+            element = self.formatPotionData(potion)
+            data.append(element)
+
+        return JSONResponse(data)
+
+    def formatPotionData(self, p):
+        
+        return {
             "id": p.id,
             "title": p.title,
             "difficulty": p.difficulty,
@@ -273,21 +290,36 @@ class PotionRestView(RestView):
             "recipe": p.recipe if p.recipe else None,
             "notable_uses": p.notable_uses
         }
-        return JSONResponse(data)
+
          
 class CreatureRestView(RestView):
-    def GET(self, creature_id):
+
+    def get_item(self, creature_id):
         c = Creature.objects.get(pk=creature_id)
 
-        data = {
+        data = self.formatCreatureData(self, c)
+
+        return JSONResponse(data)
+
+    def get_collection(self):
+        
+        creatures = Creature.objects.all()
+
+        for creature in creatures:
+            element = self.formatCreatureData(creature)
+            data.append(element)
+
+        return JSONResponse(data)
+
+    def formatCreatureData(self, c):
+        
+        return  {
             "id": c.id,
             "name": c.name,
             "description": c.description,
             "classification": c.classification,
             "rating": c.rating
         }
-
-        return JSONResponse(data)
 
 class JSONResponse(HttpResponse):
     def __init__(self, data):
