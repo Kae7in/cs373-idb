@@ -331,12 +331,14 @@ class ShopRestView(RestView):
         return JSONResponse(data)
 
     def formatShopData(self, s):
+        owners = s.owners.all()
+        locations = s.locations.all()
         return {
             'id': s.id,
             'name': s.name,
             'description': s.description,
-            'owners': [o.id for o in s.owners] if s.owners else None,
-            'locations': [l.id for l in s.locations] if s.locations else None
+            'owners': [o.id for o in owners] if owners else None,
+            'locations': [l.id for l in locations] if locations else None
         }
 
 class PotionRestView(RestView):
