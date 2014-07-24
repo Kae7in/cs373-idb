@@ -53,46 +53,6 @@ A single Character object with all its details
                 "quote_by": "Albus Dumbledore"
             }
 
-## Location Collection [/locations]
-### List all Locations [GET]
-+ Response 200 (application/json)
-
-        [
-            {
-                "id": "1",
-                "name": "Diagon Alley",
-                "description": "A shopping area in the form of an stoned paved alley that is located in London. It has an assortment of shops and restaurants and is also the home to the wizard bank of Gringots. It is typically the shopping district where all students go to purchase their supplies for the upcoming school year.",
-                "kind": null
-            },{
-                "id": "2",
-                "name": "Hogsmeade",
-                "description": "The only All-wizarding village in Britain, Hogsmeade is a small villiage that contains a few shops and pubs that both third year or higher students and teachers tend to go some when a school trip has been planned.",
-                "kind": null
-            }
-        ]
-        
-## Location [/locations/{id}]
-A single Location object with all its details
-
-+ Parameters
-    + id (required, number, `1`) ... Numeric `id` of the Location to perform action with.
-
-### Retrieve a Location [GET]
-+ Response 200 (application/json)
-
-    + Header
-
-            Content-type: UTF-8
-
-    + Body
-
-            {
-                "id": "1",
-                "name": "Diagon Alley",
-                "description": "A shopping area in the form of an stoned paved alley that is located in London. It has an assortment of shops and restaurants and is also the home to the wizard bank of Gringots. It is typically the shopping district where all students go to purchase their supplies for the upcoming school year.",
-                "kind": null
-            }
-
 ## Houses Collection [/houses]
 ### List all Houses [GET]
 + Response 200 (application/json)
@@ -288,54 +248,6 @@ A single Artifact object with all its details
                 "shop": null
             }
 
-
-## Books Collection [/books]
-### List all Books [GET]
-+ Response 200 (application/json)
-
-        [{
-            "id": 1,
-            "name": "The Tales of Beedle The Bard",
-            "description": "The Tales of Beedle the Bard is a collection of stories written for young wizards and witches, published by Chelf Press. They were popular bedtime stories for centuries, with the result that The Wizard and the Hopping Pot and The Fountain of Fair Fortune were as familiar to many of the students at Hogwarts as Cinderella and Sleeping Beauty are to various Muggle children.",
-            "author": 6,
-            "subjects": [3, 1],
-            "publisher": null,
-            "published_date": null
-        }, {
-            "id": 2,
-            "name": "Magical Me",
-            "description": "Magical Me is the autobiography of Gilderoy Lockhart, part of his collected works. It includes much of his (later proven false) achievements.",
-            "author": 21,
-            "subjects": [5],
-            "publisher": null,
-            "published_date": null
-        }]
-
-## Book [/books/{id}]
-A single Book object with all its details
-
-+ Parameters
-    + id (required, number, `1`) ... Numeric `id` of the Book to perform action with.
-
-### Retrieve a Book [GET]
-+ Response 200 (application/json)
-
-    + Header
-
-            Content-type: UTF-8
-
-    + Body
-
-            {
-                "id": 1,
-                "name": "The Tales of Beedle The Bard",
-                "description": "The Tales of Beedle the Bard is a collection of stories written for young wizards and witches, published by Chelf Press. They were popular bedtime stories for centuries, with the result that The Wizard and the Hopping Pot and The Fountain of Fair Fortune were as familiar to many of the students at Hogwarts as Cinderella and Sleeping Beauty are to various Muggle children.",
-                "author": 6,
-                "subjects": [3, 1],
-                "publisher": null,
-                "published_date": null
-            }
-
 ## Potions Collection [/potions]
 ### List all Potions [GET]
 + Response 200 (application/json)
@@ -499,39 +411,4 @@ A single Creature object with all its details
                 "description": "A giant is a very large humanoid which can potentially grow to approximately twenty five feet tall and appear to be a large human. Some may appear as large and hairy humanoids, while others resemble humongous-sized people, and some may even have bestial features (i.e. protuding sharp molars). A powerful and nearly unstoppable race, giants generally aggregate themselves in tribes since their numbers have greatly dwindled in recent centuries. A giant tribe is led by the strongest giant, known as the Gurg.",
                 "classification": "Being",
                 "rating": "Unknown"
-            }
-            
-## Ingredients Collection [/ingredients]
-### List all Ingredients [GET]
-+ Response 200 (application/json)
-
-        [{
-            "id": 1,
-            "name": "Murtlap tentacle",
-            "creature": 3
-        }, {
-            "id": 2,
-            "name": "Horseradish",
-            "creature": null
-        }]
-
-## Ingredient [/ingredients/{id}]
-A single Ingredient object with all its details
-
-+ Parameters
-    + id (required, number, `1`) ... Numeric `id` of the Ingredient to perform action with.
-
-### Retrieve an Ingredient [GET]
-+ Response 200 (application/json)
-
-    + Header
-
-            Content-type: UTF-8
-
-    + Body
-
-            {
-                "id": 1,
-                "name": "Murtlap tentacle",
-                "creature": 3
             }
