@@ -1,0 +1,73 @@
+{% extends "base.html" %}
+
+{% block content %}
+<div id="name">
+    <h1 class="uppercase">{{ book.name }}</h1>
+</div>
+
+<div class='row'>
+   	<div class='col-md-5 col-sm-5 info-group'>
+   		<ul class='list-group info-group-list'>
+			{% if book.author %}
+				<li class='list-group-item'>
+					By 
+					{% if not book.author.hidden %}
+						<a href='{% url "character" book.author.id %}'>
+					{% endif %}
+					{{ book.author.name }}
+					{% if not book.author.hidden %}
+						</a>
+					{% endif %}
+				</li>
+			{% endif %}
+			{% if book.publisher or book.published_date %}
+				<li class='list-group-item'>
+					Published 
+					{% if book.publisher %}{{ book.publisher }}{% endif %}
+					{% if book.published_date %} in {{ book.published_date.year }}{% endif %}
+				</li>
+			{% endif %}
+			{% if story.book %}
+				<li class='list-group-item'>
+					As told in <a href="{% url 'book' story.book.id %}">{{ story.book.name }}</a>
+				</li>
+			{% endif %}
+		</ul>
+	</div>
+
+	<div class='col-xs-12 col-md-6 col-sm-6'></div>
+</div>
+
+<div class='row'>
+	<div class='col-xs-12 col-md-6 col-sm-6'>
+		<div class='main-image'>
+			<img class='list-group-item' src='{{ book.image.url }}'>
+		</div>
+	</div>
+	<div class='col-md-5 col-sm-5'></div>
+</div>
+
+<div class='row'>
+	<div class='col-md-12' id='description'>
+		{{ book.description|safe }}
+	</div>
+</div>
+
+{% if book.subjects.all %}
+	<div class='row'>
+		<div class='col-md-12'>
+			<h3>SUBJECTS</h3>
+			{% for character in book.subjects.all %}
+				{% if not character.hidden %}
+					<a href="{% url 'character' character.id %}">
+				{% endif %}
+				{{ character.name }}
+				{% if not character.hidden %}
+					</a>
+				{% endif %}
+				<br/>
+			{% endfor %}
+		</div>
+	</div>
+{% endif %}
+{% endblock content %}
