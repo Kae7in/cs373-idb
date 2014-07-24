@@ -10,6 +10,15 @@
   background-color: #fff;
   border: 1px solid #ddd;;
 }
+
+#house-list {
+  text-align: center;
+}
+
+#house-list img {
+  padding: 50px;
+}
+
 a:hover {
     text-decoration: none;
 }
@@ -27,7 +36,7 @@ a:hover {
     max-width: 900px;
 }
 
-img {
+.main-img {
     vertical-align: bottom;
     max-width: 300px;
 }
@@ -70,12 +79,42 @@ body {
         display: block;
     }
 
+
+    .otherjumbo {
+    background: url('../images/marauders.jpg');
+    background-size: cover;
+    padding-top: 48px;
+    padding-bottom: 48px;
+}
+
+    .otherjumbo h1 {
+  font-size: 7em;
+  font-family: 'Open Sans';
+  color: white;
+}
+
+    .otherjumbo p {
+  font-family: 'Open Sans';
+  font-size: 2em;
+  color: white;
+}
+
 }
 
 /* mobile phones */
 @media (max-width: 768px) {
     #description, blockquote, .block-text {
         max-width: 320px;
+    }
+
+    .otherjumbo {
+        margin:0;
+        padding:0;
+        visibility: hidden;
+    }
+
+    .jumbotron {
+        visibility: hidden;
     }
 
 }
@@ -90,25 +129,6 @@ body {
 
 .main-image { width: 80%; }
 
-
-.otherjumbo {
-    background: url('../images/marauders.jpg');
-    background-size: cover;
-    padding-top: 100px;
-    padding-bottom: 100px;
-}
-
-.otherjumbo h1 {
-  font-size: 7em;
-  font-family: 'Open Sans';
-  color: white;
-}
-
-.otherjumbo p {
-  font-family: 'Open Sans';
-  font-size: 2em;
-  color: white;
-}
 
 /*
 .main-image img {
