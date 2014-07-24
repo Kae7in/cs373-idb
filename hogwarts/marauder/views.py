@@ -312,7 +312,7 @@ class SpellRestView(RestView):
 
 
 class ShopRestView(RestView):
-    def get_item(self, spell_id):
+    def get_item(self, shop_id):
         # get the shop from the model
         s = Shop.objects.get(pk=shop_id)
 
