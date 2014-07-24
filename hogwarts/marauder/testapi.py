@@ -328,7 +328,7 @@ class TestShopAPI(TransactionTestCase):
         response = fetch_url(url)
         expected = [{ 
             'id': 1,
-            'name': 'Shop',
+            'name': 'Shop1',
             'description': 'Sells things',
             'owners': None,
             'locations': None }, {
