@@ -108,6 +108,7 @@ class BookDetailView(generic.DetailView):
 class LocationListView(SingleTableView):
     model = Location
     template_name = 'locations/index.html'
+    queryset = Location.objects.exclude(kind='House')
     table_class = LocationTable
     table_pagination = {'per_page': 10}
 
