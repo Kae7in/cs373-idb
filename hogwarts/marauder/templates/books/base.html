@@ -1,5 +1,7 @@
 {% extends "base.html" %}
 
+{% block book-active %}active{% endblock book-active %}
+
 {% block content %}
 <div id="name">
     <h1 class="uppercase">{{ book.name }}</h1>
@@ -10,7 +12,7 @@
    		<ul class='list-group info-group-list'>
 			{% if book.author %}
 				<li class='list-group-item'>
-					By 
+					By
 					{% if not book.author.hidden %}
 						<a href='{% url "character" book.author.id %}'>
 					{% endif %}
@@ -22,7 +24,7 @@
 			{% endif %}
 			{% if book.publisher or book.published_date %}
 				<li class='list-group-item'>
-					Published 
+					Published
 					{% if book.publisher %}{{ book.publisher }}{% endif %}
 					{% if book.published_date %} in {{ book.published_date.year }}{% endif %}
 				</li>

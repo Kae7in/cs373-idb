@@ -15,10 +15,6 @@
   text-align: center;
 }
 
-#house-list img {
-  padding: 50px;
-}
-
 a:hover {
     text-decoration: none;
 }
@@ -36,9 +32,14 @@ a:hover {
     max-width: 900px;
 }
 
-.main-img {
+.main-image img {
     vertical-align: bottom;
+    width: 100%;
     max-width: 300px;
+}
+
+.main-image {
+    float: right;
 }
 
 body {

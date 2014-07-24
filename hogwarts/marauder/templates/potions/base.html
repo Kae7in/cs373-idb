@@ -1,63 +1,66 @@
 {% extends "base.html" %}
 
+{% block potion-active %}active{% endblock potion-active %}
+
+{% block scripts %}
+<link href='http://fonts.googleapis.com/css?family=Neucha' rel='stylesheet' type='text/css'>
+{% endblock scripts %}
+
 {% block content %}
-        <div id="name">
-   		    <h1 class="uppercase">{% block name %}{{potion.title|safe}}{% endblock name %}</h1>
-        </div>
+<div id="name">
+    <h1 class="uppercase">{{ potion.title }}</h1>
+</div>
+
 <div class='row'>
-   	<div class='col-md-5 col-sm-6 info-group'>
+   	<div class='col-xs-12 col-md-6 col-sm-6 info-group'>
    		<ul class='list-group info-group-list'>
 			<li class='list-group-item'>
-				Difficulty: {{potion.get_difficulty_display|safe}}
+			    Difficulty: {{ potion.get_difficulty_display|safe }}
 			</li>
-			<li class ='list-group-item'>
-				Physical Description:</br>{{potion.physical_description|safe}}
+			<li class='list-group-item'>
+				Physical Description:</br> {{ potion.physical_description|safe }}
 			</li>
 			{% if potion.ingredients.all %}
-			<li class='list-group-item'>
-				Ingredients:</br>
-				{% for ingredient in potion.ingredients.all %}
-					{{ingredient.name|safe}}</br>
-				{% endfor %}
-			</li>
+					<li class='list-group-item'>
+						Ingredients:</br>
+						{% for ingredient in potion.ingredients.all %}
+						    {{ingredient.name|safe}}</br>
+					    {% endfor %}
+					</li>
 			{% endif %}
+
 		</ul>
-
 	</div>
 
-	<div class='col-md-5 col-sm-6 main-image'>
-		<img class='list-group-item' src='{% block image_url %}{{potion.image.url}}{% endblock image_url %}'>
+	<div class='col-xs-12 col-md-6 col-sm-6'>
+		<div class='main-image'>
+			<img class='list-group-item' src='{{ potion.image.url }}'>
+		</div>
 	</div>
-    <div class='col-sm-2'></div>
 </div>
 
 <div class='row'>
 	<div class='col-md-12' id='description'>
-		<h3>EFFECTS</h3>
-		{% block effects %}{{potion.effects|safe}}{% endblock effects %}
+	    <h3>EFFECTS</h3>
+		{{ potion.effects|safe }}
 	</div>
 </div>
 
 
-
 <div class='row'>
-	<div class='col-md-12 block-text'>
-	{% if potion.recipe %}
-		<h3>RECIPE</h3>
-		{% block recipe %}
-		{{potion.recipe|safe}}
-		{% endblock recipe %}
-	{% endif %}
+	<div class='col-md-12'>
+	    <h3>RECIPE</h3>
+        {{ potion.recipe|safe}}
 	</div>
 </div>
 
+
 <div class='row'>
-	<div class='col-md-12 block-text'>
+	<div class='col-md-12'>
 		<h3>NOTABLE USES</h3>
-		{% block notable_uses %}
-		{{potion.notable_uses|safe}}
-		{% endblock notable_uses %}
+		{{ potion.notable_uses|safe }}
 	</div>
 </div>
+
 
 {% endblock content %}

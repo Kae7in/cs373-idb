@@ -4,6 +4,8 @@
 <link href='http://fonts.googleapis.com/css?family=Neucha' rel='stylesheet' type='text/css'>
 {% endblock scripts %}
 
+{%block char-active%}active{%endblock char-active%}
+
 {% block content %}
         <div id="name">
    		    <h1 class="uppercase">{{ character.name }}</h1>
@@ -34,7 +36,7 @@
 			</li>
 			{% if character.school_founded %}
 			<li class='list-group-item'>
-				Founded 
+				Founded
 				<a href='{% url "school" character.school_founded.id %}'>
 					{{ character.school_founded.name }}
 				</a>
@@ -42,7 +44,7 @@
 			{% endif %}
 			{% if character.school_headmastered %}
 			<li class='list-group-item'>
-				Headmaster at 
+				Headmaster at
 				<a href='{% url "school" character.school_headmastered.id %}'>
 					{{ character.school_headmastered.name }}
 				</a>
@@ -50,7 +52,7 @@
 			{% endif %}
 			{% if character.school_taught %}
 			<li class='list-group-item'>
-				Professor at 
+				Professor at
 				<a href='{% url "school" character.school_taught.id %}'>
 					{{ character.school_taught.name }}
 				</a>
@@ -58,7 +60,7 @@
 			{% endif %}
 			{% if character.school_staffed %}
 			<li class='list-group-item'>
-				Staff at 
+				Staff at
 				<a href='{% url "school" character.school_staffed.id %}'>
 					{{ character.school_staffed.name }}
 				</a>
@@ -66,7 +68,7 @@
 			{% endif %}
 			{% if character.school_attended %}
 			<li class='list-group-item'>
-				Attended 
+				Attended
 				<a href='{% url "school" character.school_attended.id %}'>
 					{{ character.school_attended.name }}
 				</a>
@@ -88,7 +90,7 @@
 			{% endif %}
 			{% if character.shop %}
 			<li class='list-group-item'>
-				Owns 
+				Owns
 				<a href='{% url "shop" character.shop.id %}'>
 					{{ character.shop.name }}
 				</a>
