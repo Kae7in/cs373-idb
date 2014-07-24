@@ -19,3 +19,13 @@ class StoryTable(tables.Table):
         model = Story
         fields = ("name", "kind", "date")
         attrs = {"class": "table table-striped table-bordered table-hover"}
+
+class CreatureTable(tables.Table):
+    name = tables.TemplateColumn('''
+    	<a href='{% url "creature" record.pk %}'>{{ record.name }}</a>''')
+    classification = tables.TemplateColumn("{{ record.classification }}")
+    rating = tables.TemplateColumn("{{ record.get_rating_display }}")
+    class Meta:
+        model = Creature
+        fields = ("name", "classification", "rating")
+        attrs = {"class": "table table-striped table-bordered table-hover"}

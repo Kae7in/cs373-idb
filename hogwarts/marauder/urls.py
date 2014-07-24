@@ -19,6 +19,7 @@ urlpatterns = patterns('',
     url(r'^potions/(?P<pk>\d+)/$', views.PotionDetailView.as_view(), name='potion'),
     #Artifacts
     url(r'^artifacts/(?P<pk>\d+)/$', views.ArtifactDetailView.as_view(), name='artifact'),
+#    url(r'^artifacts/$', views.ArtifactListView.as_view(), name='artifacts'),
     #Spells
     url(r'^spells/(?P<pk>\d+)/$', views.SpellDetailView.as_view(), name='spell'),
     #Stories
