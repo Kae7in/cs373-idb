@@ -24,7 +24,8 @@
 			</li>
 			{% endif %}
 			{% if house.school %}
-				<li>
+				<li class='list-group-item'>
+				School
 				 	<a href="{% url 'school' house.school.id %}">{{ house.school.name }}</a>
 				</li>
 			{% endif %}
