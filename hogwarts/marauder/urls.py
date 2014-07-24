@@ -16,11 +16,12 @@ urlpatterns = patterns('',
     url(r'^characters/$', views.CharacterListView.as_view(), name='characters'),
     url(r'^characters/(?P<pk>\d+)/$', views.CharacterDetailView.as_view(), name='character'),
     #Potions
-    url(r'^potions/$', views.CharacterListView.as_view(), name='potions'),
+    url(r'^potions/$', views.PotionListView.as_view(), name='potions'),
     url(r'^potions/(?P<pk>\d+)/$', views.PotionDetailView.as_view(), name='potion'),
     #Artifacts
     url(r'^artifacts/$', views.ArtifactListView.as_view(), name='artifacts'),
     url(r'^artifacts/(?P<pk>\d+)/$', views.ArtifactDetailView.as_view(), name='artifact'),
+#    url(r'^artifacts/$', views.ArtifactListView.as_view(), name='artifacts'),
     #Spells
     url(r'^spells/$', views.SpellListView.as_view(), name='spells'),
     url(r'^spells/(?P<pk>\d+)/$', views.SpellDetailView.as_view(), name='spell'),

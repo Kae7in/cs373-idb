@@ -8,13 +8,12 @@ from django_tables2 import SingleTableView
 from django.http import Http404
 
 # Creature Views
-class CreatureListView(generic.ListView):
+class CreatureListView(SingleTableView):
     model = Creature
     template_name = 'creatures/index.html'
-
-    def get_context_data(self, **kwargs):
-        context = super(CreatureListView, self).get_context_data(**kwargs)
-        return context
+    queryset = Creature.objects.filter(hidden=False)
+    table_class = CreatureTable
+    table_pagination = {'per_page': 10}
 
 class CreatureDetailView(generic.DetailView):
     model = Creature
@@ -22,6 +21,8 @@ class CreatureDetailView(generic.DetailView):
 
     def get_context_data(self, **kwargs):
         context = super(CreatureDetailView, self).get_context_data(**kwargs)
+        if kwargs['object'].hidden:
+            raise Http404
         return context
 
 # Character Views
@@ -54,9 +55,21 @@ class SpellDetailView(generic.DetailView):
     template_name = 'spells/base.html'
 
 # Potion Views
+class PotionListView(SingleTableView):
+    model = Potion
+    template_name = 'potions/index.html'
+    table_class = PotionTable
+    table_pagination = {'per_page': 10}
+
 class PotionDetailView(generic.DetailView):
     model = Potion
     template_name = 'potions/base.html'
+
+    def get_context_data(self, **kwargs):
+        context = super(PotionDetailView, self).get_context_data(**kwargs)
+        if kwargs['object'].hidden:
+            raise Http404
+        return context
 
 # Story Views
 class StoryListView(SingleTableView):
@@ -134,8 +147,8 @@ class HouseDetailView(generic.DetailView):
 
 """
   RESTful API
-  
-  A helpful example at: https://djangosnippets.org/snippets/1740/ 
+
+  A helpful example at: https://djangosnippets.org/snippets/1740/
 """
 
 class RestView(object):
@@ -165,8 +178,8 @@ class CharacterRestView(RestView):
 
         # Manipulate the python dict to conform to our API 
         data = self.formatCharacterData(c)
-        
-        # Form the python dict into a JSON HTTP response 
+
+        # Form the python dict into a JSON HTTP response
         return JSONResponse(data)
 
     def get_collection(self):
@@ -185,8 +198,8 @@ class CharacterRestView(RestView):
         specification.
         """
         return {
-            "id": c.id, 
-            "name": c.name, 
+            "id": c.id,
+            "name": c.name,
             "wand": c.wand if c.wand else None,
             "description": c.description,
             "magical": c.magical,
@@ -359,12 +372,12 @@ class PotionRestView(RestView):
             "id": p.id,
             "title": p.title,
             "difficulty": p.difficulty,
-            "physical_description": p.physical_description,        
+            "physical_description": p.physical_description,
             "effects": p.effects,
             "recipe": p.recipe if p.recipe else None,
             "notable_uses": p.notable_uses
         }
-         
+
 class CreatureRestView(RestView):
 
     def get_item(self, creature_id):

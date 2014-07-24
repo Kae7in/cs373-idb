@@ -20,6 +20,16 @@ class StoryTable(tables.Table):
         fields = ("name", "kind", "date")
         attrs = {"class": "table table-striped table-bordered table-hover"}
 
+class CreatureTable(tables.Table):
+    name = tables.TemplateColumn('''
+    	<a href='{% url "creature" record.pk %}'>{{ record.name }}</a>''')
+    classification = tables.TemplateColumn("{{ record.classification }}")
+    rating = tables.TemplateColumn("{{ record.get_rating_display }}")
+    class Meta:
+        model = Creature
+        fields = ("name", "classification", "rating")
+        attrs = {"class": "table table-striped table-bordered table-hover"}
+
 class BookTable(tables.Table):
     name = tables.TemplateColumn('''
         <a href='{% url "book" record.pk %}'>{{ record.name }}</a>''')
@@ -35,6 +45,16 @@ class BookTable(tables.Table):
     class Meta:
         model = Book
         fields = ("name", "author")
+        attrs = {"class": "table table-striped table-bordered table-hover"}
+
+class PotionTable(tables.Table):
+    title = tables.TemplateColumn('''
+        <a href='{% url "potion" record.pk %}'>{{ record.title }}</a>''')
+    difficulty = tables.TemplateColumn("{{ record.get_difficulty_display }}")
+
+    class Meta:
+        model = Potion
+        fields = ("title", "difficulty")
         attrs = {"class": "table table-striped table-bordered table-hover"}
 
 class ArtifactTable(tables.Table):
