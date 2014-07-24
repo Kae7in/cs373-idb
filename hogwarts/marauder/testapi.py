@@ -338,3 +338,75 @@ class TestShopAPI(TransactionTestCase):
             'owners': [1],
             'locations': None }]
         self.assertEqual(response, expected)
+
+class TestSpellAPI(TransactionTestCase):
+
+    def setUp(self):
+        s1 = Spell.objects.create(
+            'id': 1,
+            'incantation': 'blah',
+            'alias': 'blah blah',
+            'effect': 'death',
+            'creator': 'me',
+            'notable_uses': None,
+            'unforgivable': True,
+            'difficulty': 'Hard',
+            'kind': 'Transfiguration'
+          )
+        s2 = Spell.objects.create(
+            'id': 2,
+            'incantation': 'blah2',
+            'alias': 'blah blah',
+            'effect': 'death',
+            'creator': 'me',
+            'notable_uses': 'World cup',
+            'unforgivable': False,
+            'difficulty': 'Hard',
+            'kind': 'Transfiguration'
+          )
+
+    def testDetail(self):
+        school = Spell.objects.get(pk=1)
+        url = reverse('spell_api', kwargs={'id': 1})
+        response = fetch_url(url)
+        expected = { 
+            'id': 1,
+            'incantation': 'blah',
+            'alias': 'blah blah',
+            'effect': 'death',
+            'creator': 'me',
+            'notable_uses': None,
+            'unforgivable': True,
+            'difficulty': 'Hard',
+            'kind': 'Transfiguration',
+            'creature': None
+        } 
+        self.assertEqual(response, expected)
+
+    def testIndex(self):
+        url = reverse('spells_api')
+        response = fetch_url(url)
+        expected = [{ 
+            'id': 1,
+            'incantation': 'blah',
+            'alias': 'blah blah',
+            'effect': 'death',
+            'creator': 'me',
+            'notable_uses': None,
+            'unforgivable': True,
+            'difficulty': 'Hard',
+            'kind': 'Transfiguration',
+            'creature': None 
+        }, {
+            'id': 2,
+            'incantation': 'blah2',
+            'alias': 'blah blah',
+            'effect': 'death',
+            'creator': 'me',
+            'notable_uses': 'World cup',
+            'unforgivable': False,
+            'difficulty': 'Hard',
+            'kind': 'Transfiguration',
+            'creature': None
+          }]
+        self.assertEqual(response, expected)

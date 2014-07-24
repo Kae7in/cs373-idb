@@ -304,8 +304,6 @@ class SpellRestView(RestView):
             'creator': s.creator if s.creator else None,
             'notable_uses': s.notable_uses if s.notable_uses else None,
             'unforgivable': s.unforgivable,
-            'KIND_CHOICES': s.KIND_CHOICES,
-            'DIFFICULTY_CHOICES': s.DIFFICULTY_CHOICES,
             'difficulty': s.difficulty,
             'kind': s.kind if s.kind else None,
             'image': s.image,
@@ -339,8 +337,8 @@ class ShopRestView(RestView):
             'id': s.id,
             'name': s.name,
             'description': s.description,
-            'owners': [o.id for o in s.owners] if s.owners,
-            'locations': [l.id for l in s.locations] if s.locations
+            'owners': [o.id for o in s.owners] if s.owners else None,
+            'locations': [l.id for l in s.locations] if s.locations else None
         }
 
 class PotionRestView(RestView):
