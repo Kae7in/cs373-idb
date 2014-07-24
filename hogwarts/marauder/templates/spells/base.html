@@ -9,10 +9,10 @@
    	<div class='col-md-8 col-sm-6 info-group'>
    		<ul class='list-group info-group-list'>
 			{% block info_group %}
-			<li class='list-group-item'>{{ spell.alias }}</li>
-			<li class='list-group-item'>{{ spell.creator }}</li>
-			<li class='list-group-item'>{{ spell.kind }}</li>
-			<li class='list-group-item'>{{ spell.difficulty }}</li>
+			<li class='list-group-item'><strong>Alias:</strong> {{ spell.alias }}</li>
+			<li class='list-group-item'><strong>Creator:</strong> {{ spell.creator }}</li>
+			<li class='list-group-item'><strong>Kind:</strong> {{ spell.kind }}</li>
+			<li class='list-group-item'><strong>Difficulty:</strong> {{ spell.difficulty }}</li>
 			{% endblock info_group %}
 		</ul>
 	</div>

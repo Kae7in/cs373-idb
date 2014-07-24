@@ -34,11 +34,15 @@ urlpatterns = patterns('',
     #Locations
     url(r'^locations/$', views.LocationListView.as_view(), name='locations'),
     url(r'^locations/(?P<pk>\d+)/$', views.LocationDetailView.as_view(), name='location'),
+    url(r'^shops/(?P<pk>\d+)/$', views.ShopDetailView.as_view(), name='shop'),
+    url(r'^schools/(?P<pk>\d+)/$', views.SchoolDetailView.as_view(), name='school'),
     #Houses
     url(r'^houses/$', views.HouseListView.as_view(), name='houses'),
     url(r'^houses/(?P<pk>\d+)/$', views.HouseDetailView.as_view(), name='house'),
 
-    # API
+    #############
+    #### API ####
+    #############
     url(r'^api/characters/$', views.CharacterRestView(), name='characters_api'),
     url(r'^api/characters/(?P<id>\d+)/$', views.CharacterRestView(), name='character_api'),
 

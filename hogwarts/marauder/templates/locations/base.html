@@ -5,15 +5,53 @@
 {% endblock scripts %}
 
 {% block content %}
-        <div id="name">
-   		    <h1 class="uppercase">{{ location.name }}</h1>
-        </div>
+<div id="name">
+    <h1 class="uppercase">{{ location.name }}</h1>
+</div>
+
 <div class='row'>
    	<div class='col-xs-12 col-md-6 col-sm-6 info-group'>
    		<ul class='list-group info-group-list'>
 			<li class='list-group-item'>
-			    {{ location.kind }}
+			    {{ location.kind|capfirst }}
 			</li>
+			{% if location.kind == 'school' %}
+				<li class='list-group-item'>
+					{{ location.country }}
+				</li>
+			{% endif %}
+			{% if location.kind == 'shop' %}
+				{% if location.owners.all %}
+					<li class='list-group-item'>
+						Owned by
+						<ul>
+						{% for owner in location.owners.all %}
+							<li>
+							{% if not owner.hidden %}
+								<a href='{% url "character" owner.id %}'>
+							{% endif %}
+							{{ owner.name }}
+							{% if not owner.hidden %}
+								</a>
+							{% endif %}
+							</li>
+						{% endfor %}
+						</ul>
+					</li>
+				{% endif %}
+				{% if location.locations.all %}
+					<li class='list-group-item'>
+						Located in
+						<ul>
+						{% for l in location.locations.all %}
+							<li>
+								<a href='{% url "location" l.id %}'>{{ l.name }}</a>
+							</li>
+						{% endfor %}
+						</ul>
+					</li>
+				{% endif %}
+			{% endif %}
 		</ul>
 	</div>
 
