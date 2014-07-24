@@ -6,6 +6,7 @@ from marauder.models import *
 from marauder.tables import *
 from django_tables2 import SingleTableView
 from django.http import Http404
+from django.core.exceptions import ObjectDoesNotExist
 
 # Creature Views
 class CreatureListView(SingleTableView):
@@ -173,7 +174,10 @@ class CharacterRestView(RestView):
 
     def get_item(self, character_id):
         # Pull the character row from the model. 
-        c = Character.objects.get(pk=character_id) 
+        try:
+            c = Character.objects.get(pk=character_id) 
+        except ObjectDoesNotExist:
+            return JSON404Response()
 
         # Manipulate the python dict to conform to our API 
         data = self.formatCharacterData(c)
@@ -209,7 +213,10 @@ class CharacterRestView(RestView):
 class ArtifactRestView(RestView):
 
     def get_item(self, artifact_id):
-        a = Artifact.objects.get(pk=artifact_id)
+        try:
+            a = Artifact.objects.get(pk=artifact_id)
+        except ObjectDoesNotExist:
+            return JSON404Response()
         data = self.formatArtifactData(a)
         return JSONResponse(data)
 
@@ -236,7 +243,10 @@ class StoryRestView(RestView):
 
     def get_item(self, story_id):
         # Pull the story row from the model. 
-        s = Story.objects.get(pk=story_id) 
+        try:
+            s = Story.objects.get(pk=story_id) 
+        except ObjectDoesNotExist:
+            return JSON404Response()
 
         # Manipulate the python dict to conform to our API 
         data = self.formatStoryData(s)
@@ -276,7 +286,10 @@ class StoryRestView(RestView):
 class SpellRestView(RestView):
     def get_item(self, spell_id):
         # get the spell from the model
-        s = Spell.objects.get(pk=spell_id)
+        try:
+            s = Spell.objects.get(pk=spell_id)
+        except ObjectDoesNotExist:
+            return JSON404Response()
 
         # fetch data in acceptable format for api
         data = self.formatSpellData(s)
@@ -312,7 +325,10 @@ class SpellRestView(RestView):
 class ShopRestView(RestView):
     def get_item(self, shop_id):
         # get the shop from the model
-        s = Shop.objects.get(pk=shop_id)
+        try:
+            s = Shop.objects.get(pk=shop_id)
+        except ObjectDoesNotExist:
+            return JSON404Response()
 
         # fetch data in acceptable format for api
         data = self.formatShopData(s)
@@ -344,8 +360,11 @@ class ShopRestView(RestView):
 class PotionRestView(RestView):
 
     def get_item(self, potion_id):
-        
-        potion = Potion.objects.get(pk=potion_id)
+       
+        try:
+            potion = Potion.objects.get(pk=potion_id)
+        except ObjectDoesNotExist:
+            return JSON404Response()
 
         data = self.formatPotionData(potion)
 
@@ -376,7 +395,10 @@ class PotionRestView(RestView):
 class CreatureRestView(RestView):
 
     def get_item(self, creature_id):
-        c = Creature.objects.get(pk=creature_id)
+        try:
+            c = Creature.objects.get(pk=creature_id)
+        except ObjectDoesNotExist:
+            return JSON404Response()
 
         data = self.formatCreatureData(c)
 
@@ -406,7 +428,10 @@ class SchoolRestView(RestView):
 
     def get_item(self, school_id):
         # Pull the school row from the model. 
-        s = School.objects.get(pk=school_id) 
+        try:
+          s = School.objects.get(pk=school_id) 
+        except ObjectDoesNotExist:
+          return JSON404Response()
 
         # Manipulate the python dict to conform to our API 
         data = self.formatSchoolData(s)
@@ -442,4 +467,13 @@ class JSONResponse(HttpResponse):
         super(JSONResponse, self).__init__(
             content = json.dumps(data, indent=2),
             content_type = 'application/json'
+        )
+
+class JSON404Response(HttpResponse):
+    def __init__(self):
+        super(JSONResponse, self).__init__(
+            data = {"error":"Sorry. That item doesn't exist.",
+            content = json.dumps(data, indent=2),
+            content_type = 'application/json',
+            status = 404
         )
