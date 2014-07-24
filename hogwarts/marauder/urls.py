@@ -62,5 +62,4 @@ urlpatterns = patterns('',
 
     url(r'^api/schools/$', views.SchoolRestView(), name='schools_api'),
     url(r'^api/schools/(?P<id>\d+)/$', views.SchoolRestView(), name='school_api'),
-)
 ) + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
