@@ -139,7 +139,7 @@ class HouseListView(generic.ListView):
 
 class HouseDetailView(generic.DetailView):
     model = House
-    template_name = 'creatures/base.html'
+    template_name = 'houses/base.html'
 
     def get_context_data(self, **kwargs):
         context = super(HouseDetailView, self).get_context_data(**kwargs)
