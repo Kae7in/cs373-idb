@@ -142,7 +142,7 @@ class HouseListView(generic.ListView):
 
 class HouseDetailView(generic.DetailView):
     model = House
-    template_name = 'creatures/base.html'
+    template_name = 'houses/base.html'
 
 """
   RESTful API
