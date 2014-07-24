@@ -470,9 +470,8 @@ class JSONResponse(HttpResponse):
 
 class JSON404Response(HttpResponse):
     def __init__(self):
-        super(JSONResponse, self).__init__(
-            data = {"error": "Sorry. That item doesn't exist."},
-            content = json.dumps(data, indent=2),
+        super(JSON404Response, self).__init__(
+            content = json.dumps({"error": "Sorry. That item doesn't exist."}, indent=2),
             content_type = 'application/json',
             status = 404
         )
