@@ -40,16 +40,13 @@
 				{% endif %}
 			</li>
 			{% endif %}
-			{% if house.colors %}
 			<li class='list-group-item'>
-				House Colors: {{ house.colors }}
+				House Colors: {{ house.colors|capfirst }}
 			</li>
-			{% endif %}
-			{% if house.mascot %}
 			<li class='list-group-item'>
-				Mascot: {{ house.mascot }}
+				Mascot: {{ house.mascot|capfirst }}
 			</li>
-			{% endif %}
+
 
 		</ul>
 		<blockquote>
@@ -71,5 +68,24 @@
 		{{ houses.description|safe }}
 	</div>
 </div>
+
+
+{% if house.members.all %}
+ 	<div class='row'>
+	  	<div class='col-md-12'>
+			<h3>MEMBER</h3>
+			{% for member in house.members.all %}
+				{% if not member.hidden %}
+		  			<a href="{% url 'character' member.id %}">
+		  		{% endif %}
+		  		{{ member.name }}
+		  		{% if not member.hidden %}
+		  			</a>
+		  		{% endif %}
+		  		<br/>
+			{% endfor %}
+		</div>
+	</div>
+{% endif %}
 
 {% endblock content %}
