@@ -650,21 +650,23 @@ class RelationshipTest(TestCase):
         char1.name = "Harry Potter"
         char1.save()
         char2 = lm.Character()
-        char2.name = "Ron Weasley" 
+        char2.name = "James Potter" 
         char2.save()
         rel = lm.Relationship()
         rel.character1 = char1
         rel.character2 = char2
-        rel.descriptor1 = "BEST FRIENDS FOREVER! <3"
+        rel.descriptor1 = "Son"
+        rel.descriptor2 = "Father"
         rel.save()
         
     def test_create_relationship(self):
         rel = lm.Relationship.objects.first()
         self.assertEqual(rel.character1, lm.Character.objects.first())
         self.assertEqual(rel.character2, lm.Character.objects.all()[1])
-        self.assertEqual(rel.descriptor1, "BEST FRIENDS FOREVER! <3")
+        self.assertEqual(rel.descriptor1, "Son")
+        self.assertEqual(rel.descriptor2, "Father")
         
-    def test_create_relationship2(self):
+
+    def test_relationships_str(self):
         rel = lm.Relationship.objects.first()
-        self.assertEqual(rel.character1.name, lm.Character.objects.first().name)
-        self.assertEqual(rel.character2.name, lm.Character.objects.all()[1].name)   
+        self.assertEqual(str(rel), "Harry Potter (Son) -- James Potter (Father)")
