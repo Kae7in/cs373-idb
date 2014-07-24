@@ -23,7 +23,7 @@ class StoryTable(tables.Table):
 class CreatureTable(tables.Table):
     name = tables.TemplateColumn('''
     	<a href='{% url "creature" record.pk %}'>{{ record.name }}</a>''')
-    classification = tables.TemplateColumn("{{ record.classification }}")
+    classification = tables.TemplateColumn("{{ record.get_classification_display }}")
     rating = tables.TemplateColumn("{{ record.get_rating_display }}")
     class Meta:
         model = Creature
@@ -68,10 +68,10 @@ class ArtifactTable(tables.Table):
         attrs = {"class": "table table-striped table-bordered table-hover"}
 
 class SpellTable(tables.Table):
-    name = tables.TemplateColumn('''
-        <a href='{% url "spell" record.pk %}'>{{ record.name }}</a>''')
-    kind = tables.TemplateColumn("{{ record.kind|capfirst }}")
-    difficulty = tables.TemplateColumn("{{ spell.get_difficulty_display|capfirst }}")
+    incantation = tables.TemplateColumn('''
+        <a href='{% url "spell" record.pk %}'>{{ record.incantation }}</a>''')
+    kind = tables.TemplateColumn("{{ record.kind }}")
+    difficulty = tables.TemplateColumn("{{ record.get_difficulty_display }}")
 
     class Meta:
         model = Spell
