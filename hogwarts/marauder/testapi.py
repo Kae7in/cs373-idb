@@ -307,7 +307,7 @@ class TestShopAPI(TransactionTestCase):
             kind = 'Shop'
         )
         c = Character.objects.create(name = 'Some Old Wizard')
-        s2.owner.add(c)
+        s2.owners.add(c)
         s2.save()
 
     def testDetail(self):
@@ -348,7 +348,7 @@ class TestSpellAPI(TransactionTestCase):
             alias = 'blah blah',
             effect = 'death',
             creator = 'me',
-            notable_uses = None,
+            notable_uses = 'Some',
             unforgivable = True,
             difficulty = 'Hard',
             kind = 'Transfiguration'
@@ -375,7 +375,7 @@ class TestSpellAPI(TransactionTestCase):
             'alias': 'blah blah',
             'effect': 'death',
             'creator': 'me',
-            'notable_uses': None,
+            'notable_uses': 'Some',
             'unforgivable': True,
             'difficulty': 'Hard',
             'kind': 'Transfiguration',
@@ -392,7 +392,7 @@ class TestSpellAPI(TransactionTestCase):
             'alias': 'blah blah',
             'effect': 'death',
             'creator': 'me',
-            'notable_uses': None,
+            'notable_uses': 'Some',
             'unforgivable': True,
             'difficulty': 'Hard',
             'kind': 'Transfiguration',
