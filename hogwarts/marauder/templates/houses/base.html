@@ -75,7 +75,7 @@
 	  	<div class='col-md-12'>
 			<h3>MEMBERS</h3>
 			{% for member in house.members.all %}
-				{% if member is not house.ghost and member is not house.founder %}
+				{% if member.id != house.ghost.id and member.id != house.founder.id %}
 					{% if not member.hidden %}
 		  				<a href="{% url 'character' member.id %}">
 		  			{% endif %}
