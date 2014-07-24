@@ -64,7 +64,7 @@ class Creature(models.Model):
                      ('NB', 'Non-being'),
                      ('Spirit', 'Spirit'))
     classification = models.CharField(max_length=6, choices=CLASS_CHOICES)
-    RATING_CHOICES = ((0, 'Unknown'), (1,'X'),(2,'XX'),(3,'XXX'),(4,'XXXX'),(5,'XXXXX'))
+    RATING_CHOICES = ((0, 'Not Applicable'), (1,'X'),(2,'XX'),(3,'XXX'),(4,'XXXX'),(5,'XXXXX'))
     rating = models.IntegerField(default=0, choices=RATING_CHOICES, blank=True)
     image = models.ImageField(upload_to='images/')
     hidden = models.BooleanField(default=False)
