@@ -1,4 +1,4 @@
-from django.shortcuts import render
+from django.shortcuts import render, redirect
 from django.views import generic
 from django.http import HttpResponse
 import json
@@ -82,11 +82,6 @@ class StoryDetailView(generic.DetailView):
     model = Story
     template_name = 'stories/base.html'
 
-    def get_context_data(self, **kwargs):
-        context = super(StoryDetailView, self).get_context_data(**kwargs)
-        return context
-
-
 # Artifact Views
 class ArtifactListView(SingleTableView):
     model = Artifact
@@ -109,41 +104,44 @@ class BookDetailView(generic.DetailView):
     model = Book
     template_name = 'books/base.html'
 
-    def get_context_data(self, **kwargs):
-        context = super(BookDetailView, self).get_context_data(**kwargs)
-        return context
-
 # Location Views
 class LocationListView(SingleTableView):
     model = Location
     template_name = 'locations/index.html'
-    #table_class = StoryTable
-    #table_pagination = {'per_page': 10}
+    table_class = LocationTable
+    table_pagination = {'per_page': 10}
 
 class LocationDetailView(generic.DetailView):
     model = Location
     template_name = 'locations/base.html'
 
-    def get_context_data(self, **kwargs):
-        context = super(LocationDetailView, self).get_context_data(**kwargs)
-        return context
+    def get(self, request, **kwargs):
+        self.object = self.get_object()
+        if self.object.kind.lower() == 'shop':
+            shop = Shop.objects.get(pk=self.object.id)
+            return redirect('/shops/' + str(shop.id))
+        elif self.object.kind.lower() == 'school':
+            school = School.objects.get(pk=self.object.id)
+            return redirect('/schools/' + str(school.id))
+        context = self.get_context_data(object=self.object)
+        return self.render_to_response(context)
+
+class SchoolDetailView(generic.DetailView):
+    model = School
+    template_name = 'schools/base.html'
+
+class ShopDetailView(generic.DetailView):
+    model = Shop
+    template_name = 'shops/base.html'
 
 # House Views
 class HouseListView(generic.ListView):
     model = House
     template_name = 'houses/index.html'
 
-    def get_context_data(self, **kwargs):
-        context = super(HouseListView, self).get_context_data(**kwargs)
-        return context
-
 class HouseDetailView(generic.DetailView):
     model = House
     template_name = 'creatures/base.html'
-
-    def get_context_data(self, **kwargs):
-        context = super(HouseDetailView, self).get_context_data(**kwargs)
-        return context
 
 """
   RESTful API

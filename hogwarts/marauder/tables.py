@@ -78,3 +78,12 @@ class SpellTable(tables.Table):
         fields = ("incantation", "alias", "creator", "unforgivable", "difficulty", "kind")
         attrs = {"class": "table table-striped table-bordered table-hover"}
 
+class LocationTable(tables.Table):
+    name = tables.TemplateColumn('''
+        <a href='{% url "location" record.pk %}'>{{ record.name }}</a>''')
+    kind = tables.TemplateColumn("{{ record.kind|capfirst }}")
+
+    class Meta:
+        model = Location
+        fields = ("name", "kind")
+        attrs = {"class": "table table-striped table-bordered table-hover"}
