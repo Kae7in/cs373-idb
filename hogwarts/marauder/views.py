@@ -264,7 +264,7 @@ class PotionRestView(RestView):
 
     def get_item(self, potion_id):
         
-        potion = Potions.objects.get(pk=potion_id)
+        potion = Potion.objects.get(pk=potion_id)
 
         data = self.formatPotionData(potion)
 
@@ -272,7 +272,7 @@ class PotionRestView(RestView):
 
     def get_collection(self):
         potions = Potion.objects.all()
-
+        
         data = []
         for potion in potions:
             element = self.formatPotionData(potion)
@@ -298,14 +298,14 @@ class CreatureRestView(RestView):
     def get_item(self, creature_id):
         c = Creature.objects.get(pk=creature_id)
 
-        data = self.formatCreatureData(self, c)
+        data = self.formatCreatureData(c)
 
         return JSONResponse(data)
 
     def get_collection(self):
-        
         creatures = Creature.objects.all()
 
+        data = []
         for creature in creatures:
             element = self.formatCreatureData(creature)
             data.append(element)

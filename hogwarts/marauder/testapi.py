@@ -5,6 +5,11 @@ from django.core.urlresolvers import reverse
 from marauder.models import *
 import json
 
+def fetch_url(url):
+    client = Client()
+    response = client.get(url)
+    return json.loads(response.content.decode("utf-8"))
+
 class TestCharacterAPI(TransactionTestCase):
 
     def setUp(self):
@@ -31,16 +36,10 @@ class TestCharacterAPI(TransactionTestCase):
 
         )
 
-    def fetch_url(self, url):
-        client = Client()
-        response = client.get(url)
-        return json.loads(response.content.decode("utf-8"))
-
-
     def testDetail(self):
         c = Character.objects.all()[0]
         url = reverse('character_api', kwargs={'id': c.id})
-        response = self.fetch_url(url)
+        response = fetch_url(url)
         expected = {
             "id": c.id, 
             "name": c.name, 
@@ -56,19 +55,18 @@ class TestCharacterAPI(TransactionTestCase):
         all_characters = Character.objects.all()
         self.maxDiff = None
         url = reverse('characters_api')
-        response = self.fetch_url(url)
+        response = fetch_url(url)
         expected = [{'quote_by': 'Albus Dumbledore', 'id': 1, 'wand': '15 inch elder wood with thestral hair', 'quote': "Why doesn't anyone ever give me warm socks?", 'description': 'Albus Dumbledore was the only wizard Voldemort was wary of.', 'name': 'Albus Dumbledore', 'magical': True}, {'quote_by': 'neville on the battlefield', 'id': 24, 'wand': 'a very good wand', 'magical': True, 'quote': 'Die, basilisk!', 'description': 'Neville became a surprisingly attractive teenager.', 'name': 'Neville Longbottom'}]
         self.assertEqual(response, expected)
 
 
-class TestPotionAPI(TestCase):
+class TestPotionAPI(TransactionTestCase):
 
-    @classmethod
-    def setUpClass(self):
+    def setUp(self):
         p = Potion.objects.create(
             id=1,
-            name='AmortentiaTest',
-            difficulty='Advanced',
+            title='AmortentiaTest',
+            difficulty='A',
             physical_description='Steam rises from Amortentia in coil-like designs.',
             effects='Amortentia is the most powerful of the love potions.',
             recipe='The ingredients are 7 rose thorns...',
@@ -76,28 +74,25 @@ class TestPotionAPI(TestCase):
         )
         p2 = Potion.objects.create(
             id=24,
-            name='VeritaserumTest',
-            difficulty='Advanced',
+            title='VeritaserumTest',
+            difficulty='A',
             physical_description='No color and no odor.',
             effects='You have to tell the truth.',
             recipe='Unknown',
             notable_uses='Umbridge'
         )
-
-    def fetch_url(self, url):
-        client = Client()
-        response = client.get(url)
-        return json.loads(response.content.decode("utf-8"))
-
+        p.save()
+        p2.save()
 
     def testDetail(self):
         p = Potion.objects.all()[0]
-        url = reverse('potions_api', kwargs={'id': p.id})
-        response = self.fetch_url(url)
+        assert len(Potion.objects.all()) == 2
+        url = reverse('potion_api', kwargs={'id': p.id})
+        response = fetch_url(url)
         expected = {
             "id": p.id, 
-            "name": p.name, 
-            "difficulty": p.difficulty
+            "title": p.title, 
+            "difficulty": p.difficulty,
             "physical_description": p.physical_description,
             "effects": p.effects,
             "recipe": p.recipe,
@@ -106,10 +101,12 @@ class TestPotionAPI(TestCase):
         self.assertEqual(response, expected)
 
     def testIndex(self):
-        all_potions = Potions.objects.all()
+        self.maxDiff=None
+        all_potions = Potion.objects.all()
+        assert len(all_potions) != 0
         url = reverse('potions_api')
-        response = self.fetch_url(url)
-        expected = [{'id':1, 'name': 'AmortentiaTest', 'difficulty':'Advanced', 'physical_description':'Steam rises from Amortentia in coil-like designs', 'effects':'Amortentia is the most powerful of the love potions', 'recipe':'The ingredients are 7 rose thorns...', 'notable_uses':'Department of Mysteries'}, {'id':24, 'name':'VeritaserumTest', 'difficulty':'Advanced', 'physical_description':'No color and no odor.', 'effects':'You have to tell the truth.', 'recipe':'Unknown', 'notable_uses':'Umbridge'}]
+        response = fetch_url(url)
+        expected = [{'id':1, 'title': 'AmortentiaTest', 'difficulty':'A', 'physical_description':'Steam rises from Amortentia in coil-like designs.', 'effects':'Amortentia is the most powerful of the love potions.', 'recipe':'The ingredients are 7 rose thorns...', 'notable_uses':'Department of Mysteries'}, {'id':24, 'title':'VeritaserumTest', 'difficulty':'A', 'physical_description':'No color and no odor.', 'effects':'You have to tell the truth.', 'recipe':'Unknown', 'notable_uses':'Umbridge'}]
         self.assertEqual(response, expected)
 
 
@@ -122,26 +119,20 @@ class TestCreatureAPI(TestCase):
             name='HippogriffTest',
             description='magnificent',
             classification='Beast',
-            rating='XXX'
+            rating=3
         )
         c2 = Creature.objects.create(
             id=24,
             name='WerewolfTest',
             description='wolf-men/women-people',
             classification='Beast',
-            rating='XXX'
+            rating=3
         )
-
-    def fetch_url(self, url):
-        client = Client()
-        response = client.get(url)
-        return json.loads(response.content.decode("utf-8"))
-
 
     def testDetail(self):
         c = Creature.objects.all()[0]
         url = reverse('creature_api', kwargs={'id': c.id})
-        response = self.fetch_url(url)
+        response = fetch_url(url)
         expected = {
             "id": c.id, 
             "name": c.name, 
@@ -153,9 +144,9 @@ class TestCreatureAPI(TestCase):
 
     def testIndex(self):
         all_creatures = Creature.objects.all()
-        url = reverse('characters_api')
-        response = self.fetch_url(url)
-        expected = [{'id':1, 'name':'HippogriffTest', 'description':'magnificent', 'classification':'Beast', 'rating':'XXX'},{'id':24, 'name':'WerewolfTest', 'description':'wolf-men/women-people', 'classification':'Beast', 'rating':'XXX'}]
+        url = reverse('creatures_api')
+        response = fetch_url(url)
+        expected = [{'id':1, 'name':'HippogriffTest', 'description':'magnificent', 'classification':'Beast', 'rating':3},{'id':24, 'name':'WerewolfTest', 'description':'wolf-men/women-people', 'classification':'Beast', 'rating': 3}]
         self.assertEqual(response, expected)
 
 class TestArtifactAPI(TransactionTestCase):
@@ -200,13 +191,13 @@ class TestArtifactAPI(TransactionTestCase):
         )
         a = Artifact.objects.all()[0]
         url = reverse('artifact_api', kwargs={'id': a.id})
-        response = self.fetch_url(url)
+        response = fetch_url(url)
         expected = {'owners': [3, 5], 'description': 'this is a mighty sword', 'id': 1, 'shop': None, 'kind': 'asdfasdf', 'name': 'Sword of Griffyndor'}
         self.assertEqual(response, expected)
 
     def testIndex(self):
         all = Artifact.objects.all()
         url = reverse('artifacts_api')
-        response = self.fetch_url(url)
+        response = fetch_url(url)
         expected = [{'shop': None, 'kind': 'asdfasdf', 'name': 'Sword of Griffyndor', 'description': 'this is a mighty sword', 'owners': [3, 5], 'id': 1}, {'shop': None, 'kind': 'some wand thing', 'name': 'Elder Wand', 'description': "I can't believe he unearthed Dumbledore's tomb. Rude.", 'owners': [], 'id': 3}]
         self.assertEqual(response, expected)
