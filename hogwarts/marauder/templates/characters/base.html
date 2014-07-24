@@ -26,34 +26,51 @@
 			</li>
 			{% if character.school_founded %}
 			<li class='list-group-item'>
-				Founded {{ character.school_founded.name }}
+				Founded 
+				<a href='{% url "school" character.school_founded.id %}'>
+					{{ character.school_founded.name }}
+				</a>
 			</li>
 			{% endif %}
 			{% if character.school_headmastered %}
 			<li class='list-group-item'>
-				Headmaster at {{ character.school_headmastered.name }}
+				Headmaster at 
+				<a href='{% url "school" character.school_headmastered.id %}'>
+					{{ character.school_headmastered.name }}
+				</a>
 			</li>
 			{% endif %}
 			{% if character.school_taught %}
 			<li class='list-group-item'>
-				Professor at {{ character.school_taught.name }}
+				Professor at 
+				<a href='{% url "school" character.school_taught.id %}'>
+					{{ character.school_taught.name }}
+				</a>
 			</li>
 			{% endif %}
 			{% if character.school_staffed %}
 			<li class='list-group-item'>
-				Staff at {{ character.school_taught.name }}
+				Staff at 
+				<a href='{% url "school" character.school_staffed.id %}'>
+					{{ character.school_staffed.name }}
+				</a>
 			</li>
 			{% endif %}
 			{% if character.school_attended %}
 			<li class='list-group-item'>
-				Attended {{ character.school_attended.name }}
+				Attended 
+				<a href='{% url "school" character.school_attended.id %}'>
+					{{ character.school_attended.name }}
+				</a>
 			</li>
 			{% endif %}
-			{% if character.house or character.house_founded %}
+			{% if character.house or character.house_founded.all or character.houses_haunted.all %}
 			<li class='list-group-item'>
 				{% if character.house_founded.all %}Founded {% endif %}
 				{% if character.houses_haunted.all %}Haunts {% endif %}
-				{{ character.house.name }} House
+				<a href='{% url "house" character.house.id %}'>
+					{{ character.house.name }} House
+				</a>
 			</li>
 			{% endif %}
 			{% if character.wand %}
@@ -63,7 +80,10 @@
 			{% endif %}
 			{% if character.shop %}
 			<li class='list-group-item'>
-				{{ character.shop.name }}
+				Owns 
+				<a href='{% url "shop" character.shop.id %}'>
+					{{ character.shop.name }}
+				</a>
 			</li>
 			{% endif %}
 		</ul>
