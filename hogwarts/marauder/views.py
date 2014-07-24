@@ -154,7 +154,7 @@ class HouseDetailView(generic.DetailView):
 class RestView(object):
   """
     Serves API GET requests with a JSON response. This is the base class
-    which delgates to model-specific subclasses.
+    which delegates to model-specific subclasses.
   """
 
   # Dispatch to the proper child method implementation
@@ -165,18 +165,31 @@ class RestView(object):
           response.status_code = 405
           return response
 
-      return getattr(self, request.method)(kwargs['id'])
+      if 'id' in kwargs:
+          return getattr(self, 'get_item')(kwargs['id'])
+      else:
+          return getattr(self, 'get_collection')()
 
 class CharacterRestView(RestView):
 
-    def GET(self, character_id):
-        # Pull the character row from the model.
-        c = Character.objects.get(pk=character_id)
+    def get_item(self, character_id):
+        # Pull the character row from the model. 
+        c = Character.objects.get(pk=character_id) 
 
-        # Manipulate the python dict to conform to our API
+        # Manipulate the python dict to conform to our API 
         data = self.formatCharacterData(c)
 
         # Form the python dict into a JSON HTTP response
+        return JSONResponse(data)
+
+    def get_collection(self):
+        characters = Character.objects.all()
+
+        data = []
+        for character in characters:
+            element = self.formatCharacterData(character)
+            data.append(element) 
+        
         return JSONResponse(data)
 
     def formatCharacterData(self, c):
@@ -194,17 +207,167 @@ class CharacterRestView(RestView):
             "quote_by": c.quote_by if c.quote_by else None
         }
 
+class ArtifactRestView(RestView):
+
+    def get_item(self, artifact_id):
+        a = Artifact.objects.get(pk=artifact_id)
+        data = self.formatArtifactData(a)
+        return JSONResponse(data)
+
+    def get_collection(self):
+        artifacts = Artifact.objects.all()
+        data = []
+        for artifact in artifacts:
+            element = self.formatArtifactData(artifact)
+            data.append(element)
+        return JSONResponse(data)
+
+    def formatArtifactData(self, a):
+        return {
+            "id": a.id,
+            "name": a.name,
+            "description": a.description,
+            "kind": a.kind if a.kind else None,
+            "owners": [o.id for o in a.owners.all()],
+            "shop": a.shop.id if a.shop else None,
+        }
+
+
+class StoryRestView(RestView):
+
+    def get_item(self, story_id):
+        # Pull the story row from the model. 
+        s = Story.objects.get(pk=story_id) 
+
+        # Manipulate the python dict to conform to our API 
+        data = self.formatStoryData(s)
+        
+        # Form the python dict into a JSON HTTP response 
+        return JSONResponse(data)
+
+    def get_collection(self):
+        stories = Story.objects.all()
+
+        data = []
+        for story in stories:
+            element = self.formatStoryData(story)
+            data.append(element) 
+        
+        return JSONResponse(data)
+
+    def formatStoryData(self, s):
+        """
+        Form the given story object into a dictionary that meets API
+        specification.
+        """
+        characters = s.characters.all()
+        artifacts = s.artifacts.all()
+        return {
+            "id": s.id,
+            "name": s.name,
+            "description": s.description,
+            "date": s.date.isoformat(),
+            "kind": s.kind if s.kind else None,
+            "characters": [c.id for c in characters] if characters else None,
+            "artifacts": [a.id for a in artifacts] if artifacts else None,
+            "quote": s.quote if s.quote else None, 
+            "quote_by": s.quote_by if s.quote_by else None
+        }
+
+class SpellRestView(RestView):
+    def get_item(self, spell_id):
+        # get the spell from the model
+        s = Spell.objects.get(pk=spell_id)
+
+        # fetch data in acceptable format for api
+        data = self.formatSpellData(s)
+
+        # return JSON HTTP response
+        return JSONResponse(data)
+
+    def get_collection(self):
+        # get all spells from the model
+        spells = Spell.objects.all()
+
+        # fetch data in acceptable format for api
+        data = []
+        for spell in spells:
+            element = self.formatSpellData(spell)
+            data.append(element)
+
+        # return JSON HTTP response
+        return JSONResponse(data)
+
+    def formatSpellData(self, s):
+        return {
+            "id": s.id,
+            "incantation": s.incantation,
+            "alias": s.alias if s.alias else None,
+            "effect": s.effect if s.effect else None,
+            "creator": s.creator if s.creator else None,
+            "notable_uses": s.notable_uses if s.notable_uses else None,
+            "unforgivable": s.unforgivable,
+            "KIND_CHOICES": s.KIND_CHOICES,
+            "DIFFICULTY_CHOICES": s.DIFFICULTY_CHOICES,
+            "difficulty": s.difficulty,
+            "kind": s.kind if s.kind else None,
+            "image": s.image,
+            "creature": s.creature if s.creature else None
+        }
+
+
+class ShopRestView(RestView):
+    def get_item(self, spell_id):
+        # get the shop from the model
+        s = Shop.objects.get(pk=shop_id)
+
+        # fetch data in acceptable format for api
+        data = self.formatShopData(s)
+
+        # return JSON HTTP response
+        return JSONResponse(data)
+
+    def get_collection(self):
+        # get all shop from the model
+        shop = Shop.objects.all()
+
+        # fetch data in acceptable format for api
+        data = []
+        for spell in shop:
+            element = self.formatShopData(spell)
+            data.append(element)
+
+        # return JSON HTTP response
+        return JSONResponse(data)
+
+    def formatShopData(self, s):
+        return {
+            "id": s.id,
+            "locations": s.locations if s.locations else None
+        }
+
 class PotionRestView(RestView):
 
-    def GET(self, potion_id):
-        p = Potion.objects.get(pk=potion_id)
+    def get_item(self, potion_id):
+        
+        potion = Potion.objects.get(pk=potion_id)
 
-        data = formatCharacterData(self, p)
+        data = self.formatPotionData(potion)
+
+        return JSONResponse(data)
+
+    def get_collection(self):
+        potions = Potion.objects.all()
+        
+        data = []
+        for potion in potions:
+            element = self.formatPotionData(potion)
+            data.append(element)
 
         return JSONResponse(data)
 
     def formatPotionData(self, p):
-
+        
         return {
             "id": p.id,
             "title": p.title,
@@ -216,16 +379,27 @@ class PotionRestView(RestView):
         }
 
 class CreatureRestView(RestView):
-    def GET(self, creature_id):
+
+    def get_item(self, creature_id):
         c = Creature.objects.get(pk=creature_id)
 
-        data = formatCreatureData(self, c)
+        data = self.formatCreatureData(c)
+
+        return JSONResponse(data)
+
+    def get_collection(self):
+        creatures = Creature.objects.all()
+
+        data = []
+        for creature in creatures:
+            element = self.formatCreatureData(creature)
+            data.append(element)
 
         return JSONResponse(data)
 
     def formatCreatureData(self, c):
-
-        return {
+        
+        return  {
             "id": c.id,
             "name": c.name,
             "description": c.description,
@@ -233,6 +407,40 @@ class CreatureRestView(RestView):
             "rating": c.rating
         }
 
+class SchoolRestView(RestView):
+
+    def get_item(self, school_id):
+        # Pull the school row from the model. 
+        s = School.objects.get(pk=school_id) 
+
+        # Manipulate the python dict to conform to our API 
+        data = self.formatSchoolData(s)
+        
+        # Form the python dict into a JSON HTTP response 
+        return JSONResponse(data)
+
+    def get_collection(self):
+        schools = School.objects.all()
+
+        data = []
+        for school in schools:
+            element = self.formatSchoolData(school)
+            data.append(element) 
+        
+        return JSONResponse(data)
+
+    def formatSchoolData(self, s):
+        """
+        Form the given school object into a dictionary that meets API
+        specification.
+        """
+        return {
+            "id": s.id, 
+            "name": s.name, 
+            "description": s.description,
+            "country": s.country if s.country else None,
+            "kind": s.kind if s.kind else None
+        }
 
 class JSONResponse(HttpResponse):
     def __init__(self, data):
