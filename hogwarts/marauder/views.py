@@ -65,12 +65,6 @@ class PotionDetailView(generic.DetailView):
     model = Potion
     template_name = 'potions/base.html'
 
-    def get_context_data(self, **kwargs):
-        context = super(PotionDetailView, self).get_context_data(**kwargs)
-        if kwargs['object'].hidden:
-            raise Http404
-        return context
-
 # Story Views
 class StoryListView(SingleTableView):
     model = Story
