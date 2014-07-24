@@ -24,9 +24,10 @@
 			</li>
 			{% endif %}
 			{% if house.school %}
+				<li>
 				 	<a href="{% url 'school' house.school.id %}">{{ house.school.name }}</a>
-				{% endif %}
-			</li>
+				</li>
+			{% endif %}
 			{% if house.ghost %}
 			<li class='list-group-item'>
 				Haunted by  
@@ -49,8 +50,8 @@
 
 		</ul>
 		<blockquote>
-			<p>{{ houses.quote|safe }}</p>
-			<footer>{{ houses.quote_by }}</footer>
+			<p>{{ house.quote|safe }}</p>
+			<footer>{{ house.quote_by }}</footer>
 		</blockquote>
 	</div>
 
@@ -64,7 +65,7 @@
 
 <div class='row'>
 	<div class='col-md-12' id='description'>
-		{{ houses.description|safe }}
+		{{ house.description|safe }}
 	</div>
 </div>
 
@@ -72,16 +73,18 @@
 {% if house.members.all %}
  	<div class='row'>
 	  	<div class='col-md-12'>
-			<h3>MEMBER</h3>
+			<h3>MEMBERS</h3>
 			{% for member in house.members.all %}
-				{% if not member.hidden %}
-		  			<a href="{% url 'character' member.id %}">
-		  		{% endif %}
-		  		{{ member.name }}
-		  		{% if not member.hidden %}
-		  			</a>
-		  		{% endif %}
+				{% if member is not house.ghost and member is not house.founder %}
+					{% if not member.hidden %}
+		  				<a href="{% url 'character' member.id %}">
+		  			{% endif %}
+		  			{{ member.name }}
+		  			{% if not member.hidden %}
+		  				</a>
+		  			{% endif %}
 		  		<br/>
+				{% endif %}
 			{% endfor %}
 		</div>
 	</div>
