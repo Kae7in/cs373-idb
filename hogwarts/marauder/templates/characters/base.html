@@ -97,11 +97,11 @@
 	</div>
 {% endif %}
 
-{% if character.books_authored.all or character.books_starred.all %}
+{% if character.books_published.all or character.books_starred.all %}
 	<div class='row'>
 		<div class='col-md-12'>
 			<h3>BIBLIOGRAPHY</h3>
-			{% for book in character.books_authored.all %}
+			{% for book in character.books_published.all %}
 				<a href="{% url 'book' book.id %}">{{ book.name }}</a> (Author)<br/>
 			{% endfor %}
 			{% for book in character.books_starred.all %}
