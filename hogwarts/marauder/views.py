@@ -43,6 +43,12 @@ class CharacterDetailView(generic.DetailView):
         return context
 
 # Spell Views
+class SpellListView(SingleTableView):
+    model = Spell
+    template_name = 'spells/index.html'
+    table_class = SpellTable
+    table_pagination = {'per_page': 10}
+
 class SpellDetailView(generic.DetailView):
     model = Spell
     template_name = 'spells/base.html'
@@ -80,7 +86,14 @@ class StoryDetailView(generic.DetailView):
         context = super(StoryDetailView, self).get_context_data(**kwargs)
         return context
 
+
 # Artifact Views
+class ArtifactListView(SingleTableView):
+    model = Artifact
+    template_name = 'artifacts/index.html'
+    table_class = ArtifactTable
+    table_pagination = {'per_page': 10}
+
 class ArtifactDetailView(generic.DetailView):
     model = Artifact
     template_name = 'artifacts/base.html'
