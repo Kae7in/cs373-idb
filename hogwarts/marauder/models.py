@@ -230,3 +230,6 @@ class Relationship(models.Model):
     character2 = models.ForeignKey(Character, related_name = "relationships2", blank=True, null=True)
     descriptor1 = models.CharField(max_length=100)
     descriptor2 = models.CharField(max_length=100)
+
+    def __str__(self):
+        return "%s (%s) -- %s (%s)" %(self.character1.name, self.descriptor1, self.character2.name, self.descriptor2)
