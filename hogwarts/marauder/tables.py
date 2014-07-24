@@ -19,3 +19,20 @@ class StoryTable(tables.Table):
         model = Story
         fields = ("name", "kind", "date")
         attrs = {"class": "table table-striped table-bordered table-hover"}
+
+class BookTable(tables.Table):
+    name = tables.TemplateColumn('''
+        <a href='{% url "book" record.pk %}'>{{ record.name }}</a>''')
+    author = tables.TemplateColumn('''
+        {% if record.author and not record.author.hidden %}
+            <a href='{% url "character" record.author.id %}'>
+        {% endif %}
+        {{ record.author.name }}
+        {% if not record.author.hidden %}
+            </a>
+        {% endif %}''')
+
+    class Meta:
+        model = Book
+        fields = ("name", "author")
+        attrs = {"class": "table table-striped table-bordered table-hover"}

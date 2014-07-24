@@ -76,8 +76,8 @@ class ArtifactDetailView(generic.DetailView):
 class BookListView(SingleTableView):
     model = Book
     template_name = 'books/index.html'
-    #table_class = StoryTable
-    #table_pagination = {'per_page': 10}
+    table_class = BookTable
+    table_pagination = {'per_page': 10}
 
 class BookDetailView(generic.DetailView):
     model = Book
