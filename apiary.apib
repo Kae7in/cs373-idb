@@ -20,7 +20,7 @@ An API to access resources in our [Harry Potter database](https://github.com/Kae
         }, {
             "id": 2, 
             "name": "Hermione Granger", 
-            "wand": "12 & 3/4" walnut dragon heartstring",
+            "wand": "12 & 3/4' walnut dragon heartstring",
             "description": "A wizard girl",
             "magical": true,
             "quotes": null,
@@ -48,73 +48,8 @@ A single Character object with all its details
                 "wand": "15 inch elder wood with thestral hair",
                 "description": "Albus Dumbledore is considered one of the greatest headmaster of Hogwarts School of Witchcraft and Wizardry and the most powerful wizard of his time. Dumbledore holds the Order of Merlin, First Class, for Grand Sorcery. He was the headmaster while Harry Potter attended school and also a professor while Tom Riddle, who would later become Voldemort, attended school. Dumbledore founded the Order of the Phoenix, a resistance against the reign of the dark wizard Voldemort, and he was the only wizard of which Voldemort was afraid.",
                 "magical": true,
-                "birthday": "1881-01-01",
                 "quote": "It does not do to dwell on dreams and forget to live. Remember that.",
                 "quote_by": "Albus Dumbledore"
-            }
-            
-+ Response 404
-
-    + Header
-    
-            Content-type: application/json
-
-    + Body
-    
-            {"error": "Sorry. That item doesn't exist."}
-
-## Houses Collection [/houses]
-### List all Houses [GET]
-+ Response 200 (application/json)
-
-        [{
-            "id": 1,
-            "name": "Gryffindor",
-            "description": "Everyone wants to be in Gryffindor.",
-            "school": 1,
-            "ghost": "Nearly-Headless Nick",
-            "colors": "Red and gold",
-            "mascot": "Lion",
-            "quote": "You might belong in Gryffindor, Where dwell the brave at heart, Their daring, nerve and chivalry set Gryffindors apart.",
-            "quote_by": "Sorting Hat"
-            
-        }, {
-            "id": 2,
-            "name": Slytherin,
-            "description": "Well, not everyone.",
-            "school": 1,
-            "ghost": "The Bloody Baron",
-            "colors": "Green and silver",
-            "mascot": "Serpent",
-            "quote": "Or perhaps in Slytherin, You'll make your real friends, Those cunning folk use any means, To achieve their ends.",
-            "quote_by": "Sorting Hat"
-        }]
-
-## House [/houses/{id}]
-A single House object with all its details
-
-+ Parameters
-    + id (required, number, `1`) ... Numeric `id` of the House to perform action with.
-
-### Retrieve a House [GET]
-+ Response 200 (application/json)
-
-    + Header
-
-            Content-type: UTF-8
-
-    + Body
-
-            {
-                "id": 1,
-                "name": "Gryffindor",
-                "description": "Everyone wants to be in Gryffindor.",
-                "school": 1,
-                "ghost": "Nearly-Headless Nick",
-                "colors": "Red and gold",
-                "mascot": "Lion",
-                "quote": "You might belong in Gryffindor, Where dwell the brave at heart, Their daring, nerve and chivalry set Gryffindors apart.",
-                "quote_by": "Sorting Hat"
             }
             
 + Response 404
