@@ -1,0 +1,55 @@
+{% extends "base.html" %}
+
+{% block scripts %}
+<link href='http://fonts.googleapis.com/css?family=Neucha' rel='stylesheet' type='text/css'>
+{% endblock scripts %}
+
+{% block content %}
+        <div id="name">
+   		    <h1 class="uppercase">{{ location.name }}</h1>
+        </div>
+<div class='row'>
+   	<div class='col-xs-12 col-md-6 col-sm-6 info-group'>
+   		<ul class='list-group info-group-list'>
+			<li class='list-group-item'>
+			    {{ location.kind }}
+			</li>
+		</ul>
+	</div>
+
+	<div class='col-xs-12 col-md-6 col-sm-6'>
+		<div class='main-image'>
+			<img class='list-group-item' src='{{ location.image.url }}'>
+		</div>
+	</div>
+</div>
+
+<div class='row'>
+	<div class='col-md-12' id='description'>
+		{{ location.description|safe }}
+	</div>
+</div>
+
+{% if location.stories.all %}
+ 	<div class='row'>
+	  	<div class='col-md-12'>
+			<h3>RELATED STORIES</h3>
+			{% for story in location.stories.all %}
+		  		<a href="{% url 'story' story.id %}">{{ story.name }}</a><br/>
+			{% endfor %}
+		</div>
+	</div>
+{% endif %}
+
+{% if location.shops.all %}
+ 	<div class='row'>
+	  	<div class='col-md-12'>
+			<h3>SHOPS</h3>
+			{% for shop in location.shops.all %}
+		  		<a href="{% url 'shop' shop.id %}">{{ shop.name }}</a><br/>
+			{% endfor %}
+		</div>
+	</div>
+{% endif %}
+
+{% endblock content %}
