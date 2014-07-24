@@ -290,3 +290,51 @@ class TestSchoolAPI(TransactionTestCase):
             'id': 1, 'kind': None, 'name': 'Durmstrang Institute'},
             {'country': 'UK', 'description': 'Harry Land', 'id': 2, 'kind': 'School', 'name': 'Hogwarts'}]
         self.assertEqual(response, expected)
+
+class TestShopAPI(TransactionTestCase):
+
+    def setUp(self):
+        s1 = Shop.objects.create(
+            id = 1,
+            name = 'Shop1',
+            description = 'Sells things',
+            kind = 'Shop'
+        )
+        s2 = Shop.objects.create(
+            id = 2,
+            name = 'Shop2',
+            description = 'Sells more things',
+            kind = 'Shop'
+        )
+        c = Character.objects.create(name = 'Some Old Wizard')
+        s2.owner.add(c)
+        s2.save()
+
+    def testDetail(self):
+        school = Shop.objects.get(pk=1)
+        url = reverse('school_api', kwargs={'id': 2})
+        response = fetch_url(url)
+        expected = { 
+            'id': 2,
+            'name': 'Shop2',
+            'description': 'Sells more things',
+            'owners': [1],
+            'locations': None
+        } 
+        self.assertEqual(response, expected)
+
+    def testIndex(self):
+        url = reverse('schools_api')
+        response = fetch_url(url)
+        expected = [{ 
+            'id': 1,
+            'name': 'Shop',
+            'description': 'Sells things',
+            'owners': None,
+            'locations': None }, {
+            'id': 2,
+            'name': 'Shop2',
+            'description': 'Sells more things',
+            'owners': [1],
+            'locations': None }]
+        self.assertEqual(response, expected)

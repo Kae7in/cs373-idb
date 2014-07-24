@@ -161,7 +161,7 @@ class RestView(object):
   def __call__(self, request, *args, **kwargs):
       allowed_methods = ('GET') # Currently our API only services GET
       if not request.method in allowed_methods:
-          response = HttpResponse("Method Not Allowed: %s" % request.method)
+          response = HttpResponse('Method Not Allowed: %s' % request.method)
           response.status_code = 405
           return response
 
@@ -198,13 +198,13 @@ class CharacterRestView(RestView):
         specification.
         """
         return {
-            "id": c.id,
-            "name": c.name,
-            "wand": c.wand if c.wand else None,
-            "description": c.description,
-            "magical": c.magical,
-            "quote": c.quote if c.quote else None,
-            "quote_by": c.quote_by if c.quote_by else None
+            'id': c.id,
+            'name': c.name,
+            'wand': c.wand if c.wand else None,
+            'description': c.description,
+            'magical': c.magical,
+            'quote': c.quote if c.quote else None,
+            'quote_by': c.quote_by if c.quote_by else None
         }
 
 class ArtifactRestView(RestView):
@@ -224,12 +224,12 @@ class ArtifactRestView(RestView):
 
     def formatArtifactData(self, a):
         return {
-            "id": a.id,
-            "name": a.name,
-            "description": a.description,
-            "kind": a.kind if a.kind else None,
-            "owners": [o.id for o in a.owners.all()],
-            "shop": a.shop.id if a.shop else None,
+            'id': a.id,
+            'name': a.name,
+            'description': a.description,
+            'kind': a.kind if a.kind else None,
+            'owners': [o.id for o in a.owners.all()],
+            'shop': a.shop.id if a.shop else None,
         }
 
 
@@ -263,15 +263,15 @@ class StoryRestView(RestView):
         characters = s.characters.all()
         artifacts = s.artifacts.all()
         return {
-            "id": s.id,
-            "name": s.name,
-            "description": s.description,
-            "date": s.date.isoformat(),
-            "kind": s.kind if s.kind else None,
-            "characters": [c.id for c in characters] if characters else None,
-            "artifacts": [a.id for a in artifacts] if artifacts else None,
-            "quote": s.quote if s.quote else None, 
-            "quote_by": s.quote_by if s.quote_by else None
+            'id': s.id,
+            'name': s.name,
+            'description': s.description,
+            'date': s.date.isoformat(),
+            'kind': s.kind if s.kind else None,
+            'characters': [c.id for c in characters] if characters else None,
+            'artifacts': [a.id for a in artifacts] if artifacts else None,
+            'quote': s.quote if s.quote else None, 
+            'quote_by': s.quote_by if s.quote_by else None
         }
 
 class SpellRestView(RestView):
@@ -286,33 +286,30 @@ class SpellRestView(RestView):
         return JSONResponse(data)
 
     def get_collection(self):
-        # get all spells from the model
         spells = Spell.objects.all()
 
-        # fetch data in acceptable format for api
         data = []
         for spell in spells:
             element = self.formatSpellData(spell)
             data.append(element)
 
-        # return JSON HTTP response
         return JSONResponse(data)
 
     def formatSpellData(self, s):
         return {
-            "id": s.id,
-            "incantation": s.incantation,
-            "alias": s.alias if s.alias else None,
-            "effect": s.effect if s.effect else None,
-            "creator": s.creator if s.creator else None,
-            "notable_uses": s.notable_uses if s.notable_uses else None,
-            "unforgivable": s.unforgivable,
-            "KIND_CHOICES": s.KIND_CHOICES,
-            "DIFFICULTY_CHOICES": s.DIFFICULTY_CHOICES,
-            "difficulty": s.difficulty,
-            "kind": s.kind if s.kind else None,
-            "image": s.image,
-            "creature": s.creature if s.creature else None
+            'id': s.id,
+            'incantation': s.incantation,
+            'alias': s.alias if s.alias else None,
+            'effect': s.effect if s.effect else None,
+            'creator': s.creator if s.creator else None,
+            'notable_uses': s.notable_uses if s.notable_uses else None,
+            'unforgivable': s.unforgivable,
+            'KIND_CHOICES': s.KIND_CHOICES,
+            'DIFFICULTY_CHOICES': s.DIFFICULTY_CHOICES,
+            'difficulty': s.difficulty,
+            'kind': s.kind if s.kind else None,
+            'image': s.image,
+            'creature': s.creature if s.creature else None
         }
 
 
@@ -328,22 +325,22 @@ class ShopRestView(RestView):
         return JSONResponse(data)
 
     def get_collection(self):
-        # get all shop from the model
         shop = Shop.objects.all()
 
-        # fetch data in acceptable format for api
         data = []
         for spell in shop:
             element = self.formatShopData(spell)
             data.append(element)
 
-        # return JSON HTTP response
         return JSONResponse(data)
 
     def formatShopData(self, s):
         return {
-            "id": s.id,
-            "locations": s.locations if s.locations else None
+            'id': s.id,
+            'name': s.name,
+            'description': s.description,
+            'owners': [o.id for o in s.owners] if s.owners,
+            'locations': [l.id for l in s.locations] if s.locations
         }
 
 class PotionRestView(RestView):
@@ -369,13 +366,13 @@ class PotionRestView(RestView):
     def formatPotionData(self, p):
         
         return {
-            "id": p.id,
-            "title": p.title,
-            "difficulty": p.difficulty,
-            "physical_description": p.physical_description,
-            "effects": p.effects,
-            "recipe": p.recipe if p.recipe else None,
-            "notable_uses": p.notable_uses
+            'id': p.id,
+            'title': p.title,
+            'difficulty': p.difficulty,
+            'physical_description': p.physical_description,
+            'effects': p.effects,
+            'recipe': p.recipe if p.recipe else None,
+            'notable_uses': p.notable_uses
         }
 
 class CreatureRestView(RestView):
@@ -400,11 +397,11 @@ class CreatureRestView(RestView):
     def formatCreatureData(self, c):
         
         return  {
-            "id": c.id,
-            "name": c.name,
-            "description": c.description,
-            "classification": c.classification,
-            "rating": c.rating
+            'id': c.id,
+            'name': c.name,
+            'description': c.description,
+            'classification': c.classification,
+            'rating': c.rating
         }
 
 class SchoolRestView(RestView):
@@ -435,16 +432,16 @@ class SchoolRestView(RestView):
         specification.
         """
         return {
-            "id": s.id, 
-            "name": s.name, 
-            "description": s.description,
-            "country": s.country if s.country else None,
-            "kind": s.kind if s.kind else None
+            'id': s.id, 
+            'name': s.name, 
+            'description': s.description,
+            'country': s.country if s.country else None,
+            'kind': s.kind if s.kind else None
         }
 
 class JSONResponse(HttpResponse):
     def __init__(self, data):
         super(JSONResponse, self).__init__(
             content = json.dumps(data, indent=2),
-            content_type = "application/json"
+            content_type = 'application/json'
         )
