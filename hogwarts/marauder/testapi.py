@@ -343,25 +343,25 @@ class TestSpellAPI(TransactionTestCase):
 
     def setUp(self):
         s1 = Spell.objects.create(
-            id= 1,
-            incantation= 'blah',
-            alias= 'blah blah',
-            effect= 'death',
-            creator= 'me',
-            notable_uses= None,
-            unforgivable= True,
-            difficulty= 'Hard',
-            kind= 'Transfiguration'
-          )
-        s2 = Spell.objects.create(
-            id= 2,
-            incantation= 'blah2',
+            id = 1,
+            incantation = 'blah',
             alias = 'blah blah',
             effect = 'death',
             creator = 'me',
-            notable_uses = 'World cup', 
-            unforgivable= False,
-            difficulty= 'Hard',
+            notable_uses = None,
+            unforgivable = True,
+            difficulty = 'Hard',
+            kind = 'Transfiguration'
+          )
+        s2 = Spell.objects.create(
+            id = 2,
+            incantation = 'blah2',
+            alias = 'blah blah',
+            effect = 'death',
+            creator = 'me',
+            notable_uses = 'World cup',
+            unforgivable = False,
+            difficulty = 'Hard',
             kind = 'Transfiguration'
           )
 
