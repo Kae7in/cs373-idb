@@ -39,8 +39,28 @@ urlpatterns = patterns('',
     url(r'^houses/(?P<pk>\d+)/$', views.HouseDetailView.as_view(), name='house'),
 
     # API
-    url(r'^api/characters/(?P<id>\d+)/$', views.CharacterRestView()),
-    url(r'^api/potions/(?P<id>\d+)/$', views.PotionRestView()),
-    url(r'^api/creatures/(?P<id>\d+)/$', views.CreatureRestView())
+    url(r'^api/characters/$', views.CharacterRestView(), name='characters_api'),
+    url(r'^api/characters/(?P<id>\d+)/$', views.CharacterRestView(), name='character_api'),
 
+    url(r'^api/stories/$', views.StoryRestView(), name='stories_api'),
+    url(r'^api/stories/(?P<id>\d+)/$', views.StoryRestView(), name='story_api'),
+
+    url(r'^api/spells/$', views.SpellRestView(), name='spells_api'),
+    url(r'^api/spells/(?P<id>\d+)/$', views.SpellRestView(), name='spell_api'),
+
+    url(r'^api/shops/$', views.ShopRestView(), name='shops_api'),
+    url(r'^api/shops/(?P<id>\d+)/$', views.ShopRestView(), name='shop_api'),
+
+    url(r'^api/potions/$', views.PotionRestView(), name='potions_api'),
+    url(r'^api/potions/(?P<id>\d+)/$', views.PotionRestView(), name='potion_api'),
+
+    url(r'^api/creatures/$', views.CreatureRestView(), name='creatures_api'),
+    url(r'^api/creatures/(?P<id>\d+)/$', views.CreatureRestView(), name='creature_api'),
+
+    url(r'^api/artifacts/$', views.ArtifactRestView(), name='artifacts_api'),
+    url(r'^api/artifacts/(?P<id>\d+)/$', views.ArtifactRestView(), name='artifact_api'),
+
+    url(r'^api/schools/$', views.SchoolRestView(), name='schools_api'),
+    url(r'^api/schools/(?P<id>\d+)/$', views.SchoolRestView(), name='school_api'),
+)
 ) + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
