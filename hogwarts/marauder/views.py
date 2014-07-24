@@ -3,8 +3,8 @@ from django.views import generic
 from django.http import HttpResponse
 import json
 from marauder.models import *
-from marauder.tables import *
-from django_tables2 import SingleTableView
+#from marauder.tables import *
+#from django_tables2 import SingleTableView
 
 # Creature Views
 class CreatureListView(generic.ListView):
@@ -24,11 +24,11 @@ class CreatureDetailView(generic.DetailView):
         return context
 
 # Character Views
-class CharacterListView(SingleTableView):
-    model = Character
-    template_name = 'characters/index.html'
-    table_class = CharacterTable
-    table_pagination = {'per_page': 10}
+#class CharacterListView(SingleTableView):
+#    model = Character
+#    template_name = 'characters/index.html'
+#    table_class = CharacterTable
+#    table_pagination = {'per_page': 10}
 
 class CharacterDetailView(generic.DetailView):
     model = Character
@@ -122,6 +122,32 @@ class CharacterRestView(RestView):
             "quote": c.quote if c.quote else None,
             "quote_by": c.quote_by if c.quote_by else None
         }
+
+class ArtifactRestView(RestView):
+
+    def get_item(self, artifact_id):
+        a = Artifact.objects.get(pk=artifact_id)
+        data = self.formatArtifactData(a)
+        return JSONResponse(data)
+
+    def get_collection(self):
+        artifacts = Artifact.objects.all()
+        data = []
+        for artifact in artifacts:
+            element = self.formatArtifactData(artifact)
+            data.append(element)
+        return JSONResponse(data)
+
+    def formatArtifactData(self, a):
+        return {
+            "id": a.id,
+            "name": a.name,
+            "description": a.description,
+            "kind": a.kind if a.kind else None,
+            "owners": [o.id for o in a.owners.all()],
+            "shop": a.shop.id if a.shop else None,
+        }
+
 
 class StoryRestView(RestView):
 
