@@ -323,6 +323,41 @@ class CreatureRestView(RestView):
             "rating": c.rating
         }
 
+class SchoolRestView(RestView):
+
+    def get_item(self, school_id):
+        # Pull the school row from the model. 
+        s = School.objects.get(pk=school_id) 
+
+        # Manipulate the python dict to conform to our API 
+        data = self.formatSchoolData(s)
+        
+        # Form the python dict into a JSON HTTP response 
+        return JSONResponse(data)
+
+    def get_collection(self):
+        schools = School.objects.all()
+
+        data = []
+        for school in schools:
+            element = self.formatSchoolData(school)
+            data.append(element) 
+        
+        return JSONResponse(data)
+
+    def formatSchoolData(self, s):
+        """
+        Form the given school object into a dictionary that meets API
+        specification.
+        """
+        return {
+            "id": s.id, 
+            "name": s.name, 
+            "description": s.description,
+            "country": s.country if s.country else None,
+            "kind": s.kind if s.kind else None
+        }
+
 class JSONResponse(HttpResponse):
     def __init__(self, data):
         super(JSONResponse, self).__init__(

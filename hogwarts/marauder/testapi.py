@@ -219,6 +219,18 @@ class TestStoryAPI(TransactionTestCase):
             description = 'Riveting',
             date = date(1987, 1, 1),
         )
+        c = Character.objects.create(
+            id=3,
+            name='George Weasley',
+            wand='good one',
+            description='funny',
+            magical=True,
+            sex='M',
+            quote='yes',
+            quote_by='yesyes',
+        )
+        s2.characters.add(c)
+        s2.save()
 
     def testDetail(self):
         story = Story.objects.get(pk=2)
@@ -226,7 +238,7 @@ class TestStoryAPI(TransactionTestCase):
         response = fetch_url(url)
         expected = {
             'date': '1987-01-01', 'name': 'Another Story', 'kind': None, 
-            'characters': None, 'id': 2, 'quote_by': None, 
+            'characters': [3], 'id': 2, 'quote_by': None, 
             'description': 'Riveting', 'artifacts': None, 'quote': None} 
         self.assertEqual(response, expected)
 
@@ -237,7 +249,44 @@ class TestStoryAPI(TransactionTestCase):
             {'artifacts': None, 'characters': None, 'date': '1200-01-01', 
              'description': 'Three bros doin shit', 'id': 1, 'kind': 'legend', 
              'name': 'Deathly Hallows', 'quote': 'la la la', 'quote_by': 'someone'},
-            {'artifacts': None, 'characters': None, 'date': '1987-01-01', 
+            {'artifacts': None, 'characters': [3], 'date': '1987-01-01', 
              'description': 'Riveting', 'id': 2, 'kind': None, 'name': 'Another Story',
              'quote': None, 'quote_by': None}]
+        self.assertEqual(response, expected)
+
+class TestSchoolAPI(TransactionTestCase):
+
+    def setUp(self):
+        s1 = School.objects.create(
+            id = 1,
+            name = 'Durmstrang Institute',
+            description = 'These guys dont really like muggle-borns very much. Except Krum I guess.',
+        )
+        s2 = School.objects.create(
+            id = 2,
+            name = 'Hogwarts',
+            description = 'Harry Land',
+            kind = 'School',
+            country = 'UK'
+        )
+        c = Character.objects.create(name = 'Some Old Wizard')
+        s2.founders.add(c)
+        s2.save()
+
+    def testDetail(self):
+        school = School.objects.get(pk=2)
+        url = reverse('school_api', kwargs={'id': 2})
+        response = fetch_url(url)
+        expected = {
+            'country': 'UK', 'description': 'Harry Land', 'id': 2,
+            'kind': 'School', 'name': 'Hogwarts'} 
+        self.assertEqual(response, expected)
+
+    def testIndex(self):
+        url = reverse('schools_api')
+        response = fetch_url(url)
+        expected = [
+            {'country': None, 'description': 'These guys dont really like muggle-borns very much. Except Krum I guess.',
+            'id': 1, 'kind': None, 'name': 'Durmstrang Institute'},
+            {'country': 'UK', 'description': 'Harry Land', 'id': 2, 'kind': 'School', 'name': 'Hogwarts'}]
         self.assertEqual(response, expected)

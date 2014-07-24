@@ -38,12 +38,12 @@ urlpatterns = patterns('',
     url(r'^api/potions/$', views.PotionRestView(), name='potions_api'),
     url(r'^api/potions/(?P<id>\d+)/$', views.PotionRestView(), name='potion_api'),
 
+    url(r'^api/creatures/$', views.CreatureRestView(), name='creatures_api'),
     url(r'^api/creatures/(?P<id>\d+)/$', views.CreatureRestView(), name='creature_api'),
-    url(r'^api/creatures/$', views.CreatureRestView(), 
-        name='creatures_api'),
 
-    url(r'^api/artifacts/(?P<id>\d+)/$', views.ArtifactRestView(),
-        name='artifact_api'),
-    url(r'^api/artifacts/$', views.ArtifactRestView(), 
-        name='artifacts_api'),
+    url(r'^api/artifacts/$', views.ArtifactRestView(), name='artifacts_api'),
+    url(r'^api/artifacts/(?P<id>\d+)/$', views.ArtifactRestView(), name='artifact_api'),
+
+    url(r'^api/schools/$', views.SchoolRestView(), name='schools_api'),
+    url(r'^api/schools/(?P<id>\d+)/$', views.SchoolRestView(), name='school_api'),
 )
