@@ -58,7 +58,6 @@ class SpellDetailView(generic.DetailView):
 class PotionListView(SingleTableView):
     model = Potion
     template_name = 'potions/index.html'
-    queryset = Potion.objects.filter(hidden=False)
     table_class = PotionTable
     table_pagination = {'per_page': 10}
 
