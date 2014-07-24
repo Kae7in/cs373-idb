@@ -11,7 +11,7 @@ urlpatterns = patterns('',
     url(r'^creatures/$', views.CreatureListView.as_view(), name='creatures'),
     url(r'^creatures/(?P<pk>\d+)/$', views.CreatureDetailView.as_view(), name='creature'),
     #Characters
-    url(r'^characters/$', views.CharacterListView.as_view(), name='characters'),
+#    url(r'^characters/$', views.CharacterListView.as_view(), name='characters'),
     url(r'^characters/(?P<pk>\d+)/$', views.CharacterDetailView.as_view(), name='character'),
     #Potions
     url(r'^potions/(?P<pk>\d+)/$', views.PotionDetailView.as_view(), name='potion'),
@@ -38,5 +38,10 @@ urlpatterns = patterns('',
     url(r'^api/potions/$', views.PotionRestView(), name='potions_api'),
     url(r'^api/potions/(?P<id>\d+)/$', views.PotionRestView(), name='poition_api'),
 
-    url(r'^api/creatures/(?P<id>\d+)/$', views.CreatureRestView())
+    url(r'^api/creatures/(?P<id>\d+)/$', views.CreatureRestView()),
+
+    url(r'^api/artifacts/(?P<id>\d+)/$', views.ArtifactRestView(),
+        name='artifact_api'),
+    url(r'^api/artifacts/$', views.ArtifactRestView(), 
+        name='artifacts_api'),
 )

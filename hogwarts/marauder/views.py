@@ -3,8 +3,8 @@ from django.views import generic
 from django.http import HttpResponse
 import json
 from marauder.models import *
-from marauder.tables import *
-from django_tables2 import SingleTableView
+#from marauder.tables import *
+#from django_tables2 import SingleTableView
 
 # Creature Views
 class CreatureListView(generic.ListView):
@@ -24,11 +24,11 @@ class CreatureDetailView(generic.DetailView):
         return context
 
 # Character Views
-class CharacterListView(SingleTableView):
-    model = Character
-    template_name = 'characters/index.html'
-    table_class = CharacterTable
-    table_pagination = {'per_page': 10}
+#class CharacterListView(SingleTableView):
+#    model = Character
+#    template_name = 'characters/index.html'
+#    table_class = CharacterTable
+#    table_pagination = {'per_page': 10}
 
 class CharacterDetailView(generic.DetailView):
     model = Character
@@ -122,6 +122,32 @@ class CharacterRestView(RestView):
             "quote": c.quote if c.quote else None,
             "quote_by": c.quote_by if c.quote_by else None
         }
+
+class ArtifactRestView(RestView):
+
+    def get_item(self, artifact_id):
+        a = Artifact.objects.get(pk=artifact_id)
+        data = self.formatArtifactData(a)
+        return JSONResponse(data)
+
+    def get_collection(self):
+        artifacts = Artifact.objects.all()
+        data = []
+        for artifact in artifacts:
+            element = self.formatArtifactData(artifact)
+            data.append(element)
+        return JSONResponse(data)
+
+    def formatArtifactData(self, a):
+        return {
+            "id": a.id,
+            "name": a.name,
+            "description": a.description,
+            "kind": a.kind if a.kind else None,
+            "owners": [o.id for o in a.owners.all()],
+            "shop": a.shop.id if a.shop else None,
+        }
+
 
 class StoryRestView(RestView):
 
@@ -236,10 +262,27 @@ class ShopRestView(RestView):
 
 class PotionRestView(RestView):
 
-    def GET(self, potion_id):
-        p = Potion.objects.get(pk=potion_id)
+    def get_item(self, potion_id):
+        
+        potion = Potions.objects.get(pk=potion_id)
 
-        data = {
+        data = self.formatPotionData(potion)
+
+        return JSONResponse(data)
+
+    def get_collection(self):
+        potions = Potion.objects.all()
+
+        data = []
+        for potion in potions:
+            element = self.formatPotionData(potion)
+            data.append(element)
+
+        return JSONResponse(data)
+
+    def formatPotionData(self, p):
+        
+        return {
             "id": p.id,
             "title": p.title,
             "difficulty": p.difficulty,
@@ -248,21 +291,36 @@ class PotionRestView(RestView):
             "recipe": p.recipe if p.recipe else None,
             "notable_uses": p.notable_uses
         }
-        return JSONResponse(data)
+
          
 class CreatureRestView(RestView):
-    def GET(self, creature_id):
+
+    def get_item(self, creature_id):
         c = Creature.objects.get(pk=creature_id)
 
-        data = {
+        data = self.formatCreatureData(self, c)
+
+        return JSONResponse(data)
+
+    def get_collection(self):
+        
+        creatures = Creature.objects.all()
+
+        for creature in creatures:
+            element = self.formatCreatureData(creature)
+            data.append(element)
+
+        return JSONResponse(data)
+
+    def formatCreatureData(self, c):
+        
+        return  {
             "id": c.id,
             "name": c.name,
             "description": c.description,
             "classification": c.classification,
             "rating": c.rating
         }
-
-        return JSONResponse(data)
 
 class JSONResponse(HttpResponse):
     def __init__(self, data):
