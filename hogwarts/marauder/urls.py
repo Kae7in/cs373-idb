@@ -16,7 +16,7 @@ urlpatterns = patterns('',
     url(r'^characters/$', views.CharacterListView.as_view(), name='characters'),
     url(r'^characters/(?P<pk>\d+)/$', views.CharacterDetailView.as_view(), name='character'),
     #Potions
-    url(r'^potions/$', views.CharacterListView.as_view(), name='potions'),
+    url(r'^potions/$', views.PotionListView.as_view(), name='potions'),
     url(r'^potions/(?P<pk>\d+)/$', views.PotionDetailView.as_view(), name='potion'),
     #Artifacts
     url(r'^artifacts/$', views.ArtifactListView.as_view(), name='artifacts'),

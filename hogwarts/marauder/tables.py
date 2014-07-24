@@ -47,6 +47,16 @@ class BookTable(tables.Table):
         fields = ("name", "author")
         attrs = {"class": "table table-striped table-bordered table-hover"}
 
+class PotionTable(tables.Table):
+    title = tables.TemplateColumn('''
+        <a href='{% url "potion" record.pk %}'>{{ record.title }}</a>''')
+    difficulty = tables.TemplateColumn("{{ record.get_difficulty_display }}")
+
+    class Meta:
+        model = Potion
+        fields = ("title", "difficulty")
+        attrs = {"class": "table table-striped table-bordered table-hover"}
+
 class ArtifactTable(tables.Table):
     name = tables.TemplateColumn('''
         <a href='{% url "artifact" record.pk %}'>{{ record.name }}</a>''')

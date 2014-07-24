@@ -55,9 +55,22 @@ class SpellDetailView(generic.DetailView):
     template_name = 'spells/base.html'
 
 # Potion Views
+class PotionListView(SingleTableView):
+    model = Potion
+    template_name = 'potions/index.html'
+    queryset = Potion.objects.filter(hidden=False)
+    table_class = PotionTable
+    table_pagination = {'per_page': 10}
+
 class PotionDetailView(generic.DetailView):
     model = Potion
     template_name = 'potions/base.html'
+
+    def get_context_data(self, **kwargs):
+        context = super(PotionDetailView, self).get_context_data(**kwargs)
+        if kwargs['object'].hidden:
+            raise Http404
+        return context
 
 # Story Views
 class StoryListView(SingleTableView):
