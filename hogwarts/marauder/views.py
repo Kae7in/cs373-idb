@@ -305,7 +305,6 @@ class SpellRestView(RestView):
             'unforgivable': s.unforgivable,
             'difficulty': s.difficulty,
             'kind': s.kind if s.kind else None,
-            'image': s.image,
             'creature': s.creature if s.creature else None
         }
 
