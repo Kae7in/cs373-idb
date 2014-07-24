@@ -36,3 +36,25 @@ class BookTable(tables.Table):
         model = Book
         fields = ("name", "author")
         attrs = {"class": "table table-striped table-bordered table-hover"}
+
+class ArtifactTable(tables.Table):
+    name = tables.TemplateColumn('''
+        <a href='{% url "artifact" record.pk %}'>{{ record.name }}</a>''')
+    kind = tables.TemplateColumn("{{ record.kind|capfirst }}")
+
+    class Meta:
+        model = Artifact
+        fields = ("name", "kind")
+        attrs = {"class": "table table-striped table-bordered table-hover"}
+
+class SpellTable(tables.Table):
+    name = tables.TemplateColumn('''
+        <a href='{% url "spell" record.pk %}'>{{ record.name }}</a>''')
+    kind = tables.TemplateColumn("{{ record.kind|capfirst }}")
+    difficulty = tables.TemplateColumn("{{ spell.get_difficulty_display|capfirst }}")
+
+    class Meta:
+        model = Spell
+        fields = ("incantation", "alias", "creator", "unforgivable", "difficulty", "kind")
+        attrs = {"class": "table table-striped table-bordered table-hover"}
+
