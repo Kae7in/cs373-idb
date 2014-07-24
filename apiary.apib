@@ -131,7 +131,7 @@ A single School object with all its details
             "id": 1,
             "name": "The Boy Who Lived",
             "description": "Harry Potter was born on July 31st, 1980, to Lily and James Potter. His parents were members of the Order of the Phoenix, an organization dedicated to bringing about the ruin of Lord Voldemort. From birth, he lived in hiding with his parents after Voldemort marked him, and Neville Longbottom, for death. Neville was born just a few hours before Harry Potter. Voldemort feared the boys because of The Prophecy.",
-            "date": "10/31/1980",
+            "date": "1980-10-31",
             "kind": "History",
             "characters": [3, 1, 21],
             "artifacts": [1],
@@ -186,7 +186,7 @@ A single Story object with all its details
             "description": "The Pensieve is an object used to review memories. It has the appearance of a shallow stone basin, into which are carved runes and strange symbols. It is filled with a silvery substance that appears to be a cloud-like liquid/gas; the collected memories of people who have siphoned their recollections into it. Memories can then be viewed from a non-participant, third-person point of view.",
             "owners": [1, 5]
             "stories": null,
-            "kind": "",
+            "kind": null,
             "shop": null
         }, {
             "id": 2,
@@ -219,7 +219,7 @@ A single Artifact object with all its details
                 "description": "The Pensieve is an object used to review memories. It has the appearance of a shallow stone basin, into which are carved runes and strange symbols. It is filled with a silvery substance that appears to be a cloud-like liquid/gas; the collected memories of people who have siphoned their recollections into it. Memories can then be viewed from a non-participant, third-person point of view.",
                 "owners": [1, 5]
                 "stories": null,
-                "kind": "",
+                "kind": null,
                 "shop": null
             }
             
@@ -240,7 +240,7 @@ A single Artifact object with all its details
         [{
             "id": 1,
             "title": "Veritaserum",
-            "difficulty": "Advanced",
+            "difficulty": "A",
             "physical_description": "No color and no odor.",
             "effects": "The drinker is forced to answer any question with whatever they believe is the truth.",
             "recipe": "It must be brewed for 28 days, or one lunar phase.",
@@ -248,7 +248,7 @@ A single Artifact object with all its details
         }, {
             "id": 2,
             "title": "Felix Felices",
-            "difficulty": "Advanced",
+            "difficulty": "A",
             "physical_description": "Its color is molten gold. When inside a cauldron, drops of the liquid will leap above the surface",
             "effects": "Increases the luck of the drinker. Overdose can induce giddiness and recklessness. Large quantities can be toxic.",
             "recipe": "Add to the cauldron an Ashwinder egg and horseradish before heating. Then add a juiced squill bulb and stir. Add chopped Murtlap tentacle to mixture and heat again. Then add a dash of tincture of thyme before stirring slowly. Add ground Occamy eggshell. Stir slowly and heat again. Sprinkle powdered common rue over the mixture before stirring and heating again. Then make a figure-eight motion over the cauldron with the wand and say the incantation, Felixempra!. Needs to be brewed for six months.",
@@ -274,7 +274,7 @@ A single Potion object with all its details
             {
                 "id": 1,
                 "title": "Veritaserum",
-                "difficulty": "Advanced",
+                "difficulty": "A",
                 "physical_description": "No color and no odor.",
                 "effects": "The drinker is forced to answer any question with whatever they believe is the truth.",
                 "recipe": "It must be brewed for 28 days, or one lunar phase.",
@@ -300,13 +300,23 @@ A single Potion object with all its details
             "incantation": "Expecto Patronum",
             "alias": "Patronus Charm",
             "effect": "Conjures a silver guardian spirit made of pure positive energy used to repel dark creatures such as Dementors and Lethifolds and can be either corporeal or not. In a weaker form, a Patronus takes the form of smoke or vapor which can halt dark creatures but is not nearly strong enough to repel them. In its stronger form, a Patronus takes the form of some creature (corporeal form) that relates to the casters' personality and is by far more powerful than the non-corporeal form and able to repel dark creatures in large groups.",
-            "creator": "Ancient Wizard"
+            "creator": "Ancient Wizard",
+            "difficulty": "Extremely Difficult",
+            "kind": "Defensive",
+            "unforgivable": false,
+            "notable_uses": "Harry Potter to repel a huge number of dementors",
+            "creature": 4
         }, {
             "id": 2,
             "incantation": "Riddikulus",
             "alias": "Riddikulus Charm",
             "effect": "Causes a boggart to assume a form that is hilarious to the caster.",
-            "creator": null
+            "creator": "Unknown",
+            "difficulty": "Moderate",
+            "kind": "Charm",
+            "unforgivable": false,
+            "notable_uses": "Remus Lupin teaches this to his third year class.",
+            "creature": 6
         }]
 
 ## Spell [/spells/{id}]
@@ -329,7 +339,12 @@ A single Spell object with all its details
                 "incantation": "Expecto Patronum",
                 "alias": "Patronus Charm",
                 "effect": "Conjures a silver guardian spirit made of pure positive energy used to repel dark creatures such as Dementors and Lethifolds and can be either corporeal or not. In a weaker form, a Patronus takes the form of smoke or vapor which can halt dark creatures but is not nearly strong enough to repel them. In its stronger form, a Patronus takes the form of some creature (corporeal form) that relates to the casters' personality and is by far more powerful than the non-corporeal form and able to repel dark creatures in large groups.",
-                "creator": "Ancient Wizard"
+                "creator": "Ancient Wizard",
+                "difficulty": "Extremely Difficult",
+                "kind": "Defensive",
+                "unforgivable": false,
+                "notable_uses": "Harry Potter to repel a huge number of dementors",
+                "creature": 4
             }
             
 + Response 404
@@ -349,11 +364,15 @@ A single Spell object with all its details
         [{
             "id": 1,
             "name": "Weasley's Wizard Wheezes",
-            "description": "A joke shop that sells many types of magical gag items and gifts."
+            "description": "A joke shop that sells many types of magical gag items and gifts.",
+            "owners": null,
+            "locations": [15, 16, 17]
         }, {
             "id": 2,
             "name": "Ollivander's Wand Shop",
-            "description": "A wand shop where wizards go to typically get their first wand or a replacement should something have happened to the original."
+            "description": "A wand shop where wizards go to typically get their first wand or a replacement should something have happened to the original.",
+            "owners": null,
+            "locations: [15, 17]
         }]
 
 ## Shop [/shops/{id}]
@@ -374,7 +393,9 @@ A single Shop object with all its details
             {
                 "id": 1,
                 "name": "Weasley's Wizard Wheezes",
-                "description": "A joke shop that sells many types of magical gag items and gifts."
+                "description": "A joke shop that sells many types of magical gag items and gifts.",
+                "owners": null,
+                "locations": [15, 16, 17]
             }
             
 + Response 404
@@ -396,13 +417,13 @@ A single Shop object with all its details
             "name": "Giant",
             "description": "A giant is a very large humanoid which can potentially grow to approximately twenty five feet tall and appear to be a large human. Some may appear as large and hairy humanoids, while others resemble humongous-sized people, and some may even have bestial features (i.e. protuding sharp molars). A powerful and nearly unstoppable race, giants generally aggregate themselves in tribes since their numbers have greatly dwindled in recent centuries. A giant tribe is led by the strongest giant, known as the Gurg.",
             "classification": "Being",
-            "rating": "Unknown"
+            "rating": 4
         }, {
             "id": 2,
             "name": "Acromantula",
             "description": "An Acromantula is a species of giant spider, native to the rainforests of Southeast Asia, particularly Borneo where it inhabits dense jungles. Acromantulas are believed to be a wizard-bred species, designed to guard dwellings or treasure hoards, and were first created before the Ban on Experimental Breeding in 1965. These giant spiders, with a taste for human flesh, were first spotted in 1794.",
             "classification": "Beast",
-            "rating": "XXXXX"
+            "rating": 5
         }]
 
 ## Creature [/creatures/{id}]
@@ -425,7 +446,7 @@ A single Creature object with all its details
                 "name": "Giant",
                 "description": "A giant is a very large humanoid which can potentially grow to approximately twenty five feet tall and appear to be a large human. Some may appear as large and hairy humanoids, while others resemble humongous-sized people, and some may even have bestial features (i.e. protuding sharp molars). A powerful and nearly unstoppable race, giants generally aggregate themselves in tribes since their numbers have greatly dwindled in recent centuries. A giant tribe is led by the strongest giant, known as the Gurg.",
                 "classification": "Being",
-                "rating": "Unknown"
+                "rating": 4
             }
             
 + Response 404
