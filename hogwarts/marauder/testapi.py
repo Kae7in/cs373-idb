@@ -311,8 +311,8 @@ class TestShopAPI(TransactionTestCase):
         s2.save()
 
     def testDetail(self):
-        school = Shop.objects.get(pk=1)
-        url = reverse('school_api', kwargs={'id': 2})
+        school = Shop.objects.get(pk=2)
+        url = reverse('shop_api', kwargs={'id': 2})
         response = fetch_url(url)
         expected = { 
             'id': 2,
@@ -324,7 +324,7 @@ class TestShopAPI(TransactionTestCase):
         self.assertEqual(response, expected)
 
     def testIndex(self):
-        url = reverse('schools_api')
+        url = reverse('shops_api')
         response = fetch_url(url)
         expected = [{ 
             'id': 1,
