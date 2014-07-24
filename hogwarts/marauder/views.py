@@ -5,6 +5,7 @@ import json
 from marauder.models import *
 from marauder.tables import *
 from django_tables2 import SingleTableView
+from django.http import Http404
 
 # Creature Views
 class CreatureListView(generic.ListView):
@@ -23,10 +24,11 @@ class CreatureDetailView(generic.DetailView):
         context = super(CreatureDetailView, self).get_context_data(**kwargs)
         return context
 
-Character Views
+# Character Views
 class CharacterListView(SingleTableView):
     model = Character
     template_name = 'characters/index.html'
+    queryset = Character.objects.filter(hidden=False)
     table_class = CharacterTable
     table_pagination = {'per_page': 10}
 
@@ -36,9 +38,17 @@ class CharacterDetailView(generic.DetailView):
 
     def get_context_data(self, **kwargs):
         context = super(CharacterDetailView, self).get_context_data(**kwargs)
+        if kwargs['object'].hidden:
+            raise Http404
         return context
 
 # Spell Views
+class SpellListView(SingleTableView):
+    model = Spell
+    template_name = 'spells/index.html'
+    table_class = SpellTable
+    table_pagination = {'per_page': 10}
+
 class SpellDetailView(generic.DetailView):
     model = Spell
     template_name = 'spells/base.html'
@@ -49,17 +59,79 @@ class PotionDetailView(generic.DetailView):
     template_name = 'potions/base.html'
 
 # Story Views
+class StoryListView(SingleTableView):
+    model = Story
+    template_name = 'stories/index.html'
+    table_class = StoryTable
+    table_pagination = {'per_page': 10}
+
 class StoryDetailView(generic.DetailView):
     model = Story
     template_name = 'stories/base.html'
 
+    def get_context_data(self, **kwargs):
+        context = super(StoryDetailView, self).get_context_data(**kwargs)
+        return context
+
+
 # Artifact Views
+class ArtifactListView(SingleTableView):
+    model = Artifact
+    template_name = 'artifacts/index.html'
+    table_class = ArtifactTable
+    table_pagination = {'per_page': 10}
+
 class ArtifactDetailView(generic.DetailView):
     model = Artifact
     template_name = 'artifacts/base.html'
 
 # Book Views
+class BookListView(SingleTableView):
+    model = Book
+    template_name = 'books/index.html'
+    table_class = BookTable
+    table_pagination = {'per_page': 10}
+
+class BookDetailView(generic.DetailView):
+    model = Book
+    template_name = 'books/base.html'
+
+    def get_context_data(self, **kwargs):
+        context = super(BookDetailView, self).get_context_data(**kwargs)
+        return context
+
 # Location Views
+class LocationListView(SingleTableView):
+    model = Location
+    template_name = 'locations/index.html'
+    #table_class = StoryTable
+    #table_pagination = {'per_page': 10}
+
+class LocationDetailView(generic.DetailView):
+    model = Location
+    template_name = 'locations/base.html'
+
+    def get_context_data(self, **kwargs):
+        context = super(LocationDetailView, self).get_context_data(**kwargs)
+        return context
+
+# House Views
+class HouseListView(generic.ListView):
+    model = House
+    template_name = 'houses/index.html'
+
+    def get_context_data(self, **kwargs):
+        context = super(HouseListView, self).get_context_data(**kwargs)
+        return context
+
+class HouseDetailView(generic.DetailView):
+    model = House
+    template_name = 'creatures/base.html'
+
+    def get_context_data(self, **kwargs):
+        context = super(HouseDetailView, self).get_context_data(**kwargs)
+        return context
+
 """
   RESTful API
   
@@ -292,7 +364,6 @@ class PotionRestView(RestView):
             "recipe": p.recipe if p.recipe else None,
             "notable_uses": p.notable_uses
         }
-
          
 class CreatureRestView(RestView):
 

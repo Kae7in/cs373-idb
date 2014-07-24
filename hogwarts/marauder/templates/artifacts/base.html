@@ -3,7 +3,7 @@
 {% block content %}
 <div class='row'>
   <div class='col-xs-12 col-md-8 col-sm-6 info-group'>
-    <h1 class="uppercase">{% block name %}{% endblock name %}</h1>
+    <h1 class="uppercase">{% block name %}{{ artifact.name }}{% endblock name %}</h1>
     <ul class='list-group info-group-list'>
       {% block info_group %}{% endblock info_group %}
     </ul>
@@ -11,32 +11,40 @@
 
 <div class='row'>
   <div class='col-xs-12 col-md-12 col-sm-12' class="big-image">
-    <img class='list-group-item' src='{% block image_url %}{% endblock image_url %}'>
+    <img class='list-group-item' src='{% block image_url %}{{ artifact.image }}{% endblock image_url %}'>
   </div>
 </div>
 
 <div class='row'>
 	<div class='col-md-12' id='description'>
-		{% block description %}{% endblock description %}
+		{% block description %}{{ artifact.description|safe }}{% endblock description %}
 	</div>
 </div>
 
+{% if artifact.owners.all %}
 <div class='row'>
   <div class='col-md-12'>
     <h3>OWNERS</h3>
     {% block owners %}
-    None
+        {% for character in artifact.owners.all %}
+            <a href="{% url 'character' character.id %}">{{ character.name }}</a><br />
+        {% endfor %}
     {% endblock owners %}
   </div>
 </div>
+{% endif %}
 
+{% if artifact.stories.all %}
 <div class='row'>
   <div class='col-md-12'>
     <h3>STORIES</h3>
     {% block stories %}
-    None
+        {% for story in artifact.stories.all %}
+            <a href="{% url 'story' story.id %}">{{ story.name }}</a><br />
+        {% endfor %}
     {% endblock stories %}
   </div>
 </div>
+{% endif %}
 
 {% endblock content %}
