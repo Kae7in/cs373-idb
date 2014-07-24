@@ -16,10 +16,13 @@ urlpatterns = patterns('',
     url(r'^characters/$', views.CharacterListView.as_view(), name='characters'),
     url(r'^characters/(?P<pk>\d+)/$', views.CharacterDetailView.as_view(), name='character'),
     #Potions
+    url(r'^potions/$', views.CharacterListView.as_view(), name='potions'),
     url(r'^potions/(?P<pk>\d+)/$', views.PotionDetailView.as_view(), name='potion'),
     #Artifacts
+    url(r'^artifacts/$', views.CharacterListView.as_view(), name='artifacts'),
     url(r'^artifacts/(?P<pk>\d+)/$', views.ArtifactDetailView.as_view(), name='artifact'),
     #Spells
+    url(r'^spells/$', views.CharacterListView.as_view(), name='spells'),
     url(r'^spells/(?P<pk>\d+)/$', views.SpellDetailView.as_view(), name='spell'),
     #Stories
     url(r'^stories/$', views.StoryListView.as_view(), name='stories'),
@@ -30,6 +33,9 @@ urlpatterns = patterns('',
     #Locations
     url(r'^locations/$', views.LocationListView.as_view(), name='locations'),
     url(r'^locations/(?P<pk>\d+)/$', views.LocationDetailView.as_view(), name='location'),
+    #Houses
+    url(r'^houses/$', views.HouseListView.as_view(), name='houses'),
+    url(r'^houses/(?P<pk>\d+)/$', views.HouseDetailView.as_view(), name='house'),
 
     # API
     url(r'^api/characters/(?P<id>\d+)/$', views.CharacterRestView()),

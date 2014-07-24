@@ -101,6 +101,24 @@ class LocationDetailView(generic.DetailView):
     def get_context_data(self, **kwargs):
         context = super(LocationDetailView, self).get_context_data(**kwargs)
         return context
+
+# House Views
+class HouseListView(generic.ListView):
+    model = House
+    template_name = 'houses/index.html'
+
+    def get_context_data(self, **kwargs):
+        context = super(HouseListView, self).get_context_data(**kwargs)
+        return context
+
+class HouseDetailView(generic.DetailView):
+    model = House
+    template_name = 'creatures/base.html'
+
+    def get_context_data(self, **kwargs):
+        context = super(HouseDetailView, self).get_context_data(**kwargs)
+        return context
+
 """
   RESTful API
   

@@ -16,6 +16,11 @@ a:hover {
 
 .uppercase { text-transform: uppercase;}
 
+#splash-nav h2 {
+  padding: 20px;
+  text-align:center;
+}
+
 #content {
     margin: auto;
     width: 90%;

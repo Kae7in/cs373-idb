@@ -39,42 +39,13 @@
             <li><a href="/">Home</a></li>
             <li><a href="{% url 'characters' %}">Characters</a></li>
             <li><a href="{% url 'stories' %}">Stories</a></li>
-
-            <li class="dropdown">
-              <a href="#" class="dropdown-toggle" data-toggle="dropdown">Artifacts<span class="caret"></span></a>
-              <ul class="dropdown-menu" role="menu">
-                <li><a href="../artifacts/1">Pensieve</a></li>
-                <li><a href="../artifacts/2">Elder Wand</a></li>
-                <li><a href="../artifacts/3">Invisibility Cloak</a></li>
-              </ul>
-            </li>
-
-            <li class="dropdown">
-              <a href="#" class="dropdown-toggle" data-toggle="dropdown">Spells<span class="caret"></span></a>
-              <ul class="dropdown-menu" role="menu">
-                <li><a href="../spells/1">Patronus Charm</a></li>
-                <li><a href="../spells/2">Boggart Vanishing Charm</a></li>
-                <li><a href="../spells/3">Disarming Charm</a></li>
-              </ul>
-            </li>
-
-            <li class="dropdown">
-              <a href="#" class="dropdown-toggle" data-toggle="dropdown">Potions<span class="caret"></span></a>
-              <ul class="dropdown-menu" role="menu">
-                <li><a href="../potions/1">Amortentia</a></li>
-                <li><a href="../potions/2">Veritaserum</a></li>
-                <li><a href="../potions/3">Regeneration Potion</a></li>
-              </ul>
-            </li>
-
-            <li class="dropdown">
-              <a href="#" class="dropdown-toggle" data-toggle="dropdown">Creatures<span class="caret"></span></a>
-              <ul class="dropdown-menu" role="menu">
-                <li><a href="../creatures/1">Werewolf</a></li>
-                <li><a href="../creatures/2">Thestral</a></li>
-                <li><a href="../creatures/3">Dementor</a></li>
-              </ul>
-            </li>
+            <li><a href="{% url 'artifacts' %}">Artifacts</a></li>
+            <li><a href="{% url 'creatures' %}">Creatures</a></li>
+            <li><a href="{% url 'spells' %}">Spells</a></li>
+            <li><a href="{% url 'potions' %}">Potions</a></li>
+            <li><a href="{% url 'locations' %}">Locations</a></li>
+            <li><a href="{% url 'houses' %}">Houses</a></li>
+            <li><a href="{% url 'books' %}">Books</a></li>
           </ul>
         </div><!-- /.navbar-collapse -->
       </div><!-- /.container-fluid -->
