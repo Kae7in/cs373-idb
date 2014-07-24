@@ -3,8 +3,8 @@ from django.views import generic
 from django.http import HttpResponse
 import json
 from marauder.models import *
-#from marauder.tables import *
-#from django_tables2 import SingleTableView
+from marauder.tables import *
+from django_tables2 import SingleTableView
 
 # Creature Views
 class CreatureListView(generic.ListView):
@@ -23,12 +23,12 @@ class CreatureDetailView(generic.DetailView):
         context = super(CreatureDetailView, self).get_context_data(**kwargs)
         return context
 
-# Character Views
-#class CharacterListView(SingleTableView):
-#    model = Character
-#    template_name = 'characters/index.html'
-#    table_class = CharacterTable
-#    table_pagination = {'per_page': 10}
+Character Views
+class CharacterListView(SingleTableView):
+    model = Character
+    template_name = 'characters/index.html'
+    table_class = CharacterTable
+    table_pagination = {'per_page': 10}
 
 class CharacterDetailView(generic.DetailView):
     model = Character
@@ -217,15 +217,15 @@ class SpellRestView(RestView):
         return {
             "id": s.id,
             "incantation": s.incantation,
-            "alias": s.alias,
-            "effect": s.effect,
-            "creator": s.creator,
-            "notable_uses": s.notable_uses,
+            "alias": s.alias if s.alias else None,
+            "effect": s.effect if s.effect else None,
+            "creator": s.creator if s.creator else None,
+            "notable_uses": s.notable_uses if s.notable_uses else None,
             "unforgivable": s.unforgivable,
             "KIND_CHOICES": s.KIND_CHOICES,
             "DIFFICULTY_CHOICES": s.DIFFICULTY_CHOICES,
             "difficulty": s.difficulty,
-            "kind": s.kind,
+            "kind": s.kind if s.kind else None,
             "image": s.image,
             "creature": s.creature if s.creature else None
         }
