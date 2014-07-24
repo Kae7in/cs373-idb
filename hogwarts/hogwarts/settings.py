@@ -38,7 +38,7 @@ INSTALLED_APPS = (
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'marauder',
-    'south',
+    #'south',
     'django_tables2'
 )
 
@@ -61,7 +61,7 @@ WSGI_APPLICATION = 'hogwarts.wsgi.application'
 
 DATABASES = {
     'default': { 'ENGINE': 'mysql.connector.django',
-        'NAME': 'marauder',
+        'NAME': 'marauder_test',
         'USER': 'root',
         'PASSWORD': 'root',
         'HOST': 'localhost',

@@ -151,6 +151,7 @@ class StoryRestView(RestView):
         specification.
         """
         return {
+            "id": s.id,
             "name": s.name,
             "description": s.description,
             "date": s.date,
