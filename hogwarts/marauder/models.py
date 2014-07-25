@@ -46,7 +46,7 @@ class Character(models.Model):
             else:
                 other_id = relation.character1.id
                 other_desc = relation.descriptor1
-            if(other_desc == 'mother' or other_desc == 'father'):
+            if(other_desc.lower() == 'mother' or other_desc.lower() == 'father'):
                 parent = Character.objects.get(pk=other_id)
                 if(parent.magical):
                     magic_parents += 1
