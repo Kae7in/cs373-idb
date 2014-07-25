@@ -46,13 +46,14 @@
 	</div>
 </div>
 
-
-<div class='row'>
-	<div class='col-md-12'>
-	    <h3>RECIPE</h3>
-        {{ potion.recipe|safe}}
-	</div>
-</div>
+{% if potion.recipe != 'Unknown' %}
+    <div class='row'>
+	    <div class='col-md-12'>
+	        <h3>RECIPE</h3>
+            {{ potion.recipe|safe}}
+	    </div>
+    </div>
+{% endif %}
 
 
 <div class='row'>
