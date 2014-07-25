@@ -21,11 +21,6 @@ a:hover {
 
 .uppercase { text-transform: uppercase;}
 
-#splash-nav h2 {
-  padding: 20px;
-  text-align:center;
-}
-
 #content {
     margin: auto;
     width: 90%;
@@ -68,6 +63,18 @@ body {
 
 }
 
+.navbar-nav li.active {
+  background-color: rgb(200,200,200);
+}
+
+.navbar-nav li a {
+  color: black;
+}
+
+.navbar-brand {
+  color: black;
+}
+
 
 /* anything larger than mobile phone */
 @media (min-width: 768px) {
@@ -81,20 +88,21 @@ body {
     }
 
 
-    .otherjumbo {
-    background: url('../images/marauders.jpg');
+.jumbotron {
+    background: url('../images/maraudersbase.jpg');
     background-size: cover;
+    background-position: bottom;
     padding-top: 48px;
     padding-bottom: 48px;
 }
 
-    .otherjumbo h1 {
+.jumbotron h1 {
   font-size: 7em;
   font-family: 'Open Sans';
   color: white;
 }
 
-    .otherjumbo p {
+.jumbotron p {
   font-family: 'Open Sans';
   font-size: 2em;
   color: white;
@@ -108,7 +116,7 @@ body {
         max-width: 320px;
     }
 
-    .otherjumbo {
+    .jumbotron {
         margin:0;
         padding:0;
         visibility: hidden;

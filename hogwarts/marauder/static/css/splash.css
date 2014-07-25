@@ -11,8 +11,7 @@ body {
     margin:0;
     padding:0;
     height:100%;
-    background: none;
-    background-color: white;
+    background: url('../images/marauderssplash.jpg');
     -webkit-background-size: cover;
     -moz-background-size: cover;
     -o-background-size: cover;
@@ -35,28 +34,25 @@ body {
 }
 
 a:link, a:visited {
-    color:rgb(70,70,70);
+    color:rgb(190,190,190);
 }
 
 a:hover {
     text-decoration: none;
-    color: rgb(200,200,200);
+    color: white;
 }
 
-.splash {
-    background: url('../images/marauders.jpg');
-    background-size: cover;
-    padding-top: 48px;
-    padding-bottom: 48px;
+#main-title {
+  padding-top: 200px;
 }
 
-.splash h1 {
+#main-title h1 {
   font-size: 7em;
   font-family: 'Open Sans';
   color: white;
 }
 
-.splash p {
+#main-title p {
   font-family: 'Open Sans';
   font-size: 2em;
   color:white;
@@ -104,6 +100,10 @@ a:hover {
 
 
 
+#splash-nav h2 {
+  padding: 20px;
+  text-align:center;
+}
 
 
 .no-style {
