@@ -64,4 +64,15 @@
 	</div>
 </div>
 
+{% if creature.ingredients.all %}
+    <div class='row'>
+    	<div class='col-xs-12'>
+    	    <h3>POTIONS USED IN</h3>
+            {% for potion in creature.ingredients.first.potions.all %}
+                 <a href="{% url 'potion' potion.id %}">{{ potion.title }}</a><br/>
+            {% endfor %}
+    	</div>
+    </div>
+{% endif %}
+
 {% endblock content %}
