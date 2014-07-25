@@ -11,6 +11,8 @@
   border: 1px solid #ddd;;
 }
 
+.info-group-list { display: table; }
+
 #house-list {
   text-align: center;
 }
