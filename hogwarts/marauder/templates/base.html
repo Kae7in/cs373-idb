@@ -46,7 +46,7 @@
             <li class='{%block loc-active %}{% endblock loc-active %}'><a href="{% url 'locations' %}">Locations</a></li>
             <li class='{%block house-active %}{%endblock house-active %}'><a href="{% url 'houses' %}">Houses</a></li>
             <li class='{%block book-active %}{%endblock book-active %}'><a href="{% url 'books' %}">Books</a></li>
-          </ul>
+            <li class='{% block citations-active%}{% endblock citations-active %}'><a href="/citations">Citations</a></li>
         </div><!-- /.navbar-collapse -->
       </div><!-- /.container-fluid -->
     </nav>

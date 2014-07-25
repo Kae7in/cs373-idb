@@ -16,76 +16,19 @@
         <div id="main-title">
 		  <h1 class="text-center">Marauder's Map</h1>
 		  <p class="text-center">Brought to you by The Six Potters</p>
+          <p>World created by JK Rowling</p>
         </div>
         
         <div class="container-fluid" id='splash-nav'>
-            <div class='row'>
-                <div class='col-md-12'>
-                    <h2 class="panel-title">
-                        <a href="{% url 'characters' %}">Characters</a>
-                    </h2>
-                </div> 
-            </div>
-
-            <div class='row'>
-                <div class='col-md-2'></div>
-                <div class='col-md-4'>
-                    <h2 class="panel-title">
-                        <a href="{% url 'artifacts' %}">Artifacts</a>
-                    </h2>
-                </div>
-
-                <div class='col-md-4'>
-                    <h2 class="panel-title">
-                        <a href="{% url 'stories' %}">Stories</a>
-                    </h2>
-                </div>
-                <div class='col-md-2'></div>
-            </div>
-
-            <div class='row'>
-                <div class='col-md-4'>
-                    <h2 class="panel-title">
-                        <a href="{% url 'spells' %}">Spells</a>
-                    </h2>
-                </div>
-
-                <div class='col-md-4'>
-                    <h2 class="panel-title">
-                        <a href="{% url 'creatures' %}">Creatures</a>
-                    </h2>
-                </div>  <!-- /col-md-4 -->
-
-                <div class='col-md-4'>
-                    <h2 class="panel-title">
-                        <a href="{% url 'potions' %}">Potions</a>
-                    </h2>
-                </div>
-            </div>
-
-            <div class='row'>
-                <div class='col-md-2'></div>
-                <div class='col-md-4'>
-                    <h2 class="panel-title">
-                        <a href="{% url 'houses' %}">Houses</a>
-                    </h2>
-                </div>
-
-                <div class='col-md-4'>
-                    <h2 class="panel-title">
-                        <a href="{% url 'books' %}">Books</a>
-                    </h2>
-                </div>
-                <div class='col-md-2'></div>
-            </div>
-
-            <div class='row'>
-                <div class='col-md-12'>
-                    <h2 class="panel-title">
-                        <a href="{% url 'locations' %}">Locations</a>
-                    </h2>
-                </div> 
-            </div>
+            <a href="{% url 'characters' %}"><img src="{{ STATIC_URL }}images/characters_icon.png"/></a>
+            <a href="{% url 'creatures' %}"><img src="{{ STATIC_URL }}images/creatures_icon.png"/></a>
+            <a href="{% url 'artifacts' %}"><img src="{{ STATIC_URL }}images/artifacts_icon.png"/></a>
+            <a href="{% url 'spells' %}"><img src="{{ STATIC_URL }}images/spells_icon.png"/></a>
+            <a href="{% url 'potions' %}"><img src="{{ STATIC_URL }}images/potions_icon.png"/></a>
+            <a href="{% url 'books' %}"><img src="{{ STATIC_URL }}images/books_icon.png"/></a>
+            <a href="{% url 'locations' %}"><img src="{{ STATIC_URL }}images/locations_icon.png"/></a>
+            <a href="{% url 'houses' %}"><img src="{{ STATIC_URL }}images/houses_icon.png"/></a>
+            <a href="{% url 'stories' %}"><img src="{{ STATIC_URL }}images/stories_icon.png"/></a>
         </div> <!-- /container-fluid -->
     </div> <!-- /wrap -->
 

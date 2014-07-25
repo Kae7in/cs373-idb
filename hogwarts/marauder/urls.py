@@ -8,6 +8,7 @@ urlpatterns = patterns('',
     (r'^$', TemplateView.as_view(template_name='index.html')),
     (r'^base.html$', TemplateView.as_view(template_name='base.html')),
     (r'^splash.html$', TemplateView.as_view(template_name='splash.html')),
+    (r'^citations/$', TemplateView.as_view(template_name='citations.html')),
 
     #Creatures
     url(r'^creatures/$', views.CreatureListView.as_view(), name='creatures'),
