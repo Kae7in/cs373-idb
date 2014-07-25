@@ -119,13 +119,11 @@ body {
     }
 
     .jumbotron {
-        margin:0;
-        padding:0;
-        visibility: hidden;
+        display: none;
     }
 
-    .jumbotron {
-        visibility: hidden;
+    .top-index {
+        padding-top: 15px;
     }
 
 }
