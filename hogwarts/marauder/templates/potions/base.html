@@ -2,10 +2,6 @@
 
 {% block potion-active %}active{% endblock potion-active %}
 
-{% block scripts %}
-<link href='http://fonts.googleapis.com/css?family=Neucha' rel='stylesheet' type='text/css'>
-{% endblock scripts %}
-
 {% block content %}
 <div id="name">
     <h1 class="uppercase">{{ potion.title }}</h1>
@@ -33,7 +29,7 @@
 	</div>
 
 	<div class='col-xs-12 col-md-6 col-sm-6'>
-		<div class='main-image'>
+		<div class='main-image pull-right'>
 			<img class='list-group-item' src='{{ potion.image.url }}'>
 		</div>
 	</div>
