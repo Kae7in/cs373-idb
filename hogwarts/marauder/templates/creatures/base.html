@@ -37,8 +37,10 @@
             </div>  <!--info-group-list-->
         </div> <!--col-xs-12-->
 
-        <div class='col-xs-12 col-sm-3 col-md-5 main-image'>
-            <img class='list-group-item' src='{% block image_url %}{{ creature.image.url }}{% endblock image_url %}'>
+        <div class='col-xs-12 col-sm-3 col-md-5'>
+		<div class='main-image'>
+			<img class='list-group-item' src='{{ house.image.url }}'>
+		</div>
         </div>
 
         <div class='col-xs-12 col-sm-4 col-md-2'></div>
