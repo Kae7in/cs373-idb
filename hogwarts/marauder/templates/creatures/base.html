@@ -34,6 +34,20 @@
                         </div>
                    </li>
                  {% endif %}
+                 {% if creature.spells.all %}
+                    <li class='list-group-item'>
+                        <div class='row'>
+                            <div class='infoitem col-md-5'>
+                                Affected by:
+                            </div>
+                            <div class='infoitem col-md-7'>
+                                {% for spell in creature.spells.all %}
+                                    <a href="{% url 'spell' spell.id %}">{{ spell.incantation }}</a><br />
+                                {% endfor %}
+                            </div>
+                        </div>
+                   </li>
+                 {% endif %}
             </div>  <!--info-group-list-->
         </div> <!--col-xs-12-->
 
@@ -64,6 +78,19 @@
 	</div>
 </div>
 
+{% if creature.characters.all %}
+    <div class='row'>
+        <div class='col-xs-12'>
+            <h3>CHARACTERS</h3>
+            {% for character in creature.characters.all %}
+                {% if not character.hidden %}
+                    <a href="{% url 'character' character.id %}">{{ character.name }}</a><br/>
+                {% endif %}
+            {% endfor %}
+        </div>
+    </div>
+{% endif %}
+
 {% if creature.ingredients.all %}
     <div class='row'>
     	<div class='col-xs-12'>
@@ -76,3 +103,4 @@
 {% endif %}
 
 {% endblock content %}
+
