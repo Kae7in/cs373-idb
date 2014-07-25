@@ -2,10 +2,6 @@
 
 {% block loc-active %}active{% endblock loc-active %}
 
-{% block scripts %}
-<link href='http://fonts.googleapis.com/css?family=Neucha' rel='stylesheet' type='text/css'>
-{% endblock scripts %}
-
 {% block content %}
 <div id="name">
     <h1 class="uppercase">{{ location.name }}</h1>
@@ -58,7 +54,7 @@
 	</div>
 
 	<div class='col-xs-12 col-md-6 col-sm-6'>
-		<div class='main-image'>
+		<div class='main-image pull-right'>
 			<img class='list-group-item' src='{{ location.image.url }}'>
 		</div>
 	</div>
