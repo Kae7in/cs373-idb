@@ -71,6 +71,10 @@ body {
   color: black;
 }
 
+.navbar {
+  background-color: white;
+}
+
 
 /* anything larger than mobile phone */
 @media (min-width: 768px) {
