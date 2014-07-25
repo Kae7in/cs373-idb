@@ -22,16 +22,16 @@ class CharacterTest(TestCase):
 
         r1 = lm.Relationship()
         r1.character1 = argus
-        r1.descriptor1 = 'son'
+        r1.descriptor1 = 'Son'
         r1.character2 = dad
-        r1.descriptor2 = 'father'
+        r1.descriptor2 = 'Father'
         r1.save()
 
         r2 = lm.Relationship()
         r2.character1 = mom
-        r2.descriptor1 = 'mother'
+        r2.descriptor1 = 'Mother'
         r2.character2 = argus
-        r2.descriptor2 = 'son'
+        r2.descriptor2 = 'Son'
         r2.save()
 
         self.assertTrue(argus.is_squib())
