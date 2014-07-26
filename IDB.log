@@ -1,3 +1,2299 @@
+commit ba7a3c7fef054abb02f15003cf4274734f148166
+Merge: 3c5d503 c95edd6
+Author: Starnett <Starnett@users.noreply.github.com>
+Date:   Fri Jul 25 16:46:57 2014 -0500
+
+    Merge pull request #353 from Kae7in/icons_and_ciations
+    
+    add splash icons and citations view
+
+commit c95edd68401a60103300b3fbd4cea1b1457c599c
+Author: Amanda Steinwedel <amanda.steinwedel@gmail.com>
+Date:   Fri Jul 25 16:18:14 2014 -0500
+
+    add splash icons and citations view
+
+commit 3c5d503093dbd1139104014d264c9a9391afec44
+Author: David Moench <domoench@gmail.com>
+Date:   Fri Jul 25 15:03:30 2014 -0500
+
+    Fixed copy paste error in tests.out.
+
+commit c4e9963b82d6fcd8b0e54c9f430403baabb9a024
+Author: David Moench <domoench@gmail.com>
+Date:   Fri Jul 25 15:01:12 2014 -0500
+
+    Updated tests.out to reflect new tests.
+
+commit 5f9e7829d31a73c1183a61eb53f584679154277f
+Merge: ee35bb4 8ef762f
+Author: IsabellaBhardwaj <isabella11@utexas.edu>
+Date:   Fri Jul 25 14:41:06 2014 -0500
+
+    Merge pull request #348 from Kae7in/characters_in_creatures
+    
+    Added characters to creatures page
+
+commit ee35bb4bbb6b73e0a2211e099a9375351327eec0
+Author: David <domoench@gmail.com>
+Date:   Fri Jul 25 17:10:02 2014 +0000
+
+    fixed navbar/jumbotron on mobile devices (AH)
+
+commit 8ef762ff79a3982ff834e9fd1998022c0118b2b3
+Author: Isabella <isabella11@utexas.edu>
+Date:   Fri Jul 25 01:36:20 2014 -0500
+
+    Fixed spelling
+
+commit de773384ca635011f0192092b3f6b90023264101
+Author: Isabella <isabella11@utexas.edu>
+Date:   Fri Jul 25 01:31:06 2014 -0500
+
+    Added characters to creatures page
+
+commit 8ec1ffbcadc3d64373f403fc5822425f23a87644
+Merge: bf2f765 70e03ee
+Author: IsabellaBhardwaj <isabella11@utexas.edu>
+Date:   Thu Jul 24 21:49:23 2014 -0500
+
+    Merge pull request #343 from Kae7in/fix_list_group_width
+    
+    fix list-group width
+
+commit 70e03ee2a03991a5c2798b75430b8602e83e6164
+Author: Amanda Steinwedel <amanda.steinwedel@gmail.com>
+Date:   Thu Jul 24 21:48:19 2014 -0500
+
+    fix list-group width
+
+commit bf2f765b431e39e80f21509402b71b42970d5bd0
+Merge: bff0d5b 97c318f
+Author: Amanda Steinwedel <amanda.steinwedel@massrelevance.com>
+Date:   Thu Jul 24 21:47:41 2014 -0500
+
+    Merge pull request #341 from Kae7in/potions_from_creature
+    
+    Added links to potions from creatures pages
+
+commit bff0d5ba9dff0835accfbddec685dcdb65a8e51d
+Merge: b057912 ca5c3d3
+Author: Amanda Steinwedel <amanda.steinwedel@massrelevance.com>
+Date:   Thu Jul 24 21:47:17 2014 -0500
+
+    Merge pull request #342 from Kae7in/navbar-fix
+    
+    made navbar background white
+
+commit ca5c3d30fffa8ed2094a30e8b80765b89768d761
+Author: Kaelin <kae7in@gmail.com>
+Date:   Thu Jul 24 21:46:38 2014 -0500
+
+    made navbar background white
+
+commit b0579122b69855c64f15c4b3f10958a7210f0a0d
+Author: David <domoench@gmail.com>
+Date:   Fri Jul 25 02:44:03 2014 +0000
+
+    Updated models pydoc. Resolves #222.
+
+commit 97c318f7502bd734661ec031cc0cd363846668fe
+Author: Isabella <isabella11@utexas.edu>
+Date:   Thu Jul 24 21:41:53 2014 -0500
+
+    Added links to potions from creatures pages
+
+commit 567700fe066389a580e005044bc617c6e7aad08d
+Merge: d245611 7ae7ec4
+Author: David <domoench@gmail.com>
+Date:   Fri Jul 25 02:37:44 2014 +0000
+
+    Merge branch 'master' of github.com:Kae7in/cs373-idb
+
+commit 7ae7ec4f275e0362e990bf00d86a4c08bacdfd69
+Merge: 208c143 9183997
+Author: IsabellaBhardwaj <isabella11@utexas.edu>
+Date:   Thu Jul 24 21:35:55 2014 -0500
+
+    Merge pull request #336 from Kae7in/image_css_fix
+    
+    Image css fix
+
+commit 208c143ce28000d58077edea3a342febf34cef43
+Merge: 77b82cf 2050e70
+Author: Amanda Steinwedel <amanda.steinwedel@massrelevance.com>
+Date:   Thu Jul 24 21:35:44 2014 -0500
+
+    Merge pull request #338 from Kae7in/k2-splash
+    
+    K2 splash
+
+commit 77b82cf6b1b91b82682c6a12c11cf84e18890b04
+Merge: 0b3ea7f 938c5f6
+Author: IsabellaBhardwaj <isabella11@utexas.edu>
+Date:   Thu Jul 24 21:35:33 2014 -0500
+
+    Merge pull request #337 from Kae7in/squib_insensitive
+    
+    make is_squib case insensitive fix #316
+
+commit 2050e70a14698f923d3479adef4f29fef418c7be
+Author: Kaelin <kae7in@gmail.com>
+Date:   Thu Jul 24 21:33:34 2014 -0500
+
+    added jpg
+
+commit 938c5f69fd845880cf96f37eb178ec68591a46cb
+Author: Amanda Steinwedel <amanda.steinwedel@gmail.com>
+Date:   Thu Jul 24 21:28:33 2014 -0500
+
+    make is_squib case insensitive fix #316
+
+commit 308a16e518564dc8755e7f8fba16fc396b1cd580
+Author: Kaelin <kae7in@gmail.com>
+Date:   Thu Jul 24 21:25:57 2014 -0500
+
+    updated splash page and navbar
+
+commit 9183997b9aac651f3597dd72a36255e155eba2c4
+Author: Amanda Steinwedel <amanda.steinwedel@gmail.com>
+Date:   Thu Jul 24 21:23:24 2014 -0500
+
+    remove static files
+
+commit d245611d7e6ea42140750d8e94fe756c1067d669
+Merge: 4d90824 0b3ea7f
+Author: David <domoench@gmail.com>
+Date:   Fri Jul 25 02:00:35 2014 +0000
+
+    Merge branch 'master' of github.com:Kae7in/cs373-idb
+
+commit 756903b199a3e29a803900d8a9478ddfbf746034
+Author: Amanda Steinwedel <amanda.steinwedel@gmail.com>
+Date:   Thu Jul 24 20:55:13 2014 -0500
+
+    fix #324 and remove unnecesssary font loads
+
+commit 0b3ea7ffff1c9bd3baf2a39b2327a27f46de786c
+Merge: dadbc59 6e7f16b
+Author: David Ouyang Moench <domoench@gmail.com>
+Date:   Thu Jul 24 20:26:01 2014 -0500
+
+    Merge pull request #335 from Kae7in/david-issue300
+    
+    Combined REST and MODEL tests into one file. #300.
+
+commit 4d9082446137ea8d5a630d1335e122e7a4a444e3
+Merge: 0f2afb0 6e7f16b
+Author: David <domoench@gmail.com>
+Date:   Fri Jul 25 01:20:41 2014 +0000
+
+    Merge branch 'david-issue300' of github.com:Kae7in/cs373-idb
+
+commit 6e7f16b1d6726ee777ad3dc6287b622842463b96
+Author: David Moench <domoench@gmail.com>
+Date:   Thu Jul 24 20:10:21 2014 -0500
+
+    Combined REST and MODEL tests into one file. #300.
+
+commit dadbc596ea9cabfd36ae80e319a189c8d4da0520
+Merge: a69edf1 b0fe430
+Author: IsabellaBhardwaj <isabella11@utexas.edu>
+Date:   Thu Jul 24 19:56:06 2014 -0500
+
+    Merge pull request #334 from Kae7in/uml_design
+    
+    Updating uml class diagram
+
+commit b0fe4306dc6a64c7bef3de963a39562eb797b6f8
+Author: Isabella <isabella11@utexas.edu>
+Date:   Thu Jul 24 19:53:54 2014 -0500
+
+    Updating uml class diagram
+
+commit 0f2afb00eeaa800781ea36c24da6bb179b709ae0
+Merge: cecf27d a69edf1
+Author: David <domoench@gmail.com>
+Date:   Fri Jul 25 00:16:00 2014 +0000
+
+    Merge branch 'master' of github.com:Kae7in/cs373-idb
+
+commit a69edf1c5cafecce9fe7e04911c06e9fd48416e3
+Merge: 6d1e06b f91f678
+Author: Amanda Steinwedel <amanda.steinwedel@massrelevance.com>
+Date:   Thu Jul 24 19:15:19 2014 -0500
+
+    Merge pull request #333 from Kae7in/houses_fix
+    
+    fix broken image link
+
+commit f91f678de53dfb6318bb84be5f872373617427a8
+Author: Stephen Arnett <starnett@cs.utexas.edu>
+Date:   Thu Jul 24 19:13:16 2014 -0500
+
+    fix broken image link
+
+commit cecf27d3f4861b000b305f517ba7955214f40611
+Merge: 9266145 6d1e06b
+Author: David <domoench@gmail.com>
+Date:   Fri Jul 25 00:11:57 2014 +0000
+
+    Merge branch 'master' of github.com:Kae7in/cs373-idb
+
+commit 6d1e06b9f7b65352a87ad0424f3e6c3c4b4b5cc9
+Merge: 9d57e7a 0b56938
+Author: Amanda Steinwedel <amanda.steinwedel@massrelevance.com>
+Date:   Thu Jul 24 19:11:33 2014 -0500
+
+    Merge pull request #332 from Kae7in/houses_fix
+    
+    fix creature format
+
+commit 9266145313fce9dbebe1a4432ca4b828c9af9f43
+Merge: 162f453 9d57e7a
+Author: David <domoench@gmail.com>
+Date:   Fri Jul 25 00:11:10 2014 +0000
+
+    Merge branch 'master' of github.com:Kae7in/cs373-idb
+
+commit 162f45354d55cdd86e9c1a28ef192e459efce416
+Author: David <domoench@gmail.com>
+Date:   Fri Jul 25 00:10:49 2014 +0000
+
+     fix to recipes
+
+commit 0b56938724d12004647c971948e9d14935dcb8ce
+Author: Stephen Arnett <starnett@cs.utexas.edu>
+Date:   Thu Jul 24 19:08:28 2014 -0500
+
+    fix creature format
+
+commit 9d57e7a86c334bc69b3a7429445d90911011e15d
+Merge: 904e2a7 7042401
+Author: Amanda Steinwedel <amanda.steinwedel@massrelevance.com>
+Date:   Thu Jul 24 18:56:41 2014 -0500
+
+    Merge pull request #331 from Kae7in/houses_fix
+    
+    fix incorrect school display
+
+commit 7042401bf1950e0fb2294cff2a199a0f9acb99f4
+Author: Stephen Arnett <starnett@cs.utexas.edu>
+Date:   Thu Jul 24 18:55:29 2014 -0500
+
+    fix incorrect school display
+
+commit 904e2a74b79ffea5171659ac0dca3c8e2ca945d3
+Merge: d4f6c4b 338a9c6
+Author: IsabellaBhardwaj <isabella11@utexas.edu>
+Date:   Thu Jul 24 18:54:05 2014 -0500
+
+    Merge pull request #330 from Kae7in/potions_optional_recipe
+    
+    Made recipe display optional if recipe unknown
+
+commit d4f6c4b6f0df54e4aa2e2b4e59df306256df0503
+Merge: 485e04f 6e29e67
+Author: Amanda Steinwedel <amanda.steinwedel@massrelevance.com>
+Date:   Thu Jul 24 18:53:42 2014 -0500
+
+    Merge pull request #329 from Kae7in/houses_fix
+    
+    fixes if clause for members
+
+commit 338a9c6d4e004968e667bf21c88e63885877e626
+Author: Isabella <isabella11@utexas.edu>
+Date:   Thu Jul 24 18:52:53 2014 -0500
+
+    Made recipe display optional if recipe unknown
+
+commit 6e29e6758c38ecda4e86b1b2a6d1c3e067576166
+Author: Stephen Arnett <starnett@cs.utexas.edu>
+Date:   Thu Jul 24 18:52:46 2014 -0500
+
+    fixes if clause for members
+
+commit 485e04fd8d6ab2e7943d16b6fe7ba0e5d778f78a
+Merge: bd7e1f8 04318a9
+Author: Amanda Steinwedel <amanda.steinwedel@massrelevance.com>
+Date:   Thu Jul 24 18:50:39 2014 -0500
+
+    Merge pull request #328 from Kae7in/houses_fix
+    
+    fixes other bugs for houses
+
+commit 04318a9f97d3d2e604e0f93b51216214fe5fffb8
+Author: Stephen Arnett <starnett@cs.utexas.edu>
+Date:   Thu Jul 24 18:49:33 2014 -0500
+
+    fixes other bugs for houses
+
+commit bd7e1f86ddebf28da8209505831aa4649a351df1
+Merge: e21c335 9aea587
+Author: Amanda Steinwedel <amanda.steinwedel@massrelevance.com>
+Date:   Thu Jul 24 18:45:20 2014 -0500
+
+    Merge pull request #327 from Kae7in/houses_fix
+    
+    fixes endif bug for houses
+
+commit 9aea587b39e2fab1009a19c09cee95edbc7b21f2
+Author: Stephen Arnett <starnett@cs.utexas.edu>
+Date:   Thu Jul 24 18:43:54 2014 -0500
+
+    fixes endif bug for houses
+
+commit e21c335801ba8f27a49ef1f739ec5607993a5357
+Merge: d71ba4c 0ca2aee
+Author: Amanda Steinwedel <amanda.steinwedel@massrelevance.com>
+Date:   Thu Jul 24 18:42:01 2014 -0500
+
+    Merge pull request #326 from Kae7in/houses_fix
+    
+    fixes redirect bug for houses
+
+commit 0ca2aeec64a64e0bf8521b737e1bce05ad2bbf48
+Author: Stephen Arnett <starnett@cs.utexas.edu>
+Date:   Thu Jul 24 18:34:43 2014 -0500
+
+    fixes redirect bug for houses
+
+commit d71ba4cac517c3c05ee0194c2576c4542e0d0471
+Merge: e6fa026 13abe6c
+Author: Amanda Steinwedel <amanda.steinwedel@massrelevance.com>
+Date:   Thu Jul 24 18:24:16 2014 -0500
+
+    Merge pull request #315 from Kae7in/houses_pages
+    
+    Houses pages
+
+commit 13abe6cb69e608c62b60184382cb2143e46692f8
+Author: Stephen Arnett <starnett@cs.utexas.edu>
+Date:   Thu Jul 24 18:21:00 2014 -0500
+
+    fixed image positioning
+
+commit e6fa0262f01febbc7046a44ca824e4dac44ed9d7
+Author: David <domoench@gmail.com>
+Date:   Thu Jul 24 23:18:38 2014 +0000
+
+    navbar active on appropriate page
+
+commit ec5c3c935a3ddbe3e09c01a80c58e367be97f6b9
+Merge: c6ed9c1 a586a45
+Author: David <domoench@gmail.com>
+Date:   Thu Jul 24 23:17:10 2014 +0000
+
+    Merge branch 'master' of github.com:Kae7in/cs373-idb
+
+commit 90f603193c6c1b7b6e87c4d02bc2301d3d511ca1
+Author: Stephen Arnett <starnett@cs.utexas.edu>
+Date:   Thu Jul 24 17:55:40 2014 -0500
+
+    fixes for houses dynamic page and addition of members list
+
+commit a586a45134b9ef2d2a6e156943f78bfe0a4fbb62
+Author: David Ouyang Moench <domoench@gmail.com>
+Date:   Thu Jul 24 17:53:44 2014 -0500
+
+    Brought in line with our implementation
+
+commit e369ee488ec55cf01c4beb8f84dcb70614eaa57a
+Author: David Ouyang Moench <domoench@gmail.com>
+Date:   Thu Jul 24 17:40:50 2014 -0500
+
+    Cut Houses from API
+
+commit 5b324c9861209a628fa4b957da63200d79d43c82
+Merge: df56935 ade8c2c
+Author: Amanda Steinwedel <amanda.steinwedel@massrelevance.com>
+Date:   Thu Jul 24 17:31:32 2014 -0500
+
+    Merge pull request #314 from Kae7in/david-api
+    
+    David API
+
+commit ade8c2c6cff76f7ca33bdbc9333460107df611bd
+Merge: 55f1a8f df56935
+Author: David Moench <domoench@gmail.com>
+Date:   Thu Jul 24 17:26:44 2014 -0500
+
+    Merge branch 'master' of github.com:Kae7in/cs373-idb into david-api
+
+commit c6ed9c1d554cc96744a676b3c21d14eb1a8be393
+Merge: 764a68a 55f1a8f
+Author: David <domoench@gmail.com>
+Date:   Thu Jul 24 22:24:15 2014 +0000
+
+    Merge branch 'david-api' of github.com:Kae7in/cs373-idb
+
+commit 55f1a8fc645af2c53538ec1b48fe3ddf2defa16a
+Author: David Moench <domoench@gmail.com>
+Date:   Thu Jul 24 17:23:35 2014 -0500
+
+    Fixed another bug.
+
+commit 675898b9935d73bedca8263aa92039d13d7b3368
+Author: Stephen Arnett <starnett@cs.utexas.edu>
+Date:   Thu Jul 24 17:22:50 2014 -0500
+
+    merge req for houses dynamic page
+
+commit 764a68a881fa8e07aa07b125a4a594777a54d76d
+Merge: df56935 da30e9c
+Author: David <domoench@gmail.com>
+Date:   Thu Jul 24 22:22:33 2014 +0000
+
+    Merge branch 'david-api' of github.com:Kae7in/cs373-idb
+
+commit df56935d1147734b1fb0af33735ebe51893e0c36
+Merge: cb76582 c8e0486
+Author: David <domoench@gmail.com>
+Date:   Thu Jul 24 22:21:03 2014 +0000
+
+    Merge branch 'master' of github.com:Kae7in/cs373-idb
+
+commit cb76582082bb0d75b7b0985ea3e49b324d1cdd7a
+Author: David <domoench@gmail.com>
+Date:   Thu Jul 24 22:20:54 2014 +0000
+
+    style changes, minor
+
+commit da30e9c6ae23d4f08b9d8a87f15396e9b022a63a
+Author: David Moench <domoench@gmail.com>
+Date:   Thu Jul 24 17:20:35 2014 -0500
+
+    Fixed JSON404Response class.
+
+commit c8e0486e70c1e8a22817fcf664f43b289263975a
+Merge: 47a00c6 8120a0d
+Author: IsabellaBhardwaj <isabella11@utexas.edu>
+Date:   Thu Jul 24 17:17:42 2014 -0500
+
+    Merge pull request #313 from Kae7in/relationship_str
+    
+    add string representation for relationships
+
+commit 8120a0dec6cde2dcf1342be9c78d515b7147ca6e
+Author: Amanda Steinwedel <amanda.steinwedel@gmail.com>
+Date:   Thu Jul 24 17:13:33 2014 -0500
+
+    add string representation for relationships
+
+commit ef55687421119aaf398aa6aaa42e47ff3ed8b01b
+Merge: 026defe bff4803
+Author: David <domoench@gmail.com>
+Date:   Thu Jul 24 22:12:20 2014 +0000
+
+    Merge branch 'david-api' of github.com:Kae7in/cs373-idb
+
+commit bff48038de2a073c23599b3558b0574809f10187
+Author: David Moench <domoench@gmail.com>
+Date:   Thu Jul 24 17:11:43 2014 -0500
+
+    Fixed typo.
+
+commit 47a00c60782fbc09f87068604fd489dc694cff50
+Merge: 8faadfb 8173300
+Author: IsabellaBhardwaj <isabella11@utexas.edu>
+Date:   Thu Jul 24 17:11:43 2014 -0500
+
+    Merge pull request #308 from Kae7in/fix_potion_routing
+    
+    potions are never hidden, so dont check for that #292
+
+commit 8faadfb142d226e1682866e315e504772ac315e3
+Merge: a0f7000 c9d94f7
+Author: ashoofly <ashoofly@users.noreply.github.com>
+Date:   Thu Jul 24 17:08:47 2014 -0500
+
+    Merge pull request #307 from Kae7in/house_index_view
+    
+    add house index view
+
+commit a0f7000d6a0f07d06c7cb6ba05d471d1485408da
+Merge: bb722c0 01abd22
+Author: Kaelin Hooper <kae7in@gmail.com>
+Date:   Thu Jul 24 17:08:44 2014 -0500
+
+    Merge pull request #310 from Kae7in/fix_creature_in_characters
+    
+    #309 show creature info for character detail view
+
+commit 026defee9e04420b28a0c7b6bbac644de042b018
+Merge: f02c5c8 46c9b35
+Author: David <domoench@gmail.com>
+Date:   Thu Jul 24 22:08:40 2014 +0000
+
+    Merge branch 'david-api' of github.com:Kae7in/cs373-idb
+
+commit bb722c0762e0cb786c231c2fc35406a74afb8232
+Merge: 7419529 73a3ccb
+Author: ashoofly <ashoofly@users.noreply.github.com>
+Date:   Thu Jul 24 17:08:20 2014 -0500
+
+    Merge pull request #311 from Kae7in/update_table_links
+    
+    update character table links
+
+commit 46c9b3562b99b5a5d447ce2c8c39af382c061e1d
+Author: David Moench <domoench@gmail.com>
+Date:   Thu Jul 24 17:07:03 2014 -0500
+
+    Implemented 404 REST API responses. #294.
+
+commit 5d5af982a3a1c309ec65970083149c36e67d5a49
+Author: Stephen Arnett <starnett@cs.utexas.edu>
+Date:   Thu Jul 24 16:57:20 2014 -0500
+
+    added dynamic page for houses
+
+commit f02c5c80b29a94ce9f54096aa0b42fdfe2d67a57
+Merge: 4efc203 7419529
+Author: David <domoench@gmail.com>
+Date:   Thu Jul 24 21:54:33 2014 +0000
+
+    Merge branch 'master' of github.com:Kae7in/cs373-idb
+
+commit 7419529a552e95337ec83661333c11c5de4a4efa
+Merge: e2129dc be8b316
+Author: Amanda Steinwedel <amanda.steinwedel@massrelevance.com>
+Date:   Thu Jul 24 16:54:04 2014 -0500
+
+    Merge pull request #312 from Kae7in/fix_relationship_list
+    
+    call correct relation in list
+
+commit be8b3162c92a92f6c12d092f77cc4165435c78cb
+Author: Amanda Steinwedel <amanda.steinwedel@gmail.com>
+Date:   Thu Jul 24 16:53:40 2014 -0500
+
+    call correct relation in list
+
+commit 73a3ccb4b4ec0d6e29300cc680202f616bc1c243
+Author: Amanda Steinwedel <amanda.steinwedel@gmail.com>
+Date:   Thu Jul 24 16:28:27 2014 -0500
+
+    update character table links
+
+commit 01abd223b70ccb936f5e4728d3c3f442e40428dc
+Author: Amanda Steinwedel <amanda.steinwedel@gmail.com>
+Date:   Thu Jul 24 16:22:56 2014 -0500
+
+    #309 show creature info for character detail view
+
+commit 81733009e3bf14e5079e99a843d2ac1091bb6c51
+Author: Amanda Steinwedel <amanda.steinwedel@gmail.com>
+Date:   Thu Jul 24 16:17:21 2014 -0500
+
+    potions are never hidden, so dont check for that
+
+commit c9d94f70d11aaf0af10d3d7267507bd30dda5715
+Author: Amanda Steinwedel <amanda.steinwedel@gmail.com>
+Date:   Thu Jul 24 16:12:11 2014 -0500
+
+    add house index view
+
+commit 55f8256b17006ae734d3288e0696772025e483b9
+Merge: 3349770 e2129dc
+Author: David Moench <domoench@gmail.com>
+Date:   Thu Jul 24 15:59:08 2014 -0500
+
+    Merge branch 'master' of github.com:Kae7in/cs373-idb into david-api
+
+commit 4efc203f5fe5a00a5018c6f1adf81b36c8e979e1
+Merge: 40a997a 3349770
+Author: David <domoench@gmail.com>
+Date:   Thu Jul 24 20:57:26 2014 +0000
+
+    Merge branch 'david-api' of github.com:Kae7in/cs373-idb
+
+commit 33497707e0e4950891284aa87fc5522490fb1aac
+Author: David Moench <domoench@gmail.com>
+Date:   Thu Jul 24 15:56:32 2014 -0500
+
+    Fixed serealizability problem.
+
+commit 40a997aa54138313d226e839ecbd5191dc870273
+Merge: 359d33e 2fa781a
+Author: David <domoench@gmail.com>
+Date:   Thu Jul 24 20:46:59 2014 +0000
+
+    Merge branch 'david-api' of github.com:Kae7in/cs373-idb
+
+commit 2fa781a8e53a90f2caf277573c7f58549d164b5d
+Author: David Moench <domoench@gmail.com>
+Date:   Thu Jul 24 15:46:21 2014 -0500
+
+    One last bug fix. I hope.
+
+commit 359d33e045aadf48f40490c2e8cb845358a51499
+Merge: 4e48dfb e2129dc
+Author: David <domoench@gmail.com>
+Date:   Thu Jul 24 20:45:20 2014 +0000
+
+    Merge branch 'master' of github.com:Kae7in/cs373-idb
+
+commit 4e48dfb7fb407c0fc9b0855d29d99782587fcb66
+Author: David Moench <domoench@gmail.com>
+Date:   Thu Jul 24 15:43:12 2014 -0500
+
+    Another bug fix.
+
+commit 82aebfe796455bcbacf9746d5c4807662cfdffb8
+Author: David Moench <domoench@gmail.com>
+Date:   Thu Jul 24 15:36:18 2014 -0500
+
+    Fixed bug in Shop Rest API test.
+
+commit 53b28664939fd8b064a7118127eacd2c87448ea1
+Author: David Moench <domoench@gmail.com>
+Date:   Thu Jul 24 15:32:22 2014 -0500
+
+    Removed attempted serialization of an image.
+
+commit 13b633a42970591aad374bd3db8cd6ec03c18d32
+Merge: 320b1a5 64c53ca
+Author: David Moench <domoench@gmail.com>
+Date:   Thu Jul 24 15:27:58 2014 -0500
+
+    Merge branch 'david-api' of github.com:Kae7in/cs373-idb into david-api
+
+commit 320b1a520ace122b829ba1cc8b595bdce166aa66
+Author: David Moench <domoench@gmail.com>
+Date:   Thu Jul 24 15:26:53 2014 -0500
+
+    Fixed some errors in REST API tests.
+
+commit e2129dc9b3c427d66301c75635c099de449e9a92
+Merge: f1d37d3 64c53ca
+Author: Amanda Steinwedel <amanda.steinwedel@massrelevance.com>
+Date:   Thu Jul 24 15:23:45 2014 -0500
+
+    Merge pull request #303 from Kae7in/david-api
+    
+    David API Updates
+
+commit 64c53caf63c76bc52ced6d2720a2b14517880d9b
+Merge: 3899899 f1d37d3
+Author: Amanda Steinwedel <amanda.steinwedel@gmail.com>
+Date:   Thu Jul 24 15:23:34 2014 -0500
+
+    Merge branch 'master' into david-api
+    
+    Conflicts:
+    	hogwarts/marauder/testapi.py
+
+commit f1d37d37818a27e27b9d0f99bd2c3f472bd07b99
+Merge: b1f532c f6fdbfe
+Author: Starnett <Starnett@users.noreply.github.com>
+Date:   Thu Jul 24 15:11:23 2014 -0500
+
+    Merge pull request #305 from Kae7in/locations_specifics
+    
+    Locations specifics
+
+commit f6fdbfe28ec59c59b4e01ba49393c9bec204478c
+Author: Amanda Steinwedel <amanda.steinwedel@gmail.com>
+Date:   Thu Jul 24 15:08:38 2014 -0500
+
+    remove static file
+
+commit acf4cf07ac46f9ce41f54f146872829d422456b0
+Author: Amanda Steinwedel <amanda.steinwedel@gmail.com>
+Date:   Thu Jul 24 15:07:36 2014 -0500
+
+    hide houses for locations list
+
+commit b1f532cc1e34035499cbd360f44372f7b31220e8
+Merge: 292d993 1612502
+Author: David <domoench@gmail.com>
+Date:   Thu Jul 24 19:52:34 2014 +0000
+
+    Merge branch 'master' of github.com:Kae7in/cs373-idb
+
+commit 292d99306f776b24fa3f9b5e1a46054998acb3df
+Author: David <domoench@gmail.com>
+Date:   Thu Jul 24 19:52:10 2014 +0000
+
+    Corrected spells table and added headers for the spells info box
+
+commit 16125028aa78033600ae6e926b479bd9807bef54
+Merge: c34568f c40d6be
+Author: Kaelin Hooper <kae7in@gmail.com>
+Date:   Thu Jul 24 14:24:48 2014 -0500
+
+    Merge pull request #304 from Kae7in/backup_db
+    
+    backed up db
+
+commit c40d6beb8e6317deb0feafa8c2a1c97d35aadade
+Author: Kaelin <kae7in@gmail.com>
+Date:   Thu Jul 24 14:20:57 2014 -0500
+
+    backed up db
+
+commit c34568fa6b9b641a078ecc03933e8c8c3f2c0519
+Author: David Ouyang Moench <domoench@gmail.com>
+Date:   Thu Jul 24 14:01:07 2014 -0500
+
+    Added 404 codes.
+
+commit 3899899687f0436b52fff41f54d515bb006bc978
+Author: David Moench <domoench@gmail.com>
+Date:   Thu Jul 24 13:51:57 2014 -0500
+
+    Fixed typos.
+
+commit f8d0dcedd509b90985616ad90d118028a9066e36
+Author: David <domoench@gmail.com>
+Date:   Thu Jul 24 18:47:14 2014 +0000
+
+    Fixed some typos in REST API Views and Tests.
+
+commit 63ebfa29f59aba0ce93074116151408ee1da7cb7
+Merge: ddb002e 17486ae
+Author: IsabellaBhardwaj <isabella11@utexas.edu>
+Date:   Thu Jul 24 13:02:53 2014 -0500
+
+    Merge pull request #302 from Kae7in/artifacts_images
+    
+    Artifacts images
+
+commit 2b8da1dcb16dca09679f50b65a89416c958cb5ac
+Author: Amanda Steinwedel <amanda.steinwedel@gmail.com>
+Date:   Thu Jul 24 13:02:07 2014 -0500
+
+    update character view links
+
+commit 2d608be879a527d600d72adf3601f6dee2c30afc
+Author: Amanda Steinwedel <amanda.steinwedel@gmail.com>
+Date:   Thu Jul 24 13:01:57 2014 -0500
+
+    add onto location details view to give shop and school specifics
+
+commit 9af94f7bcd0821927a2572a6b74c77606a5818b1
+Merge: 8f3221e ddb002e
+Author: David Moench <domoench@gmail.com>
+Date:   Thu Jul 24 12:59:13 2014 -0500
+
+    Merge branch 'master' of github.com:Kae7in/cs373-idb into david-api
+
+commit 8f3221e40ddf0810ce9923a0cf87b2a8bee7f5e9
+Author: David Moench <domoench@gmail.com>
+Date:   Thu Jul 24 12:52:38 2014 -0500
+
+    Finished Shop and Spells REST API and Tests. UNTESTED. #259.
+
+commit ddb002ef922deeb0daeb54ec35af884e89ec184f
+Merge: bf5f79b 909ca50
+Author: IsabellaBhardwaj <isabella11@utexas.edu>
+Date:   Thu Jul 24 12:34:27 2014 -0500
+
+    Merge pull request #301 from Kae7in/uml_design
+    
+    Uml design
+
+commit 17486aeba8c045606a5ac7bd42ea412d672ae800
+Author: Isabella <isabella11@utexas.edu>
+Date:   Thu Jul 24 12:00:53 2014 -0500
+
+    Fix artifacts images
+
+commit e13dea50c2e7eeb14609d4fa42b890258bb2eb59
+Author: Isabella <isabella11@utexas.edu>
+Date:   Thu Jul 24 11:54:27 2014 -0500
+
+    Revert "Fix artifacts images"
+    
+    This reverts commit b87fff4970a390d09e045f01a26dd883cd5f35af.
+
+commit b87fff4970a390d09e045f01a26dd883cd5f35af
+Author: Isabella <isabella11@utexas.edu>
+Date:   Thu Jul 24 11:50:01 2014 -0500
+
+    Fix artifacts images
+
+commit 909ca500b9012d0256c70538a7fb0fd7c4d149ec
+Author: Isabella <isabella11@utexas.edu>
+Date:   Thu Jul 24 10:10:25 2014 -0500
+
+    Improved UML class diagram
+
+commit b8398a2b66f9ae481614f8a1cd0ba0f91d2f0934
+Merge: d4d2c0e bf5f79b
+Author: Isabella <isabella11@utexas.edu>
+Date:   Thu Jul 24 10:09:36 2014 -0500
+
+    Merge branch 'master' of https://github.com/Kae7in/cs373-idb into uml_design
+
+commit e5a7e1a69fc80ec4bebd7894b3f664f5bd31773f
+Author: David Moench <domoench@gmail.com>
+Date:   Thu Jul 24 09:52:06 2014 -0500
+
+    Updated Shop Rest View and added tests. #259.
+
+commit bf5f79bc52f0b27380aa73e3c3e88afe4c9ff8b3
+Author: David Ouyang Moench <domoench@gmail.com>
+Date:   Thu Jul 24 09:24:21 2014 -0500
+
+    Removed Ingredients, Locations, and Books
+
+commit d4d2c0ed4e0b70320fbf1f8002bd80fb119ca6df
+Author: Isabella <isabella11@utexas.edu>
+Date:   Thu Jul 24 03:44:51 2014 -0500
+
+    Adding uml diagram
+
+commit a2da6b7534ea1499dd991cc42feeb7bcfd3f68f5
+Author: David <domoench@gmail.com>
+Date:   Thu Jul 24 04:11:08 2014 +0000
+
+    Fixing syntax errors in urls.py. Set ALLOWED_HOSTS in Settings.py to
+    allow all.
+
+commit 7c5215ca8fc23ea292926cc29735745c4ad68100
+Merge: 11b2c8d b44854d
+Author: David Ouyang Moench <domoench@gmail.com>
+Date:   Wed Jul 23 22:33:36 2014 -0500
+
+    Merge pull request #287 from Kae7in/david-api
+    
+    David API
+
+commit b44854d6e45fdc71c4bb6838e18c51b9c183158c
+Merge: 532eb1a 11b2c8d
+Author: David Moench <domoench@gmail.com>
+Date:   Wed Jul 23 22:33:04 2014 -0500
+
+    Merge branch 'master' of github.com:Kae7in/cs373-idb into david-api
+    
+    Conflicts:
+    	hogwarts/marauder/views.py
+
+commit 532eb1ab86d938db54c34296a51e0b33b0daa852
+Merge: 768f5c9 6c2c273
+Author: David Moench <domoench@gmail.com>
+Date:   Wed Jul 23 22:27:29 2014 -0500
+
+    Merge branch 'master' of github.com:Kae7in/cs373-idb into david-api
+    
+    Conflicts:
+    	hogwarts/marauder/urls.py
+    	hogwarts/marauder/views.py
+
+commit 11b2c8d578129ae1e932ea34cdfcf82e15da1400
+Author: David <domoench@gmail.com>
+Date:   Thu Jul 24 03:20:11 2014 +0000
+
+    fixed potions view (AH)
+
+commit dcf86a0b3c77ab85680168017a79e01e713abda2
+Merge: 0661a89 cf3da99
+Author: ashoofly <ashoofly@users.noreply.github.com>
+Date:   Wed Jul 23 22:16:50 2014 -0500
+
+    Merge pull request #285 from Kae7in/index_potions
+    
+    Added potions to tables.py
+
+commit 0661a895fa4088bbf46bd80402043aaf90b069df
+Merge: b5378cf 6c2c273
+Author: David <domoench@gmail.com>
+Date:   Thu Jul 24 03:14:01 2014 +0000
+
+    Merge branch 'master' of github.com:Kae7in/cs373-idb
+    
+    Conflicts:
+    	hogwarts/marauder/tables.py
+    	hogwarts/marauder/templates/base.html
+    	hogwarts/marauder/templates/index.html
+
+commit 768f5c93949487a137985883ddbbdb9f577e937c
+Author: David Moench <domoench@gmail.com>
+Date:   Wed Jul 23 22:08:30 2014 -0500
+
+    Uncommented lines needed for running views on production server before
+    merge.
+
+commit cf3da99894eb134aef2724a6ad4d28e7f702359a
+Merge: 4c25d95 6c2c273
+Author: Isabella <isabella11@utexas.edu>
+Date:   Wed Jul 23 22:07:30 2014 -0500
+
+    Merge branch 'master' of https://github.com/Kae7in/cs373-idb into index_potions
+    
+    Conflicts:
+    	hogwarts/marauder/tables.py
+
+commit b5378cfd340b72ddde44f341c9675374bf14e440
+Author: David <domoench@gmail.com>
+Date:   Thu Jul 24 03:07:17 2014 +0000
+
+    creature index
+
+commit 6c2c273d1e9d32609976acecbffe8627d8bb65db
+Merge: f06b956 8be25ae
+Author: IsabellaBhardwaj <isabella11@utexas.edu>
+Date:   Wed Jul 23 22:03:54 2014 -0500
+
+    Merge pull request #286 from Kae7in/k-index-views
+    
+    implemented django tables for artifacts and spells in views.py, urls.py,...
+
+commit 8be25ae8e724d26722965f39dabe7022f0cef571
+Author: Kaelin <kae7in@gmail.com>
+Date:   Wed Jul 23 21:58:50 2014 -0500
+
+    implemented django tables for artifacts and spells in views.py, urls.py, and tables.py
+
+commit f06b9568f03e1ae74a9d7507442959799d1b3ec3
+Author: David Ouyang Moench <domoench@gmail.com>
+Date:   Wed Jul 23 21:57:15 2014 -0500
+
+    Transferring blueprint from apiary.io
+
+commit f616bd24b1e0c023e24398d3151ec96a6b459e93
+Author: David Moench <domoench@gmail.com>
+Date:   Wed Jul 23 21:55:24 2014 -0500
+
+    Implemented and tested School REST API. #261.
+
+commit 908f7957fd70fd06a5a85d38b70b2db39e0154b7
+Author: David Ouyang Moench <domoench@gmail.com>
+Date:   Wed Jul 23 21:34:23 2014 -0500
+
+    Transferring blueprint from apiary.io
+
+commit 4c25d951ad34d369afd58497edb20040b28bddfa
+Author: Isabella <isabella11@utexas.edu>
+Date:   Wed Jul 23 21:25:54 2014 -0500
+
+    Fixed Potion part of urls.py
+
+commit 5a55926e9fbaa5830b32c53c811d6cf97f50f260
+Author: Isabella <isabella11@utexas.edu>
+Date:   Wed Jul 23 21:22:42 2014 -0500
+
+    Modified potions in views.py
+
+commit 2a594a756c5b776b54e1945f4500ede73a6d9deb
+Author: David Moench <domoench@gmail.com>
+Date:   Wed Jul 23 21:17:16 2014 -0500
+
+    Story API tests added and passing. #261.
+
+commit f32165c0b3cd657f771f459f2a508403a140459b
+Author: Isabella <isabella11@utexas.edu>
+Date:   Wed Jul 23 21:03:22 2014 -0500
+
+    Added potions to tables.py
+
+commit d7f9825c8ef0293db038accaf25b72d19394d6eb
+Author: Angela Hsu <ahsu@cs.utexas.edu>
+Date:   Wed Jul 23 20:43:41 2014 -0500
+
+    all 7 unit tests passing api tests
+
+commit 547b7fb341345c706eded05841be1e96de29f764
+Author: Kaelin <kae7in@gmail.com>
+Date:   Wed Jul 23 20:43:16 2014 -0500
+
+    updated index.html for artifacts, creatures, locations, potions, and spells
+
+commit cc9d5ebca3b6cb17a51e71c7f45a49a9f9543b82
+Merge: 4d494c8 dde3d7c
+Author: Starnett <Starnett@users.noreply.github.com>
+Date:   Wed Jul 23 20:20:36 2014 -0500
+
+    Merge pull request #282 from Kae7in/book_dynamic_views
+    
+    Book dynamic views
+
+commit dde3d7c5c1ab1f836dc1b1ce835c66bdb77728db
+Merge: 0a0b46c 4d494c8
+Author: Amanda Steinwedel <amanda.steinwedel@gmail.com>
+Date:   Wed Jul 23 20:18:32 2014 -0500
+
+    Merge branch 'master' into book_dynamic_views
+    
+    Conflicts:
+    	hogwarts/marauder/templates/index.html
+
+commit 0a0b46cb5d22649367d62d447041e11be8a77470
+Author: Amanda Steinwedel <amanda.steinwedel@gmail.com>
+Date:   Wed Jul 23 20:17:29 2014 -0500
+
+    update splash and navbar with new links
+
+commit 4d494c84eabd621a7976d29fbd2345351fc1ef36
+Merge: ca15030 e49024b
+Author: IsabellaBhardwaj <isabella11@utexas.edu>
+Date:   Wed Jul 23 20:05:17 2014 -0500
+
+    Merge pull request #284 from Kae7in/k-navbar
+    
+    implemented a dynamic jumbotron to appear appear on all pages, other tha...
+
+commit 0ead53e74a5030076881c0c314c50a365b7ecb6a
+Merge: 97afceb 78ebfa2
+Author: David Moench <domoench@gmail.com>
+Date:   Wed Jul 23 19:54:35 2014 -0500
+
+    Merge branch 'david-api' of github.com:Kae7in/cs373-idb into david-api
+
+commit 97afcebc5c778d7743f3b1800a0a556454673f82
+Author: David Moench <domoench@gmail.com>
+Date:   Wed Jul 23 19:54:23 2014 -0500
+
+    Updated StoryRestView.
+
+commit 78ebfa2be2b7047100dda5a1ea428373e081a3b5
+Merge: 9781521 b20ae80
+Author: David Ouyang Moench <domoench@gmail.com>
+Date:   Wed Jul 23 19:52:24 2014 -0500
+
+    Merge pull request #283 from Kae7in/isabella_api
+    
+    Fixed creature and potion api stuff
+
+commit 97815213d87be5a63f369811b1ed533211f6acd4
+Merge: 5b42157 71afbe7
+Author: David Ouyang Moench <domoench@gmail.com>
+Date:   Wed Jul 23 19:50:35 2014 -0500
+
+    Merge pull request #280 from Kae7in/isabella_testapi
+    
+    Isabella testapi
+
+commit 6932c05fa603c6d2386a0bb20ca8f2cbcd37f32b
+Author: Amanda Steinwedel <amanda.steinwedel@gmail.com>
+Date:   Wed Jul 23 19:49:58 2014 -0500
+
+    find books authored by correct related_name
+
+commit b20ae80965912cf4ea9bc075b78fc0de23f4499e
+Author: Isabella <isabella11@utexas.edu>
+Date:   Wed Jul 23 19:49:25 2014 -0500
+
+    Fixed creature and potion api stuff
+
+commit ca1503095a41b3f5ba3b32ae8308d2ce36cfa4a6
+Merge: e82076d 18e664a
+Author: David <domoench@gmail.com>
+Date:   Thu Jul 24 00:47:11 2014 +0000
+
+    Merge branch 'master' of github.com:Kae7in/cs373-idb
+
+commit e82076ded2349e1395564df7f1a9dd6ca2ff0654
+Author: David <domoench@gmail.com>
+Date:   Thu Jul 24 00:46:51 2014 +0000
+
+    made locations, spells dynamic; fixed some potions stuff (AH)
+
+commit 032c68f84ce9fb9b07c02acb5c43a4c7792835f8
+Author: Amanda Steinwedel <amanda.steinwedel@gmail.com>
+Date:   Wed Jul 23 19:45:57 2014 -0500
+
+    add book detail view
+
+commit cb64414d98d70463d614d369efbba1e7732dfcac
+Author: Amanda Steinwedel <amanda.steinwedel@gmail.com>
+Date:   Wed Jul 23 19:38:52 2014 -0500
+
+    add index view for books
+
+commit 71afbe723825c2e783fc6eef156d47ac8f83fb70
+Merge: 633f5bf 5b42157
+Author: Isabella <isabella11@utexas.edu>
+Date:   Wed Jul 23 19:34:51 2014 -0500
+
+    Merge branch 'david-api' of https://github.com/Kae7in/cs373-idb into isabella_testapi
+    
+    Conflicts:
+    	hogwarts/marauder/testapi.py
+
+commit 18e664a1f20aa5261d9f9a29aa3fb29e497f1179
+Merge: 284d087 89f967b
+Author: Amanda Steinwedel <amanda.steinwedel@massrelevance.com>
+Date:   Wed Jul 23 19:33:45 2014 -0500
+
+    Merge pull request #281 from Kae7in/backup_db
+    
+    backup db jul23 730pm
+
+commit 89f967bb58d868b10b34dcfde1671f0d93e649ef
+Author: David <domoench@gmail.com>
+Date:   Thu Jul 24 00:31:57 2014 +0000
+
+    backup db jul23 730pm
+
+commit 284d0878d5e90e0818e5e2ee4780b98ae8ab8d8d
+Merge: 1ecd574 6c8b1ce
+Author: ashoofly <ashoofly@users.noreply.github.com>
+Date:   Wed Jul 23 17:41:34 2014 -0500
+
+    Merge pull request #279 from Kae7in/potions_dynamic
+    
+    Potions dynamic
+
+commit 5b42157def2ef9274ec0b68ae823e5a0d367cad4
+Merge: 97f7cdc 55b3ea1
+Author: Angela Hsu <ahsu@cs.utexas.edu>
+Date:   Wed Jul 23 17:38:59 2014 -0500
+
+    Merge branch 'david-api' of https://github.com/Kae7in/cs373-idb into david-api
+    
+    Conflicts:
+    	hogwarts/marauder/views.py
+
+commit 97f7cdcda73ed2824623e70c9eefe9ea8b8dad5c
+Author: Angela Hsu <ahsu@cs.utexas.edu>
+Date:   Wed Jul 23 17:37:21 2014 -0500
+
+    added Artifact api and passing unit tests
+
+commit e49024b175845a9444660e5aeb02a41871b962d0
+Author: Kaelin <kae7in@gmail.com>
+Date:   Wed Jul 23 15:31:14 2014 -0500
+
+    implemented a dynamic jumbotron to appear appear on all pages, other than the one already on the splash page
+
+commit 1ecd574160b72bfb130c77b3ab04ec52cb4fc66b
+Merge: 8679ebe 9d0be36
+Author: Kaelin Hooper <kae7in@gmail.com>
+Date:   Wed Jul 23 15:16:16 2014 -0500
+
+    Merge pull request #278 from Kae7in/story_dynamic_views
+    
+    Story dynamic views
+
+commit 9d0be36bc4e000ec1ee7bd694a65e12d61e83089
+Author: Amanda Steinwedel <amanda.steinwedel@gmail.com>
+Date:   Wed Jul 23 15:13:51 2014 -0500
+
+    update navbar
+
+commit ff5218e5bfaa8e72380c47dbf087d2688c89d802
+Author: Amanda Steinwedel <amanda.steinwedel@gmail.com>
+Date:   Wed Jul 23 15:12:25 2014 -0500
+
+    add index view for stories
+
+commit 66e34daafc8035dfb4f02fb0bad27a589f940dff
+Author: Amanda Steinwedel <amanda.steinwedel@gmail.com>
+Date:   Wed Jul 23 15:07:58 2014 -0500
+
+    delete static story files
+
+commit 9bce5960ca14644495217f92dda1ec1f080a8756
+Author: Amanda Steinwedel <amanda.steinwedel@gmail.com>
+Date:   Wed Jul 23 15:07:20 2014 -0500
+
+    add story detail template and urls for books and locations
+
+commit c927d531bb0c973124e5920c7dea989043121119
+Author: Amanda Steinwedel <amanda.steinwedel@gmail.com>
+Date:   Wed Jul 23 14:53:31 2014 -0500
+
+    add formatted date for stories and tests
+
+commit 8679ebed64f91cebd6b4e9bd9601cbb64d025c1a
+Merge: b08f9cd 9e52e7b
+Author: IsabellaBhardwaj <isabella11@utexas.edu>
+Date:   Wed Jul 23 14:31:46 2014 -0500
+
+    Merge pull request #277 from Kae7in/hide_characters
+    
+    hide hidden character views
+
+commit 9e52e7bfccc0a7285f8ef2d4fad9f1118f545255
+Author: Amanda Steinwedel <amanda.steinwedel@gmail.com>
+Date:   Wed Jul 23 14:31:10 2014 -0500
+
+    update urls in character page
+
+commit 633f5bfd8c7ce716bb9bf141b38e7b867c53535d
+Author: Isabella <isabella11@utexas.edu>
+Date:   Wed Jul 23 14:29:28 2014 -0500
+
+    Added creature api test
+
+commit b08f9cd6cae75f0b22e39e4d45e1a8d5e288fe99
+Merge: e4a8982 50ac0f5
+Author: Amanda Steinwedel <amanda.steinwedel@massrelevance.com>
+Date:   Wed Jul 23 14:28:49 2014 -0500
+
+    Merge pull request #274 from Kae7in/update_potion_creature_api
+    
+    Fixed potions and creatures api
+
+commit b425f196707f0eaf61ccb0cc5b468cbf6773b1ce
+Author: Amanda Steinwedel <amanda.steinwedel@gmail.com>
+Date:   Wed Jul 23 14:28:10 2014 -0500
+
+    hide hidden character views
+
+commit 1716c055d633beaa6d52d100f0ae626eeb6c957e
+Author: Isabella <isabella11@utexas.edu>
+Date:   Wed Jul 23 14:15:50 2014 -0500
+
+    Added potion api unit tests
+
+commit e4a89828c4f98aa05f17d8166cb82c2e8c1d4698
+Author: Kaelin <kae7in@gmail.com>
+Date:   Wed Jul 23 14:05:20 2014 -0500
+
+    added new images (jpegs and gifs)
+
+commit eb9ef17b7098ca79a51555863ee2405ba0588461
+Merge: ddd432b 1651c2b
+Author: ashoofly <ashoofly@users.noreply.github.com>
+Date:   Wed Jul 23 13:34:50 2014 -0500
+
+    Merge pull request #276 from Kae7in/image_fix
+    
+    update media root and urls
+
+commit 1651c2b3b426c1ec56bb92c5949ed6a8a1ef6f02
+Author: David <domoench@gmail.com>
+Date:   Wed Jul 23 18:33:36 2014 +0000
+
+    update media root and urls
+
+commit 6c8b1ce42a2b572f4ff4b2d881f5e49dae4dc884
+Author: Isabella <isabella11@utexas.edu>
+Date:   Wed Jul 23 13:10:36 2014 -0500
+
+    Adding dynamic info_group to potions
+
+commit ddd432b19069495029cdf0b2cc01b6541dcca325
+Merge: f7d1fdb 2b7cd04
+Author: David <domoench@gmail.com>
+Date:   Wed Jul 23 18:05:23 2014 +0000
+
+    Merge branch 'master' of github.com:Kae7in/cs373-idb
+
+commit f7d1fdbb33b891af6d28f9ac3ea603d3e487cef2
+Author: David <domoench@gmail.com>
+Date:   Wed Jul 23 18:04:45 2014 +0000
+
+    artifact templates are dynamic (AH)
+
+commit 8c9ee35111c5f4dcbab686b317018bfae3c87275
+Merge: 377babc 2b7cd04
+Author: Isabella <isabella11@utexas.edu>
+Date:   Wed Jul 23 13:01:07 2014 -0500
+
+    Merge branch 'master' of https://github.com/Kae7in/cs373-idb into potions_dynamic
+
+commit 2b7cd049878dfec37c8cd722a9ec7dbb973c0a1b
+Merge: fdf95b2 aec0a02
+Author: Kaelin <kae7in@gmail.com>
+Date:   Wed Jul 23 12:58:51 2014 -0500
+
+    Merge branch 'master' of https://github.com/Kae7in/cs373-idb
+
+commit fdf95b21cf15b8b6db28f5762d28a1e32fd5e911
+Author: Kaelin <kae7in@gmail.com>
+Date:   Wed Jul 23 12:57:27 2014 -0500
+
+    added gifs for borgin-and-burkes, ollivander, and weasleys-wizard-wheezes
+
+commit aec0a0276bc3144c30393b0bbc9acac429efa411
+Merge: 1f20640 e881fc0
+Author: Amanda Steinwedel <amanda.steinwedel@massrelevance.com>
+Date:   Wed Jul 23 12:54:44 2014 -0500
+
+    Merge pull request #275 from Kae7in/backup_db
+    
+    backup at jul23 130am
+
+commit 1f2064097fa9b16820b505d477188c2b2686b305
+Author: David Ouyang Moench <domoench@gmail.com>
+Date:   Wed Jul 23 12:47:12 2014 -0500
+
+    Transferring blueprint from apiary.io
+
+commit 55b3ea176eb50f03c427c1f7faf45b56131f40f8
+Author: David Moench <domoench@gmail.com>
+Date:   Wed Jul 23 12:44:13 2014 -0500
+
+    Implemented Story REST API.
+
+commit 50ac0f54b80a029973610b324115f75303181b2d
+Author: Isabella <isabella11@utexas.edu>
+Date:   Wed Jul 23 12:41:21 2014 -0500
+
+    Fixed potions and creatures api
+
+commit 3e85e56c2d7625211601c264f2c1012f3f1f3925
+Author: David Ouyang Moench <domoench@gmail.com>
+Date:   Wed Jul 23 12:30:25 2014 -0500
+
+    Transferring blueprint from apiary.io
+
+commit 7543832f22946fa1c56947ed03681d278c5eb9f1
+Merge: aae7dcc 746f6a6
+Author: David Moench <domoench@gmail.com>
+Date:   Wed Jul 23 12:05:55 2014 -0500
+
+    Merge branch 'master' of github.com:Kae7in/cs373-idb into david-api
+    
+    Conflicts:
+    	hogwarts/hogwarts/settings.py
+    	hogwarts/marauder/urls.py
+    	hogwarts/marauder/views.py
+
+commit 4d2964d16a83a8099bb7d65872322a3a56803a4e
+Author: David <domoench@gmail.com>
+Date:   Wed Jul 23 17:00:35 2014 +0000
+
+    Added font back in for creature rating
+
+commit aae7dcc5127f6d1d7d8a8e3e139be174b8b1821a
+Author: Angela Hsu <ahsu@cs.utexas.edu>
+Date:   Wed Jul 23 01:49:14 2014 -0500
+
+    Working unit tests for detail and index API view. Also fixed url syntax.
+
+commit e881fc084a134f348e7f3a6da27df445572c2692
+Author: David <domoench@gmail.com>
+Date:   Wed Jul 23 06:36:33 2014 +0000
+
+    backup at jul23 130am
+
+commit 746f6a6d72aab99ed9cc6d75bc2cc0087e2e4177
+Merge: 53889cb 6f6f851
+Author: Amanda Steinwedel <amanda.steinwedel@massrelevance.com>
+Date:   Wed Jul 23 00:18:32 2014 -0500
+
+    Merge pull request #271 from Kae7in/stories_changes
+    
+    now add back with updated optional
+
+commit 6f6f851f7386180fa5413fbc5feeb04ea30ca989
+Author: Amanda Steinwedel <amanda.steinwedel@gmail.com>
+Date:   Wed Jul 23 00:17:48 2014 -0500
+
+    now add back with updated optional
+
+commit 53889cb6675a522eb0e5aa2e0aba0a2a5c1baa48
+Merge: e5d0e1a 1a48c0b
+Author: Amanda Steinwedel <amanda.steinwedel@massrelevance.com>
+Date:   Wed Jul 23 00:16:41 2014 -0500
+
+    Merge pull request #270 from Kae7in/stories_changes
+    
+    Stories changes
+
+commit 1a48c0b730150bc00246649ffecfa6ff4305f7cd
+Merge: bc38ab4 e3ef491
+Author: Amanda Steinwedel <amanda.steinwedel@gmail.com>
+Date:   Wed Jul 23 00:15:26 2014 -0500
+
+    Merge branch 'stories_changes' of github.com:Kae7in/cs373-idb into stories_changes
+    
+    Conflicts:
+    	hogwarts/marauder/models.py
+
+commit bc38ab4208a030b96ababd675c49b38650a6b7e9
+Author: Amanda Steinwedel <amanda.steinwedel@gmail.com>
+Date:   Wed Jul 23 00:15:02 2014 -0500
+
+    south isnt recognizing changes like this, working around
+
+commit e5d0e1ad387661d90b0f70bd0d357bbe066baf86
+Merge: a0a9029 e3ef491
+Author: Amanda Steinwedel <amanda.steinwedel@massrelevance.com>
+Date:   Wed Jul 23 00:02:49 2014 -0500
+
+    Merge pull request #269 from Kae7in/stories_changes
+    
+    make artifact optional
+
+commit e3ef4912eaf4efac8d88252c667afe2899b73301
+Author: Stephen Arnett <starnett@cs.utexas.edu>
+Date:   Wed Jul 23 00:01:04 2014 -0500
+
+    make artifact optional
+
+commit 20cc2dd117fc5d079234c47baba04fceabb75561
+Merge: ffdd1e5 7f89cc4
+Author: ashoofly <ayh123@gmail.com>
+Date:   Tue Jul 22 23:54:51 2014 -0500
+
+    Merge branch 'david-api' of https://github.com/Kae7in/cs373-idb into david-api
+
+commit ffdd1e5be88a2374249a7cf11cedbb39006c7375
+Author: ashoofly <ayh123@gmail.com>
+Date:   Tue Jul 22 23:51:48 2014 -0500
+
+    angela-settings
+
+commit a0a9029592b118ff7616028012f5e2cfc13f51c8
+Merge: d3d7da9 5aed2ee
+Author: Amanda Steinwedel <amanda.steinwedel@massrelevance.com>
+Date:   Tue Jul 22 23:49:49 2014 -0500
+
+    Merge pull request #268 from Kae7in/stories_changes
+    
+    add quote to stories and makes location option
+
+commit 5aed2ee7654e2567d69397a47f7679fc08be8d6a
+Author: Amanda Steinwedel <amanda.steinwedel@gmail.com>
+Date:   Tue Jul 22 23:49:37 2014 -0500
+
+    make new fields in stories optional
+
+commit ca5b4cc0788eee7f90e38707cbd8f322fb07c4c1
+Author: Stephen Arnett <starnett@cs.utexas.edu>
+Date:   Tue Jul 22 23:41:52 2014 -0500
+
+    add quote to stories and makes location option
+
+commit d3d7da93606468472a8ce3e6e6258e82e3ff5b3b
+Merge: 1e867fc 5792e89
+Author: Amanda Steinwedel <amanda.steinwedel@massrelevance.com>
+Date:   Tue Jul 22 23:03:32 2014 -0500
+
+    Merge pull request #265 from Kae7in/misc_fixes
+    
+    fix url syntax error and typo in settings
+
+commit 5792e89f7a3783f9b84cbea174110c5017257a3e
+Author: David <domoench@gmail.com>
+Date:   Wed Jul 23 04:02:09 2014 +0000
+
+    fix url syntax error and typo in settings
+
+commit 1e867fc160679e636f532e0bd17cec634ba7f1cc
+Merge: a390c80 33ad5d8
+Author: Starnett <Starnett@users.noreply.github.com>
+Date:   Tue Jul 22 22:53:27 2014 -0500
+
+    Merge pull request #264 from Kae7in/character_dynamic_pages
+    
+    Character dynamic pages
+
+commit 33ad5d8f0c6126631795403f3cefa66cde85ff12
+Merge: abe7739 a390c80
+Author: Amanda Steinwedel <amanda.steinwedel@gmail.com>
+Date:   Tue Jul 22 22:48:29 2014 -0500
+
+    Merge branch 'master' into character_dynamic_pages
+    
+    Conflicts:
+    	hogwarts/marauder/urls.py
+    	hogwarts/marauder/views.py
+
+commit a390c805ebb84cbff0a847ec0f99adb7f49b43d5
+Merge: 98cf9fa 22ec2d4
+Author: Amanda Steinwedel <amanda.steinwedel@gmail.com>
+Date:   Tue Jul 22 22:43:39 2014 -0500
+
+    Merge branch 'master' into potion_api
+
+commit abe7739db7f40b34bbee2f6c935cb558c7193a73
+Author: Amanda Steinwedel <amanda.steinwedel@gmail.com>
+Date:   Tue Jul 22 22:42:04 2014 -0500
+
+    few more style fixes
+
+commit 365864f07f0b8286273c41a8886f5456ff9c383a
+Author: Amanda Steinwedel <amanda.steinwedel@gmail.com>
+Date:   Tue Jul 22 22:39:37 2014 -0500
+
+    remove static pages
+
+commit 5379153cc5db355f7202280cd0eff4ca8b53827d
+Author: Amanda Steinwedel <amanda.steinwedel@gmail.com>
+Date:   Tue Jul 22 22:37:18 2014 -0500
+
+    add character index links
+
+commit a14601f799dd0de9597bbf956bf89f0fb7018ff4
+Author: Amanda Steinwedel <amanda.steinwedel@gmail.com>
+Date:   Tue Jul 22 22:28:26 2014 -0500
+
+    add link to tables
+
+commit 615e17d7a9a8df81e1697cb130b0009cf4d65674
+Author: Amanda Steinwedel <amanda.steinwedel@gmail.com>
+Date:   Tue Jul 22 22:27:31 2014 -0500
+
+    fix style
+
+commit c50696a984aa746f1b3d16b62ba6a7a895087d58
+Author: Amanda Steinwedel <amanda.steinwedel@gmail.com>
+Date:   Tue Jul 22 21:56:19 2014 -0500
+
+    add index view and django_tables2
+
+commit 98cf9fa95a07072981f97e8b2499f11c4af56521
+Author: Isabella <isabella11@utexas.edu>
+Date:   Tue Jul 22 21:10:49 2014 -0500
+
+    Fixed minor errors
+
+commit 22ec2d44dc9f7de11cb52afb97f0e266e4215fbd
+Author: IsabellaBhardwaj <isabella.bhardwaj@gmail.com>
+Date:   Tue Jul 22 21:10:01 2014 -0500
+
+    Transferring blueprint from apiary.io
+
+commit 7f89cc409ad75d621402e3f75677858dfe825cee
+Author: Kaelin <kae7in@gmail.com>
+Date:   Tue Jul 22 21:08:44 2014 -0500
+
+    updated urls.py to include references to spells and shops
+
+commit cd9edc6cb03df7ed1ac4ff9a7cab87810db8da2b
+Author: Kaelin <kae7in@gmail.com>
+Date:   Tue Jul 22 21:04:41 2014 -0500
+
+    implemented SpellRestView and ShopRestView in views.py
+
+commit f27d1dcc454dac1e437becdfd1d1c313cfc83645
+Author: David Moench <domoench@gmail.com>
+Date:   Tue Jul 22 20:42:12 2014 -0500
+
+    Made the API functions handle both collection and item requests.
+
+commit 9a3f9f93b172e03ae5b87fbb0ac6d0a5adeb6396
+Author: Isabella <isabella11@utexas.edu>
+Date:   Tue Jul 22 20:37:14 2014 -0500
+
+    Fixed indentation
+
+commit dd2474bfb7ec73b6b1e85bdd4b7f29fb9f28025c
+Author: Isabella <isabella11@utexas.edu>
+Date:   Tue Jul 22 20:35:37 2014 -0500
+
+    Fixed return statement, and added creature api
+
+commit e1727f7014a63f68a8f237be87fecf6e4dd48f53
+Author: Amanda Steinwedel <amanda.steinwedel@gmail.com>
+Date:   Tue Jul 22 20:30:04 2014 -0500
+
+    finish character dynamic detail view
+
+commit e297f5d7d1c4a872f2fb385e9b4fb148a8b96e30
+Merge: e1f5ece 31f300d
+Author: ashoofly <ashoofly@users.noreply.github.com>
+Date:   Tue Jul 22 20:12:40 2014 -0500
+
+    Merge pull request #253 from Kae7in/david-api
+    
+    David api
+
+commit 302e20045591c1d5765b332c9990ef099daf4793
+Merge: ab06cea e1f5ece
+Author: Amanda Steinwedel <amanda.steinwedel@gmail.com>
+Date:   Tue Jul 22 20:10:06 2014 -0500
+
+    Merge branch 'master' of github.com:Kae7in/cs373-idb into character_dynamic_pages
+    
+    Conflicts:
+    	hogwarts/backup.json
+
+commit e1f5eced6aa90ac80b3427ecdf724b8acee6f663
+Merge: dc1ed15 1b35208
+Author: Amanda Steinwedel <amanda.steinwedel@massrelevance.com>
+Date:   Tue Jul 22 20:09:24 2014 -0500
+
+    Merge pull request #252 from Kae7in/backup_db
+    
+    make wands actually null, not empty string
+
+commit 1b35208a042db4ad696a64683f20e0ffdb92c037
+Author: David <domoench@gmail.com>
+Date:   Wed Jul 23 01:09:06 2014 +0000
+
+    make wands actually null, not empty string
+
+commit ab06ceaeb2af073aa5b6ac148bb9cfa8d65fbf73
+Merge: c749135 dc1ed15
+Author: Amanda Steinwedel <amanda.steinwedel@gmail.com>
+Date:   Tue Jul 22 20:02:20 2014 -0500
+
+    Merge branch 'master' into character_dynamic_pages
+    
+    Conflicts:
+    	hogwarts/backup.json
+    	hogwarts/marauder/urls.py
+    	hogwarts/marauder/views.py
+
+commit 6d97a46f2c54dfb7c5c58eb821d7bebc854d5569
+Author: Isabella <isabella11@utexas.edu>
+Date:   Tue Jul 22 19:58:33 2014 -0500
+
+    Added PotionRestView Function and updated urls.py
+
+commit dc1ed15e99b66cc6e3e69ddfa3659982c2a74d3b
+Merge: 6090435 b3a41c3
+Author: Amanda Steinwedel <amanda.steinwedel@massrelevance.com>
+Date:   Tue Jul 22 19:56:23 2014 -0500
+
+    Merge pull request #251 from Kae7in/backup_db
+    
+    update sexes of characters
+
+commit b3a41c3a5517f26f7f6e36fedcc8a25c82ec6561
+Author: David <domoench@gmail.com>
+Date:   Wed Jul 23 00:55:44 2014 +0000
+
+    update sexes of characters
+
+commit 60904354aa19bfa49396da3ed33df660ddf14552
+Merge: c76c32e 8cbb3e8
+Author: Starnett <Starnett@users.noreply.github.com>
+Date:   Tue Jul 22 19:34:22 2014 -0500
+
+    Merge pull request #250 from Kae7in/null_character_fields
+    
+    add sex to characters and make wand optional
+
+commit 31f300db64fed4490cc9ea249942769dc854602a
+Author: David Moench <domoench@gmail.com>
+Date:   Tue Jul 22 19:32:25 2014 -0500
+
+    Updated API logic.
+
+commit 8cbb3e8cbbeb3b42e65337e29a775a86d90b3074
+Author: Amanda Steinwedel <amanda.steinwedel@gmail.com>
+Date:   Tue Jul 22 19:30:25 2014 -0500
+
+    add sex to characters and make wand optional
+
+commit c7491354537be2b60d4aaa17157708ef388205cc
+Author: Amanda Steinwedel <amanda.steinwedel@gmail.com>
+Date:   Tue Jul 22 19:15:05 2014 -0500
+
+    merge with master
+
+commit 3fc728aba276ae9bb7a2ba10dffbe84e0b501b21
+Author: Amanda Steinwedel <amanda.steinwedel@gmail.com>
+Date:   Tue Jul 22 18:50:54 2014 -0500
+
+    adding dynamic character template and routes
+
+commit c76c32e00e0330277c17ebfbab3ca18773b94723
+Merge: 3a44616 9e9ded7
+Author: Amanda Steinwedel <amanda.steinwedel@massrelevance.com>
+Date:   Tue Jul 22 19:12:23 2014 -0500
+
+    Merge pull request #249 from Kae7in/backup_db
+    
+    backup db
+
+commit 9e9ded7489f690c27d36f34ec08fd778d07b43f0
+Author: David <domoench@gmail.com>
+Date:   Wed Jul 23 00:07:50 2014 +0000
+
+    backup db
+
+commit 3a446161a04425985d6b73e44ebb8ec748595d23
+Merge: bbb6828 7d1c9c0
+Author: Starnett <Starnett@users.noreply.github.com>
+Date:   Tue Jul 22 18:59:26 2014 -0500
+
+    Merge pull request #247 from Kae7in/static_homepage
+    
+    fix #246, homepage still static
+
+commit 7d1c9c031677a95796413d9b84cdb79d26d47832
+Author: Amanda Steinwedel <amanda.steinwedel@gmail.com>
+Date:   Tue Jul 22 18:53:55 2014 -0500
+
+    fix #246, homepage still static
+
+commit bbb68282a5a8bf47e6ed6d1300633fb62b9923c0
+Merge: 006ceff 035028a
+Author: Amanda Steinwedel <amanda.steinwedel@massrelevance.com>
+Date:   Tue Jul 22 18:12:10 2014 -0500
+
+    Merge pull request #245 from Kae7in/spell_difficulty
+    
+    Spell difficulty
+
+commit 035028ab888e29aa67afda43c58d66e4ca6b7554
+Author: Stephen Arnett <starnett@cs.utexas.edu>
+Date:   Tue Jul 22 16:21:00 2014 -0500
+
+    for pull request on spell changes
+
+commit 703b78d09d771a2c43827fb587244dd42e5ff25e
+Author: David Moench <domoench@gmail.com>
+Date:   Tue Jul 22 15:26:28 2014 -0500
+
+    Got local DB working. Hooked up the API to models for Characters.
+    
+    TODOS:
+    1. Subclass RestView class for each model and write custom response
+    formulation.
+    2. Update Apiary docs as we go, many changes have happened to each
+    model.
+
+commit 89ef343cc6f2ecf69a449db91af906184c0c07bf
+Merge: 0b5692c 006ceff
+Author: David Moench <domoench@gmail.com>
+Date:   Tue Jul 22 14:59:18 2014 -0500
+
+    Merge branch 'master' of github.com:Kae7in/cs373-idb into david-api
+
+commit 377babc305d0d4d036977edaf7a0b1f5be633e55
+Merge: 45f4fb6 006ceff
+Author: Isabella <isabella11@utexas.edu>
+Date:   Tue Jul 22 13:43:58 2014 -0500
+
+    Merge branch 'master' of https://github.com/Kae7in/cs373-idb into potions_dynamic
+
+commit 006ceffe6769e448cc43b84a8b90e7d49cf7ad64
+Merge: 7994dde 1e3cd47
+Author: IsabellaBhardwaj <isabella11@utexas.edu>
+Date:   Tue Jul 22 13:43:32 2014 -0500
+
+    Merge pull request #233 from Kae7in/update_citations
+    
+    add fanpop link
+
+commit 45f4fb64e6c4047bd6614516b5e4dffa4a19006d
+Author: Isabella <isabella11@utexas.edu>
+Date:   Tue Jul 22 13:42:18 2014 -0500
+
+    Implemented dynamic potions for all but the fields in info_group. Those will be implemented next
+
+commit 67ed3a205f12c149627f31e9a5eeefd35e2f8edf
+Author: Stephen Arnett <starnett@cs.utexas.edu>
+Date:   Tue Jul 22 10:26:42 2014 -0500
+
+    fixed spelling error in spell difficulty
+
+commit 0b5692c2cbb721d729c903f0994c01b5a4ae4d69
+Author: David Moench <domoench@gmail.com>
+Date:   Mon Jul 21 23:19:38 2014 -0500
+
+    Implemented basic RESTful API mechanism. #214.
+    
+    * Currenlty only set up for Characters.
+    * Currently can't be tested with DB cuz of local DB schema issues.
+
+commit 7994dde253f49fe4c6ddc2278b53008b1da3612b
+Author: David <domoench@gmail.com>
+Date:   Tue Jul 22 01:51:03 2014 +0000
+
+    Added classification_get_display variable
+
+commit bbb187993ce04fe2af89faa207431cc90380ede8
+Author: David <domoench@gmail.com>
+Date:   Tue Jul 22 01:27:26 2014 +0000
+
+    added rating display only if applicable
+
+commit 29b484c477a04e51c8723624e17e1d813574df9f
+Merge: 52baa63 dbc585b
+Author: ashoofly <ashoofly@users.noreply.github.com>
+Date:   Mon Jul 21 20:13:42 2014 -0500
+
+    Merge pull request #237 from Kae7in/creature-images
+    
+    adding creature images
+
+commit dbc585b24496e1420bc9f50a2258f4e21385dca9
+Author: ashoofly <ayh123@gmail.com>
+Date:   Mon Jul 21 20:13:00 2014 -0500
+
+    adding creature images
+
+commit 52baa63c911acf1cfce91d65a2c9b6488ed940e7
+Author: David <domoench@gmail.com>
+Date:   Tue Jul 22 00:39:23 2014 +0000
+
+    get_rating_display added
+
+commit a6c5062cace79625c6d7061856b35614abbf9644
+Merge: 481acc7 c3c1320
+Author: ashoofly <ayh123@gmail.com>
+Date:   Mon Jul 21 19:31:18 2014 -0500
+
+    Merge branch 'master' of https://github.com/Kae7in/cs373-idb
+
+commit 481acc72c2aa7925248bff343af1e6eb3b92f93d
+Author: ashoofly <ayh123@gmail.com>
+Date:   Mon Jul 21 19:26:40 2014 -0500
+
+    dynamic creatures
+
+commit c3c13200d526cb50f6fa64c8ae6decfd70f3ceb7
+Merge: 5d13ca9 aecdc39
+Author: Amanda Steinwedel <amanda.steinwedel@massrelevance.com>
+Date:   Mon Jul 21 18:19:54 2014 -0500
+
+    Merge pull request #236 from Kae7in/south_unit_tests
+    
+    dont use south for unit tests #235
+
+commit aecdc39c0234e42a95ec1b03f7dfdd439b85c6d2
+Author: David <domoench@gmail.com>
+Date:   Mon Jul 21 23:19:32 2014 +0000
+
+    dont use south for unit tests #235
+
+commit 5d13ca92d31815037fb43fe6469ad29fa7c3a04c
+Merge: 5e96781 5586b57
+Author: Amanda Steinwedel <amanda.steinwedel@massrelevance.com>
+Date:   Mon Jul 21 18:04:27 2014 -0500
+
+    Merge pull request #234 from Kae7in/spell_difficulty
+    
+    Spell difficulty
+
+commit 5586b57cecd3bb74fc102713ce880659c4a7c357
+Author: Stephen Arnett <starnett@cs.utexas.edu>
+Date:   Mon Jul 21 17:54:45 2014 -0500
+
+    added tests and difficulty modual to spells
+
+commit 98583b2e99e902bd5dfc51bf06f663185560f1ac
+Author: Stephen Arnett <starnett@cs.utexas.edu>
+Date:   Mon Jul 21 17:44:09 2014 -0500
+
+    added a difficulty section to spells
+
+commit 5e96781ef13547ea21b3fbd811814fd3457128b9
+Merge: f1148d5 66ba990
+Author: Amanda Steinwedel <amanda.steinwedel@massrelevance.com>
+Date:   Mon Jul 21 15:34:28 2014 -0500
+
+    Merge pull request #232 from Kae7in/hidden_boolean
+    
+    Added hidden field to Character and Creature
+
+commit 66ba990afbebfa4ff49fd94e650405cc166e35ac
+Author: Isabella <isabella11@utexas.edu>
+Date:   Mon Jul 21 15:29:26 2014 -0500
+
+    Added hidden field to Character and Creature
+
+commit 1e3cd47e2df8367142fa07fa2d4eacce0db1be68
+Author: Amanda Steinwede <amanda.steinwedel@gmail.com>
+Date:   Mon Jul 21 15:28:26 2014 -0500
+
+    add fanpop link
+
+commit f1148d5c331ea126025202551376191772566181
+Author: David <domoench@gmail.com>
+Date:   Mon Jul 21 19:50:31 2014 +0000
+
+    removing notable from creatures closes #227"
+
+commit 1f79ee01ae61b11c989dc065c73eb2a1d6a8c180
+Merge: b548687 715affb
+Author: David <domoench@gmail.com>
+Date:   Mon Jul 21 19:25:17 2014 +0000
+
+    Merge branch 'master' of github.com:Kae7in/cs373-idb
+
+commit 715affb066a0ae5fedd90bec4e0d73318877256e
+Merge: 6451a9b c8eff0b
+Author: Amanda Steinwedel <amanda.steinwedel@massrelevance.com>
+Date:   Mon Jul 21 14:24:22 2014 -0500
+
+    Merge pull request #230 from Kae7in/changeQuote
+    
+    Changed quote field to TextField
+
+commit c8eff0be5726ba164756dc62f3373c093003b271
+Author: Isabella <isabella11@utexas.edu>
+Date:   Mon Jul 21 14:19:41 2014 -0500
+
+    Changed quote field to TextField
+
+commit b548687005afc81f3a386038a97e640c26d8f5d8
+Author: David <domoench@gmail.com>
+Date:   Mon Jul 21 18:26:59 2014 +0000
+
+    starting south over
+
+commit 40a305c22308236b57e587d56bfe5f7866d479db
+Merge: 7fdd3b1 6451a9b
+Author: David <domoench@gmail.com>
+Date:   Mon Jul 21 18:26:08 2014 +0000
+
+    Merge branch 'master' of github.com:Kae7in/cs373-idb
+
+commit 6451a9b65fbb3090889f7840507b5e209e2ac902
+Merge: a84521d 54d7bf5
+Author: ashoofly <ashoofly@users.noreply.github.com>
+Date:   Mon Jul 21 13:25:46 2014 -0500
+
+    Merge pull request #195 from Kae7in/remove_academic_status_model
+    
+    DON'T MERGE YET: Remove academic status model
+
+commit 7fdd3b1ba23bfada04c85f84f22739d603187427
+Author: David <domoench@gmail.com>
+Date:   Mon Jul 21 18:14:34 2014 +0000
+
+    commented DEBUG=True back
+
+commit a84521d6af95de3ddd5aef5777d6910d08017dd5
+Merge: bcd6b61 c72b7f6
+Author: ashoofly <ashoofly@users.noreply.github.com>
+Date:   Mon Jul 21 12:53:30 2014 -0500
+
+    Merge pull request #226 from Kae7in/db_settings
+    
+    South migrations
+
+commit c72b7f6a4c81261ab9db165acb8443bafcf1c89b
+Author: David <domoench@gmail.com>
+Date:   Mon Jul 21 17:51:30 2014 +0000
+
+    south migrations
+
+commit bcd6b6171a9d3705a6c0a73fe8de318f260b1fa9
+Merge: 9a9459f c87efd3
+Author: ashoofly <ashoofly@users.noreply.github.com>
+Date:   Mon Jul 21 12:49:11 2014 -0500
+
+    Merge pull request #224 from Kae7in/fix_creature_test
+    
+    put creature rating back to int, add test for display
+
+commit c87efd3f33752486a89162bfb57a74e63ea4bfe6
+Author: Amanda Steinwedel <amanda.steinwedel@gmail.com>
+Date:   Mon Jul 21 12:48:02 2014 -0500
+
+    put creature rating back to int, add test for display
+
+commit a6a1752e557909c5b0972f938686824390d0f41d
+Author: David <domoench@gmail.com>
+Date:   Mon Jul 21 17:16:17 2014 +0000
+
+    added south adapter
+
+commit 9a9459fb16131c8b1ce5a7e20cca8d37be036889
+Merge: deb735b b15828b
+Author: David Ouyang Moench <domoench@gmail.com>
+Date:   Mon Jul 21 12:10:42 2014 -0500
+
+    Merge pull request #200 from Kae7in/db_settings
+    
+    Db settings
+
+commit b15828b5731812b045b1cafd14a78d801edec87a
+Author: David <domoench@gmail.com>
+Date:   Mon Jul 21 17:07:32 2014 +0000
+
+    db settings
+
+commit 6d5cc6d8b044cece951cd8e6206b7e53bd179122
+Merge: 7b51d61 deb735b
+Author: David <domoench@gmail.com>
+Date:   Mon Jul 21 15:00:04 2014 +0000
+
+    Merge branch 'master' of github.com:Kae7in/cs373-idb
+
+commit deb735b2df1ac7493687f189e7171e4728db1d15
+Merge: 63e0073 99e8a0a
+Author: IsabellaBhardwaj <isabella11@utexas.edu>
+Date:   Mon Jul 21 09:59:43 2014 -0500
+
+    Merge pull request #199 from Kae7in/ingredient_validation_fix
+    
+    let ingredients have longer name, was causing test fails in prod
+
+commit 99e8a0a074ecf916263fb051aad02513db172f42
+Author: Amanda Steinwedel <amanda.steinwedel@gmail.com>
+Date:   Mon Jul 21 09:58:25 2014 -0500
+
+    let ingredients have longer name, was causing test fails in prod
+
+commit 63e00732e76093d349bbb738354436938430038b
+Author: Angela Hsu <ahsu@cs.utexas.edu>
+Date:   Sun Jul 20 20:59:17 2014 -0500
+
+    changed image paths, added plural to Creatures model
+
+commit 88a1e786a18f9b6aab03c03e4ac2595fc97d57ca
+Author: Angela Hsu <ayh123@gmail.com>
+Date:   Sun Jul 20 01:16:29 2014 -0500
+
+    Changes to Creatures model
+
+commit afce460ad9bfae9a9b1a6ebb57f64c4ea1e01742
+Merge: 0447168 f653c70
+Author: Angela Hsu <ayh123@gmail.com>
+Date:   Sat Jul 19 00:18:37 2014 -0500
+
+    i hope i kept theirs in merge
+
+commit 7b51d610643e82aeff04945050a013107c8852e2
+Merge: dfec23d f653c70
+Author: David <domoench@gmail.com>
+Date:   Fri Jul 18 23:14:04 2014 +0000
+
+    Merge branch 'master' of github.com:Kae7in/cs373-idb
+
+commit f653c70570d8213ac2f5c44ae62e2f5e15fcca52
+Merge: bf1b9f9 cae451f
+Author: Amanda Steinwedel <amanda.steinwedel@massrelevance.com>
+Date:   Fri Jul 18 18:13:44 2014 -0500
+
+    Merge pull request #198 from Kae7in/david-fix197
+    
+    Fixed issue 197. Resolves #197.
+
+commit cae451fb03a5633d9b22177a79e3fa3352960e8b
+Author: David Moench <domoench@gmail.com>
+Date:   Wed Jul 16 15:54:51 2014 -0500
+
+    Fixed issue 197. Resolves #197.
+
+commit bf1b9f98ce34d27338d500b6c2367ac32f86048f
+Merge: 00b9cd1 261e786
+Author: Amanda Steinwedel <amanda.steinwedel@massrelevance.com>
+Date:   Wed Jul 16 12:35:48 2014 -0500
+
+    Merge pull request #194 from Kae7in/responsiveness
+    
+    Responsiveness
+
+commit 54d7bf58ca59dc6594d1329d7351ee33607a63f7
+Author: Amanda Steinwedel <amanda.steinwedel@gmail.com>
+Date:   Wed Jul 16 12:32:47 2014 -0500
+
+    add tests for new academic relationships
+
+commit 55f48d6476d04e2baa8d391fd6c5182d7a77e526
+Author: Amanda Steinwedel <amanda.steinwedel@gmail.com>
+Date:   Wed Jul 16 08:36:21 2014 -0500
+
+    Remove academic status model, make with related_names
+
+commit 261e78693a15a5968948efcf1ca09357fde40e77
+Author: ashoofly <ayh123@gmail.com>
+Date:   Sun Jul 13 14:58:17 2014 -0500
+
+    added @media for desktops no padding at top
+
+commit 9b1ea1da98f049412c036525d07b73b7054add35
+Author: ashoofly <ayh123@gmail.com>
+Date:   Sun Jul 13 14:49:58 2014 -0500
+
+    responsiveness to all pages
+
+commit be1e425632ac33e7a11e3e2d1efdff03ead5e976
+Author: ashoofly <ayh123@gmail.com>
+Date:   Sun Jul 13 14:23:26 2014 -0500
+
+    body padding
+
+commit 6b43701de83403cfc9c2c3dd1781b68718e1fbeb
+Author: ashoofly <ayh123@gmail.com>
+Date:   Sun Jul 13 14:16:25 2014 -0500
+
+    container
+
+commit e383b2abcc79bb7e4db1752644508416efbdeae5
+Author: ashoofly <ayh123@gmail.com>
+Date:   Sun Jul 13 14:11:59 2014 -0500
+
+    container navbar
+
+commit 2c5e03138845f462228fb317a15edd249a5b5c68
+Author: ashoofly <ayh123@gmail.com>
+Date:   Sun Jul 13 14:06:45 2014 -0500
+
+    name margin
+
+commit e773f7d964e40bd0bd3a19b1523043cb45615eac
+Author: ashoofly <ayh123@gmail.com>
+Date:   Sun Jul 13 14:04:30 2014 -0500
+
+    margin-top for name
+
+commit 0e52043dafe30412ff01d43f7c02c02ec9302f0b
+Author: ashoofly <ayh123@gmail.com>
+Date:   Sun Jul 13 13:58:50 2014 -0500
+
+    fixed s typo to col-sm
+
+commit 4d25491d1a768642a8886dbffdb47590456340de
+Author: Angela Hsu <ayh123@gmail.com>
+Date:   Sun Jul 13 11:45:51 2014 -0500
+
+    added padding-top
+
+commit a7ae9da85c5d253ef56ced6338d37968330d8a36
+Author: Angela Hsu <ayh123@gmail.com>
+Date:   Sun Jul 13 11:31:02 2014 -0500
+
+    added @media tag for description
+
+commit 456390679509c2edd8be1457be2c9def5323fa55
+Author: Angela Hsu <ayh123@gmail.com>
+Date:   Sun Jul 13 01:18:45 2014 -0500
+
+    updated headers
+
+commit bd743fdbc244713a17f9cf3fc271e28d4983d322
+Author: Angela Hsu <ayh123@gmail.com>
+Date:   Sun Jul 13 00:57:15 2014 -0500
+
+    complete brand new template
+
+commit a0126ea0908e7df4bdc2c4d1551dadca415b383e
+Author: Angela Hsu <ayh123@gmail.com>
+Date:   Sun Jul 13 00:51:26 2014 -0500
+
+    remove all css
+
+commit d72350919f8f90cd1feaad1067f5279c93b0f8c6
+Author: Angela Hsu <ayh123@gmail.com>
+Date:   Sun Jul 13 00:48:47 2014 -0500
+
+    default navbar
+
+commit d7349c8a1ffa4c9e56bf19470124bc85353c86d9
+Author: Angela Hsu <ayh123@gmail.com>
+Date:   Sun Jul 13 00:22:12 2014 -0500
+
+    commented all other css out
+
+commit 3794472e5452258163a3ad11ac2ea0a584ff350e
+Author: Angela Hsu <ayh123@gmail.com>
+Date:   Sun Jul 13 00:12:32 2014 -0500
+
+    setting xs-tag
+
+commit bc938ed7751d1975c7beb35c07ebbca5aaa82c1a
+Author: Angela Hsu <ayh123@gmail.com>
+Date:   Sat Jul 12 23:55:00 2014 -0500
+
+    tried other implementation
+
+commit 33163940d7b7560449701ec2cab599ed175ca6d7
+Author: Angela Hsu <ayh123@gmail.com>
+Date:   Sat Jul 12 23:43:56 2014 -0500
+
+    added @media query
+
+commit 07ce76fae346a0b2908eb8c6f4ca093bbc31bed9
+Author: Angela Hsu <ayh123@gmail.com>
+Date:   Sat Jul 12 23:24:05 2014 -0500
+
+    changed to s-12
+
+commit 5ce60eac85d476a6db28ab02819328e7c4ec0399
+Merge: 69d16a2 00b9cd1
+Author: Angela Hsu <ayh123@gmail.com>
+Date:   Sat Jul 12 23:23:08 2014 -0500
+
+    Merge branch 'master' of https://github.com/Kae7in/cs373-idb into responsiveness
+
+commit 04471680cdde6ff7fd81f7fdb62598b96df5315f
+Merge: b124da2 00b9cd1
+Author: Angela Hsu <ayh123@gmail.com>
+Date:   Sat Jul 12 23:19:22 2014 -0500
+
+    Merge branch 'master' of https://github.com/Kae7in/cs373-idb
+
+commit b124da25017283804612ff98396ea8946d82a982
+Author: Angela Hsu <ayh123@gmail.com>
+Date:   Sat Jul 12 23:15:48 2014 -0500
+
+    trying s-12 maybe
+
+commit 7e186a049be2ba48dac663f44d8916ee59ebdab1
+Author: Angela Hsu <ayh123@gmail.com>
+Date:   Sat Jul 12 22:58:41 2014 -0500
+
+    added @media tag
+
+commit 00b9cd1f5029ba87f769722520426c832545b4cd
+Merge: 510a68f 723881a
+Author: ashoofly <ashoofly@users.noreply.github.com>
+Date:   Sat Jul 12 21:30:26 2014 -0500
+
+    Merge pull request #193 from Kae7in/responsiveness
+    
+    put container-fluid back
+
+commit 69d16a2007990d51f5dac138c8bf6b73694affc9
+Merge: 723881a 510a68f
+Author: Angela Hsu <ayh123@gmail.com>
+Date:   Sat Jul 12 21:26:23 2014 -0500
+
+    Merge branch 'master' of https://github.com/Kae7in/cs373-idb into responsiveness
+
+commit 723881abc0c6f62f1874060083190ec5a12c82c0
+Author: Angela Hsu <ayh123@gmail.com>
+Date:   Sat Jul 12 21:24:46 2014 -0500
+
+    whoops, back to fluid
+
+commit 510a68fa134e483ebba476e756bb7e9fe50a7611
+Merge: 008a8dc e63e66f
+Author: ashoofly <ashoofly@users.noreply.github.com>
+Date:   Sat Jul 12 21:21:12 2014 -0500
+
+    Merge pull request #192 from Kae7in/responsiveness
+    
+    changed container-fluid to container
+
+commit 46a43c93e5ad98257a5840fdd4e2bb70707ff4c6
+Merge: e63e66f 008a8dc
+Author: Angela Hsu <ayh123@gmail.com>
+Date:   Sat Jul 12 21:20:05 2014 -0500
+
+    Merge branch 'master' into responsiveness
+
+commit e63e66f7046abbe3680aabf3b6236de81f37c8c6
+Author: Angela Hsu <ayh123@gmail.com>
+Date:   Sat Jul 12 21:16:44 2014 -0500
+
+    changed container-fluid to container
+
+commit 008a8dc180a7c3acd9fd37e52859d186eedef1d5
+Merge: 87b744a b6e9346
+Author: ashoofly <ashoofly@users.noreply.github.com>
+Date:   Sat Jul 12 20:24:35 2014 -0500
+
+    Merge pull request #191 from Kae7in/creature-detail
+    
+    Created Creature template, made werewolf page. Jumbotron smaller, content width smaller, fixed some heading tags.
+
+commit b6e93466fd06fe74b7e54c2ef3e010abff2e00fe
+Author: Angela Hsu <ayh123@gmail.com>
+Date:   Sat Jul 12 20:20:36 2014 -0500
+
+    Created Creature template, made werewolf page
+
+commit dfec23d0f22613ff8443df9c3862913b40849731
+Merge: 3963983 87b744a
+Author: David <domoench@gmail.com>
+Date:   Fri Jul 11 01:58:05 2014 +0000
+
+    Merge branch 'master' of github.com:Kae7in/cs373-idb
+
+commit 87b744a7fb9b63e298b379be5e94884f1e02bd8d
+Merge: a6a1143 14479b2
+Author: Starnett <Starnett@users.noreply.github.com>
+Date:   Thu Jul 10 20:56:43 2014 -0500
+
+    Merge pull request #190 from Kae7in/docs
+    
+    Docs
+
+commit 14479b2fe16f9651b86c86a5a3e2c0d61c70baa9
+Author: Kaelin <kae7in@gmail.com>
+Date:   Thu Jul 10 20:56:21 2014 -0500
+
+    added git log, IDB.log
+
 commit abc519751c77ad6217450ee75385e264d4d31590
 Author: Kaelin <kae7in@gmail.com>
 Date:   Thu Jul 10 20:54:15 2014 -0500
@@ -10,11 +2306,27 @@ Date:   Thu Jul 10 20:53:12 2014 -0500
 
     fixed tests.out
 
+commit a6a114327ae52c72891d6593b66b246c36eba380
+Merge: 229fa93 2f12297
+Author: Starnett <Starnett@users.noreply.github.com>
+Date:   Thu Jul 10 20:51:56 2014 -0500
+
+    Merge pull request #189 from Kae7in/docs
+    
+    created IDB.log and tests.out
+
 commit 2f12297e6e74c834a93ff4151a1031632bb76826
 Author: Kaelin <kae7in@gmail.com>
 Date:   Thu Jul 10 20:51:12 2014 -0500
 
     created IDB.log and tests.out
+
+commit 3963983bd1b2ecfc22c9d360c9f5a357d0f9ca83
+Merge: 68b2941 229fa93
+Author: David <domoench@gmail.com>
+Date:   Fri Jul 11 01:46:54 2014 +0000
+
+    Merge branch 'master' of github.com:Kae7in/cs373-idb
 
 commit 229fa933bfcf5447f34676ffecddbe23831ae44e
 Merge: 83c9044 d61618b
@@ -31,6 +2343,13 @@ Date:   Thu Jul 10 20:45:22 2014 -0500
 
     Fixed Apiary link in sidebar.
 
+commit 68b2941857f7638d1632e744e9853918658be30c
+Merge: 88368b6 83c9044
+Author: David <domoench@gmail.com>
+Date:   Fri Jul 11 01:43:45 2014 +0000
+
+    Merge branch 'master' of github.com:Kae7in/cs373-idb
+
 commit 83c9044b28b6b29e4c23a662737bd1a8a65e7f4a
 Merge: 84f1b10 46449f3
 Author: David Ouyang Moench <domoench@gmail.com>
@@ -39,6 +2358,13 @@ Date:   Thu Jul 10 20:43:16 2014 -0500
     Merge pull request #187 from Kae7in/david-citations
     
     Added mock api link to sidebar.
+
+commit 88368b60e996af9d116e5ae171cfacafca30fa96
+Merge: a5fe5e2 84f1b10
+Author: David <domoench@gmail.com>
+Date:   Fri Jul 11 01:42:45 2014 +0000
+
+    Merge branch 'master' of github.com:Kae7in/cs373-idb
 
 commit 84f1b10253d3367bb6aebbc5835d95ac9a40ef31
 Merge: 186bb2c 1b50d3e
@@ -182,6 +2508,13 @@ Date:   Thu Jul 10 20:10:05 2014 -0500
 
     add new categories to splash page #178
 
+commit a5fe5e28f92bfd452331c16fb529f3769c2f5af3
+Merge: f6df786 803595c
+Author: David <domoench@gmail.com>
+Date:   Fri Jul 11 01:05:51 2014 +0000
+
+    Merge branch 'master' of github.com:Kae7in/cs373-idb
+
 commit 803595c8c656f062ca0b101efd1dab99286f38d3
 Author: David Ouyang Moench <domoench@gmail.com>
 Date:   Thu Jul 10 20:04:36 2014 -0500
@@ -269,6 +2602,13 @@ Author: Isabella <isabella11@utexas.edu>
 Date:   Thu Jul 10 19:37:18 2014 -0500
 
     Fixed links and names in 2 potion pages
+
+commit f6df786d3e46e02f1d7e10b859ff88562d92d9d5
+Merge: 06ef202 7ef7fd0
+Author: David <domoench@gmail.com>
+Date:   Fri Jul 11 00:31:29 2014 +0000
+
+    Merge branch 'master' of github.com:Kae7in/cs373-idb
 
 commit 7ef7fd051faa87cc93cc7c43b77a04b7a8a133ca
 Merge: caf8c82 1e01d65
@@ -518,6 +2858,13 @@ Date:   Thu Jul 10 18:20:35 2014 -0500
 
     update characters with book subjects and correct links
 
+commit 06ef202b015cb69edd899643332dac593899825f
+Merge: e7ecf7d 1cb3b02
+Author: David <domoench@gmail.com>
+Date:   Thu Jul 10 23:15:22 2014 +0000
+
+    Merge branch 'master' of github.com:Kae7in/cs373-idb
+
 commit 1cb3b02d27e949a8218fec66846497cb01dfd146
 Merge: 5d32701 700a09f
 Author: ashoofly <ashoofly@users.noreply.github.com>
@@ -539,6 +2886,13 @@ Author: Stephen Arnett <starnett@cs.utexas.edu>
 Date:   Thu Jul 10 18:13:01 2014 -0500
 
     Merge branch 'master' of https://github.com/Kae7in/cs373-idb into houseUpdates
+
+commit e7ecf7df8f5b1f083addb2ba5a21ed88d3bb6b38
+Merge: 1d55e65 5d32701
+Author: David <domoench@gmail.com>
+Date:   Thu Jul 10 23:10:41 2014 +0000
+
+    Merge branch 'master' of github.com:Kae7in/cs373-idb
 
 commit 5d3270119caab3850004b1d99d56a4f471fc68ec
 Merge: b809d6e 1806571
@@ -579,6 +2933,13 @@ Date:   Thu Jul 10 17:57:35 2014 -0500
 
     update artifacts views
 
+commit 1d55e65eac064335ac12aeb7f119a868b047c87f
+Merge: 006610a 1d2b8f6
+Author: David <domoench@gmail.com>
+Date:   Thu Jul 10 22:57:01 2014 +0000
+
+    Merge branch 'master' of github.com:Kae7in/cs373-idb
+
 commit 1d2b8f6e22df5f21bf102b67e05bf440338a96a9
 Author: Angela Hsu <ayh123@gmail.com>
 Date:   Thu Jul 10 17:56:37 2014 -0500
@@ -590,6 +2951,13 @@ Author: Isabella <isabella11@utexas.edu>
 Date:   Thu Jul 10 17:55:35 2014 -0500
 
     Added ingredients to Potion.csv
+
+commit 006610a382e57e284b6f81e451a5f210313f4798
+Merge: 8ab07a1 928df6b
+Author: David <domoench@gmail.com>
+Date:   Thu Jul 10 22:50:26 2014 +0000
+
+    Merge branch 'master' of github.com:Kae7in/cs373-idb
 
 commit 928df6b7c2139960fa19c1c4ebfc194abe92b5b1
 Author: Angela Hsu <ayh123@gmail.com>
@@ -653,6 +3021,13 @@ Author: David Moench <domoench@gmail.com>
 Date:   Thu Jul 10 16:37:35 2014 -0500
 
     Updated Artifact and Book tests. Resolves #137. Resolves #138.
+
+commit 8ab07a126a130f33451283da8d21727df9ea0578
+Merge: a3a68f0 444cc76
+Author: David <domoench@gmail.com>
+Date:   Thu Jul 10 21:05:11 2014 +0000
+
+    Merge branch 'master' of github.com:Kae7in/cs373-idb
 
 commit 444cc76d93bbdf285ecdefd7ab65b142117b5dba
 Merge: bc34114 6b61e32
@@ -924,6 +3299,13 @@ Date:   Wed Jul 9 21:08:46 2014 -0500
 
     Completed entering data for at least 10 characters in Characters.csv, as well as corrected some errors in 4.html, 5.html, and 6.html
 
+commit a3a68f0b87a688e3b32e370587ec87cfb1f05a5d
+Merge: d54fc5d 98e55ed
+Author: David <domoench@gmail.com>
+Date:   Thu Jul 10 02:01:29 2014 +0000
+
+    Merge branch 'master' of github.com:Kae7in/cs373-idb
+
 commit 98e55ed71e419a299c4292b58e206bd65ace1ee4
 Merge: 0897c03 66ad3b9
 Author: David Ouyang Moench <domoench@gmail.com>
@@ -955,6 +3337,13 @@ Date:   Wed Jul 9 20:00:05 2014 -0500
     Fixed issue on Pensieve article page.
     
     * Don't want to display a Stories header if there is no story content.
+
+commit d54fc5d516d4b757ce4e4a2f61a70d39f99faecc
+Merge: 66f6536 c3de894
+Author: David <domoench@gmail.com>
+Date:   Thu Jul 10 00:24:46 2014 +0000
+
+    Merge branch 'master' of github.com:Kae7in/cs373-idb
 
 commit c3de89444c7a564cd327598a7b3197dedd7cc63a
 Merge: 20184ab 9d67b5f
@@ -1002,6 +3391,13 @@ Author: Stephen Arnett <starnett@cs.utexas.edu>
 Date:   Wed Jul 9 18:24:00 2014 -0500
 
     added a few data fields to the character and book models
+
+commit 66f653664957a496429f4b849a7a537cb464526c
+Merge: b7aa817 6707938
+Author: David <domoench@gmail.com>
+Date:   Wed Jul 9 23:05:37 2014 +0000
+
+    Merge branch 'master' of github.com:Kae7in/cs373-idb
 
 commit 67079380a8a0a69dec5171c1e93a01ec805a22ce
 Author: Isabella <isabella11@utexas.edu>
@@ -1148,6 +3544,19 @@ Author: ashoofly <ayh123@gmail.com>
 Date:   Wed Jul 9 00:47:14 2014 -0500
 
     still wrestling with footer
+
+commit b7aa8177b8099dba3842990a058f2fa001305d82
+Merge: b7dafdc 7225efc
+Author: David <domoench@gmail.com>
+Date:   Wed Jul 9 02:54:06 2014 +0000
+
+    Merge branch 'master' of github.com:Kae7in/cs373-idb
+
+commit b7dafdca9bb0d444a68d2563dcf2814419df2d57
+Author: David <domoench@gmail.com>
+Date:   Wed Jul 9 02:53:28 2014 +0000
+
+    Saving changes made automatically to settings.py by pythonanywhere.
 
 commit be603fa08acbf045d6065a8cd97998b4babe3a11
 Merge: 6ac35cd 7225efc
