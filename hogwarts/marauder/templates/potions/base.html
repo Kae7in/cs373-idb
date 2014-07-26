@@ -20,7 +20,11 @@
 					<li class='list-group-item'>
 						Ingredients:</br>
 						{% for ingredient in potion.ingredients.all %}
-						    {{ingredient.name|safe}}</br>
+						    {% if ingredient.creature and not ingredient.creature.hidden %}
+						        <a href="{% url 'creature' ingredient.creature.id %}">{{ ingredient.name }}</a><br/>
+						    {% else %}
+						        {{ ingredient.name }}<br/>
+						    {% endif %}
 					    {% endfor %}
 					</li>
 			{% endif %}

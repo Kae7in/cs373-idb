@@ -14,6 +14,13 @@
 			<li class='list-group-item'><strong>Creator:</strong> {{ spell.creator }}</li>
 			<li class='list-group-item'><strong>Kind:</strong> {{ spell.kind }}</li>
 			<li class='list-group-item'><strong>Difficulty:</strong> {{ spell.difficulty }}</li>
+			{% if spell.creature %}
+			<li class='list-group-item'><strong>Affects:</strong>
+			    <a href="{% url 'creature' spell.creature.id %}">
+			        {{ spell.creature.name }}
+			    </a><br />
+			</li>
+			{% endif %}
 		</ul>
 	</div>
 

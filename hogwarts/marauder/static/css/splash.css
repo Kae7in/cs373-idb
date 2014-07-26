@@ -18,7 +18,7 @@ body {
     background-size: cover;
     color:#fff;
     font-family: 'Open Sans',Arial,Helvetica,Sans-Serif;
-    margin-bottom: 100px;
+/*    margin-bottom: 100px; */
 }
 
 
@@ -43,7 +43,7 @@ a:hover {
 }
 
 #main-title {
-  padding-top: 200px;
+  padding-top: 100px;
 }
 
 #main-title h1 {
