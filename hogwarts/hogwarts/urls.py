@@ -10,4 +10,7 @@ urlpatterns = patterns('',
 
     url(r'^admin/', include(admin.site.urls)),
     url(r'^', include('marauder.urls')),
+
+    # Haystack
+    (r'^search/', include('haystack.urls')),
 )
