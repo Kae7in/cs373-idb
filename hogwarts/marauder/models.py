@@ -1,4 +1,5 @@
 from django.db import models
+from django.core.urlresolvers import reverse
 import inflect
 # Create your models here.
 class Character(models.Model):
@@ -52,6 +53,9 @@ class Character(models.Model):
                     magic_parents += 1
         return magic_parents == 2
 
+    def get_absolute_url(self):
+        return reverse('character', args=[self.id]) 
+
     def __str__(self):
         return self.name
 
@@ -77,6 +81,9 @@ class Creature(models.Model):
 
     def neutralize(self, incantation):
         return self.spells.first().incantation == incantation
+
+    def get_absolute_url(self):
+        return reverse('creature', args=[self.id]) 
 
 class Spell(models.Model):
     incantation = models.CharField(max_length=50)
@@ -105,6 +112,9 @@ class Spell(models.Model):
 
     def __str__(self):
         return self.incantation
+
+    def get_absolute_url(self):
+        return reverse('spell', args=[self.id]) 
 
 class Ingredient(models.Model):
     name = models.CharField(max_length = 100)
@@ -140,6 +150,9 @@ class Potion(models.Model):
             return 'Success'
         return 'Explosion!'
 
+    def get_absolute_url(self):
+        return reverse('potion', args=[self.id]) 
+
 class Location(models.Model):
     name = models.CharField(max_length=100)
     description = models.TextField()
@@ -149,11 +162,17 @@ class Location(models.Model):
     def __str__(self):
         return self.name
 
+    def get_absolute_url(self):
+        return reverse('location', args=[self.id]) 
+
 class School(Location):
     country = models.CharField(max_length=20)
 
     def __str__(self):
         return self.name
+
+    def get_absolute_url(self):
+        return reverse('school', args=[self.id]) 
 
 class House(School):
     school = models.ForeignKey(School, related_name = 'houses')
@@ -167,8 +186,14 @@ class House(School):
     def __str__(self):
         return self.name
 
+    def get_absolute_url(self):
+        return reverse('house', args=[self.id]) 
+
 class Shop(Location):
     locations = models.ManyToManyField(Location, related_name = 'shops', blank=True, null=True)
+
+    def get_absolute_url(self):
+        return reverse('shop', args=[self.id]) 
 
 class Artifact(models.Model):
     name = models.CharField(max_length=100)
@@ -181,6 +206,9 @@ class Artifact(models.Model):
     def __str__(self):
         return self.name
 
+    def get_absolute_url(self):
+        return reverse('artifact', args=[self.id]) 
+
 class Book(models.Model):
     name = models.CharField(max_length=100)
     description = models.TextField()
@@ -192,6 +220,9 @@ class Book(models.Model):
 
     def __str__(self):
         return self.name
+
+    def get_absolute_url(self):
+        return reverse('book', args=[self.id]) 
 
 class Story(models.Model):
     name = models.CharField(max_length=100)
@@ -224,6 +255,9 @@ class Story(models.Model):
     class Meta:
         verbose_name_plural = 'stories'
 
+    def get_absolute_url(self):
+        return reverse('story', args=[self.id]) 
+
 class Relationship(models.Model):
     #relationships
     character1 = models.ForeignKey(Character, related_name = "relationships1", blank=True, null=True)
@@ -233,3 +267,4 @@ class Relationship(models.Model):
 
     def __str__(self):
         return "%s (%s) -- %s (%s)" %(self.character1.name, self.descriptor1, self.character2.name, self.descriptor2)
+
