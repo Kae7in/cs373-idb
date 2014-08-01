@@ -20,19 +20,13 @@
 
             {% for result in page.object_list %}
                 <p>
-                    <a href="{{ result.object.get_absolute_url }}">{{ result.object.name }}</a>
-                </p>
+                    <a href="{{ result.object.get_absolute_url }}">{{ result.object.name }}</a><br />
+                Type: {{ result.model_name }}</p>
 
                 <p>
                 {% highlight result.description with query %}
-                <!--
-                {% with result.description|safe as text %}
-                {% highlight text with query html_tag "div" css_class "highlight" %}
-                {% endwith %}
-                -->
                 </p>
 
-                <p>Type: {{ result.model_name }}</p>
             {% empty %}
                 <p>No results found.</p>
             {% endfor %}

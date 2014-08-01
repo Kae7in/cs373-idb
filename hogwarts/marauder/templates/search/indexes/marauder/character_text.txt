@@ -1,2 +1,9 @@
-{{ object.name }}
-{{ object.description }}
+{% if not object.hidden %}
+    {{ object.name }}
+    {% if object.creature %}
+        {{ object.creature }}
+    {% endif %}
+    {% if object.shop %}
+        {{ object.shop }}
+    {% endif %}
+{% endif %}
