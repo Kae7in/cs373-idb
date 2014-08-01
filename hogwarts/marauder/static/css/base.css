@@ -149,3 +149,14 @@ body {
 }
 
 }
+
+
+/* search styling */
+#id_models {
+    list-style-type: none;
+
+}
+
+.highlight {
+    font-weight: bold;
+}
