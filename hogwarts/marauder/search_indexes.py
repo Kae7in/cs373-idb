@@ -92,4 +92,16 @@ class BookIndex(indexes.SearchIndex, indexes.Indexable):
       Used when the entire index for model is updated. You can filter out things
       that don't need refiltering?
       """
+    return self.get_model().objects
+
+class ArtifactIndex(indexes.SearchIndex, indexes.Indexable):
+   text = indexes.CharField(document=True, use_template=True)
+   name = indexes.CharField(model_attr='name')
+   description = indexes.CharField(model_attr='description')
+   kind = indexes.CharField(model_attr='kind')
+
+   def get_model(self):
+       return Artifact
+
+   def index_queryset(self, using=None):
       return self.get_model().objects
