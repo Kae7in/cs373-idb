@@ -1,2 +1,4 @@
 {{ object.name }}
-{{ object.author.name }}
+{% if object.author %}
+    {{ object.author.name }}
+{% endif %}
