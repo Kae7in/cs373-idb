@@ -166,3 +166,10 @@ body {
 .highlighted {
     font-weight: bold;
 }
+
+form table th {
+    padding: 5px;
+}
+form table td {
+    padding: 5px;
+}
