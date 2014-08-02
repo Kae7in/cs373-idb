@@ -3,55 +3,52 @@
 {%block about-active%}active{%endblock about-active%}
 
 {% block content %}
-        <div id="name">
-   		    <h1 class="uppercase">{{ ABOUT }}</h1>
+
+<h1>ABOUT</h1>
+
+<div class='row'>
+        <div class='col-xs-12 col-md-6 col-sm-6 info-group'>
+                <ul class='list-group info-group-list'>
+                        <li class='list-group-item'>
+                                Group Members:
+                                Amanda Steinwedel,
+                                Angela Hsu,
+                                David Moench,
+                                Isabella Bhardwaj, and
+                                Kaelin Hooper
+                        </li>
+                        <li class='list-group-item'>
+                                First Leader: Amanda Steinwedel<br/>
+                                Second Leader: Kaelin Hooper<br/>
+                                Third Leader: Voldemort<br/>
+                        </li>
+                </ul>
         </div>
-<div class='row'>
-   	<div class='col-xs-12 col-md-6 col-sm-6 info-group'>
-   		<ul class='list-group info-group-list'>
-			<li class='list-group-item'>
-				Group Members:
-				Amanda Steinwedel
-				Angela Hsu
-				David Moench
-				Isabella Bhardwaj
-				Kaelin Hooper
-			</li>
-			<li class='list-group-item'>
-				Group Leaders:
-				First Iteration:
-				Amanda Steinwedel
-				Second Iteration:
-				Kaelin Hooper
-				Third Iteration:
-				Voldemort
-			</li>
-		</ul>
-	</div>
 
-	<div class='col-xs-12 col-md-6 col-sm-6'>
-		<div class='main-image pull-right'>
-			<img class='list-group-item' src='{{ character.image.url }}'>
-		</div>
-	</div>
+        <div class='col-xs-12 col-md-6 col-sm-6'>
+                <div class='main-image pull-right'>
+                        <img class='list-group-item' src='{{STATIC_URL}}/images/harrytriumph.gif'>
+                </div>
+        </div>
 </div>
 
 <div class='row'>
-	<div class='col-md-12'>
-		Description Of The Website
-	</div>
+        <div class='col-md-12'>
+                Description Of The Website
+        </div>
 </div>
 
 <div class='row'>
-	<div class='col-md-12'>
-		<h3>Member Roles and Responsibilities:</h3>
-	</div>
+        <div class='col-md-12'>
+                <h3>Member Roles and Responsibilities:</h3>
+        </div>
 </div>
 
 <div class='row'>
-	<div class='col-md-12'>
-		<h3>Tools Utilized:</h3>
-	</div>
+        <div class='col-md-12'>
+                <h3>Tools Utilized:</h3>
+        </div>
 </div>
 
 {% endblock content %}
+
