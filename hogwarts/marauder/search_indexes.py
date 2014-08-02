@@ -74,14 +74,9 @@ class BookIndex(indexes.SearchIndex, indexes.Indexable):
   # Declare which model attributes are included in indexing/searching
   text = indexes.CharField(document=True, use_template=True) # This is the index document Haystack will build for searching
   name = indexes.CharField(model_attr='name')
-  author = indexes.CharField(model_attr='author')
-  subjects = indexes.MultiValueField()
 
   def get_model(self):
       return Book
-
-  def prepare_subjects(self, obj):
-      return [c.name for c in obj.subjects.all()]
 
   def index_queryset(self, using=None):
       """
