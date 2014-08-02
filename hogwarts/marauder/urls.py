@@ -1,4 +1,4 @@
-from django.conf.urls import patterns, url
+from django.conf.urls import patterns, url, include
 from django.views.generic import TemplateView
 from marauder import views
 from django.conf import settings
@@ -10,6 +10,7 @@ urlpatterns = patterns('',
     (r'^base.html$', TemplateView.as_view(template_name='base.html')),
     (r'^splash.html$', TemplateView.as_view(template_name='splash.html')),
     (r'^citations/$', TemplateView.as_view(template_name='citations.html')),
+    url(r'^search/', include('haystack.urls'), name='search'),
 
     #Creatures
     url(r'^creatures/$', views.CreatureListView.as_view(), name='creatures'),

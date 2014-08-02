@@ -154,7 +154,13 @@ body {
 /* search styling */
 #id_models {
     list-style-type: none;
+    padding-left: 3px;
+}
 
+#id_models > li {
+    display: inline-block;
+    *display: inline; /* for IE7 */
+    padding: 5px;
 }
 
 .highlighted {

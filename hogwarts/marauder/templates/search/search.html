@@ -35,14 +35,13 @@
             <h3>AND Results</h3>
             {% for result in and_results %}
                 <p>
-                    <a href="{{ result.object.get_absolute_url }}">{{ result.object.name }}</a>
-                </p>
+                    <a href="{{ result.object.get_absolute_url }}">{{ result.name }}</a><br />
+                Type: {{ result.model_name }}</p>
 
                 <p>
                 {% highlight result.description with query %}
                 </p>
 
-                <p>Type: {{ result.model_name }}</p>
             {% empty %}
                 <p>No results found.</p>
             {% endfor %}
