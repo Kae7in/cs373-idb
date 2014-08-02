@@ -1,4 +1,4 @@
-{{ object.name }}
+{{ object.title }}
 {{ object.effects }}
 {{ object.recipe }}
 {{ object.physical_description }}
