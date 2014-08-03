@@ -7,6 +7,14 @@ from marauder.tables import *
 from django_tables2 import SingleTableView
 from django.http import Http404
 from django.core.exceptions import ObjectDoesNotExist
+from haystack.views import SearchView
+from haystack.query import SearchQuerySet
+from haystack.inputs import AutoQuery
+import haystack.constants as constants
+from django.shortcuts import render_to_response
+import shlex
+from haystack.backends import SQ
+from haystack.forms import SearchForm
 
 # Creature Views
 class CreatureListView(SingleTableView):
@@ -475,3 +483,52 @@ class JSON404Response(HttpResponse):
             content_type = 'application/json',
             status = 404
         )
+
+
+"""
+  HAYSTACK SEARCH 
+"""
+
+class MySearchView(SearchView):
+
+    def __init__(self, my_form_class=SearchForm):
+        super(MySearchView, self).__init__(form_class=my_form_class)
+        
+    def get_or_results(self):
+        q = self.get_query()
+        if not q:
+            return None
+        sq = None
+        for phrase in shlex.split(q):
+            if not sq:
+                sq = SQ(content=phrase)
+            else:
+                sq |= SQ(content=phrase)
+        return self.form.searchqueryset.filter(sq)
+
+    def get_and_results(self):
+        q = self.get_query()
+        if not q:
+            return None
+        sq = None
+        for phrase in shlex.split(q):
+            if not sq:
+                sq = SQ(content=phrase)
+            else:
+                sq &= SQ(content=phrase)
+        return self.form.searchqueryset.filter(sq)
+
+    def create_response(self):
+        """
+        Generates the actual HttpResponse to send back to the user.
+        """
+        context = {
+            'query': self.query,
+            'form': self.form,
+            'and_results': self.get_and_results(),
+            'or_results': self.get_or_results(),
+            'suggestion': None,
+        }
+
+        context.update(self.extra_context())
+        return render_to_response(self.template, context, context_instance=self.context_class(self.request))

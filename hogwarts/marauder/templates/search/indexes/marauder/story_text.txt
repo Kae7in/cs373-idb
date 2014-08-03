@@ -1,0 +1,24 @@
+{{ object.name }}
+{{ object.description }}
+{{ object.kind }}
+{% if object.characters.all %}
+   {% for character in object.characters.all %}
+      {{ character.name }}
+   {% endfor %}
+{% endif %}
+{% if object.artifacts.all %}
+   {% for character in object.artifacts.all %}
+      {{ artifact.name }}
+   {% endfor %}
+{% endif %}
+{% if object.locations.all %}
+   {% for character in object.locations.all %}
+      {{ location.name }}
+   {% endfor %}
+{% endif %}
+{% if object.quote %}
+   {{ object.quote }}
+{% endif %}
+{% if object.quote_by %}
+   {{ object.quote_by }}
+{% endif %}

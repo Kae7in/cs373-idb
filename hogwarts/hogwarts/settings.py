@@ -11,7 +11,6 @@ import os
 from django.conf.global_settings import TEMPLATE_CONTEXT_PROCESSORS
 BASE_DIR = os.path.dirname(os.path.dirname(__file__))
 
-
 # Quick-start development settings - unsuitable for production
 # See https://docs.djangoproject.com/en/1.6/howto/deployment/checklist/
 
@@ -38,7 +37,8 @@ INSTALLED_APPS = (
     'django.contrib.staticfiles',
     'marauder',
     'south',
-    'django_tables2'
+    'django_tables2',
+    'haystack'
 )
 
 MIDDLEWARE_CLASSES = (
@@ -53,7 +53,6 @@ MIDDLEWARE_CLASSES = (
 ROOT_URLCONF = 'hogwarts.urls'
 
 WSGI_APPLICATION = 'hogwarts.wsgi.application'
-
 
 # Database
 # https://docs.djangoproject.com/en/1.6/ref/settings/#databases
@@ -74,6 +73,15 @@ SOUTH_DATABASE_ADAPTERS = {
 
 SOUTH_TESTS_MIGRATE = False
 SKIP_SOUTH_TESTS = True
+
+# Haystack Connection to elasticsearch server
+HAYSTACK_CONNECTIONS = {
+    'default': {
+        'ENGINE': 'haystack.backends.elasticsearch_backend.ElasticsearchSearchEngine',
+        'URL': 'http://127.0.0.1:9200/',
+        'INDEX_NAME': 'haystack',
+    },
+}
 
 # Internationalization
 # https://docs.djangoproject.com/en/1.6/topics/i18n/

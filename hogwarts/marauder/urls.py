@@ -1,8 +1,9 @@
-from django.conf.urls import patterns, url
+from django.conf.urls import patterns, url, include
 from django.views.generic import TemplateView
 from marauder import views
 from django.conf import settings
 from django.conf.urls.static import static
+from haystack.forms import SearchForm
 
 urlpatterns = patterns('',
     (r'^$', TemplateView.as_view(template_name='index.html')),
@@ -68,4 +69,10 @@ urlpatterns = patterns('',
 
     url(r'^api/schools/$', views.SchoolRestView(), name='schools_api'),
     url(r'^api/schools/(?P<id>\d+)/$', views.SchoolRestView(), name='school_api'),
+
+    ################
+    #### SEARCH ####
+    ################
+    url(r'^search/', views.MySearchView(my_form_class=SearchForm), name='haystack_search'),
+
 ) + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)

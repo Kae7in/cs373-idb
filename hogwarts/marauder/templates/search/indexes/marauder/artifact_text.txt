@@ -1,0 +1,8 @@
+{{ object.name }}
+{{ object.description }}
+{{ object.kind }}
+{% if object.owners.all %}
+    {% for character in object.owners.all %}
+        {{ character.name }}
+    {% endfor %}
+{% endif %}
