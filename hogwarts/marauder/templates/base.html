@@ -36,8 +36,8 @@
         <!-- Collect the nav links, forms, and other content for toggling -->
         <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
           <ul class="nav navbar-nav">
-            <li><a href="{% url 'haystack_search' %}"><span class="glyphicon glyphicon-search"></span></a></li>
             <li><a href="/">Home</a></li>
+            <li class='{%block about-active %}{% endblock about-active %}'><a href="/about">About</a></li>
             <li class='{%block char-active %}{% endblock char-active %}'><a href="{% url 'characters' %}">Characters</a></li>
             <li class='{%block story-active %}{% endblock story-active %}'><a href="{% url 'stories' %}" >Stories</a></li>
             <li class='{%block artifact-active %}{% endblock artifact-active %}'><a href="{% url 'artifacts' %}">Artifacts</a></li>
@@ -70,3 +70,5 @@
     </div> <!-- /container-fluid -->
   </body>
 </html>
+
+
