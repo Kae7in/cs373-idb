@@ -1,0 +1,33 @@
+{% extends "base.html" %}
+{% block content %}
+<h1>Here are the parks:</h1>
+
+<ul>
+{% for i in other.parks %}
+<li>{{ i }}</li>
+{% endfor %}
+</ul>
+
+<h1>Muggle Hikes to Try</h1>
+<h2>If you like the Forbidden Forest...</h2>
+<ul>
+{% for i in other.strenuous %}
+<li>{{ i }}</li>
+{% endfor %}
+</ul>
+
+
+<h2>If Hogsmeade is more your style...</h2>
+{% for i in other.moderate %}
+<li>{{ i }}</li>
+{% endfor %}
+</ul>
+
+
+<h2>If your idea of a hike is strolling down Diagon Alley...</h2>
+{% for i in other.easy %}
+<li>{{ i }}</li>
+{% endfor %}
+</ul>
+
+{% endblock %}

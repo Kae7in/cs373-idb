@@ -1,9 +1,11 @@
 from django.shortcuts import render, redirect
 from django.views import generic
 from django.http import HttpResponse
+from django.template import Context, loader
 import json
 from marauder.models import *
 from marauder.tables import *
+from marauder.otherapi import *
 from django_tables2 import SingleTableView
 from django.http import Http404
 from django.core.exceptions import ObjectDoesNotExist
@@ -532,3 +534,19 @@ class MySearchView(SearchView):
 
         context.update(self.extra_context())
         return render_to_response(self.template, context, context_instance=self.context_class(self.request))
+
+"""
+Twistory API view
+"""
+
+def otherapi(request):
+
+    hard, middle, easy = get_hikes()
+    context = {'other':
+        {'parks': get_parks(),
+        'strenuous': hard,
+        'moderate': middle,
+        'easy': easy,
+        }
+    }
+    return render(request, 'otherapi.html', Context(context))
