@@ -1277,3 +1277,36 @@ class TestStorySearch(TestCase):
 
         self.assertIn(story1, actual_results)
         self.assertIn(story2, actual_results)
+
+@override_settings(HAYSTACK_CONNECTIONS=TEST_INDEX)
+class TestLocationSearch(TestCase):
+
+    # Snapshot of our real data
+    fixtures = ['test_data.json']
+
+    def setUp(self):
+        super(TestLocationSearch, self).setUp()
+        haystack.connections.reload('default')
+        call_command('rebuild_index', verbosity=0, interactive=False)
+
+    def tearDown(self):
+        call_command('clear_index', interactive=False, verbosity=0)
+
+    def testNameSearchability(self):
+        sq = generateSearchQuery('azkaban', 'OR')
+        sqs = SearchQuerySet().filter(sq)
+        actual_results = sqsToModelList(sqs) 
+
+        azkaban = Location.objects.get(name='Azkaban')
+        self.assertIn(ravenclaw, azkaban)
+
+    def testDescriptionSearchability(self):
+        sq = generateSearchQuery('England')
+        sqs = SearchQuerySet().filter(sq)
+        actual_results = sqsToModelList(sqs) 
+
+        location1 = Location.objects.get(name='Diagon Alley')
+        location2 = Location.objects.get(name='The Burrow')
+
+        self.assertIn(location1, actual_results)
+        self.assertIn(location2, actual_results)
