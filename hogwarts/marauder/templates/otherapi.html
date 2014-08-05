@@ -1,13 +1,13 @@
 {% extends "base.html" %}
 {% block content %}
-<h1>Here are the parks:</h1>
+<h1>{{ other.death_valley.name }}</h1>
+<img src={{ other.death_valley.image }} alt="death valley" height=50% width=50% />
+<p>Park: {{ other.death_valley.park }}</p>
+<p>Estimated time: {{ other.death_valley.time }}</p>
+<p>Distance: {{ other.death_valley.distance }}</p>
+<p>Difficulty: {{ other.death_valley.difficulty }}</p>
 
-<ul>
-{% for i in other.parks %}
-<li>{{ i }}</li>
-{% endfor %}
-</ul>
-
+<!-- This takes too long to load, unless we make a 'Brewing your Muggle experience...' page..
 <h1>Muggle Hikes to Try</h1>
 <h2>If you like the Forbidden Forest...</h2>
 <ul>
@@ -29,5 +29,6 @@
 <li>{{ i }}</li>
 {% endfor %}
 </ul>
+-->
 
 {% endblock %}

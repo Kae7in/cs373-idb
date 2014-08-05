@@ -541,12 +541,17 @@ Twistory API view
 
 def otherapi(request):
 
-    hard, middle, easy = get_hikes()
+    # this commented-out function takes a really long time to load, 
+    # so if we use this, we need a 'Brewing your Muggle experience...' 
+    # loading page
+    # hard, middle, easy = get_hikes()
+
     context = {'other':
         {'parks': get_parks(),
-        'strenuous': hard,
-        'moderate': middle,
-        'easy': easy,
+         'death_valley': get_hike('Death Valley Buttes'),
+#        'strenuous': hard,
+#        'moderate': middle,
+#        'easy': easy,
         }
     }
     return render(request, 'otherapi.html', Context(context))

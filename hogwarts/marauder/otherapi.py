@@ -3,21 +3,7 @@ import os
 import urllib.request
 import json
 import traceback
-'''
-Muggle Destinations
-Where should I go? 
 
-1. I want the most extreme adventure ever (Forbidden Forest).
-2. I just want to wander around with friends (Hogsmeade).
-3. I am bringing my parents (Diagon Alley).
-
-(Climate - winter, desert)
-1.  
-
-Result: List of destinations with hyperlink 
-Hyperlink to twistory destination (Park, Hike)
-
-'''
 twistory = 'http://twistory.pythonanywhere.com'
 
 def get_parks():
@@ -50,3 +36,14 @@ def get_hikes():
         except Exception:
             continue
     return difficult, moderate, easy
+
+def get_hike(name):
+    '''Get hike from name.'''
+    hike_bytes = urllib.request.urlopen(os.path.join(twistory, 'api/hikes', name)).read()
+    hike_dict = json.loads(hike_bytes.decode('utf-8'))
+    hike_dict['name'] = name
+    hike_dict['time'] = hike_dict['est_time(min)']
+    hike_dict['distance'] = hike_dict['distance(mile)']
+    return hike_dict
+
+
