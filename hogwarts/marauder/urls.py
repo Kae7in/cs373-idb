@@ -9,6 +9,7 @@ urlpatterns = patterns('',
     (r'^$', TemplateView.as_view(template_name='index.html')),
     (r'^base.html$', TemplateView.as_view(template_name='base.html')),
     (r'^splash.html$', TemplateView.as_view(template_name='splash.html')),
+    (r'^about/$', TemplateView.as_view(template_name='about.html')),
     (r'^citations/$', TemplateView.as_view(template_name='citations.html')),
     (r'^about/$', TemplateView.as_view(template_name='about.html')),
 
