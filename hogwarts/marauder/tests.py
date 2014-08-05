@@ -1256,7 +1256,7 @@ class TestStorySearch(TestCase):
         sqs = SearchQuerySet().filter(sq)
         actual_results = sqsToModelList(sqs) 
 
-        statute = Character.objects.get(name='International Statute of Wizarding Secrecy')
+        statute = Story.objects.get(name='International Statute of Wizarding Secrecy')
         self.assertIn(statute, actual_results)
 
     def testDateSearchability(self):
@@ -1264,7 +1264,7 @@ class TestStorySearch(TestCase):
         sqs = SearchQuerySet().filter(sq)
         actual_results = sqsToModelList(sqs) 
 
-        statute = Character.objects.get(name='International Statute of Wizarding Secrecy')
+        statute = Story.objects.get(name='International Statute of Wizarding Secrecy')
         self.assertIn(statute, actual_results)
 
     def testDescriptionSearchability(self):
@@ -1272,8 +1272,8 @@ class TestStorySearch(TestCase):
         sqs = SearchQuerySet().filter(sq)
         actual_results = sqsToModelList(sqs) 
 
-        story1 = Character.objects.get(name='The Boy Who Lived')
-        story2 = Character.objects.get(name='The Prophecy')
+        story1 = Story.objects.get(name='The Boy Who Lived')
+        story2 = Story.objects.get(name='The Prophecy')
 
         self.assertIn(story1, actual_results)
         self.assertIn(story2, actual_results)
