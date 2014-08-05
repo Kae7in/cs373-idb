@@ -1236,3 +1236,44 @@ class TestCharacterSearch(TestCase):
         self.assertEqual(len(expected_results), len(actual_results))
         for expected_result in expected_results:
             self.assertTrue(expected_result in actual_results)
+
+@override_settings(HAYSTACK_CONNECTIONS=TEST_INDEX)
+class TestStorySearch(TestCase):
+
+    # Snapshot of our real data
+    fixtures = ['test_data.json']
+
+    def setUp(self):
+        super(TestStorySearch, self).setUp()
+        haystack.connections.reload('default')
+        call_command('rebuild_index', verbosity=0, interactive=False)
+
+    def tearDown(self):
+        call_command('clear_index', interactive=False, verbosity=0)
+
+    def testNameSearchability(self):
+        sq = generateSearchQuery('statute of international secrecy', 'AND')
+        sqs = SearchQuerySet().filter(sq)
+        actual_results = sqsToModelList(sqs) 
+
+        statute = Character.objects.get(name='International Statute of Wizarding Secrecy')
+        self.assertIn(statute, actual_results)
+
+    def testDateSearchability(self):
+        sq = generateSearchQuery('1692')
+        sqs = SearchQuerySet().filter(sq)
+        actual_results = sqsToModelList(sqs) 
+
+        statute = Character.objects.get(name='International Statute of Wizarding Secrecy')
+        self.assertIn(statute, actual_results)
+
+    def testDescriptionSearchability(self):
+        sq = generateSearchQuery('voldemort')
+        sqs = SearchQuerySet().filter(sq)
+        actual_results = sqsToModelList(sqs) 
+
+        story1 = Character.objects.get(name='The Boy Who Lived')
+        story2 = Character.objects.get(name='The Prophecy')
+
+        self.assertIn(story1, actual_results)
+        self.assertIn(story2, actual_results)
