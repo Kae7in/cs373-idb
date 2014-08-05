@@ -1260,7 +1260,7 @@ class TestStorySearch(TestCase):
         self.assertIn(statute, actual_results)
 
     def testDateSearchability(self):
-        sq = generateSearchQuery('1692')
+        sq = generateSearchQuery('1692', 'OR')
         sqs = SearchQuerySet().filter(sq)
         actual_results = sqsToModelList(sqs) 
 
@@ -1268,7 +1268,7 @@ class TestStorySearch(TestCase):
         self.assertIn(statute, actual_results)
 
     def testDescriptionSearchability(self):
-        sq = generateSearchQuery('voldemort')
+        sq = generateSearchQuery('voldemort', 'OR')
         sqs = SearchQuerySet().filter(sq)
         actual_results = sqsToModelList(sqs) 
 
@@ -1301,7 +1301,7 @@ class TestLocationSearch(TestCase):
         self.assertIn(ravenclaw, azkaban)
 
     def testDescriptionSearchability(self):
-        sq = generateSearchQuery('England')
+        sq = generateSearchQuery('England', 'OR')
         sqs = SearchQuerySet().filter(sq)
         actual_results = sqsToModelList(sqs) 
 
