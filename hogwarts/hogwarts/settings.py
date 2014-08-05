@@ -18,13 +18,13 @@ BASE_DIR = os.path.dirname(os.path.dirname(__file__))
 SECRET_KEY = 'ex629+bp_*v#e8*b2#&%f!z9p_ass74vn^o=wi30jjdp=1kv-*'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = False
+DEBUG = True
 
 TEMPLATE_DEBUG = False
 
 TEMPLATE_CONTEXT_PROCESSORS += ("django.core.context_processors.request",)
 
-ALLOWED_HOSTS = '*'
+ALLOWED_HOSTS = []
 
 # Application definition
 
@@ -38,7 +38,8 @@ INSTALLED_APPS = (
     'marauder',
     'south',
     'django_tables2',
-    'haystack'
+    #'haystack'
+    #'south',
 )
 
 MIDDLEWARE_CLASSES = (
@@ -58,29 +59,10 @@ WSGI_APPLICATION = 'hogwarts.wsgi.application'
 # https://docs.djangoproject.com/en/1.6/ref/settings/#databases
 
 DATABASES = {
-    'default': { 'ENGINE': 'mysql.connector.django',
-        'NAME': 'domoench$default',
-        'USER': 'domoench',
-        'PASSWORD': 'lemonsherbert',
-        'HOST': 'mysql.server',
-        'TEST_NAME': 'domoench$test_default',
-    }
-}
-
-SOUTH_DATABASE_ADAPTERS = {
-   'default': 'south.db.mysql'
-}
-
-SOUTH_TESTS_MIGRATE = False
-SKIP_SOUTH_TESTS = True
-
-# Haystack Connection to elasticsearch server
-HAYSTACK_CONNECTIONS = {
     'default': {
-        'ENGINE': 'haystack.backends.elasticsearch_backend.ElasticsearchSearchEngine',
-        'URL': 'http://127.0.0.1:9200/',
-        'INDEX_NAME': 'haystack',
-    },
+        'ENGINE': 'django.db.backends.sqlite3',
+        'NAME': os.path.join(BASE_DIR, 'db.sqlite3'),
+    }
 }
 
 # Internationalization
