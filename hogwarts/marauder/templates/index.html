@@ -18,6 +18,13 @@
 		  <p class="text-center">Brought to you by The Six Potters</p>
           <p>World created by JK Rowling</p>
         </div>
+
+        <form class='navbar-form' align='center' role='search'>
+            <div class='form-group has-feedback'>
+              <input type='text' id='id_q' name='q' class='form-control' placeholder='Search'>
+              <a href="#" id='search-submit'><span class="glyphicon glyphicon-search form-control-feedback"></span></a>
+            </div>
+          </form>
         
         <div class="container-fluid" id='splash-nav'>
             <a href="{% url 'characters' %}" title="Characters"><img src="{{ STATIC_URL }}images/characters_icon.png"/></a>
