@@ -1,6 +1,12 @@
 from django.test import TestCase
 import marauder.models as lm
 from datetime import date
+from django.test.utils import override_settings
+from django.core.management import call_command
+import haystack
+from haystack.query import SearchQuerySet, AutoQuery
+from marauder.views import MySearchView, generateSearchQuery
+import os
 
 """
   MODEL TESTS
@@ -1089,3 +1095,144 @@ class TestSpellAPI(TransactionTestCase):
             'creature': None
           }]
         self.assertEqual(response, expected)
+
+"""
+  HAYSTACK SEARCH TESTS
+"""
+
+# Define a location for creating temporary search indexes of test fixture DB
+TEST_INDEX = {
+    'default': {
+        'ENGINE': 'haystack.backends.whoosh_backend.WhooshEngine',
+        'PATH': os.path.join(os.path.dirname(__file__), 'whoosh_test_index'),
+    },
+}
+
+def sqsToModelList(sqs):
+    """
+    Create a list of model instances from a list of haystack SearchResult 
+    instances
+    """
+    return [sr.object for sr in sqs]
+
+@override_settings(HAYSTACK_CONNECTIONS=TEST_INDEX)
+class TestMultiAndSingleWordSearch(TestCase):
+
+    # Snapshot of our real data
+    fixtures = ['test_data.json']
+
+    def setUp(self):
+        super(TestMultiAndSingleWordSearch, self).setUp()
+        haystack.connections.reload('default')
+        call_command('rebuild_index', verbosity=0, interactive=False)
+
+    def tearDown(self):
+        call_command('clear_index', interactive=False, verbosity=0)
+
+    def testSingleWord(self):
+        # Single Word Search only generates OR results    
+        or_sq = generateSearchQuery('felix', 'OR')
+        or_sqs = SearchQuerySet().filter(or_sq)
+        actual_results = sqsToModelList(or_sqs)
+
+        expected_results = []
+        expected_results += [Potion.objects.get(pk=3)]
+
+        self.assertEqual(expected_results, actual_results)
+    
+    def testMultiWordOr(self):
+        or_sq = generateSearchQuery('nearly headless', 'OR')
+        or_sqs = SearchQuerySet().filter(or_sq)
+        actual_results = sqsToModelList(or_sqs)
+
+        expected_results = []
+        expected_results += [Character.objects.get(pk=1)]
+        expected_results += [Creature.objects.get(pk=1)]
+        expected_results += [Story.objects.get(pk=3)]
+        expected_results += [Spell.objects.get(pk=1)]
+        expected_results += [Artifact.objects.get(pk=7)]
+        expected_results += [Story.objects.get(pk=9)]
+        
+        self.assertEqual(len(or_sqs), len(expected_results))
+        for expected_result in expected_results:
+            self.assertTrue(expected_result in actual_results)
+
+        # Nonsense word doesn't affect OR query
+        or_sq_2 = generateSearchQuery('nearly headless junkyjunkword', 'OR')
+        or_sqs_2 = SearchQuerySet().filter(or_sq_2)
+        self.assertEqual(len(or_sqs_2), len(or_sqs))
+        model_list = sqsToModelList(or_sqs_2)
+        for v in or_sqs:
+            self.assertTrue(v.object in model_list)
+
+    def testMultiWordAnd(self):
+        and_sq = generateSearchQuery('nearly headless', 'AND')
+        and_sqs = SearchQuerySet().filter(and_sq)
+        actual_results = sqsToModelList(and_sqs)
+
+        expected_results = []
+        expected_results += [Character.objects.get(pk=1)]
+        expected_results += [Creature.objects.get(pk=1)]
+        expected_results += [Story.objects.get(pk=3)]
+
+        self.assertEqual(len(actual_results), 3)
+        self.assertEqual(len(actual_results), len(expected_results))
+        for expected_result in expected_results:
+            self.assertTrue(expected_result in actual_results)
+
+        # Nonsense word doesn't ruins AND search 
+        and_sq_2 = generateSearchQuery('nearly headless junkyjunkword', 'AND')
+        and_sqs_2 = SearchQuerySet().filter(and_sq_2)
+        self.assertEqual(len(and_sqs_2), 0)
+
+@override_settings(HAYSTACK_CONNECTIONS=TEST_INDEX)
+class TestCharacterSearch(TestCase):
+
+    # Snapshot of our real data
+    fixtures = ['test_data.json']
+
+    def setUp(self):
+        super(TestCharacterSearch, self).setUp()
+        haystack.connections.reload('default')
+        call_command('rebuild_index', verbosity=0, interactive=False)
+
+    def tearDown(self):
+        call_command('clear_index', interactive=False, verbosity=0)
+
+    def testNameSearchability(self):
+        sq = generateSearchQuery('rowena', 'OR')
+        sqs = SearchQuerySet().filter(sq)
+        actual_results = sqsToModelList(sqs) 
+        self.assertEqual(len(actual_results), 1)
+
+        rowena = Character.objects.get(pk=49)
+        self.assertEqual(rowena, actual_results[0])
+
+    def testWandSearchability(self):
+        sq = generateSearchQuery('15 inches elder wood with thestral hair', 'AND')
+        sqs = SearchQuerySet().filter(sq)
+        actual_results = sqsToModelList(sqs) 
+        self.assertEqual(len(actual_results), 2)
+
+        expected_results = []
+        expected_results += [Character.objects.get(pk=6)]  # Dubledore
+        expected_results += [Character.objects.get(pk=17)] # Grindlewald
+
+        self.assertEqual(len(expected_results), len(actual_results))
+        for expected_result in expected_results:
+            self.assertTrue(expected_result in actual_results)
+
+    def testQuotebySearchability(self):
+        sq = generateSearchQuery('helena ravenclaw', 'AND')
+        sqs = SearchQuerySet().filter(sq)
+        actual_results = sqsToModelList(sqs) 
+        self.assertEqual(len(actual_results), 2)
+
+        # Helena Ravenclaw loved talking about ghosts
+        expected_results = []
+        expected_results += [Character.objects.get(pk=11)] # Bloody Baron
+        expected_results += [Character.objects.get(pk=48)] # Grey Lady
+
+        self.assertEqual(len(expected_results), len(actual_results))
+        for expected_result in expected_results:
+            self.assertTrue(expected_result in actual_results)

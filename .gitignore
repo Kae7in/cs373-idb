@@ -1,2 +1,5 @@
 *.pyc
 *.swp
+*.sqlite3
+whoosh_test_index/
+whoosh_index/
