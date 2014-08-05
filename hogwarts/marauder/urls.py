@@ -75,4 +75,9 @@ urlpatterns = patterns('',
     ################
     url(r'^search/', views.MySearchView(my_form_class=SearchForm), name='haystack_search'),
 
+    ####################
+    #### OTHER API #####
+    ####################
+    url(r'^otherapi/$', views.otherapi, name='otherapi'),
+
 ) + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
