@@ -1,31 +1,34 @@
 <!DOCTYPE html>
 <html>
-	<head>
-		<title>{% block title %}Marauder's Map{% endblock title %}</title>
-		<meta name=”viewport” content=”width=device-width, initial-scale=1.0″>
-		<!-- Latest compiled and minified CSS -->
-		<link rel="stylesheet" href="{{ STATIC_URL }}css/bootstrap.min.css">
-		<link rel="stylesheet" href="{{ STATIC_URL }}css/base.css">
+    <head>
+        <title>{% block title %}Marauder's Map{% endblock title %}</title>
+        <meta name=”viewport” content=”width=device-width, initial-scale=1.0″>
+        <!-- Latest compiled and minified CSS -->
+        <link rel="stylesheet" href="{{ STATIC_URL }}css/bootstrap.min.css">
+        <link rel="stylesheet" href="{{ STATIC_URL }}css/base.css">
 <link href='http://fonts.googleapis.com/css?family=Special+Elite' rel='stylesheet' type='text/css'>
 <link href='http://fonts.googleapis.com/css?family=Roboto' rel='stylesheet' type='text/css'>
 <link rel="stylesheet" href="{{ STATIC_URL }}css/splash.css">
 
 </head>
 <body style='padding:0px !important;'>
+    <div id='mischief-message'>
+        <a href='#' style='color: white;'><span id='m1'>I</span> <span id='m2'>so</span><span id='m3'>l</span><span id='m4'>emn</span><span id='m5'>ly</span> <span id='m6'>sw</span><span id='m7'>e</span><span id='m8'>ar</span> <span id='m9'>t</span><span id='m10'>ha</span><span id='m11'>t</span> <span id='m12'>I</span> <span id='m13'>am</span> <span id='m14'>u</span><span id='m15'>p</span> <span id='m16'>t</span><span id='m17'>o</span> <span id='m18'>no</span> <span id='m19'>goo</span><span id='m20'>d.</span></a>
+    </div>
     <div id="wrap">
         <div id="main-title">
-		  <h1 class="text-center">Marauder's Map</h1>
-		  <p class="text-center">Brought to you by The Six Potters</p>
+          <h1 class="text-center">Marauder's Map</h1>
+          <p class="text-center">Brought to you by The Six Potters</p>
           <p>World created by JK Rowling</p>
         </div>
 
-        <form class='navbar-form' align='center' role='search'>
+        <form id='search' align='center' role='search'>
             <div class='form-group has-feedback'>
               <input type='text' id='id_q' name='q' class='form-control' placeholder='Search'>
-              <a href="#" id='search-submit'><span class="glyphicon glyphicon-search form-control-feedback"></span></a>
+              <a href="#" id='search-submit'><span class="glyphicon glyphicon-search form-control-feedback" style='top: 0px;'></span></a>
             </div>
           </form>
-        
+
         <div class="container-fluid" id='splash-nav'>
             <a href="{% url 'characters' %}" title="Characters"><img src="{{ STATIC_URL }}images/characters_icon.png"/></a>
             <a href="{% url 'creatures' %}" title="Creatures"><img src="{{ STATIC_URL }}images/creatures_icon.png"/></a>
@@ -40,9 +43,9 @@
     </div> <!-- /wrap -->
 
 
-    <div class='row' id="myfooter">
+    <div id="myfooter">
         <div id="footertxt" class='col-md-12'>
-            <p>The Six Potters are Amanda Steinwedel, Angela Hsu, David Moench, Isabella Bhardwaj, Kaelin D. Hooper, and Stephen Arnett</p>
+            <p class='serif'>The Six Potters are Amanda Steinwedel, Angela Hsu, David Moench, Isabella Bhardwaj, Kaelin D. Hooper, and Stephen Arnett</p>
         </div>  <!--/footertxt-->
     </div>  <!--/footer-->
 </div>  <!--/wrap-->
@@ -53,8 +56,7 @@
         <script src="//code.jquery.com/ui/1.11.0/jquery-ui.js"></script>
         <script src="{{ STATIC_URL }}js/bootstrap.min.js"></script>
         <script src="{{ STATIC_URL}}js/splash.js"></script>
-<!--		<script src="http://code.jquery.com/jquery.js"></script>
+<!--        <script src="http://code.jquery.com/jquery.js"></script>
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>  -->
 
 </html>
-
