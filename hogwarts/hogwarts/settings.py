@@ -74,12 +74,11 @@ SOUTH_DATABASE_ADAPTERS = {
 SOUTH_TESTS_MIGRATE = False
 SKIP_SOUTH_TESTS = True
 
-# Haystack Connection to elasticsearch server
+# Haystack Connection to Whoosh Index Directory 
 HAYSTACK_CONNECTIONS = {
     'default': {
-        'ENGINE': 'haystack.backends.elasticsearch_backend.ElasticsearchSearchEngine',
-        'URL': 'http://127.0.0.1:9200/',
-        'INDEX_NAME': 'haystack',
+        'ENGINE': 'haystack.backends.whoosh_backend.WhooshEngine',
+        'PATH': os.path.join(os.path.dirname(__file__), 'whoosh_index'),
     },
 }
 
