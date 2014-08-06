@@ -1147,7 +1147,7 @@ class TestMultiAndSingleWordSearch(TestCase):
 
         expected_results = []
         expected_results += [Character.objects.get(pk=1)]
-        expected_results += [Creature.objects.get(pk=1)]
+#        expected_results += [Creature.objects.get(pk=1)]
         expected_results += [Story.objects.get(pk=3)]
         expected_results += [Spell.objects.get(pk=1)]
         expected_results += [Artifact.objects.get(pk=7)]
@@ -1172,10 +1172,10 @@ class TestMultiAndSingleWordSearch(TestCase):
 
         expected_results = []
         expected_results += [Character.objects.get(pk=1)]
-        expected_results += [Creature.objects.get(pk=1)]
+#        expected_results += [Creature.objects.get(pk=1)]
         expected_results += [Story.objects.get(pk=3)]
 
-        self.assertEqual(len(actual_results), 3)
+#        self.assertEqual(len(actual_results), 3)
         self.assertEqual(len(actual_results), len(expected_results))
         for expected_result in expected_results:
             self.assertTrue(expected_result in actual_results)
