@@ -62,7 +62,7 @@
 {% if shop.stories.all %}
  	<div class='row'>
 	  	<div class='col-md-12'>
-			<h3>RELATED STORIES</h3>
+			<h3 class='uppercase'>Related Stories</h3>
 			{% for story in shop.stories.all %}
 		  		<a href="{% url 'story' story.id %}">{{ story.name }}</a><br/>
 			{% endfor %}
@@ -73,7 +73,7 @@
 {% if shop.artifacts.all %}
  	<div class='row'>
 	  	<div class='col-md-12'>
-			<h3>ARTIFACTS</h3>
+			<h3 class='uppercase'>Artifacts</h3>
 			{% for artifact in shop.artifacts.all %}
 		  		<a href="{% url 'artifact' artifact.id %}">{{ artifact.name }}</a><br/>
 			{% endfor %}

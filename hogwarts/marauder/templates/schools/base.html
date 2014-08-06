@@ -64,7 +64,7 @@
 {% if school.headmasters.all %}
  	<div class='row'>
 	  	<div class='col-md-12'>
-			<h3>HEADMASTERS</h3>
+			<h3 class='uppercase'>Headmasters</h3>
 			{% for headmaster in school.headmasters.all %}
 				{% if not headmaster.hidden %}
 		  			<a href="{% url 'character' headmaster.id %}">
@@ -82,7 +82,7 @@
 {% if school.professors.all %}
  	<div class='row'>
 	  	<div class='col-md-12'>
-			<h3>PROFESSORS</h3>
+			<h3 class='uppercase'>Professors</h3>
 			{% for professor in school.professors.all %}
 				{% if not professor.hidden %}
 		  			<a href="{% url 'character' professor.id %}">
@@ -100,7 +100,7 @@
 {% if school.staff.all %}
  	<div class='row'>
 	  	<div class='col-md-12'>
-			<h3>STAFF</h3>
+			<h3 class='uppercase'>Staff</h3>
 			{% for employee in school.staff.all %}
 				{% if not employee.hidden %}
 		  			<a href="{% url 'character' employee.id %}">
@@ -118,7 +118,7 @@
 {% if school.students.all %}
  	<div class='row'>
 	  	<div class='col-md-12'>
-			<h3>STUDENTS</h3>
+			<h3 class='uppercase'>Students</h3>
 			{% for student in school.students.all %}
 				{% if not student.hidden %}
 		  			<a href="{% url 'character' student.id %}">

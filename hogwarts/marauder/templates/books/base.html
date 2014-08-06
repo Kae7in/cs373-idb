@@ -58,7 +58,7 @@
 {% if book.subjects.all %}
 	<div class='row'>
 		<div class='col-md-12'>
-			<h3>SUBJECTS</h3>
+			<h3 class='uppercase'>Subjects</h3>
 			{% for character in book.subjects.all %}
 				{% if not character.hidden %}
 					<a href="{% url 'character' character.id %}">

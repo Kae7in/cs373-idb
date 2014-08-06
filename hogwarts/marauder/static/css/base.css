@@ -1,4 +1,22 @@
 @import url('http://fonts.googleapis.com/css?family=Open+Sans:200,300');
+@import url(http://fonts.googleapis.com/css?family=Alice);
+@import url(http://fonts.googleapis.com/css?family=Oxygen:400,300,700);
+
+ul.star-list {
+  list-style:none;
+}
+
+/*ul.star-list li 
+{
+  background:url(images/icon_star.gif) no-repeat 0 5px;
+}*/
+
+.navbar {
+  border: 0px;
+  -webkit-box-shadow: 0px 1px 10px 4px rgba(50, 50, 50, 0.75);
+  -moz-box-shadow: 0px 1px 10px 4px rgba(50, 50, 50, 0.75);
+  box-shadow: 0px 1px 10px 4px rgba(50, 50, 50, 0.75);
+}
 
 .jumbotron, .footer { display: none; }
 
@@ -8,19 +26,7 @@ body {
     padding-top: 51px !important;
 }
 
-body, .navbar {
-  background-image: url(http://subtlepatterns.com/patterns/purty_wood.png);
-}
-
-.row-content {
-  background-color: white;
-  padding: 20px;
-  -webkit-box-shadow: 0px 1px 10px 4px rgba(50, 50, 50, 0.75) !important;
-  -moz-box-shadow: 0px 1px 10px 4px rgba(50, 50, 50, 0.75) !important;
-  box-shadow: 0px 1px 10px 4px rgba(50, 50, 50, 0.75) !important;
-  margin-top: 30px;
-  margin-bottom: 60px;
-}
+.navbar { background-color: white; }
 
 #content {
   font-family: 'Oxygen', sans-serif;
@@ -35,7 +41,11 @@ body, .navbar {
   text-shadow: 3px 1px 0px rgba(150, 150, 150, 1);
 }
 
-.dark-shadow-thin, h1, h2, h3 {
+.dark-shadow-thin {
+  text-shadow: 2px 1px 0px rgba(150, 150, 150, 1);
+}
+
+h1, h2, h3 {
   text-shadow: 2px 1px 1px rgba(150, 150, 150, 1);
 }
 
@@ -71,8 +81,8 @@ a:hover {
     text-decoration: none;
 }
 
-.uppercase { text-transform: uppercase;}
-
+/*.uppercase { text-transform: uppercase;}
+*/
 #content {
     margin: auto;
     width: 90%;
@@ -88,6 +98,15 @@ a:hover {
 .main-image img {
     vertical-align: bottom;
     width: 100%;
+}
+
+.shadow-box { 
+  padding: 5px;
+  border: solid 1px #CCC; 
+  -moz-box-shadow: 1px 1px 5px #999; 
+  -webkit-box-shadow: 1px 1px 5px #999; 
+  box-shadow: 1px 1px 5px #999; 
+  border-radius: 4px;
 }
 
 .info-group-list {
@@ -130,33 +149,30 @@ a:hover {
   margin: 10px;
 }
 
-.navbar {
-  border: 0px;
-  -webkit-box-shadow: 0px 1px 8px 1px rgba(50, 50, 50, 0.75) !important;
-  -moz-box-shadow: 0px 1px 8px 1px rgba(50, 50, 50, 0.75) !important;
-  box-shadow: 0px 1px 8px 1px rgba(50, 50, 50, 0.75) !important;
-}
-
 .navbar-nav>li>a, .navbar-brand  {
-  color: white !important;
-  font-weight: bold;
-  color: #aaf;
+  color: #333 !important;
   -webkit-transition: 500ms linear 0s;
   -moz-transition: 500ms linear 0s;
   -o-transition: 500ms linear 0s;
   transition: 500ms linear 0s;
   outline: 0 none;
+  text-shadow: 2px 1px 1px rgba(150, 150, 150, 1);
 }
 
 .navbar-nav>li>a:hover, .navbar-brand:hover, .navbar-nav>li>a:focus, .navbar-brand:focus  {
-  color: #fff;
-  text-shadow: -1px 1px 8px #ffc, 1px -1px 8px #fff;
+  color: #E9B64A !important;
+  text-shadow: -1px 1px 8px #ffc, 1px -1px 8px #E9B64A;
 }
 
 .navbar-nav li.active, .navbar-nav>.active>a, .navbar-nav>.open>a {
   background-color: transparent !important;
   text-decoration: none;
-  text-shadow: -1px 1px 8px #ffc, 1px -1px 8px #fff;
+  color: #E9B64A !important;
+  text-shadow: -1px 1px 8px #ffc, 1px -1px 8px #E9B64A;
+}
+
+li.dropdown.active {
+  text-shadow: none;
 }
 
 
@@ -192,13 +208,12 @@ html, body {
     background: url('../images/maraudersbase.jpg');
     background-size: cover;
     background-position: bottom;
-    -webkit-box-shadow: 0px 1px 10px 4px rgba(50, 50, 50, 0.75) !important;
-    -moz-box-shadow: 0px 1px 10px 4px rgba(50, 50, 50, 0.75) !important;
-    box-shadow: 0px 1px 10px 4px rgba(50, 50, 50, 0.75) !important;
     text-align: center;
     color: white;
-    font-family: 'Open Sans';
     display: block;
+    -webkit-box-shadow: 0px 1px 10px 4px rgba(50, 50, 50, 0.75);
+    -moz-box-shadow: 0px 1px 10px 4px rgba(50, 50, 50, 0.75);
+    box-shadow: 0px 1px 10px 4px rgba(50, 50, 50, 0.75);
 }
 
 .jumbotron {

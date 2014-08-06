@@ -115,7 +115,7 @@
 {% if character.stories.all %}
  	<div class='row'>
 	  	<div class='col-md-12'>
-			<h3>STORIES</h3>
+			<h3  class='uppercase'>Stories</h3>
 			{% for story in character.stories.all %}
 		  		<a href="{% url 'story' story.id %}">{{ story.name }}</a><br/>
 			{% endfor %}
@@ -126,7 +126,7 @@
 {% if character.books_published.all or character.books_starred.all %}
 	<div class='row'>
 		<div class='col-md-12'>
-			<h3>BIBLIOGRAPHY</h3>
+			<h3 class='uppercase'>Bibliography</h3>
 			{% for book in character.books_published.all %}
 				<a href="{% url 'book' book.id %}">{{ book.name }}</a> (Author)<br/>
 			{% endfor %}
@@ -140,7 +140,7 @@
 {% if character.artifacts.all %}
 	<div class='row'>
 		<div class='col-md-12'>
-			<h3>ARTIFACTS</h3>
+			<h3 class='uppercase'>Artifacts</h3>
 			{% for artifact in character.artifacts.all %}
 				<a href="{% url 'artifact' artifact.id %}">{{ artifact.name }}</a><br/>
 			{% endfor %}
@@ -151,7 +151,7 @@
 {% if character.relationships1.all or character.relationships2.all %}
 	<div class='row'>
 		<div class='col-md-12'>
-			<h3>FAMILY RELATIONSHIPS</h3>
+			<h3 class='uppercase'>Family Relationships</h3>
 			{% for relation1 in character.relationships1.all %}
 				{% if not relation1.character2.hidden %}
 				 	<a href="{% url 'character' relation1.character2.id %}">

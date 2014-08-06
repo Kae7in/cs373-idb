@@ -27,7 +27,7 @@
 {% if artifact.owners.all %}
 <div class='row'>
   <div class='col-md-12'>
-    <h3>OWNERS</h3>
+    <h3 class='uppercase'>Owners</h3>
     {% block owners %}
         {% for character in artifact.owners.all %}
             <a href="{% url 'character' character.id %}">{{ character.name }}</a><br />
@@ -40,7 +40,7 @@
 {% if artifact.stories.all %}
 <div class='row'>
   <div class='col-md-12'>
-    <h3>STORIES</h3>
+    <h3 class='uppercase'>Stories</h3>
     {% block stories %}
         {% for story in artifact.stories.all %}
             <a href="{% url 'story' story.id %}">{{ story.name }}</a><br />

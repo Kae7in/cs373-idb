@@ -70,7 +70,7 @@
 <div class='row'>
 	<div class='col-xs-12'>
         {% if creature.notable %}
-            <h3>{% block option %}Notable {{ creature.plural }}{% endblock option %}</h3>
+            <h3 class='uppercase'>{% block option %}Notable {{ creature.plural }}{% endblock option %}</h3>
             {% block detail %}
             {{ creature.notable }}
             {% endblock detail %}
@@ -81,7 +81,7 @@
 {% if creature.characters.all %}
     <div class='row'>
         <div class='col-xs-12'>
-            <h3>CHARACTERS</h3>
+            <h3 class='uppercase'>Characters</h3>
             {% for character in creature.characters.all %}
                 {% if not character.hidden %}
                     <a href="{% url 'character' character.id %}">{{ character.name }}</a><br/>
@@ -94,7 +94,7 @@
 {% if creature.ingredients.all %}
     <div class='row'>
     	<div class='col-xs-12'>
-    	    <h3>POTIONS USED IN</h3>
+    	    <h3 class='uppercase'>Potions used in</h3>
             {% for potion in creature.ingredients.first.potions.all %}
                  <a href="{% url 'potion' potion.id %}">{{ potion.title }}</a><br/>
             {% endfor %}

@@ -72,7 +72,7 @@
 {% if house.members.all %}
  	<div class='row'>
 	  	<div class='col-md-12'>
-			<h3>MEMBERS</h3>
+			<h3 class='uppercase'>Members</h3>
 			{% for member in house.members.all %}
 				{% if member.id != house.ghost.id and member.id != house.founder.id %}
 					{% if not member.hidden %}

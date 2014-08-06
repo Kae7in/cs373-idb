@@ -69,7 +69,7 @@
 {% if location.stories.all %}
  	<div class='row'>
 	  	<div class='col-md-12'>
-			<h3>RELATED STORIES</h3>
+			<h3 class='uppercase'>Related Stories</h3>
 			{% for story in location.stories.all %}
 		  		<a href="{% url 'story' story.id %}">{{ story.name }}</a><br/>
 			{% endfor %}
@@ -80,7 +80,7 @@
 {% if location.shops.all %}
  	<div class='row'>
 	  	<div class='col-md-12'>
-			<h3>SHOPS</h3>
+			<h3 class='uppercase'>Shops</h3>
 			{% for shop in location.shops.all %}
 		  		<a href="{% url 'shop' shop.id %}">{{ shop.name }}</a><br/>
 			{% endfor %}
