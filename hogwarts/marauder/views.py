@@ -538,7 +538,7 @@ class MySearchView(SearchView):
             'query': self.query,
             'form': self.form,
             'and_results': self.get_and_results(),
-            'or_results': self.get_or_results(), # None if query is only one word
+            'or_results': self.get_or_results(), 
             'suggestion': None,
         }
 
