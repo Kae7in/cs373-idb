@@ -1300,17 +1300,6 @@ class TestLocationSearch(TestCase):
         azkaban = Location.objects.get(name='Azkaban')
         self.assertIn(azkaban, actual_results)
 
-    def testDescriptionSearchability(self):
-        sq = generateSearchQuery('England', 'OR')
-        sqs = SearchQuerySet().filter(sq)
-        actual_results = sqsToModelList(sqs) 
-
-        location1 = Location.objects.get(name='Diagon Alley')
-        location2 = Location.objects.get(name='The Burrow')
-
-        self.assertIn(location1, actual_results)
-        self.assertIn(location2, actual_results)
-
 @override_settings(HAYSTACK_CONNECTIONS=TEST_INDEX)
 class TestBookSearch(TestCase):
 

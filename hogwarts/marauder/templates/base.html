@@ -9,12 +9,13 @@
 
     <title>{% block title %}Marauder's Map{% endblock title %}</title>
 
-		<link rel="stylesheet" href="{{ STATIC_URL }}css/bootstrap.min.css">
-		<link rel="stylesheet" href="{{ STATIC_URL }}css/base.css">
+    <link rel="stylesheet" href="{{ STATIC_URL }}css/bootstrap.min.css">
+    <link rel="stylesheet" href="{{ STATIC_URL }}css/base.css">
     <link href='http://fonts.googleapis.com/css?family=Special+Elite' rel='stylesheet' type='text/css'>
     <link href='http://fonts.googleapis.com/css?family=Neucha' rel='stylesheet' type='text/css'>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
-		<script src="{{ STATIC_URL }}js/bootstrap.min.js"></script>
+    <script src="{{ STATIC_URL }}js/bootstrap.min.js"></script>
+    <script src="{{ STATIC_URL }}js/base.js"></script>
 
     {% block scripts %}{% endblock scripts %}
   </head>
@@ -36,8 +37,8 @@
         <!-- Collect the nav links, forms, and other content for toggling -->
         <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
           <ul class="nav navbar-nav">
-            <li><a href="{% url 'haystack_search' %}"><span class="glyphicon glyphicon-search"></span></a></li>
             <li><a href="/">Home</a></li>
+            <li class='{%block about-active %}{% endblock about-active %}'><a href="/about">About</a></li>
             <li class='{%block char-active %}{% endblock char-active %}'><a href="{% url 'characters' %}">Characters</a></li>
             <li class='{%block story-active %}{% endblock story-active %}'><a href="{% url 'stories' %}" >Stories</a></li>
             <li class='{%block artifact-active %}{% endblock artifact-active %}'><a href="{% url 'artifacts' %}">Artifacts</a></li>
@@ -48,6 +49,13 @@
             <li class='{%block house-active %}{%endblock house-active %}'><a href="{% url 'houses' %}">Houses</a></li>
             <li class='{%block book-active %}{%endblock book-active %}'><a href="{% url 'books' %}">Books</a></li>
             <li class='{% block citations-active%}{% endblock citations-active %}'><a href="/citations">Citations</a></li>
+          </ul>
+          <form class='navbar-form navbar-right' role='search'>
+            <div class='form-group has-feedback'>
+              <input type='text' id='id_q' name='q' class='form-control' placeholder='Search'>
+              <a href="#" id='search-submit'><span class="glyphicon glyphicon-search form-control-feedback"></span></a>
+            </div>
+          </form>
         </div><!-- /.navbar-collapse -->
       </div><!-- /.container-fluid -->
     </nav>

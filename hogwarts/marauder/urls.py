@@ -9,6 +9,7 @@ urlpatterns = patterns('',
     (r'^$', TemplateView.as_view(template_name='index.html')),
     (r'^base.html$', TemplateView.as_view(template_name='base.html')),
     (r'^splash.html$', TemplateView.as_view(template_name='splash.html')),
+    (r'^about/$', TemplateView.as_view(template_name='about.html')),
     (r'^citations/$', TemplateView.as_view(template_name='citations.html')),
 
     #Creatures
@@ -73,5 +74,10 @@ urlpatterns = patterns('',
     #### SEARCH ####
     ################
     url(r'^search/', views.MySearchView(my_form_class=SearchForm), name='haystack_search'),
+
+    ####################
+    #### OTHER API #####
+    ####################
+    url(r'^otherapi/$', views.otherapi, name='otherapi'),
 
 ) + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
