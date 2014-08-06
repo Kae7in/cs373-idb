@@ -40,6 +40,12 @@ body {
   font-family: 'Nothing You Could Do', cursive !important;
 }
 
+@-webkit-keyframes pulsate {
+  0% {text-shadow: none;}
+  50% {text-shadow: -1px 1px 8px #ffc, 1px -1px 8px #fff}
+  0% {text-shadow: none;}
+}
+
 /* Wrapper for page content to push down footer */
 #wrap {
   min-height: 100%;
