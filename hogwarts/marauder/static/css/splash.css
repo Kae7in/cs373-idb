@@ -1,4 +1,5 @@
 @import url('http://fonts.googleapis.com/css?family=Open+Sans:200,300');
+@import url(http://fonts.googleapis.com/css?family=Nothing+You+Could+Do);
 
 html {
   margin:0;
@@ -17,15 +18,41 @@ body {
     -o-background-size: cover;
     background-size: cover;
     color:#fff;
-    font-family: 'Open Sans',Arial,Helvetica,Sans-Serif;
 /*    margin-bottom: 100px; */
 }
 
+#search {
+  width: 90%;
+  margin: auto;
+  max-width: 800px;
+}
+
+#mischief-message { 
+  height: 100%;
+  margin: auto;
+  font-size: 5em;
+  text-align: center;
+  margin-top: 200px;
+  width: 90%;
+  max-width: 900px;
+}
+
+#mischief-message span {
+  opacity: 0.000000001; 
+  font-family: 'Nothing You Could Do', cursive !important;
+}
+
+@-webkit-keyframes pulsate {
+  0% {text-shadow: none;}
+  50% {text-shadow: -1px 1px 8px #ffc, 1px -1px 8px #fff}
+  0% {text-shadow: none;}
+}
 
 /* Wrapper for page content to push down footer */
 #wrap {
   min-height: 100%;
   position: relative;
+  display: none;
 }
 
 #content {
@@ -47,24 +74,22 @@ a:hover {
     color: white;
 }
 
+#main-title, .category, #myfooter {
+  font-family: 'Open Sans';
+}
+
 #main-title {
   padding-top: 100px;
 }
 
 #main-title h1 {
   font-size: 7em;
-  font-family: 'Open Sans';
   color: white;
 }
 
 #main-title p {
-  font-family: 'Open Sans';
   font-size: 2em;
   color:white;
-}
-
-.category{
-  font-family: 'Open Sans';
 }
 
 .panel-heading {
@@ -83,6 +108,7 @@ a:hover {
 }
 
 #myfooter {
+  opacity: 0;
   display: table;
   position: relative;
   bottom: 0;
@@ -98,8 +124,7 @@ a:hover {
   text-align: center;
   padding-top: 35px;
   padding-bottom: 10px;
-  font-family: 'Open Sans';
-  font-size: 16px;
+  font-size: 1.5em;
 
 }
 
@@ -159,7 +184,6 @@ a:hover {
 }
 
 .btn-flat {
-    font-family: 'Open Sans',Arial,Helvetica,Sans-Serif;
     border-radius:0px;
     border-width:0;
     background-image:none;
