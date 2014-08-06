@@ -1300,17 +1300,6 @@ class TestLocationSearch(TestCase):
         azkaban = Location.objects.get(name='Azkaban')
         self.assertIn(azkaban, actual_results)
 
-    def testDescriptionSearchability(self):
-        sq = generateSearchQuery('England', 'OR')
-        sqs = SearchQuerySet().filter(sq)
-        actual_results = sqsToModelList(sqs) 
-
-        location1 = Location.objects.get(name='Diagon Alley')
-        location2 = Location.objects.get(name='The Burrow')
-
-        self.assertIn(location1, actual_results)
-        self.assertIn(location2, actual_results)
-
 @override_settings(HAYSTACK_CONNECTIONS=TEST_INDEX)
 class TestBookSearch(TestCase):
 
@@ -1342,4 +1331,100 @@ class TestBookSearch(TestCase):
         book2 = Book.objects.get(name='The Life and Lies of Albus Dumbledore')
         self.assertIn(book1, actual_results)
         self.assertIn(book2, actual_results)
+
+@override_settings(HAYSTACK_CONNECTIONS=TEST_INDEX)
+class TestSpellSearch(TestCase):
+    fixtures = ['test_data.json']
+
+    def setUp(self):
+        super(TestSpellSearch, self).setUp()
+        haystack.connections.reload('default')
+        call_command('rebuild_index', verbosity=0, interactive=False)
+
+    def tearDown(self):
+        call_command('clear_index', interactive=False, verbosity=0)
+
+    def testIncantationSearch(self):
+        sq = generateSearchQuery('expecto patronum', 'AND')
+        sqs = SearchQuerySet().filter(sq)
+        actual_results = sqsToModelList(sqs)
+
+        spell = Spell.objects.get(incantation='Expecto Patronum')
+        self.assertIn(spell, actual_results)
+
+    def testAliasSearch(self):
+        sq = generateSearchQuery('Boggart-Banishing Spell', 'AND')
+        sqs = SearchQuerySet().filter(sq)
+        actual_results = sqsToModelList(sqs)
+
+        spell = Spell.objects.get(incantation='Riddikulus')
+        self.assertIn(spell, actual_results)
+
+    def testEffectSearch(self):
+        sq = generateSearchQuery('jet of scarlet red light', 'AND')
+        sqs = SearchQuerySet().filter(sq)
+        actual_results = sqsToModelList(sqs)
+
+        spell = Spell.objects.get(incantation='Expelliarmus')
+        self.assertIn(spell, actual_results)
+
+    def testCreatorSearch(self):
+        sq = generateSearchQuery('Merlin', 'AND')
+        sqs = SearchQuerySet().filter(sq)
+        actual_results = sqsToModelList(sqs)
+
+        spell = Spell.objects.get(incantation='Accio')
+        self.assertIn(spell, actual_results)
+
+    def testDifficultySearch(self):
+        sq = generateSearchQuery('Extremely Difficult', 'AND')
+        sqs = SearchQuerySet().filter(sq)
+        actual_results = sqsToModelList(sqs)
+
+        spell = Spell.objects.get(incantation='Expecto Patronum')
+        self.assertIn(spell, actual_results)
+
+    def testKindSearch(self):
+        sq = generateSearchQuery('Defensive', 'AND')
+        sqs = SearchQuerySet().filter(sq)
+        actual_results = sqsToModelList(sqs)
+
+        spell = Spell.objects.get(incantation='Stupefy')
+        self.assertIn(spell, actual_results)
+
+@override_settings(HAYSTACK_CONNECTIONS=TEST_INDEX)
+class TestArtifactSearch(TestCase):
+    fixtures = ['test_data.json']
+
+    def setUp(self):
+        super(TestArtifactSearch, self).setUp()
+        haystack.connections.reload('default')
+        call_command('rebuild_index', verbosity=0, interactive=False)
+
+    def tearDown(self):
+        call_command('clear_index', interactive=False, verbosity=0)
+
+    def testNameSearch(self):
+        sq = generateSearchQuery('elder wand', 'AND')
+        sqs = SearchQuerySet().filter(sq)
+        actual_results = sqsToModelList(sqs)
+
+        artifact = Artifact.objects.get(name='Elder Wand')
+        self.assertIn(artifact, actual_results)
+
+    def testDescriptionSearch(self):
+        sq = generateSearchQuery('Put-Outer', 'AND')
+        sqs = SearchQuerySet().filter(sq)
+        actual_results = sqsToModelList(sqs)
+
+        artifact = Artifact.objects.get(name='Deluminator')
+        self.assertIn(artifact, actual_results)
+
+    def testKindSearch(self):
+        sq = generateSearchQuery('Unique', 'AND')
+        sqs = SearchQuerySet().filter(sq)
+        actual_results = sqsToModelList(sqs)
+
+        artifact = Artifact.objects.get(name='Sword Of Gryffindor')
+        self.assertIn(artifact, actual_results)
 
