@@ -1,0 +1,57 @@
+{% extends "base.html" %}
+
+{%block about-active%}active{%endblock about-active%}
+
+{% block content %}
+
+<h1>THE MUGGLE EXPERIENCE&#153</h1>
+
+<div class='row'>
+
+        <div class='col-xs-12 col-md-6 col-sm-6'>
+                <div class='main-image pull-right'>
+                        <img class='list-group-item' src='{{STATIC_URL}}/images/platform.gif'>
+                </div>
+        </div>
+</div>
+
+<div class='row'>
+        <div class='col-md-12'>
+            <br/>
+            For the low price of 19 Galleons per hour, you can get away from your boring wizard life and go on the vacation of a lifetime.
+            Come hike across the most amazing non-magical wonders the muggle world has to offer!
+            <br/>
+            <br/>
+            Whether you'd prefer a relaxing walk (and yes, we are going to actually WALK) or a dangerous adventure, there is a Muggle Experience&#153 hike for you.
+            <br/>
+            <br/>
+
+        </div>
+</div>
+
+<div class='row'>
+        <div class='col-xs-12 col-md-6 col-sm-6 list-group-item'>
+            <h3>For An Adventurous Outing: {{other.death_valley.name}}</h3>
+                The  are located in Death Valley, a desert in California.  There are 951,972 visitors to Death Valley per year, and most of them are dementors.
+                Don't be surprised if during your strenuous hike you happen to catch a happy dementor family enjoying a barbecue or a picnic.
+                Be sure to bring lots of water. You don't want to get dehydrated.
+                <br/>
+                <br/>
+                <br/>
+
+        </div>
+        <div class='col-xs-12 col-md-6 col-sm-6'>
+            <div class='main-image pull-right list-group-item'>
+                <img src='{{STATIC_URL}}/images/Death-Valley-010.jpg'>
+            </div>
+        </div>
+</div>
+
+<div class='row'>
+        <div class='col-md-12'>
+            <h3>For A Relaxing Stroll:</h3>
+        </div>
+</div>
+
+
+{% endblock content %}
