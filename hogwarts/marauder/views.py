@@ -525,10 +525,8 @@ class MySearchView(SearchView):
 
     def get_and_results(self):
         q = self.get_query()
-        if (not q) or (len(shlex.split(q)) == 1):
+        if not q:
             return None
-        if len(shlex.split(q)) == 1:
-            re
         sq = generateSearchQuery(q, 'AND')
         return self.form.searchqueryset.filter(sq)
 
