@@ -78,6 +78,6 @@ urlpatterns = patterns('',
     ####################
     #### OTHER API #####
     ####################
-    url(r'^otherapi/$', views.otherapi, name='otherapi'),
+    url(r'^experience/$', views.otherapi, name='experience'),
 
 ) + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)

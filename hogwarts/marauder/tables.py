@@ -92,6 +92,7 @@ class SpellTable(tables.Table):
         <a href='{% url "spell" record.pk %}'>{{ record.incantation }}</a>''')
     kind = tables.TemplateColumn("{{ record.kind }}")
     difficulty = tables.TemplateColumn("{{ record.get_difficulty_display }}")
+    unforgivable = tables.TemplateColumn("{% if record.unforgivable %}<center><img src='{{ STATIC_URL }}images/skull_glyphicon.png'/></center>{% endif %}")
 
     class Meta:
         model = Spell

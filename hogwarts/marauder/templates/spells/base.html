@@ -1,6 +1,6 @@
 {% extends "base.html" %}
 
-{% block spell-active %}active{% endblock spell-active %}
+{% block data-active %}active{% endblock data-active %}
 
 {% block content %}
         <div id="name">
@@ -10,12 +10,12 @@
 <div class='row'>
    	<div class='col-md-8 col-sm-6 info-group'>
    		<ul class='list-group info-group-list'>
-			<li class='list-group-item'><strong>Alias:</strong> {{ spell.alias }}</li>
-			<li class='list-group-item'><strong>Creator:</strong> {{ spell.creator }}</li>
-			<li class='list-group-item'><strong>Kind:</strong> {{ spell.kind }}</li>
-			<li class='list-group-item'><strong>Difficulty:</strong> {{ spell.difficulty }}</li>
+			<li class='list-group-item'>{{ spell.alias }}</li>
+			<li class='list-group-item'>Created by {{ spell.creator }}</li>
+			<li class='list-group-item'>{% if spell.unforgivable %}Unforgivable{% endif %} {{ spell.kind }}</li>
+			<li class='list-group-item'>Level is {{ spell.difficulty }}</li>
 			{% if spell.creature %}
-			<li class='list-group-item'><strong>Affects:</strong>
+			<li class='list-group-item'>Affects 
 			    <a href="{% url 'creature' spell.creature.id %}">
 			        {{ spell.creature.name }}
 			    </a><br />
