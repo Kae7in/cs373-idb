@@ -1332,3 +1332,55 @@ class TestBookSearch(TestCase):
         self.assertIn(book1, actual_results)
         self.assertIn(book2, actual_results)
 
+@override_settings(HAYSTACK_CONNECTIONS=TEST_INDEX)
+class TestPotionSearch(TestCase):
+
+    # Snapshot of our real data
+    fixtures = ['test_data.json']
+
+    def setUp(self):
+        super(TestPotionSearch, self).setUp()
+        haystack.connections.reload('default')
+        call_command('rebuild_index', verbosity=0, interactive=False)
+
+    def tearDown(self):
+        call_command('clear_index', interactive=False, verbosity=0)
+
+    def testNameSearchability(self):
+        sq = generateSearchQuery('Aging Potion', 'OR')
+        sqs = SearchQuerySet().filter(sq)
+        actual_results = sqsToModelList(sqs)
+
+        potion = Potion.objects.get(title='Aging Potion')
+        self.assertIn(potion, actual_results)
+
+    def testEffectsSearchability(self):
+        sq = generateSearchQuery('cure', 'AND')
+        sqs = SearchQuerySet().filter(sq)
+        actual_results = sqsToModelList(sqs) 
+
+        potion1 = Potion.objects.get(title='Elixir to Induce Euphoria')
+        potion2 = Potion.objects.get(title='Wiggenweld Potion')
+        self.assertIn(potion1, actual_results)
+        self.assertIn(potion2, actual_results)
+
+    def testRecipeSearchability(self):
+        sq = generateSearchQuery('Unknown', 'AND')
+        sqs = SearchQuerySet().filter(sq)
+        actual_results = sqsToModelList(sqs) 
+
+        potion1 = Potion.objects.get(title='Amortentia')
+        potion2 = Potion.objects.get(title='Aging Potion')
+        self.assertIn(potion1, actual_results)
+        self.assertIn(potion2, actual_results)
+
+    def testPhysicalDescriptionSearchability(self):
+        sq = generateSearchQuery('green', 'AND')
+        sqs = SearchQuerySet().filter(sq)
+        actual_results = sqsToModelList(sqs) 
+
+        potion1 = Potion.objects.get(title='Wiggenweld Potion')
+        potion2 = Potion.objects.get(title='Aging Potion')
+        self.assertIn(potion1, actual_results)
+        self.assertIn(potion2, actual_results)
+
