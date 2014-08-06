@@ -8,8 +8,6 @@ from haystack.query import SearchQuerySet, AutoQuery
 from marauder.views import MySearchView, generateSearchQuery
 import os
 
-'''
-
 """
   MODEL TESTS
 """
@@ -1097,12 +1095,11 @@ class TestSpellAPI(TransactionTestCase):
             'creature': None
           }]
         self.assertEqual(response, expected)
-'''
+
 """
   HAYSTACK SEARCH TESTS
 """
 
-from marauder.models import *
 # Define a location for creating temporary search indexes of test fixture DB
 TEST_INDEX = {
     'default': {
@@ -1117,7 +1114,7 @@ def sqsToModelList(sqs):
     instances
     """
     return [sr.object for sr in sqs]
-'''
+
 @override_settings(HAYSTACK_CONNECTIONS=TEST_INDEX)
 class TestMultiAndSingleWordSearch(TestCase):
 
@@ -1345,7 +1342,7 @@ class TestBookSearch(TestCase):
         book2 = Book.objects.get(name='The Life and Lies of Albus Dumbledore')
         self.assertIn(book1, actual_results)
         self.assertIn(book2, actual_results)
-'''
+
 
 @override_settings(HAYSTACK_CONNECTIONS=TEST_INDEX)
 class TestCreatureSearch(TestCase):
@@ -1375,12 +1372,13 @@ class TestCreatureSearch(TestCase):
         sqs = SearchQuerySet().filter(sq)
         actual_results = set(sqsToModelList(sqs)) 
 
-        beasts = Creature.objects.filter(classification='Beast')
+        beasts = list(Creature.objects.filter(classification='Beast'))
         story = Story.objects.get(name='International Statute of Wizarding Secrecy')
+        beasts.append(story)
+        expected = set(beasts)
         
         self.assertEqual(expected, actual_results)
 
-#        self.assertIn(creature1, actual_results)
-#        self.assertIn(creature2, actual_results)
+
 
 
