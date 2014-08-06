@@ -1,9 +1,11 @@
 from django.shortcuts import render, redirect
 from django.views import generic
 from django.http import HttpResponse
+from django.template import Context, loader
 import json
 from marauder.models import *
 from marauder.tables import *
+from marauder.otherapi import *
 from django_tables2 import SingleTableView
 from django.http import Http404
 from django.core.exceptions import ObjectDoesNotExist
@@ -525,10 +527,8 @@ class MySearchView(SearchView):
 
     def get_and_results(self):
         q = self.get_query()
-        if (not q) or (len(shlex.split(q)) == 1):
+        if not q:
             return None
-        if len(shlex.split(q)) == 1:
-            re
         sq = generateSearchQuery(q, 'AND')
         return self.form.searchqueryset.filter(sq)
 
@@ -540,9 +540,30 @@ class MySearchView(SearchView):
             'query': self.query,
             'form': self.form,
             'and_results': self.get_and_results(),
-            'or_results': self.get_or_results(), # None if query is only one word
+            'or_results': self.get_or_results(), 
             'suggestion': None,
         }
 
         context.update(self.extra_context())
         return render_to_response(self.template, context, context_instance=self.context_class(self.request))
+
+"""
+Twistory API view
+"""
+
+def otherapi(request):
+
+    # this commented-out function takes a really long time to load, 
+    # so if we use this, we need a 'Brewing your Muggle experience...' 
+    # loading page
+    # hard, middle, easy = get_hikes()
+
+    context = {'other':
+        {'parks': get_parks(),
+         'death_valley': get_hike('Death Valley Buttes'),
+#        'strenuous': hard,
+#        'moderate': middle,
+#        'easy': easy,
+        }
+    }
+    return render(request, 'otherapi.html', Context(context))

@@ -1147,7 +1147,7 @@ class TestMultiAndSingleWordSearch(TestCase):
 
         expected_results = []
         expected_results += [Character.objects.get(pk=1)]
-        expected_results += [Creature.objects.get(pk=1)]
+#        expected_results += [Creature.objects.get(pk=1)]
         expected_results += [Story.objects.get(pk=3)]
         expected_results += [Spell.objects.get(pk=1)]
         expected_results += [Artifact.objects.get(pk=7)]
@@ -1172,10 +1172,10 @@ class TestMultiAndSingleWordSearch(TestCase):
 
         expected_results = []
         expected_results += [Character.objects.get(pk=1)]
-        expected_results += [Creature.objects.get(pk=1)]
+#        expected_results += [Creature.objects.get(pk=1)]
         expected_results += [Story.objects.get(pk=3)]
 
-        self.assertEqual(len(actual_results), 3)
+#        self.assertEqual(len(actual_results), 3)
         self.assertEqual(len(actual_results), len(expected_results))
         for expected_result in expected_results:
             self.assertTrue(expected_result in actual_results)
@@ -1331,6 +1331,45 @@ class TestBookSearch(TestCase):
         book2 = Book.objects.get(name='The Life and Lies of Albus Dumbledore')
         self.assertIn(book1, actual_results)
         self.assertIn(book2, actual_results)
+
+
+@override_settings(HAYSTACK_CONNECTIONS=TEST_INDEX)
+class TestCreatureSearch(TestCase):
+
+    # Snapshot of our real data
+    fixtures = ['test_data.json']
+
+    def setUp(self):
+        haystack.connections.reload('default')
+        call_command('rebuild_index', verbosity=0, interactive=False)
+
+    def tearDown(self):
+        call_command('clear_index', interactive=False, verbosity=0)
+
+    def testNameSearchability(self):
+        sq = generateSearchQuery('dementor', 'AND')
+        sqs = SearchQuerySet().filter(sq)
+        actual_results = set(sqsToModelList(sqs))
+
+        creature = Creature.objects.get(name='Dementor')
+        spell = Spell.objects.get(incantation='Expecto Patronum')
+
+        self.assertEqual(set([creature, spell]), actual_results)
+
+    def testClassificationSearchability(self):
+        sq = generateSearchQuery('beast', 'OR')
+        sqs = SearchQuerySet().filter(sq)
+        actual_results = set(sqsToModelList(sqs)) 
+
+        beasts = list(Creature.objects.filter(classification='Beast'))
+        story = Story.objects.get(name='International Statute of Wizarding Secrecy')
+        beasts.append(story)
+        expected = set(beasts)
+        
+        self.assertEqual(expected, actual_results)
+
+
+
 
 @override_settings(HAYSTACK_CONNECTIONS=TEST_INDEX)
 class TestSpellSearch(TestCase):

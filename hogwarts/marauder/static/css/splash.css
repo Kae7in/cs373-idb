@@ -37,6 +37,11 @@ a:link, a:visited {
     color:rgb(190,190,190);
 }
 
+.navbar-form{
+    padding-bottom: 30px;
+}
+
+
 a:hover {
     text-decoration: none;
     color: white;
