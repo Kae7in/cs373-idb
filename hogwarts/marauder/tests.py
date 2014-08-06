@@ -8,6 +8,8 @@ from haystack.query import SearchQuerySet, AutoQuery
 from marauder.views import MySearchView, generateSearchQuery
 import os
 
+'''
+
 """
   MODEL TESTS
 """
@@ -1095,11 +1097,12 @@ class TestSpellAPI(TransactionTestCase):
             'creature': None
           }]
         self.assertEqual(response, expected)
-
+'''
 """
   HAYSTACK SEARCH TESTS
 """
 
+from marauder.models import *
 # Define a location for creating temporary search indexes of test fixture DB
 TEST_INDEX = {
     'default': {
@@ -1114,7 +1117,7 @@ def sqsToModelList(sqs):
     instances
     """
     return [sr.object for sr in sqs]
-
+'''
 @override_settings(HAYSTACK_CONNECTIONS=TEST_INDEX)
 class TestMultiAndSingleWordSearch(TestCase):
 
@@ -1342,4 +1345,42 @@ class TestBookSearch(TestCase):
         book2 = Book.objects.get(name='The Life and Lies of Albus Dumbledore')
         self.assertIn(book1, actual_results)
         self.assertIn(book2, actual_results)
+'''
+
+@override_settings(HAYSTACK_CONNECTIONS=TEST_INDEX)
+class TestCreatureSearch(TestCase):
+
+    # Snapshot of our real data
+    fixtures = ['test_data.json']
+
+    def setUp(self):
+        haystack.connections.reload('default')
+        call_command('rebuild_index', verbosity=0, interactive=False)
+
+    def tearDown(self):
+        call_command('clear_index', interactive=False, verbosity=0)
+
+    def testNameSearchability(self):
+        sq = generateSearchQuery('dementor', 'AND')
+        sqs = SearchQuerySet().filter(sq)
+        actual_results = set(sqsToModelList(sqs))
+
+        creature = Creature.objects.get(name='Dementor')
+        spell = Spell.objects.get(incantation='Expecto Patronum')
+
+        self.assertEqual(set([creature, spell]), actual_results)
+
+    def testClassificationSearchability(self):
+        sq = generateSearchQuery('beast', 'OR')
+        sqs = SearchQuerySet().filter(sq)
+        actual_results = set(sqsToModelList(sqs)) 
+
+        beasts = Creature.objects.filter(classification='Beast')
+        story = Story.objects.get(name='International Statute of Wizarding Secrecy')
+        
+        self.assertEqual(expected, actual_results)
+
+#        self.assertIn(creature1, actual_results)
+#        self.assertIn(creature2, actual_results)
+
 

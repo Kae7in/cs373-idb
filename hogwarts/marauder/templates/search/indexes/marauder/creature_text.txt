@@ -1,4 +1,3 @@
 {{ object.name }}
-{{ object.description }}
 {{ object.classification }}
 {{ object.rating }}
