@@ -1,9 +1,9 @@
 {% if not object.hidden %}
     {{ object.name }}
-    {% if object.creature %}
-        {{ object.creature }}
+    {% if object.wand %}
+        {{ object.wand }}
     {% endif %}
-    {% if object.shop %}
-        {{ object.shop }}
+    {% if object.quote_by %}
+        {{ object.quote_by }}
     {% endif %}
 {% endif %}

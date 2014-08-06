@@ -490,6 +490,28 @@ class JSON404Response(HttpResponse):
 """
   HAYSTACK SEARCH 
 """
+def generateSearchQuery(q, operator):
+    """
+    Generate and AND'd or OR'd SQ object to pass to filter
+
+    Args:
+        q: Query string
+        operator: String 'AND' or 'OR'
+    """
+    sq = None
+    if operator == 'AND':
+        for phrase in shlex.split(q):
+            if not sq:
+                sq = SQ(content=phrase)
+            else:
+                sq &= SQ(content=phrase)
+    else: # OR
+        for phrase in shlex.split(q):
+            if not sq:
+                sq = SQ(content=phrase)
+            else:
+                sq |= SQ(content=phrase)
+    return sq
 
 class MySearchView(SearchView):
 
@@ -500,24 +522,14 @@ class MySearchView(SearchView):
         q = self.get_query()
         if not q:
             return None
-        sq = None
-        for phrase in shlex.split(q):
-            if not sq:
-                sq = SQ(content=phrase)
-            else:
-                sq |= SQ(content=phrase)
+        sq = generateSearchQuery(q, 'OR')
         return self.form.searchqueryset.filter(sq)
 
     def get_and_results(self):
         q = self.get_query()
         if not q:
             return None
-        sq = None
-        for phrase in shlex.split(q):
-            if not sq:
-                sq = SQ(content=phrase)
-            else:
-                sq &= SQ(content=phrase)
+        sq = generateSearchQuery(q, 'AND')
         return self.form.searchqueryset.filter(sq)
 
     def create_response(self):
@@ -528,7 +540,7 @@ class MySearchView(SearchView):
             'query': self.query,
             'form': self.form,
             'and_results': self.get_and_results(),
-            'or_results': self.get_or_results(),
+            'or_results': self.get_or_results(), 
             'suggestion': None,
         }
 
