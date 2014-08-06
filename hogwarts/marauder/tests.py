@@ -1298,7 +1298,7 @@ class TestLocationSearch(TestCase):
         actual_results = sqsToModelList(sqs) 
 
         azkaban = Location.objects.get(name='Azkaban')
-        self.assertIn(ravenclaw, azkaban)
+        self.assertIn(azkaban, actual_results)
 
     def testDescriptionSearchability(self):
         sq = generateSearchQuery('England', 'OR')
@@ -1310,3 +1310,36 @@ class TestLocationSearch(TestCase):
 
         self.assertIn(location1, actual_results)
         self.assertIn(location2, actual_results)
+
+@override_settings(HAYSTACK_CONNECTIONS=TEST_INDEX)
+class TestBookSearch(TestCase):
+
+    # Snapshot of our real data
+    fixtures = ['test_data.json']
+
+    def setUp(self):
+        super(TestBookSearch, self).setUp()
+        haystack.connections.reload('default')
+        call_command('rebuild_index', verbosity=0, interactive=False)
+
+    def tearDown(self):
+        call_command('clear_index', interactive=False, verbosity=0)
+
+    def testNameSearchability(self):
+        sq = generateSearchQuery('magical water plants', 'AND')
+        sqs = SearchQuerySet().filter(sq)
+        actual_results = sqsToModelList(sqs)
+
+        book = Book.objects.get(name='Magical Water Plants of the Mediterranean')
+        self.assertIn(book, actual_results)
+
+    def testDescriptionSearchability(self):
+        sq = generateSearchQuery('Rita Skeeter', 'AND')
+        sqs = SearchQuerySet().filter(sq)
+        actual_results = sqsToModelList(sqs) 
+
+        book1 = Book.objects.get(name='Snape: Scoundrel or Saint?')
+        book2 = Book.objects.get(name='The Life and Lies of Albus Dumbledore')
+        self.assertIn(book1, actual_results)
+        self.assertIn(book2, actual_results)
+
