@@ -1,4 +1,6 @@
 $(document).ready(function() {
+    var revealed = false;
+
 	$('#search-submit').click(function(e) {
 		e.preventDefault();
 		search_terms = $('#id_q').val();
@@ -23,6 +25,7 @@ $(document).ready(function() {
 
     $('#mischief-message').click(function(e){
    		e.preventDefault();
+   		revealed = true;
    		showNav();
    	});
 
@@ -49,7 +52,8 @@ $(document).ready(function() {
    		var $message = $('#mischief-message');
    		$message.css({'-webkit-animation': 'pulsate 1.5s ease-out', '-webkit-animation-iteration-count': 'infinite'});
    		setTimeout(function() {
-   			showNav();
+   			if(!revealed)
+   				showNav();
    		}, 5000);
    	});
 });
