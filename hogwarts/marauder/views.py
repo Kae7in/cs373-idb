@@ -560,7 +560,8 @@ def otherapi(request):
 
     context = {'other':
         {'parks': get_parks(),
-         'death_valley': get_hike('Death Valley Buttes'),
+         'death_valley_buttes': get_hike('Death Valley Buttes'),
+         'death_valley': get_park('Death Valley'),
 #        'strenuous': hard,
 #        'moderate': middle,
 #        'easy': easy,

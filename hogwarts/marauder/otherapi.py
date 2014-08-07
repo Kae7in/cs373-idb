@@ -53,4 +53,20 @@ def get_hike(name):
     hike_dict['distance'] = hike_dict['distance(mile)']
     return hike_dict
 
+def get_park(name):
+    '''Get park from name.'''
+    web_name = name.replace(' ', '%20')
+    try:
+        park_bytes = urllib.request.urlopen(os.path.join(twistory, 'api/parks', web_name)).read()
+        park_dict = json.loads(park_bytes.decode('utf-8'))
+    except Exception:
+        print(traceback.format_exc())
+        return {'name': 'error', 'max_elevation': 'error',
+                'visitors': 'error',
+                'image': '#'}
+    park_dict['name'] = name
+    park_dict['max_elevation'] = park_dict['max_elevation(ft)']
+    park_dict['visitors'] = park_dict['visitors(annual)']
+    return park_dict
+
 
