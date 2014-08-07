@@ -523,6 +523,8 @@ class MySearchView(SearchView):
         if not q:
             return None
         sq = generateSearchQuery(q, 'OR')
+        if not sq:
+            return None
         return self.form.searchqueryset.filter(sq)
 
     def get_and_results(self):
@@ -530,6 +532,8 @@ class MySearchView(SearchView):
         if not q:
             return None
         sq = generateSearchQuery(q, 'AND')
+        if not sq:
+            return None
         return self.form.searchqueryset.filter(sq)
 
     def create_response(self):
