@@ -182,13 +182,13 @@ class RestView(object):
 class CharacterRestView(RestView):
 
     def get_item(self, character_id):
-        # Pull the character row from the model. 
+        # Pull the character row from the model.
         try:
-            c = Character.objects.get(pk=character_id) 
+            c = Character.objects.get(pk=character_id)
         except ObjectDoesNotExist:
             return JSON404Response()
 
-        # Manipulate the python dict to conform to our API 
+        # Manipulate the python dict to conform to our API
         data = self.formatCharacterData(c)
 
         # Form the python dict into a JSON HTTP response
@@ -200,8 +200,8 @@ class CharacterRestView(RestView):
         data = []
         for character in characters:
             element = self.formatCharacterData(character)
-            data.append(element) 
-        
+            data.append(element)
+
         return JSONResponse(data)
 
     def formatCharacterData(self, c):
@@ -251,16 +251,16 @@ class ArtifactRestView(RestView):
 class StoryRestView(RestView):
 
     def get_item(self, story_id):
-        # Pull the story row from the model. 
+        # Pull the story row from the model.
         try:
-            s = Story.objects.get(pk=story_id) 
+            s = Story.objects.get(pk=story_id)
         except ObjectDoesNotExist:
             return JSON404Response()
 
-        # Manipulate the python dict to conform to our API 
+        # Manipulate the python dict to conform to our API
         data = self.formatStoryData(s)
-        
-        # Form the python dict into a JSON HTTP response 
+
+        # Form the python dict into a JSON HTTP response
         return JSONResponse(data)
 
     def get_collection(self):
@@ -269,8 +269,8 @@ class StoryRestView(RestView):
         data = []
         for story in stories:
             element = self.formatStoryData(story)
-            data.append(element) 
-        
+            data.append(element)
+
         return JSONResponse(data)
 
     def formatStoryData(self, s):
@@ -288,7 +288,7 @@ class StoryRestView(RestView):
             'kind': s.kind if s.kind else None,
             'characters': [c.id for c in characters] if characters else None,
             'artifacts': [a.id for a in artifacts] if artifacts else None,
-            'quote': s.quote if s.quote else None, 
+            'quote': s.quote if s.quote else None,
             'quote_by': s.quote_by if s.quote_by else None
         }
 
@@ -369,7 +369,7 @@ class ShopRestView(RestView):
 class PotionRestView(RestView):
 
     def get_item(self, potion_id):
-       
+
         try:
             potion = Potion.objects.get(pk=potion_id)
         except ObjectDoesNotExist:
@@ -381,7 +381,7 @@ class PotionRestView(RestView):
 
     def get_collection(self):
         potions = Potion.objects.all()
-        
+
         data = []
         for potion in potions:
             element = self.formatPotionData(potion)
@@ -390,7 +390,7 @@ class PotionRestView(RestView):
         return JSONResponse(data)
 
     def formatPotionData(self, p):
-        
+
         return {
             'id': p.id,
             'title': p.title,
@@ -424,7 +424,7 @@ class CreatureRestView(RestView):
         return JSONResponse(data)
 
     def formatCreatureData(self, c):
-        
+
         return  {
             'id': c.id,
             'name': c.name,
@@ -436,16 +436,16 @@ class CreatureRestView(RestView):
 class SchoolRestView(RestView):
 
     def get_item(self, school_id):
-        # Pull the school row from the model. 
+        # Pull the school row from the model.
         try:
-          s = School.objects.get(pk=school_id) 
+          s = School.objects.get(pk=school_id)
         except ObjectDoesNotExist:
           return JSON404Response()
 
-        # Manipulate the python dict to conform to our API 
+        # Manipulate the python dict to conform to our API
         data = self.formatSchoolData(s)
-        
-        # Form the python dict into a JSON HTTP response 
+
+        # Form the python dict into a JSON HTTP response
         return JSONResponse(data)
 
     def get_collection(self):
@@ -454,8 +454,8 @@ class SchoolRestView(RestView):
         data = []
         for school in schools:
             element = self.formatSchoolData(school)
-            data.append(element) 
-        
+            data.append(element)
+
         return JSONResponse(data)
 
     def formatSchoolData(self, s):
@@ -464,8 +464,8 @@ class SchoolRestView(RestView):
         specification.
         """
         return {
-            'id': s.id, 
-            'name': s.name, 
+            'id': s.id,
+            'name': s.name,
             'description': s.description,
             'country': s.country if s.country else None,
             'kind': s.kind if s.kind else None
@@ -488,7 +488,7 @@ class JSON404Response(HttpResponse):
 
 
 """
-  HAYSTACK SEARCH 
+  HAYSTACK SEARCH
 """
 def generateSearchQuery(q, operator):
     """
@@ -517,7 +517,7 @@ class MySearchView(SearchView):
 
     def __init__(self, my_form_class=SearchForm):
         super(MySearchView, self).__init__(form_class=my_form_class)
-        
+
     def get_or_results(self):
         q = self.get_query()
         if not q:
@@ -540,7 +540,7 @@ class MySearchView(SearchView):
             'query': self.query,
             'form': self.form,
             'and_results': self.get_and_results(),
-            'or_results': self.get_or_results(), 
+            'or_results': self.get_or_results(),
             'suggestion': None,
         }
 
@@ -553,8 +553,8 @@ Twistory API view
 
 def otherapi(request):
 
-    # this commented-out function takes a really long time to load, 
-    # so if we use this, we need a 'Brewing your Muggle experience...' 
+    # this commented-out function takes a really long time to load,
+    # so if we use this, we need a 'Brewing your Muggle experience...'
     # loading page
     # hard, middle, easy = get_hikes()
 
@@ -566,4 +566,4 @@ def otherapi(request):
 #        'easy': easy,
         }
     }
-    return render(request, 'otherapi.html', Context(context))
+    return render(request, 'experience.html', Context(context))
