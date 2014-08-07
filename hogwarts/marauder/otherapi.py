@@ -1,72 +1,55 @@
 #!/usr/bin/env python3
 import os
-import urllib.request
+import urllib3.request
 import json
 import traceback
 
 twistory = 'http://twistory.pythonanywhere.com'
 
+def get_json(url):
+    print("URL: " + str(url))
+    http = urllib3.PoolManager()
+    data = http.request('GET', url).data
+    return json.loads(data.decode('utf-8'))
+
 def get_parks():
     '''Get list of all parks.'''
-    try:
-        parks_bytes = urllib.request.urlopen(os.path.join(twistory, 'api/parks')).read()
-        parks_dict = json.loads(parks_bytes.decode('utf-8'))
-        return [k for k in parks_dict.keys()]
-    except Exception:
-        return None
+    parks = get_json(os.path.join(twistory, 'api/parks'))
+    return [k for k in parks.keys()]
 
 def get_hikes():
     '''Get list of hikes in list of strenuous, middle, easy.'''
-
-    hikes_bytes = urllib.request.urlopen(os.path.join(twistory, 'api/hikes')).read()
-    hikes_dict = json.loads(hikes_bytes.decode('utf-8'))
+    hikes = get_json(os.path.join(twistory, 'api/hikes'))
     difficult = []
     moderate = []
     easy = []
-    for key in hikes_dict:
-        try:
-            hike_bytes = urllib.request.urlopen(os.path.join(twistory, 'api/hikes', key)).read()
-            hike_dict = json.loads(hike_bytes.decode('utf-8'))
-            if hike_dict['difficulty'].lower() == 'strenuous':
-                difficult.append(key)
-            elif hike_dict['difficulty'].lower() == 'moderate':
-                moderate.append(key)
-            elif hike_dict['difficulty'].lower() == 'easy':
-                easy.append(key)
-        except Exception:
-            continue
+
+    for key in hikes:
+        hike = get_json(os.path.join(twistory, 'api/hikes', key))
+        if hike['difficulty'].lower() == 'strenuous':
+            difficult.append(key)
+        elif hike['difficulty'].lower() == 'moderate':
+            moderate.append(key)
+        elif hike['difficulty'].lower() == 'easy':
+            easy.append(key)
     return difficult, moderate, easy
 
 def get_hike(name):
     '''Get hike from name.'''
     web_name = name.replace(' ', '%20')
-    try:
-        hike_bytes = urllib.request.urlopen(os.path.join(twistory, 'api/hikes', web_name)).read()
-        hike_dict = json.loads(hike_bytes.decode('utf-8'))
-    except Exception:
-        print(traceback.format_exc())
-        return {'name': 'error', 'time': 'error',
-                'distance': 'error', 'park': 'error',
-                'image': '#', 'difficulty': 'error'}
-    hike_dict['name'] = name
-    hike_dict['time'] = hike_dict['est_time(min)']
-    hike_dict['distance'] = hike_dict['distance(mile)']
-    return hike_dict
+    hike = get_json(os.path.join(twistory, 'api/hikes', web_name))
+    hike['name'] = name
+    hike['time'] = hike['est_time(min)']
+    hike['distance'] = hike['distance(mile)']
+    return hike
 
 def get_park(name):
     '''Get park from name.'''
     web_name = name.replace(' ', '%20')
-    try:
-        park_bytes = urllib.request.urlopen(os.path.join(twistory, 'api/parks', web_name)).read()
-        park_dict = json.loads(park_bytes.decode('utf-8'))
-    except Exception:
-        print(traceback.format_exc())
-        return {'name': 'error', 'max_elevation': 'error',
-                'visitors': 'error', 'state': 'error',
-                'image': '#'}
-    park_dict['name'] = name
-    park_dict['max_elevation'] = park_dict['max_elevation(ft)']
-    park_dict['visitors'] = park_dict['visitors(annual)']
-    return park_dict
+    park = get_json(os.path.join(twistory, 'api/parks', web_name))
+    park['name'] = name
+    park['max_elevation'] = park['max_elevation(ft)']
+    park['visitors'] = park['visitors(annual)']
+    return park
 
 
