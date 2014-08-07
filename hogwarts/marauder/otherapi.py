@@ -62,7 +62,7 @@ def get_park(name):
     except Exception:
         print(traceback.format_exc())
         return {'name': 'error', 'max_elevation': 'error',
-                'visitors': 'error',
+                'visitors': 'error', 'state': 'error',
                 'image': '#'}
     park_dict['name'] = name
     park_dict['max_elevation'] = park_dict['max_elevation(ft)']

@@ -559,9 +559,10 @@ def otherapi(request):
     # hard, middle, easy = get_hikes()
 
     context = {'other':
-        {'parks': get_parks(),
-         'death_valley_buttes': get_hike('Death Valley Buttes'),
+        {'death_valley_buttes': get_hike('Death Valley Buttes'),
          'death_valley': get_park('Death Valley'),
+         'pinery': get_hike('Pinery'),
+         'guadalupe_mountains': get_park('Guadalupe Mountains'),
 #        'strenuous': hard,
 #        'moderate': middle,
 #        'easy': easy,
