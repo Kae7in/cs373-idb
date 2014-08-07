@@ -43,9 +43,21 @@ body {
 }
 
 @-webkit-keyframes pulsate {
-  0% {text-shadow: none;}
-  50% {text-shadow: -1px 1px 8px #ffc, 1px -1px 8px #fff}
-  0% {text-shadow: none;}
+  0% {
+    -webkit-text-shadow: none;
+    -moz-text-shadow: none;
+    text-shadow: none;
+  }
+  50% {
+    -webkit-text-shadow: -1px 1px 8px #ffc, 1px -1px 8px #fff;
+    -moz-text-shadow: -1px 1px 8px #ffc, 1px -1px 8px #fff;
+    text-shadow: -1px 1px 8px #ffc, 1px -1px 8px #fff;
+  }
+  0% {
+    -webkit-text-shadow: none;
+    -moz-text-shadow: none;
+    text-shadow: none;
+  }
 }
 
 /* Wrapper for page content to push down footer */
