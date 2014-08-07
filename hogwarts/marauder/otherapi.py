@@ -40,8 +40,14 @@ def get_hikes():
 def get_hike(name):
     '''Get hike from name.'''
     web_name = name.replace(' ', '%20')
-    hike_bytes = urllib.request.urlopen(os.path.join(twistory, 'api/hikes', web_name)).read()
-    hike_dict = json.loads(hike_bytes.decode('utf-8'))
+    try:
+        hike_bytes = urllib.request.urlopen(os.path.join(twistory, 'api/hikes', web_name)).read()
+        hike_dict = json.loads(hike_bytes.decode('utf-8'))
+    except Exception:
+        print(traceback.format_exc())
+        return {'name': 'error', 'time': 'error',
+                'distance': 'error', 'park': 'error',
+                'image': '#', 'difficulty': 'error'}
     hike_dict['name'] = name
     hike_dict['time'] = hike_dict['est_time(min)']
     hike_dict['distance'] = hike_dict['distance(mile)']
