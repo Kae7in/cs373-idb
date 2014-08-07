@@ -486,7 +486,6 @@ class JSON404Response(HttpResponse):
             status = 404
         )
 
-
 """
   HAYSTACK SEARCH
 """
@@ -561,17 +560,13 @@ def otherapi(request):
     # so if we use this, we need a 'Brewing your Muggle experience...'
     # loading page
     # hard, middle, easy = get_hikes()
-
-    context = {'other':
-        {'death_valley_buttes': get_hike('Death Valley Buttes'),
-         'death_valley': get_park('Death Valley'),
-         'pinery': get_hike('Pinery'),
-         'guadalupe_mountains': get_park('Guadalupe Mountains'),
-         'rock_creek': get_hike('Rock Creek'),
-         'denali': get_park('Denali'),
-#        'strenuous': hard,
-#        'moderate': middle,
-#        'easy': easy,
-        }
+    difficult, moderate, easy = get_one_hike_for_each_difficulty()
+    context = {
+        'difficult_hike': difficult,
+        'moderate_hike': moderate,
+        'easy_hike': easy,
+        'difficult_park': get_park(difficult['park']),
+        'moderate_park': get_park(moderate['park']),
+        'easy_park': get_park(easy['park'])
     }
     return render(request, 'experience.html', Context(context))

@@ -17,7 +17,7 @@ def get_parks():
     parks = get_json(os.path.join(twistory, 'api/parks'))
     return [k for k in parks.keys()]
 
-def get_hikes():
+def get_hikes(just_one):
     '''Get list of hikes in list of strenuous, middle, easy.'''
     hikes = get_json(os.path.join(twistory, 'api/hikes'))
     difficult = []
@@ -32,6 +32,15 @@ def get_hikes():
             moderate.append(key)
         elif hike['difficulty'].lower() == 'easy':
             easy.append(key)
+        if(just_one and len(difficult) >= 1 and len(moderate) >= 1 and len(easy) >= 1):
+            break
+    return difficult, moderate, easy
+
+def get_one_hike_for_each_difficulty():
+    difficult, moderate, easy = get_hikes(True)
+    difficult = get_json(os.path.join(twistory, 'api/hikes', difficult.pop()))
+    moderate = get_json(os.path.join(twistory, 'api/hikes', moderate.pop()))
+    easy = get_json(os.path.join(twistory, 'api/hikes', easy.pop()))
     return difficult, moderate, easy
 
 def get_hike(name):
