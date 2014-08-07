@@ -563,6 +563,8 @@ def otherapi(request):
          'death_valley': get_park('Death Valley'),
          'pinery': get_hike('Pinery'),
          'guadalupe_mountains': get_park('Guadalupe Mountains'),
+         'rock_creek': get_hike('Rock Creek'),
+         'denali': get_park('Denali'),
 #        'strenuous': hard,
 #        'moderate': middle,
 #        'easy': easy,
