@@ -4,6 +4,5 @@
 {{ object.alias }}
 {{ object.effect }}
 {{ object.creator }}
-{{ object.notable_uses }}
 {{ object.difficulty }}
 {{ object.kind }}
