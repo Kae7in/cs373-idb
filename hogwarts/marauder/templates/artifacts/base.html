@@ -49,4 +49,15 @@
 </div>
 {% endif %}
 
+{% if artifact.shop %}
+<div class='row'>
+  <div class='col-md-12'>
+    <h3>SHOP</h3>
+    {% block shop %}
+        <a href="{% url 'shop' artifact.shop.id %}">{{ artifact.shop.name }}</a><br />
+    {% endblock shop %}
+  </div>
+</div>
+{% endif %}
+
 {% endblock content %}
