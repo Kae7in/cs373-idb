@@ -22,7 +22,7 @@
 <div class='row'>
         <div class='col-md-12'>
             <br/>
-            For the low price of 19 Galleons per hour, you can get away from your boring wizard life and go on the vacation of a lifetime.
+            For the low price of 53 Galleons per hour, you can get away from your boring wizard life and go on the vacation of a lifetime.
             Come hike across the most amazing non-magical wonders the Muggle world has to offer!
             <br/>
             <br/>
@@ -46,7 +46,7 @@
                 {% endif %}
             </h3>
                 <p>
-                If you enjoy trips to the Forbidden Forest, the {{difficult_hike.name}} hike is the adventure for you. It spans {{difficult_hike.distance}} miles and takes approximately {{difficult_hike.time}} minutes to complete.</p> 
+                If you enjoy trips to the Forbidden Forest, the {{difficult_hike.name}} hike is the adventure for you. It spans {{difficult_hike.distance}} miles and takes approximately {{difficult_hike.time}} minutes to complete.</p>
                 <p>This hike is located in {% if not difficult_park.error %}<a href='http://twistory.pythonanywhere.com/parks/{{difficult_park.name}}'>{% endif %}{{difficult_park.name}} National Park{% if not difficult_park.error %}</a>{% endif %} in {{difficult_park.state}}.
                 This park has {{difficult_park.visitors}} visitors per year, and most of them are Dementors.
                 Don't be surprised if during your {{difficult_hike.difficulty|lower}} hike you happen to catch a happy Dementor family enjoying a barbecue or a picnic.
