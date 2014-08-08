@@ -78,7 +78,17 @@
       <div class='row'>
         <div class="col-md-12 top-index">
           <div id='content'>
-            {% block content %}{% endblock content %}
+              <div class='row'>
+                <div class='col-md-12'>
+                  <ol class="breadcrumb">
+                    <li><a href="/">Home</a></li>
+                    {% block breadcrumbs_items %}
+                    {% endblock breadcrumbs_items %}
+                  </ol>
+                </div>
+              </div>
+            {% block content %}
+            {% endblock content %}
           </div>
         </div>
       </div> <!-- /row -->

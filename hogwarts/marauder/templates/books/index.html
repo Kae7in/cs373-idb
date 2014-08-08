@@ -4,6 +4,10 @@
 
 {% load render_table from django_tables2 %}
 
+{% block breadcrumbs_items %}
+<li class='active'>Books</a></li>
+{% endblock breadcrumbs_items %}
+
 {% block content %}
 	{% render_table table %}
 {% endblock content %}
