@@ -14,27 +14,48 @@
 
 <div class='row'>
         <div class='col-xs-12 col-md-6 col-sm-6 info-group'>
-                <ul class='list-group info-group-list'>
-                        <li class='list-group-item'>
-                                The Six Potters:<br/>
-                                Amanda Steinwedel,
-                                Angela Hsu,
-                                David Moench,
-                                Isabella Bhardwaj,
-                                Stephen Arnett, and
-                                Kaelin Hooper
-                        </li>
-                        <li class='list-group-item'>
-                                First Leader: Amanda Steinwedel<br/>
-                                Second Leader: Kaelin Hooper<br/>
-                                Third Leader: Angela Hsu<br/>
-                        </li>
-                </ul>
+            <ul class='timeline-single'>
+                <li class='timeline-inverted'>
+                    <div class='timeline-badge info'><i class='glyphicon glyphicon-info-sign'></i></div>
+                    <div class='timeline-panel'>
+                        <div class='timeline-heading'></div>
+                        <div class='timeline-body'>
+                            <ul class='list-group info-group-list'>
+                                <li class='list-group-item'>
+                                    First Leader: Amanda Steinwedel<br/>
+                                    Second Leader: Kaelin Hooper<br/>
+                                    Third Leader: Angela Hsu<br/>
+                                    <hr>
+                                </li>
+                                <li class='list-group-item'>
+                                    Tools utlized:
+                                    <ul class='two-column-list' style='-webkit-padding-start: 15px;'>
+                                        <li>Python</li>
+                                        <li>Django</li>
+                                        <li>MySQL</li>
+                                        <li>Twitter Bootstrap</li>
+                                        <li>PythonAnywhere</li>
+                                        <li>Apiary</li>
+                                        <li>Haystack</li>
+                                        <li>Whoosh</li>
+                                        <li>virtualenv</li>
+                                        <li>pip</li>
+                                        <li>mysql-connector-python</li>
+                                        <li>django-haystack</li>
+                                        <li>django-tables2</li>
+                                    </ul>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                </li>
+            </ul>
+
         </div>
 
         <div class='col-xs-12 col-md-6 col-sm-6'>
                 <div class='main-image pull-right'>
-                        <img class='list-group-item' src='{{STATIC_URL}}/images/7-potters.jpg'>
+                        <img src='{{STATIC_URL}}/images/7-potters.jpg'>
                 </div>
         </div>
 </div>
@@ -202,28 +223,6 @@
     </li>
 </ul>
 </div>
-</div>
-
-<div class='row'>
-    <div class='col-md-12'>
-        <h3 class='uppercase'>Tools Utilized:</h3>
-        <ul>
-            <li>Python</li>
-            <li>Django</li>
-            <li>MySQL</li>
-            <li>Twitter Bootstrap</li>
-            <li>PythonAnywhere</li>
-            <li>Apiary</li>
-            <li>Haystack</li>
-            <li>Whoosh</li>
-            <li>virtualenv</li>
-            <li>pip</li>
-            <li>mysql-connector-python</li>
-            <li>django-haystack</li>
-            <li>django-tables2</li>
-            <li>urllib3</li>
-        </ul>
-    </div>
 </div>
 
 {% endblock content %}

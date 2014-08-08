@@ -1,7 +1,35 @@
 @import url('http://fonts.googleapis.com/css?family=Open+Sans:200,300');
 
+.main-image img, .shadow-box {
+  -webkit-box-shadow: 0 1px 6px rgba(0, 0, 0, 0.175);
+  -moz-box-shadow: 0 1px 6px rgba(0, 0, 0, 0.175);
+  -o-box-shadow: 0 1px 6px rgba(0, 0, 0, 0.175);
+  box-shadow: 0 1px 6px rgba(0, 0, 0, 0.175);
+  border: 1px solid #d4d4d4;
+  border-radius: 2px;
+  padding: 10px;
+}
 
-.timeline {
+.shadow-box {
+  display: table;
+}
+
+.two-column-list {
+   columns: 2;
+  -webkit-columns: 2;
+  -moz-columns: 2;
+}
+
+.list-group-item {
+  border: 0px !important;
+}
+
+.list-group-item hr {
+  margin-bottom: 0px;
+  border-color: #e7e7e7;
+}
+
+.timeline, .timeline-single {
   list-style: none;
   padding: 20px 0 20px;
   position: relative;
@@ -18,41 +46,52 @@
   margin-left: -1.5px;
 }
 
-.timeline > li {
+.timeline > li, .timeline-single > li {
   margin-bottom: 20px;
   position: relative;
 }
 
-.timeline > li:before, .timeline > li:after {
+.timeline > li:before, .timeline > li:after,
+.timeline-single > li:before,  .timeline-single > li:after {
   content: " ";
   display: table;
 }
 
-.timeline > li:after {
+.timeline > li:after,  .timeline-single > li:after {
   clear: both;
 }
 
-.timeline > li:before, .timeline > li:after {
+.timeline > li:before, .timeline > li:after,
+ .timeline-single > li:before,  .timeline-single  > li:after {
   content: " ";
   display: table;
 }
 
-.timeline > li:after {
+.timeline > li:after, .timeline-single > li:after {
   clear: both;
 }
 
-.timeline > li > .timeline-panel {
-  width: 46%;
+.timeline > li > .timeline-panel,  .timeline-single > li > .timeline-panel {
+  width: 45%;
   float: left;
   border: 1px solid #d4d4d4;
   border-radius: 2px;
   padding: 20px;
   position: relative;
   -webkit-box-shadow: 0 1px 6px rgba(0, 0, 0, 0.175);
+  -moz-box-shadow: 0 1px 6px rgba(0, 0, 0, 0.175);
+  -o-box-shadow: 0 1px 6px rgba(0, 0, 0, 0.175);
   box-shadow: 0 1px 6px rgba(0, 0, 0, 0.175);
 }
 
-.timeline > li > .timeline-panel:before {
+.timeline-single > li > .timeline-panel {
+  width: auto;
+  padding: 0px;
+  margin-left: 50px;
+}
+
+.timeline > li > .timeline-panel:before,
+.timeline-single > li > .timeline-panel:before {
   position: absolute;
   top: 26px;
   right: -15px;
@@ -64,7 +103,8 @@
   content: " ";
 }
 
-.timeline > li > .timeline-panel:after {
+.timeline > li > .timeline-panel:after,
+ .timeline-single > li > .timeline-panel:after {
   position: absolute;
   top: 27px;
   right: -14px;
@@ -76,7 +116,8 @@
   content: " ";
 }
 
-.timeline > li > .timeline-badge {
+.timeline > li > .timeline-badge,
+.timeline-single > li > .timeline-badge {
   color: #fff;
   width: 50px;
   height: 50px;
@@ -94,19 +135,27 @@
   border-bottom-right-radius: 50%;
   border-bottom-left-radius: 50%;
 }
+.timeline-single > li > .timeline-badge {
+  left: 0%;
+  margin-left: -25px;
+}
+
 
 .timeline > li.timeline-inverted > .timeline-panel {
   float: right;
+  width: 44%;
 }
 
-.timeline > li.timeline-inverted > .timeline-panel:before {
+.timeline > li.timeline-inverted > .timeline-panel:before,
+.timeline-single > li.timeline-inverted > .timeline-panel:before {
   border-left-width: 0;
   border-right-width: 15px;
   left: -15px;
   right: auto;
 }
 
-.timeline > li.timeline-inverted > .timeline-panel:after {
+.timeline > li.timeline-inverted > .timeline-panel:after,
+.timeline-single > li.timeline-inverted > .timeline-panel:after {
   border-left-width: 0;
   border-right-width: 14px;
   left: -14px;
@@ -319,34 +368,39 @@ th, td {
 
 @media (max-width: 768px): {
 
-  ul.timeline:before {
+  ul.timeline:before, ul.timeline-single:before {
     left: 40px;
   }
 
-  ul.timeline > li > .timeline-panel {
+  ul.timeline > li > .timeline-panel, 
+  ul.timeline-single > li > .timeline-panel {
     width: calc(100% - 90px);
     width: -moz-calc(100% - 90px);
     width: -webkit-calc(100% - 90px);
   }
 
-  ul.timeline > li > .timeline-badge {
+  ul.timeline > li > .timeline-badge,
+  ul.timeline-single > li > .timeline-badge {
     left: 15px;
     margin-left: 0;
     top: 16px;
   }
 
-  ul.timeline > li > .timeline-panel {
+  ul.timeline > li > .timeline-panel,
+  ul.timeline-single > li > .timeline-panel {
     float: right;
   }
 
-  ul.timeline > li > .timeline-panel:before {
+  ul.timeline > li > .timeline-panel:before,
+  ul.timeline-single > li > .timeline-panel:before {
     border-left-width: 0;
     border-right-width: 15px;
     left: -15px;
     right: auto;
   }
 
-  ul.timeline > li > .timeline-panel:after {
+  ul.timeline > li > .timeline-panel:after,
+  ul.timeline-single > li > .timeline-panel:after {
     border-left-width: 0;
     border-right-width: 14px;
     left: -14px;
