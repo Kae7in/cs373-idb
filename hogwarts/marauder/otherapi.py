@@ -1,6 +1,7 @@
 #!/usr/bin/env python3
 import os
-import urllib3.request
+#import urllib3.request
+import requests
 import json
 import traceback
 from marauder.models import Creature
@@ -10,10 +11,13 @@ twistory = 'http://twistory.pythonanywhere.com'
 
 def get_json(url):
     try:
-        http = urllib3.PoolManager()
-        data = http.request('GET', url).data
-        return json.loads(data.decode('utf-8'))
+        resp = requests.get(url)
+        return resp.json()
+#        http = urllib3.PoolManager()
+#        data = http.request('GET', url).data
+#        return json.loads(data.decode('utf-8'))
     except Exception:
+        print(traceback.format_exc())
         return None
 
 def get_parks():
@@ -69,6 +73,7 @@ def get_hike(name):
         hike['distance'] = hike['distance(mile)']
         return hike
     except Exception:
+        print(traceback.format_exc())
         return None
 
 def get_park(name):
@@ -80,6 +85,7 @@ def get_park(name):
         park['visitors'] = park['visitors(annual)']
         return park
     except Exception:
+        print(traceback.format_exc())
         return None
 
 #def get_creature(rating):
