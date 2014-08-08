@@ -31,15 +31,18 @@ def get_hikes(just_one):
         easy = []
 
         for key in hikes:
-            hike = get_json(os.path.join(twistory, 'api/hikes', key))
-            if hike['difficulty'].lower() == 'strenuous':
-                difficult.append(key)
-            elif hike['difficulty'].lower() == 'moderate':
-                moderate.append(key)
-            elif hike['difficulty'].lower() == 'easy':
-                easy.append(key)
-            if(just_one and len(difficult) >= 1 and len(moderate) >= 1 and len(easy) >= 1):
-                break
+            try:
+                hike = get_json(os.path.join(twistory, 'api/hikes', key))
+                if hike['difficulty'].lower() == 'strenuous':
+                    difficult.append(key)
+                elif hike['difficulty'].lower() == 'moderate':
+                    moderate.append(key)
+                elif hike['difficulty'].lower() == 'easy':
+                    easy.append(key)
+                if(just_one and len(difficult) >= 1 and len(moderate) >= 1 and len(easy) >= 1):
+                    break
+            except MaxRetryError:
+                pass
         return difficult, moderate, easy
     except Exception:
         return None
