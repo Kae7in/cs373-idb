@@ -14,45 +14,51 @@
         </div>
 <div class='row'>
    	<div class='col-xs-12 col-md-6 col-sm-6 info-group'>
-   		<ul class='list-group info-group-list'>
-			{% if house.founder %}
-			<li class='list-group-item'>
-				Founded by 
-				{% if not house.founder.hidden %}
-				 	<a href="{% url 'character' house.founder.id %}">
-				{% endif %}
-				{{ house.founder.name }}
-				{% if not house.founder.hidden %}
-					</a>
-				{% endif %}				
+   		<ul class='timeline-single'>
+            <li class='timeline-inverted'>
+                <div class='timeline-badge info'><i class='glyphicon glyphicon-info-sign'></i></div>
+                <div class='timeline-panel'>
+        	        <div class='timeline-body'>
+   						<ul class='list-group info-group-list'>
+							{% if house.founder %}
+								<li class='list-group-item'>
+									Founded by 
+									{% if not house.founder.hidden %}
+				 						<a href="{% url 'character' house.founder.id %}">
+									{% endif %}
+									{{ house.founder.name }}
+									{% if not house.founder.hidden %}
+										</a>
+									{% endif %}				
+								</li>
+							{% endif %}
+							{% if house.school %}
+								<li class='list-group-item'>
+									School: <a href="{% url 'school' house.school.id %}">{{ house.school.name }}</a>
+								</li>
+							{% endif %}
+							{% if house.ghost %}
+								<li class='list-group-item'>
+									Haunted by  
+									{% if not house.ghost.hidden %}
+				 						<a href="{% url 'character' house.ghost.id %}">
+									{% endif %}
+									{{ house.ghost.name }}
+									{% if not house.ghost.hidden %}
+										</a>
+									{% endif %}
+								</li>
+							{% endif %}
+							<li class='list-group-item'>
+								House Colors: {{ house.colors|capfirst }}
+							</li>
+							<li class='list-group-item'>
+								Mascot: {{ house.mascot|capfirst }}
+							</li>
+						</ul>
+					</div>
+				</div>
 			</li>
-			{% endif %}
-			{% if house.school %}
-				<li class='list-group-item'>
-				School
-				 	<a href="{% url 'school' house.school.id %}">{{ house.school.name }}</a>
-				</li>
-			{% endif %}
-			{% if house.ghost %}
-			<li class='list-group-item'>
-				Haunted by  
-				{% if not house.ghost.hidden %}
-				 	<a href="{% url 'character' house.ghost.id %}">
-				{% endif %}
-				{{ house.ghost.name }}
-				{% if not house.ghost.hidden %}
-					</a>
-				{% endif %}
-			</li>
-			{% endif %}
-			<li class='list-group-item'>
-				House Colors: {{ house.colors|capfirst }}
-			</li>
-			<li class='list-group-item'>
-				Mascot: {{ house.mascot|capfirst }}
-			</li>
-
-
 		</ul>
 		<blockquote>
 			<p>{{ house.quote|safe }}</p>
@@ -78,19 +84,30 @@
 {% if house.members.all %}
  	<div class='row'>
 	  	<div class='col-md-12'>
-			<h3>MEMBERS</h3>
-			{% for member in house.members.all %}
-				{% if member.id != house.ghost.id and member.id != house.founder.id %}
-					{% if not member.hidden %}
-		  				<a href="{% url 'character' member.id %}">
-		  			{% endif %}
-		  			{{ member.name }}
-		  			{% if not member.hidden %}
-		  				</a>
-		  			{% endif %}
-		  		<br/>
-				{% endif %}
-			{% endfor %}
+	  		<ul class='timeline-single'>
+            	<li class='timeline-inverted'>
+                	<div class='timeline-badge danger'><i class='glyphicon glyphicon-user'></i></div>
+                	<div class='timeline-panel' style='padding: 20px;'>
+                		<div class='timeline-heading'>
+                			<h4 class='timeline-title'>MEMBERS</h4>
+                		</div>
+        	        	<div class='timeline-body'>
+							{% for member in house.members.all %}
+								{% if member.id != house.ghost.id and member.id != house.founder.id %}
+									{% if not member.hidden %}
+		  								<a href="{% url 'character' member.id %}">
+		  							{% endif %}
+		  							{{ member.name }}
+		  							{% if not member.hidden %}
+		  								</a>
+		  							{% endif %}
+		  							<br/>
+								{% endif %}
+							{% endfor %}
+						</div>
+					</div>
+				</li>
+			</ul>
 		</div>
 	</div>
 {% endif %}
