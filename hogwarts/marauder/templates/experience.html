@@ -1,4 +1,4 @@
-{% extends "base.html" %}
+    {% extends "base.html" %}
 
 {%block experience-active%}active{%endblock experience-active%}
 
@@ -40,7 +40,13 @@
                 <img src='{{difficult_hike.image}}'/>
             </div>
             <li>
-                <div class='timeline-badge danger'><i class='glyphicon glyphicon-user'></i></div>
+                <div class='timeline-badge danger'>
+                    {% if difficult_hike.error %}
+                        <img src='{{ STATIC_URL }}images/skull_glyphicon.png'/>
+                    {% else %}
+                        <i class='glyphicon glyphicon-globe'></i>
+                    {% endif %}
+                </div>
                 <div class='timeline-panel'>
                     <div class='timeline-heading'>
                         <h4 class='timeline-title'>
@@ -68,7 +74,13 @@
                 <img src='{{moderate_hike.image}}'/>
             </div>
             <li class="timeline-inverted">
-                <div class='timeline-badge warning'><i class='glyphicon glyphicon-user'></i></div>
+                <div class='timeline-badge warning'>
+                    {% if moderate_hike.error %}
+                        <img src='{{ STATIC_URL }}images/skull_glyphicon.png'/>
+                    {% else %}
+                        <i class='glyphicon glyphicon-globe'></i>
+                    {% endif %}
+                </div>
                 <div class='timeline-panel'>
                     <div class='timeline-heading'>
                         <h4 class='timeline-title'>
@@ -94,7 +106,13 @@
                 <img src='{{easy_hike.image}}'/>
             </div>
             <li>
-                <div class='timeline-badge success'><i class='glyphicon glyphicon-user'></i></div>
+                <div class='timeline-badge success'>
+                    {% if easy_hike.error %}
+                        <img src='{{ STATIC_URL }}images/skull_glyphicon.png'/>
+                    {% else %}
+                        <i class='glyphicon glyphicon-globe'></i>
+                    {% endif %}
+                </div>
                 <div class='timeline-panel'>
                     <div class='timeline-heading'>
                         <h4 class='timeline-title'>
