@@ -33,6 +33,7 @@
         </div>
 </div>
 
+<div class='timeline-content'>
 <div class='row'>
     <div class='col-md-12'>
         <ul class='timeline'>
@@ -135,6 +136,96 @@
             </li>
         </ul>
     </div>
+</div>
+</div>
+
+<div class='mobile-content'>
+    <div class='row'>
+        <div class='col-xs-12 col-md-6 col-sm-6'>
+            <div class='shadow-box'>
+            <h3>
+                For An Adventurous Outing:<br/>
+                {% if not difficult_hike.error %}
+                    <a href='http://twistory.pythonanywhere.com/hikes/{{difficult_hike.name}}'>
+                {% endif %}
+                {{difficult_hike.name}}
+                {% if not difficult_hike.error %}
+                    </a>
+                {% endif %}
+            </h3>
+                <p>
+                If you enjoy trips to the Forbidden Forest, the {{difficult_hike.name}} hike is the adventure for you. It spans {{difficult_hike.distance}} miles and takes approximately {{difficult_hike.time}} minutes to complete.</p>
+                <p>This hike is located in {% if not difficult_park.error %}<a href='http://twistory.pythonanywhere.com/parks/{{difficult_park.name}}'>{% endif %}{{difficult_park.name}} National Park{% if not difficult_park.error %}</a>{% endif %} in {{difficult_park.state}}.
+                This park has {{difficult_park.visitors}} visitors per year, and most of them are Dementors.
+                Don't be surprised if during your {{difficult_hike.difficulty|lower}} hike you happen to catch a happy Dementor family enjoying a barbecue or a picnic.
+                Be sure to bring lots of water! You don't want to get dehydrated.</p>
+        </div>
+    </div>
+        <div class='col-xs-12 col-md-6 col-sm-6'>
+            <div class='main-image pull-right list-group-item'>
+                <img src='{{difficult_hike.image}}'/>
+            </div>
+        </div>
+</div>
+
+
+<div class='row'>
+    <br/>
+</div>
+
+<div class='row'>
+        <div class='col-xs-12 col-md-6 col-sm-6'>
+            <div class='shadow-box'>
+            <h3>For A More Moderate Climb:<br/>
+                {% if not moderate_hike.error %}
+                    <a href='http://twistory.pythonanywhere.com/hikes/{{moderate_hike.name}}'>
+                {% endif %}
+                {{moderate_hike.name}}
+                {% if not moderate_hike.error %}
+                    </a>
+                {% endif %}
+            </h3><p>
+                If Hogsmeade is more your style than the Forbidden Forest, {{moderate_hike.name}} will be a great hike for you and your friends. It spans {{moderate_hike.distance}} miles and takes approximately {{moderate_hike.time}} minutes to complete.</p>
+                <p>{{moderate_hike.name}} is a hike of {{moderate_hike.difficulty|lower}} difficulty located in {% if not moderate_park.error %}<a href='http://twistory.pythonanywhere.com/parks/{{moderate_park.name}}'>{% endif %}{{moderate_park.name}}{% if not moderate_park.error %} National Park</a>{% endif %} in {{moderate_park.state}}. After hiking the trail,
+                cool off with a swim in the creek. If you look closely, hidden among the usual Muggle-world fauna are a
+                few scattered centaurs and woefully displaced house elves.</p>
+
+        </div>
+    </div>
+        <div class='col-xs-12 col-md-6 col-sm-6'>
+            <div class='main-image pull-right list-group-item'>
+                <img src='{{moderate_hike.image}}'/>
+            </div>
+        </div>
+</div>
+
+<div class='row'>
+    <br/>
+</div>
+
+<div class='row'>
+        <div class='col-xs-12 col-md-6 col-sm-6'>
+            <div class='shadow-box'>
+                <h3>For A Relaxing Stroll:<br/>
+                    {% if not easy_hike.error %}
+                        <a href='http://twistory.pythonanywhere.com/hikes/{{easy_hike.name}}'>
+                    {% endif %}
+                    {{easy_hike.name}}
+                    {% if not easy_hike.error %}
+                        </a>
+                    {% endif %}
+                </h3>
+                <p>If your ideal Saturday afternoon is a stroll down Diagon Alley, come to {{easy_hike.name}} in {% if not easy_park.error %}<a href='http://twistory.pythonanywhere.com/parks/{{easy_park.name}}'>{% endif %}{{easy_park.name}} National Park{% if not easy_park.error %}</a>{% endif %}!</p>
+                <p>Located in {{easy_park.state}}, {{easy_hike.name}} is a relaxing and {{easy_hike.difficulty|lower}} hike. This {{easy_hike.distance}} mile, approximately {{easy_hike.time}}-minute hike is so breezy, by the time you reach the
+                end of the trail you will feel like you just apparated there! And you won't come across anything more dangerous than a Flobberworm.</p>
+            </div>
+        </div>
+        <div class='col-xs-12 col-md-6 col-sm-6'>
+            <div class='main-image pull-right list-group-item'>
+                <img src='{{ easy_hike.image }}'/>
+            </div>
+        </div>
+</div>
 </div>
 
 {% endblock content %}
