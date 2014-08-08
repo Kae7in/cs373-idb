@@ -11,9 +11,6 @@
 <div class='row'>
   <div class='col-xs-12 col-md-8 col-sm-6 info-group'>
     <h1 class="uppercase">{% block name %}{{ artifact.name }}{% endblock name %}</h1>
-    <ul class='list-group info-group-list'>
-      {% block info_group %}{% endblock info_group %}
-    </ul>
 </div>
 
 <div class='row'>
@@ -24,45 +21,60 @@
 
 <div class='row'>
 	<div class='col-md-12' id='description'>
-		{% block description %}{{ artifact.description|safe }}{% endblock description %}
+		{{ artifact.description|safe }}
 	</div>
 </div>
 
-{% if artifact.owners.all %}
 <div class='row'>
   <div class='col-md-12'>
-    <h3>OWNERS</h3>
-    {% block owners %}
-        {% for character in artifact.owners.all %}
-            <a href="{% url 'character' character.id %}">{{ character.name }}</a><br />
-        {% endfor %}
-    {% endblock owners %}
-  </div>
-</div>
-{% endif %}
+    <ul class='timeline'>
+      <li class="{% cycle 'timeline-inverted' '' as inversion %}" style='display: none;'></li>
+        {% if artifact.owners.all %}
+          <li class="{% cycle inversion %}">
+            <div class='timeline-badge danger'><i class='glyphicon glyphicon-user'></i></div>
+            <div class='timeline-panel'>
+              <div class='timeline-heading'>
+                <h4 class='timeline-title'>OWNERS</h4>
+              </div>
+              <div class='timeline-body'>
+                {% for character in artifact.owners.all %}
+                  <a href="{% url 'character' character.id %}">{{ character.name }}</a><br />
+                {% endfor %}
+              </div>
+            </div>
+          </li>
+        {% endif %}
 
-{% if artifact.stories.all %}
-<div class='row'>
-  <div class='col-md-12'>
-    <h3>STORIES</h3>
-    {% block stories %}
-        {% for story in artifact.stories.all %}
-            <a href="{% url 'story' story.id %}">{{ story.name }}</a><br />
-        {% endfor %}
-    {% endblock stories %}
-  </div>
-</div>
-{% endif %}
+        {% if artifact.stories.all %}
+          <li class="{% cycle inversion %}">
+            <div class='timeline-badge success'><i class='glyphicon glyphicon-leaf'></i></div>
+            <div class='timeline-panel'>
+              <div class='timeline-heading'>
+                <h4 class='timeline-title'>Stories</h4>
+              </div>
+              <div class='timeline-body'>
+                {% for story in artifact.stories.all %}
+                  <a href="{% url 'story' story.id %}">{{ story.name }}</a><br />
+                {% endfor %}
+              </div>
+            </div>
+          </li>
+        {% endif %}
 
-{% if artifact.shop %}
-<div class='row'>
-  <div class='col-md-12'>
-    <h3>SHOP</h3>
-    {% block shop %}
-        <a href="{% url 'shop' artifact.shop.id %}">{{ artifact.shop.name }}</a><br />
-    {% endblock shop %}
+        {% if artifact.shop %}
+          <li class="{% cycle inversion %}">
+            <div class='timeline-badge'><i class='glyphicon glyphicon-shopping-cart'></i></div>
+            <div class='timeline-panel'>
+              <div class='timeline-heading'>
+                <h4 class='timeline-title'>SOLD BY</h4>
+              </div>
+              <div class='timeline-body'>
+                <a href="{% url 'shop' artifact.shop.id %}">{{ artifact.shop.name }}</a><br />
+              </div>
+            </div>
+          </li>
+        {% endif %}
+      </ul>
+    </div>
   </div>
-</div>
-{% endif %}
-
 {% endblock content %}
