@@ -7,7 +7,6 @@ import traceback
 twistory = 'http://twistory.pythonanywhere.com'
 
 def get_json(url):
-    print("URL: " + str(url))
     http = urllib3.PoolManager()
     data = http.request('GET', url).data
     return json.loads(data.decode('utf-8'))

@@ -18,7 +18,7 @@ BASE_DIR = os.path.dirname(os.path.dirname(__file__))
 SECRET_KEY = 'ex629+bp_*v#e8*b2#&%f!z9p_ass74vn^o=wi30jjdp=1kv-*'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = False
+DEBUG = True
 
 TEMPLATE_DEBUG = False
 
@@ -36,7 +36,7 @@ INSTALLED_APPS = (
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'marauder',
-    'south',
+#    'south',
     'django_tables2',
     'haystack'
 )
@@ -58,23 +58,19 @@ WSGI_APPLICATION = 'hogwarts.wsgi.application'
 # https://docs.djangoproject.com/en/1.6/ref/settings/#databases
 
 DATABASES = {
-    'default': { 'ENGINE': 'mysql.connector.django',
-        'NAME': 'domoench$default',
-        'USER': 'domoench',
-        'PASSWORD': 'lemonsherbert',
-        'HOST': 'mysql.server',
-        'TEST_NAME': 'domoench$test_default',
+    'default': { 'ENGINE': 'django.db.backends.sqlite3',
+        'NAME': os.path.join(BASE_DIR, 'db.sqlite3'),
     }
 }
 
-SOUTH_DATABASE_ADAPTERS = {
-   'default': 'south.db.mysql'
-}
+#SOUTH_DATABASE_ADAPTERS = {
+#   'default': 'south.db.mysql'
+#}
 
-SOUTH_TESTS_MIGRATE = False
-SKIP_SOUTH_TESTS = True
+#SOUTH_TESTS_MIGRATE = False
+#SKIP_SOUTH_TESTS = True
 
-# Haystack Connection to Whoosh Index Directory 
+# Haystack Connection to elasticsearch server
 HAYSTACK_CONNECTIONS = {
     'default': {
         'ENGINE': 'haystack.backends.whoosh_backend.WhooshEngine',
@@ -101,5 +97,5 @@ USE_TZ = True
 
 STATIC_URL = '/static/'
 
-MEDIA_ROOT = '/home/domoench/cs373-idb/hogwarts/marauder/media'
+MEDIA_ROOT = '/Users/ayh123/Dropbox/Projects/venv/cs373-idb/hogwarts/marauder/media'
 MEDIA_URL = '/media/'
