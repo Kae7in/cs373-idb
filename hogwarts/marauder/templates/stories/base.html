@@ -55,7 +55,7 @@
 <div class='row'>
 	<div class='col-md-12'>
 		<ul class='timeline'>
-			<li class="{% cycle 'timeline-inverted' '' as inversion %}>" style='display: none;'></li>
+			<li class="{% cycle 'timeline-inverted' '' as inversion %}" style='display: none;'></li>
 			{% if story.characters.all %}
 				<li class="{% cycle inversion %}">
  					<div class='timeline-badge danger'><i class='glyphicon glyphicon-user'></i></div>
@@ -80,7 +80,7 @@
 			{% endif %}
 
 			{% if story.artifacts.all %}
-				<li classs="{% cycle inversion %}">
+				<li class="{% cycle inversion %}">
  					<div class='timeline-badge warning'><i class='glyphicon glyphicon-glass'></i></div>
         			<div class='timeline-panel'>
             			<div class='timeline-heading'>
