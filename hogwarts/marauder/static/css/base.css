@@ -205,6 +205,14 @@
   color: inherit;
 }
 
+.timeline-body {
+  display: table-cell;
+}
+
+.timeline-panel {
+  min-height: 70px !important;
+}
+
 .timeline-body > p, .timeline-body > ul {
   margin-bottom: 0;
 }
