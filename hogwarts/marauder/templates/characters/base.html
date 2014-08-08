@@ -130,9 +130,10 @@
 <div class='row'>
 	<div class='col-md-12'>
 		<ul class='timeline'>
+			<li class="{% cycle 'timeline-inverted' '' as inversion %}>" style='display: none;'></li>
 			{% if character.stories.all %}
- 				<li class"{% cycle '' 'timeline-inverted' as inversion %}">
- 					<div class='timeline-badge info'><i class='glyphicon glyphicon-leaf'></i></div>
+ 				<li class="{% cycle inversion %}">
+ 					<div class='timeline-badge success'><i class='glyphicon glyphicon-leaf'></i></div>
         			<div class='timeline-panel'>
             			<div class='timeline-heading'>
                 			<h4 class='timeline-title'>STORIES</h4>
@@ -148,7 +149,7 @@
 
 			{% if character.books_published.all or character.books_starred.all %}
  				<li class='{% cycle inversion %}'>
- 					<div class='timeline-badge success'><i class='glyphicon glyphicon-book'></i></div>
+ 					<div class='timeline-badge'><i class='glyphicon glyphicon-book'></i></div>
         			<div class='timeline-panel'>
             			<div class='timeline-heading'>
                 			<h4 class='timeline-title'>BIBLIOGRAPHY</h4>
