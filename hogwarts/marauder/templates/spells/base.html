@@ -20,7 +20,7 @@
 			<li class='list-group-item'>{% if spell.unforgivable %}Unforgivable{% endif %} {{ spell.kind }}</li>
 			<li class='list-group-item'>Level is {{ spell.difficulty }}</li>
 			{% if spell.creature %}
-			<li class='list-group-item'>Affects 
+			<li class='list-group-item'>Affects
 			    <a href="{% url 'creature' spell.creature.id %}">
 			        {{ spell.creature.name }}
 			    </a><br />
@@ -46,7 +46,7 @@
 <div class='row'>
 	<div class='col-md-12 block-text'>
 		<h3>NOTABLE USES</h3>
-		{{ spell.notable_uses }}
+		{{ spell.notable_uses|safe }}
 	</div>
 </div>
 
