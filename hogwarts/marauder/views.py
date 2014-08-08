@@ -562,7 +562,7 @@ def otherapi(request):
     # loading page
     # hard, middle, easy = get_hikes()
     error_hike = {'name': '[Voldemort has intercepted this message]', 'image':  settings.STATIC_URL+'images/happy-voldemort.gif', 'error': True}
-    error_park = {'name': '[Voldemort has intercepted this message]', 'visitors': '2 Death Eater', 'state': '[Voldemort has intercepted this message]'}
+    error_park = {'name': '[Voldemort has intercepted this message]', 'visitors': '2 Death Eater', 'state': '[Voldemort has intercepted this message]', 'error': True}
  #   error_creature = {'name':'[Voldemort has intercepted this message]', 'error': True}
 
     difficult, moderate, easy = get_one_hike_for_each_difficulty()
