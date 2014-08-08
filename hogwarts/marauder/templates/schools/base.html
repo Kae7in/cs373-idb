@@ -14,31 +14,37 @@
 
 <div class='row'>
    	<div class='col-xs-12 col-md-6 col-sm-6 info-group'>
-   		<ul class='list-group info-group-list'>
-			<li class='list-group-item'>
-			    {{ school.kind|capfirst }}
-			</li>
-			<li class='list-group-item'>
-				{{ school.country }}
-			</li>
-			{% if school.founders.all %}
-				<li class='list-group-item'>
-					Founded by
-					<ul>
-						{% for founder in school.founders.all %}
-							<li>
-								{% if not founder.hidden %}
-									<a href='{% url "character" founder.id %}'>
-								{% endif %}
-								{{ founder.name }}
-								{% if not founder.hidden %}
-									</a>
-								{% endif %}
+   		<ul class='timeline-single'>
+            <li class='timeline-inverted'>
+                <div class='timeline-badge info'><i class='glyphicon glyphicon-info-sign'></i></div>
+                <div class='timeline-panel'>
+        	        <div class='timeline-body'>
+   						<ul class='list-group info-group-list'>
+							<li class='list-group-item'>
+			    				{{ school.kind|capfirst }}
 							</li>
-						{% endfor %}
-					</ul>
-				</li>
-			{% endif %}
+							<li class='list-group-item'>
+								{{ school.country }}
+							</li>
+							{% if school.founders.all %}
+								<li class='list-group-item'>
+									Founded by<br/>
+									{% for founder in school.founders.all %}
+										{% if not founder.hidden %}
+											<a href='{% url "character" founder.id %}'>
+										{% endif %}
+										+ {{ founder.name }}
+										{% if not founder.hidden %}
+											</a>
+										{% endif %}
+										<br/>
+									{% endfor %}
+								</li>
+							{% endif %}
+						</ul>
+					</div>
+				</div>
+			</li>
 		</ul>
 	</div>
 
@@ -55,87 +61,121 @@
 	</div>
 </div>
 
-{% if school.stories.all %}
- 	<div class='row'>
-	  	<div class='col-md-12'>
-			<h3>RELATED STORIES</h3>
-			{% for story in school.stories.all %}
-		  		<a href="{% url 'story' story.id %}">{{ story.name }}</a><br/>
-			{% endfor %}
-		</div>
-	</div>
-{% endif %}
 
-{% if school.headmasters.all %}
- 	<div class='row'>
-	  	<div class='col-md-12'>
-			<h3>HEADMASTERS</h3>
-			{% for headmaster in school.headmasters.all %}
-				{% if not headmaster.hidden %}
-		  			<a href="{% url 'character' headmaster.id %}">
-		  		{% endif %}
-		  		{{ headmaster.name }}
-		  		{% if not headmaster.hidden %}
-		  			</a>
-		  		{% endif %}
-		  		<br/>
-			{% endfor %}
-		</div>
-	</div>
-{% endif %}
+<div class='row'>
+	<div class='col-md-12'>
+		<ul class='timeline'>
+			<li class="{% cycle 'timeline-inverted' '' as inversion %}" style='display: none;'></li>
+			
+			{% if school.stories.all %}
+				<li class="{% cycle inversion %}">
+ 					<div class='timeline-badge success'><i class='glyphicon glyphicon-leaf'></i></div>
+        			<div class='timeline-panel'>
+            			<div class='timeline-heading'>
+                			<h4 class='timeline-title'>RELATED STORIES</h4>
+            			</div>
+            			<div class='timeline-body'>
+							{% for story in school.stories.all %}
+		  						<a href="{% url 'story' story.id %}">{{ story.name }}</a><br/>
+							{% endfor %}
+						</div>
+					</div>
+				</li>
+		{% endif %}
 
-{% if school.professors.all %}
- 	<div class='row'>
-	  	<div class='col-md-12'>
-			<h3>PROFESSORS</h3>
-			{% for professor in school.professors.all %}
-				{% if not professor.hidden %}
-		  			<a href="{% url 'character' professor.id %}">
-		  		{% endif %}
-		  		{{ professor.name }}
-		  		{% if not professor.hidden %}
-		  			</a>
-		  		{% endif %}
-		  		<br/>
-			{% endfor %}
-		</div>
-	</div>
-{% endif %}
+		{% if school.headmasters.all %}
+			<li class="{% cycle inversion %}">
+ 				<div class='timeline-badge danger'><i class='glyphicon glyphicon-star'></i></div>
+        		<div class='timeline-panel'>
+           			<div class='timeline-heading'>
+               			<h4 class='timeline-title'>HEADMASTERS</h4>
+           			</div>
+           			<div class='timeline-body'>
+						{% for headmaster in school.headmasters.all %}
+							{% if not headmaster.hidden %}
+		  						<a href="{% url 'character' headmaster.id %}">
+		  					{% endif %}
+		  					{{ headmaster.name }}
+		  					{% if not headmaster.hidden %}
+		  						</a>
+		  					{% endif %}
+		  					<br/>
+						{% endfor %}
+					</div>
+				</div>
+			</li>
+		{% endif %}
 
-{% if school.staff.all %}
- 	<div class='row'>
-	  	<div class='col-md-12'>
-			<h3>STAFF</h3>
-			{% for employee in school.staff.all %}
-				{% if not employee.hidden %}
-		  			<a href="{% url 'character' employee.id %}">
-		  		{% endif %}
-		  		{{ employee.name }}
-		  		{% if not employee.hidden %}
-		  			</a>
-		  		{% endif %}
-		  		<br/>
-			{% endfor %}
-		</div>
-	</div>
-{% endif %}
+		{% if school.professors.all %}
+			<li class="{% cycle inversion %}">
+ 				<div class='timeline-badge warning'><i class='glyphicon glyphicon-pencil'></i></div>
+        		<div class='timeline-panel'>
+           			<div class='timeline-heading'>
+               			<h4 class='timeline-title'>PROFESSORS</h4>
+           			</div>
+           			<div class='timeline-body'>
+						{% for professor in school.professors.all %}
+							{% if not professor.hidden %}
+		  						<a href="{% url 'character' professor.id %}">
+		  					{% endif %}
+		  					{{ professor.name }}
+		  					{% if not professor.hidden %}
+		  						</a>
+		  					{% endif %}
+		  					<br/>
+						{% endfor %}
+					</div>
+				</div>
+			</li>
+		{% endif %}
 
-{% if school.students.all %}
- 	<div class='row'>
-	  	<div class='col-md-12'>
-			<h3>STUDENTS</h3>
-			{% for student in school.students.all %}
-				{% if not student.hidden %}
-		  			<a href="{% url 'character' student.id %}">
-		  		{% endif %}
-		  		{{ student.name }}
-		  		{% if not student.hidden %}
-		  			</a>
-		  		{% endif %}
-		  		<br/>
-			{% endfor %}
-		</div>
-	</div>
-{% endif %}
+	{% if school.staff.all %}
+		<li class="{% cycle inversion %}">
+ 			<div class='timeline-badge'><i class='glyphicon glyphicon-eye-open'></i></div>
+    			<div class='timeline-panel'>
+            		<div class='timeline-heading'>
+                		<h4 class='timeline-title'>STAFF</h4>
+            		</div>
+            		<div class='timeline-body'>
+						{% for employee in school.staff.all %}
+							{% if not employee.hidden %}
+		  						<a href="{% url 'character' employee.id %}">
+		  					{% endif %}
+		  					{{ employee.name }}
+		  					{% if not employee.hidden %}
+		  						</a>
+		  					{% endif %}
+		  					<br/>
+						{% endfor %}
+					</div>
+				</div>
+			</li>
+		{% endif %}
+
+		{% if school.students.all %}
+			<li class="{% cycle inversion %}">
+ 				<div class='timeline-badge info'><i class='glyphicon glyphicon-send'></i></div>
+        		<div class='timeline-panel'>
+            		<div class='timeline-heading'>
+               			<h4 class='timeline-title'>STUDENTS</h4>
+            		</div>
+            		<div class='timeline-body'>
+						{% for student in school.students.all %}
+							{% if not student.hidden %}
+		  						<a href="{% url 'character' student.id %}">
+		  					{% endif %}
+		  					{{ student.name }}
+		  					{% if not student.hidden %}
+		  						</a>
+		  					{% endif %}
+		  					<br/>
+						{% endfor %}
+					</div>
+				</div>
+			</li>
+		{% endif %}
+	</ul>
+</div>
+</div>
 
 {% endblock content %}
