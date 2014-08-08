@@ -59,9 +59,18 @@ def get_one_hike_for_each_difficulty():
         return (None, None, None)
     
     difficult, moderate, easy = hikes
-    difficult = get_json(os.path.join(twistory, 'api/hikes', difficult.pop()))
-    moderate = get_json(os.path.join(twistory, 'api/hikes', moderate.pop()))
-    easy = get_json(os.path.join(twistory, 'api/hikes', easy.pop()))
+    try:
+        difficult = get_json(os.path.join(twistory, 'api/hikes', difficult.pop()))
+    except Exception:
+        difficult = None
+    try:
+        moderate = get_json(os.path.join(twistory, 'api/hikes', moderate.pop()))
+    except Exception:
+        moderate = None
+    try:
+        easy = get_json(os.path.join(twistory, 'api/hikes', easy.pop()))
+    except Exception:
+        easy = None
     return difficult, moderate, easy
 
 def get_hike(name):
