@@ -586,6 +586,14 @@ def otherapi(request):
         easy_park = None    
 #    creature = get_creature()
 
+# For Voldemort demo
+#    difficult = None
+#    moderate = None
+#    easy = None
+#    difficult_park = None
+#    moderate_park = None
+#    easy_park = None
+
     context = {
         'difficult_hike': error_hike if difficult is None else difficult,
         'moderate_hike': error_hike if moderate is None else moderate,
