@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+<DOCTYPE html>
 <html>
     <head>
         <title>{% block title %}Marauder's Map{% endblock title %}</title>
@@ -8,8 +8,15 @@
         <link rel="stylesheet" href="{{ STATIC_URL }}css/base.css">
 <link href='http://fonts.googleapis.com/css?family=Special+Elite' rel='stylesheet' type='text/css'>
 <link href='http://fonts.googleapis.com/css?family=Roboto' rel='stylesheet' type='text/css'>
+<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
 <link rel="stylesheet" href="{{ STATIC_URL }}css/splash.css">
-
+<script type="text/javascript">
+$(document).ready(function(){
+    $(".coolButtons a").tooltip({
+        placement : 'bottom'
+    });
+});
+</script>
 </head>
 <body style='padding:0px !important;'>
     <div id='mischief-message'>
@@ -29,16 +36,16 @@
             </div>
           </form>
 
-        <div class="container-fluid" id='splash-nav'>
-            <a class="characterZoom" href="{% url 'characters' %}" title="Characters"><img src="{{ STATIC_URL }}images/characters_icon.png"/></a>
-            <a class="creatureZoom" href="{% url 'creatures' %}" title="Creatures"><img src="{{ STATIC_URL }}images/creatures_icon.png"/></a>
-            <a class="artifactZoom" href="{% url 'artifacts' %}" title="Artifacts"><img src="{{ STATIC_URL }}images/artifacts_icon.png"/></a>
-            <a class="spellZoom" href="{% url 'spells' %}" title="Spells"><img src="{{ STATIC_URL }}images/spells_icon.png"/></a>
-            <a class="potionZoom" href="{% url 'potions' %}" title="Potions"><img src="{{ STATIC_URL }}images/potions_icon.png"/></a>
-            <a class="bookZoom" href="{% url 'books' %}" title="Books"><img src="{{ STATIC_URL }}images/books_icon.png"/></a>
-            <a class="locationZoom" href="{% url 'locations' %}" title="Locations"><img src="{{ STATIC_URL }}images/locations_icon.png"/></a>
-            <a class="houseZoom" href="{% url 'houses' %}" title="Houses"><img src="{{ STATIC_URL }}images/houses_icon.png"/></a>
-            <a class="storyZoom"  href="{% url 'stories' %}" title="Stories"><img src="{{ STATIC_URL }}images/stories_icon.png"/></a>
+        <div class="coolButtons container-fluid" id='splash-nav'>
+            <a class="characterZoom" href="{% url 'characters' %}" data-toggle="tooltip" data-container="body" data-placement="bottom" title="Characters"><img src="{{ STATIC_URL }}images/characters_icon.png"/></a>
+            <a class="creatureZoom" href="{% url 'creatures' %}" data-toggle="tooltip" data-container="body" data-placement="bottom" title="Creatures"><img src="{{ STATIC_URL }}images/creatures_icon.png"/></a>
+            <a class="artifactZoom" href="{% url 'artifacts' %}" data-toggle="tooltip" data-container="body" data-placement="bottom" title="Artifacts"><img src="{{ STATIC_URL }}images/artifacts_icon.png"/></a>
+            <a class="spellZoom" href="{% url 'spells' %}" data-toggle="tooltip" data-container="body" data-placement="bottom" title="Spells"><img src="{{ STATIC_URL }}images/spells_icon.png"/></a>
+            <a class="potionZoom" href="{% url 'potions' %}" data-toggle="tooltip" data-container="body" data-placement="bottom" title="Potions"><img src="{{ STATIC_URL }}images/potions_icon.png"/></a>
+            <a class="bookZoom" href="{% url 'books' %}" data-toggle="tooltip" data-container="body" data-placement="bottom" title="Books"><img src="{{ STATIC_URL }}images/books_icon.png"/></a>
+            <a class="locationZoom" href="{% url 'locations' %}" data-toggle="tooltip" data-container="body" data-placement="bottom" title="Locations"><img src="{{ STATIC_URL }}images/locations_icon.png"/></a>
+            <a class="houseZoom" href="{% url 'houses' %}" data-toggle="tooltip" data-container="body" data-placement="bottom" title="Houses"><img src="{{ STATIC_URL }}images/houses_icon.png"/></a>
+            <a class="storyZoom"  href="{% url 'stories' %}" data-toggle="tooltip" data-container="body" data-placement="bottom" title="Stories"><img src="{{ STATIC_URL }}images/stories_icon.png"/></a>
         </div> <!-- /container-fluid -->
     </div> <!-- /wrap -->
 
