@@ -2,6 +2,11 @@
 
 {% block data-active %}active{% endblock data-active %}
 
+{% block breadcrumbs_items %}
+<li><a href="{% url 'locations' %}">Locations</a></li>
+<li class='active'>{{ location.name }}</li>
+{% endblock breadcrumbs_items %}
+
 {% block content %}
 <div id="name">
     <h1 class="uppercase">{{ location.name }}</h1>
