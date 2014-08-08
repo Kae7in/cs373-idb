@@ -14,40 +14,43 @@
 
 <div class='row'>
    	<div class='col-xs-12 col-md-6 col-sm-6 info-group'>
-   		<ul class='list-group info-group-list'>
-			<li class='list-group-item'>
-			    {{ shop.kind|capfirst }}
+   		<ul class='timeline-single'>
+            <li class='timeline-inverted'>
+                <div class='timeline-badge info'><i class='glyphicon glyphicon-info-sign'></i></div>
+                <div class='timeline-panel'>
+        	        <div class='timeline-body'>
+   						<ul class='list-group info-group-list'>
+							<li class='list-group-item'>
+			    				{{ shop.kind|capfirst }}
+							</li>
+							{% if shop.owners.all %}
+								<li class='list-group-item'>
+									Owned by<br/>
+									{% for owner in shop.owners.all %}
+										{% if not owner.hidden %}
+											<a href='{% url "character" owner.id %}'>
+										{% endif %}
+										+ {{ owner.name }}
+										{% if not owner.hidden %}
+											</a>
+										{% endif %}
+										<br/>
+									{% endfor %}
+								</li>
+							{% endif %}
+
+							{% if shop.locations.all %}
+								<li class='list-group-item'>
+									Located in<br/>
+									{% for location in shop.locations.all %}
+										+ <a href='{% url "location" location.id %}'>{{ location.name }}</a><br/>
+									{% endfor %}
+								</li>
+							{% endif %}
+						</ul>
+					</div>
+				</div>
 			</li>
-			{% if shop.owners.all %}
-				<li class='list-group-item'>
-					Owned by
-					<ul>
-					{% for owner in shop.owners.all %}
-						<li>
-						{% if not owner.hidden %}
-							<a href='{% url "character" owner.id %}'>
-						{% endif %}
-						{{ owner.name }}
-						{% if not owner.hidden %}
-							</a>
-						{% endif %}
-						</li>
-					{% endfor %}
-					</ul>
-				</li>
-			{% endif %}
-			{% if shop.locations.all %}
-				<li class='list-group-item'>
-					Located in
-					<ul>
-					{% for location in shop.locations.all %}
-						<li>
-							<a href='{% url "location" location.id %}'>{{ location.name }}</a>
-						</li>
-					{% endfor %}
-					</ul>
-				</li>
-			{% endif %}
 		</ul>
 	</div>
 
@@ -64,26 +67,43 @@
 	</div>
 </div>
 
-{% if shop.stories.all %}
- 	<div class='row'>
-	  	<div class='col-md-12'>
-			<h3>RELATED STORIES</h3>
-			{% for story in shop.stories.all %}
-		  		<a href="{% url 'story' story.id %}">{{ story.name }}</a><br/>
-			{% endfor %}
-		</div>
-	</div>
-{% endif %}
 
-{% if shop.artifacts.all %}
- 	<div class='row'>
-	  	<div class='col-md-12'>
-			<h3>ARTIFACTS</h3>
-			{% for artifact in shop.artifacts.all %}
-		  		<a href="{% url 'artifact' artifact.id %}">{{ artifact.name }}</a><br/>
-			{% endfor %}
-		</div>
-	</div>
-{% endif %}
+<div class='row'>
+	<div class='col-md-12'>
+		<ul class='timeline'>
+			<li class="{% cycle 'timeline-inverted' '' as inversion %}" style='display: none;'></li>
+			{% if shop.stories.all %}
+ 				<li class="{% cycle inversion %}">
+ 					<div class='timeline-badge success'><i class='glyphicon glyphicon-leaf'></i></div>
+        			<div class='timeline-panel'>
+            			<div class='timeline-heading'>
+	               			<h4 class='timeline-title'>RELATED STORIES</h4>
+    	       			</div>
+        	   			<div class='timeline-body'>
+        	   				{% for story in shop.stories.all %}
+		  						<a href="{% url 'story' story.id %}">{{ story.name }}</a><br/>
+							{% endfor %}
+						</div>
+					</div>
+				</li>
+			{% endif %}
 
+			{% if shop.artifacts.all %}
+ 				<li class="{% cycle inversion %}">
+ 					<div class='timeline-badge warning'><i class='glyphicon glyphicon-glass'></i></div>
+        			<div class='timeline-panel'>
+            			<div class='timeline-heading'>
+	               			<h4 class='timeline-title'>ARTIFACTS SOLD</h4>
+    	       			</div>
+        	   			<div class='timeline-body'>
+							{% for artifact in shop.artifacts.all %}
+		  						<a href="{% url 'artifact' artifact.id %}">{{ artifact.name }}</a><br/>
+							{% endfor %}
+						</div>
+					</div>
+				</li>
+			{% endif %}
+		</ul>
+	</div>
+</div>
 {% endblock content %}

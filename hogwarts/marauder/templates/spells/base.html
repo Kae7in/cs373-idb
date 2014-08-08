@@ -14,18 +14,28 @@
 
 <div class='row'>
    	<div class='col-md-8 col-sm-6 info-group'>
-   		<ul class='list-group info-group-list'>
-			<li class='list-group-item'>{{ spell.alias }}</li>
-			<li class='list-group-item'>Created by {{ spell.creator }}</li>
-			<li class='list-group-item'>{% if spell.unforgivable %}Unforgivable{% endif %} {{ spell.kind }}</li>
-			<li class='list-group-item'>Level is {{ spell.difficulty }}</li>
-			{% if spell.creature %}
-			<li class='list-group-item'>Affects
-			    <a href="{% url 'creature' spell.creature.id %}">
-			        {{ spell.creature.name }}
-			    </a><br />
+   		<ul class='timeline-single'>
+            <li class='timeline-inverted'>
+                <div class='timeline-badge info'><i class='glyphicon glyphicon-info-sign'></i></div>
+                <div class='timeline-panel'>
+        	        <div class='timeline-body'>
+   						<ul class='list-group info-group-list'>
+							<li class='list-group-item'>{{ spell.alias }}</li>
+							<li class='list-group-item'>Created by {{ spell.creator }}</li>
+							<li class='list-group-item'>{% if spell.unforgivable %}Unforgivable{% endif %} {{ spell.kind }}</li>
+							<li class='list-group-item'>Level is {{ spell.difficulty }}</li>
+							{% if spell.creature %}
+								<li class='list-group-item'>
+									Affects
+			    					<a href="{% url 'creature' spell.creature.id %}">
+			        					{{ spell.creature.name }}
+			    					</a><br />
+								</li>
+							{% endif %}
+						</ul>
+					</div>
+				</div>
 			</li>
-			{% endif %}
 		</ul>
 	</div>
 

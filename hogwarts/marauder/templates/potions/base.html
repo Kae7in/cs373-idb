@@ -14,26 +14,37 @@
 
 <div class='row'>
    	<div class='col-xs-12 col-md-6 col-sm-6 info-group'>
-   		<ul class='list-group info-group-list'>
-			<li class='list-group-item'>
-			    Difficulty: {{ potion.get_difficulty_display|safe }}
+   		<ul class='timeline-single'>
+            <li class='timeline-inverted'>
+                <div class='timeline-badge info'><i class='glyphicon glyphicon-info-sign'></i></div>
+                <div class='timeline-panel'>
+        	        <div class='timeline-body'>
+   						<ul class='list-group info-group-list'>
+							<li class='list-group-item'>
+			    				Difficulty: {{ potion.get_difficulty_display|safe }}
+							</li>
+							<li class='list-group-item'>
+								Physical Description:</br> {{ potion.physical_description|safe }}
+							</li>
+							{% if potion.ingredients.all %}
+								<li class='list-group-item'>
+									Ingredients:</br>
+									{% for ingredient in potion.ingredients.all %}
+						    			{% if ingredient.creature and not ingredient.creature.hidden %}
+						        			<a href="{% url 'creature' ingredient.creature.id %}">
+						        		{% endif %}
+						        		+ {{ ingredient.name }}
+						        		{% if ingredient.creature and not ingredient.creature.hidden %}
+						        			</a>
+						        		{% endif %}
+						        		<br/>
+					    			{% endfor %}
+								</li>
+							{% endif %}
+						</ul>
+					</div>
+				</div>
 			</li>
-			<li class='list-group-item'>
-				Physical Description:</br> {{ potion.physical_description|safe }}
-			</li>
-			{% if potion.ingredients.all %}
-					<li class='list-group-item'>
-						Ingredients:</br>
-						{% for ingredient in potion.ingredients.all %}
-						    {% if ingredient.creature and not ingredient.creature.hidden %}
-						        <a href="{% url 'creature' ingredient.creature.id %}">{{ ingredient.name }}</a><br/>
-						    {% else %}
-						        {{ ingredient.name }}<br/>
-						    {% endif %}
-					    {% endfor %}
-					</li>
-			{% endif %}
-
 		</ul>
 	</div>
 

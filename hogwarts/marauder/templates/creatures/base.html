@@ -13,99 +13,105 @@
         </div>
 
 <div class='row'>
-        <div class='col-xs-12 col-sm-5 col-md-5'>
-            <div class="list-group info-group-list" style='display: block;'>
-                    <li class='list-group-item'>
-                        <div class='row'>
-                            <div class='infoitem col-md-5'>
-                                Classification:
-                            </div>
-                            <div class='infoitem col-md-7'>
-                            {% block classification %}{{ creature.get_classification_display }}{% endblock classification %}
-                            </div>
-                        </div>
-                    </li>
-                {% if creature.rating != 0 %}
-                    <li class='list-group-item'>
-                        <div class='row'>
-                            <div class='infoitem col-md-5'>
-                                Rating:
-                            </div>
-                            <div class='rating infoitem col-md-7'>
-
-                                {% block rating %}{{ creature.get_rating_display }}{% endblock rating %}
-
-                            </div>
-                        </div>
-                   </li>
-                 {% endif %}
-                 {% if creature.spells.all %}
-                    <li class='list-group-item'>
-                        <div class='row'>
-                            <div class='infoitem col-md-5'>
-                                Affected by:
-                            </div>
-                            <div class='infoitem col-md-7'>
+    <div class='col-xs-12 col-sm-5 col-md-5'>
+        <ul class='timeline-single'>
+            <li class='timeline-inverted'>
+                <div class='timeline-badge info'><i class='glyphicon glyphicon-info-sign'></i></div>
+                <div class='timeline-panel'>
+                    <div class='timeline-body'>
+                        <ul class='list-group info-group-list'>
+                        <li class='list-group-item'>
+                            Classification: {{ creature.get_classification_display }}
+                        </li>
+                        {% if creature.rating != 0 %}
+                            <li class='list-group-item'>
+                                Rating:<br/>
+                                <span class='rating infoitem'>{{ creature.get_rating_display }}</span>
+                            </li>
+                        {% endif %}
+                        {% if creature.spells.all %}
+                            <li class='list-group-item'>
+                                Affected by: 
                                 {% for spell in creature.spells.all %}
                                     <a href="{% url 'spell' spell.id %}">{{ spell.incantation }}</a><br />
                                 {% endfor %}
-                            </div>
-                        </div>
-                   </li>
-                 {% endif %}
-            </div>  <!--info-group-list-->
-        </div> <!--col-xs-12-->
+                            </li>
+                        {% endif %}
+                    </div>
+                </div>
+            </li>
+        </ul>
+    </div> <!--col-xs-12-->
 
-        <div class='col-xs-12 col-sm-3 col-md-5'>
-		<div class='main-image'>
+    <div class='col-xs-12 col-sm-3 col-md-5'>
+	   <div class='main-image'>
 			<img class='list-group-item' src='{{ creature.image.url }}'/>
 		</div>
-        </div>
+    </div>
 
-        <div class='col-xs-12 col-sm-4 col-md-2'></div>
+    <div class='col-xs-12 col-sm-4 col-md-2'></div>
 
 </div>  <!-- row -->
 
 <div class='row'>
 	<div class='col-xs-12' id='description'>
-		{% block description %}{{ creature.description|safe }}{% endblock description %}
+		{{ creature.description|safe }}
 	</div>
 </div>
 
 <div class='row'>
 	<div class='col-xs-12'>
         {% if creature.notable %}
-            <h3>{% block option %}Notable {{ creature.plural }}{% endblock option %}</h3>
-            {% block detail %}
+            <h3>Notable {{ creature.plural }}</h3>
             {{ creature.notable }}
-            {% endblock detail %}
         {% endif %}
 	</div>
 </div>
 
-{% if creature.characters.all %}
-    <div class='row'>
-        <div class='col-xs-12'>
-            <h3>CHARACTERS</h3>
-            {% for character in creature.characters.all %}
-                {% if not character.hidden %}
-                    <a href="{% url 'character' character.id %}">{{ character.name }}</a><br/>
+<div class='row'>
+    <div class='col-md-12'>
+        <ul class='timeline'>
+            <li class="{% cycle 'timeline-inverted' '' as inversion %}" style='display: none;'></li>
+                {% if creature.characters.all %}
+                    <li class="{% cycle inversion %}">
+                        <div class='timeline-badge danger'><i class='glyphicon glyphicon-user'></i></div>
+                        <div class='timeline-panel'>
+                            <div class='timeline-heading'>
+                                <h4 class='timeline-title'>CHARACTERS</h4>
+                            </div>
+                            <div class='timeline-body'>
+                                {% for character in creature.characters.all %}
+                                    {% if not character.hidden %}
+                                        <a href="{% url 'character' character.id %}">
+                                    {% endif %}
+                                    {{ character.name }}
+                                    {% if not character.hidden %}
+                                        </a>
+                                    {% endif %}
+                                    <br/>
+                                {% endfor %}
+                            </div>
+                        </div>
+                    </li>
                 {% endif %}
-            {% endfor %}
+
+                {% if creature.ingredients.all %}
+                    <li class="{% cycle inversion %}">
+                        <div class='timeline-badge warning'><i class='glyphicon glyphicon-tint'></i></div>
+                        <div class='timeline-panel'>
+                            <div class='timeline-heading'>
+                                <h4 class='timeline-title'>POTIONS USED IN</h4>
+                            </div>
+                            <div class='timeline-body'>
+                                {% for potion in creature.ingredients.first.potions.all %}
+                                    <a href="{% url 'potion' potion.id %}">{{ potion.title }}</a><br/>
+                                {% endfor %}
+    	                   </div>
+                        </div>
+                    </li>
+                {% endif %}
+            </ul>
         </div>
     </div>
-{% endif %}
-
-{% if creature.ingredients.all %}
-    <div class='row'>
-    	<div class='col-xs-12'>
-    	    <h3>POTIONS USED IN</h3>
-            {% for potion in creature.ingredients.first.potions.all %}
-                 <a href="{% url 'potion' potion.id %}">{{ potion.title }}</a><br/>
-            {% endfor %}
-    	</div>
-    </div>
-{% endif %}
-
 {% endblock content %}
 
