@@ -1,5 +1,7 @@
 {% extends "base.html" %}
 
+{% load marauder_extras %}
+
 {% block data-active %}active{% endblock data-active %}
 
 {% block breadcrumbs_items %}
@@ -13,91 +15,99 @@
         </div>
 <div class='row'>
    	<div class='col-xs-12 col-md-6 col-sm-6 info-group'>
-   		<ul class='list-group info-group-list'>
-			<li class='list-group-item'>
-				{% if character.creature %}
-					{% if not character.creature.hidden %}
-						<a href='{% url "creature" character.creature.id %}'>
-					{% endif %}
-					{{ character.creature.name }}
-					{% if not character.creature.hidden %}
-						</a>
-					{% endif %}
-				{% elif character.magical %}
-					{% if character.sex == 'F' %}
-				  		Witch
-					{% else %}
-				   		Wizard
-					{% endif %}
-				{% elif character.is_squib %}
-					Squib
-				{% else %}
-					Muggle
-				{% endif %}
-			</li>
-			{% if character.school_founded %}
-			<li class='list-group-item'>
-				Founded
-				<a href='{% url "school" character.school_founded.id %}'>
-					{{ character.school_founded.name }}
-				</a>
-			</li>
-			{% endif %}
-			{% if character.school_headmastered %}
-			<li class='list-group-item'>
-				Headmaster at
-				<a href='{% url "school" character.school_headmastered.id %}'>
-					{{ character.school_headmastered.name }}
-				</a>
-			</li>
-			{% endif %}
-			{% if character.school_taught %}
-			<li class='list-group-item'>
-				Professor at
-				<a href='{% url "school" character.school_taught.id %}'>
-					{{ character.school_taught.name }}
-				</a>
-			</li>
-			{% endif %}
-			{% if character.school_staffed %}
-			<li class='list-group-item'>
-				Staff at
-				<a href='{% url "school" character.school_staffed.id %}'>
-					{{ character.school_staffed.name }}
-				</a>
-			</li>
-			{% endif %}
-			{% if character.school_attended %}
-			<li class='list-group-item'>
-				Attended
-				<a href='{% url "school" character.school_attended.id %}'>
-					{{ character.school_attended.name }}
-				</a>
-			</li>
-			{% endif %}
-			{% if character.house or character.house_founded.all or character.houses_haunted.all %}
-			<li class='list-group-item'>
-				{% if character.house_founded.all %}Founded {% endif %}
-				{% if character.houses_haunted.all %}Haunts {% endif %}
-				<a href='{% url "house" character.house.id %}'>
-					{{ character.house.name }} House
-				</a>
-			</li>
-			{% endif %}
-			{% if character.wand %}
-			<li class='list-group-item'>
-				{{ character.wand }}
-			</li>
-			{% endif %}
-			{% if character.shop %}
-			<li class='list-group-item'>
-				Owns
-				<a href='{% url "shop" character.shop.id %}'>
-					{{ character.shop.name }}
-				</a>
-			</li>
-			{% endif %}
-		</ul>
+   		<ul class='timeline-single'>
+            <li class='timeline-inverted'>
+                <div class='timeline-badge info'><i class='glyphicon glyphicon-info-sign'></i></div>
+                <div class='timeline-panel'>
+        	        <div class='timeline-body'>
+   						<ul class='list-group info-group-list'>
+							<li class='list-group-item'>
+								{% if character.creature %}
+									{% if not character.creature.hidden %}
+										<a href='{% url "creature" character.creature.id %}'>
+									{% endif %}
+									{{ character.creature.name }}
+									{% if not character.creature.hidden %}
+										</a>
+									{% endif %}
+								{% elif character.magical %}
+									{% if character.sex == 'F' %}
+				  						Witch
+									{% else %}
+				   						Wizard
+									{% endif %}
+								{% elif character.is_squib %}
+									Squib
+								{% else %}
+									Muggle
+								{% endif %}
+							</li>
+							{% if character.school_founded %}
+								<li class='list-group-item'>
+									Founded
+									<a href='{% url "school" character.school_founded.id %}'>
+										{{ character.school_founded.name }}
+									</a>
+								</li>
+							{% endif %}
+							{% if character.school_headmastered %}
+								<li class='list-group-item'>
+									Headmaster at
+									<a href='{% url "school" character.school_headmastered.id %}'>
+										{{ character.school_headmastered.name }}
+									</a>
+								</li>
+							{% endif %}
+							{% if character.school_taught %}
+								<li class='list-group-item'>
+									Professor at
+									<a href='{% url "school" character.school_taught.id %}'>
+										{{ character.school_taught.name }}
+									</a>
+								</li>
+							{% endif %}
+							{% if character.school_staffed %}
+								<li class='list-group-item'>
+									Staff at
+									<a href='{% url "school" character.school_staffed.id %}'>
+										{{ character.school_staffed.name }}
+									</a>
+								</li>
+							{% endif %}
+							{% if character.school_attended %}
+								<li class='list-group-item'>
+									Attended
+									<a href='{% url "school" character.school_attended.id %}'>
+										{{ character.school_attended.name }}
+									</a>
+								</li>
+							{% endif %}
+							{% if character.house or character.house_founded.all or character.houses_haunted.all %}
+								<li class='list-group-item'>
+									{% if character.house_founded.all %}Founded {% endif %}
+									{% if character.houses_haunted.all %}Haunts {% endif %}
+									<a href='{% url "house" character.house.id %}'>
+										{{ character.house.name }} House
+									</a>
+								</li>
+							{% endif %}
+							{% if character.wand %}
+								<li class='list-group-item'>
+									{{ character.wand }}
+								</li>
+							{% endif %}
+							{% if character.shop %}
+								<li class='list-group-item'>
+									Owns
+									<a href='{% url "shop" character.shop.id %}'>
+										{{ character.shop.name }}
+									</a>
+								</li>
+							{% endif %}
+						</ul>
+					</div>
+				</div>
+			</ul>
 		<blockquote>
 			<p>{{ character.quote|safe }}</p>
 			<footer>{{ character.quote_by }}</footer>
@@ -117,67 +127,91 @@
 	</div>
 </div>
 
-{% if character.stories.all %}
- 	<div class='row'>
-	  	<div class='col-md-12'>
-			<h3>STORIES</h3>
-			{% for story in character.stories.all %}
-		  		<a href="{% url 'story' story.id %}">{{ story.name }}</a><br/>
-			{% endfor %}
-		</div>
-	</div>
-{% endif %}
+<div class='row'>
+	<div class='col-md-12'>
+		<ul class='timeline'>
+			{% if character.stories.all %}
+ 				<li class"{% cycle '' 'timeline-inverted' as inversion %}">
+ 					<div class='timeline-badge info'><i class='glyphicon glyphicon-leaf'></i></div>
+        			<div class='timeline-panel'>
+            			<div class='timeline-heading'>
+                			<h4 class='timeline-title'>STORIES</h4>
+            			</div>
+            			<div class='timeline-body'>
+							{% for story in character.stories.all %}
+		  						<a href="{% url 'story' story.id %}">{{ story.name }}</a><br/>
+							{% endfor %}
+						</div>
+					</div>
+				</li>
+			{% endif %}
 
-{% if character.books_published.all or character.books_starred.all %}
-	<div class='row'>
-		<div class='col-md-12'>
-			<h3>BIBLIOGRAPHY</h3>
-			{% for book in character.books_published.all %}
-				<a href="{% url 'book' book.id %}">{{ book.name }}</a> (Author)<br/>
-			{% endfor %}
-			{% for book in character.books_starred.all %}
-				<a href="{% url 'book' book.id %}">{{ book.name }}</a> (Subject)<br/>
-			{% endfor %}
-		</div>
-	</div>
-{% endif %}
+			{% if character.books_published.all or character.books_starred.all %}
+ 				<li class='{% cycle inversion %}'>
+ 					<div class='timeline-badge success'><i class='glyphicon glyphicon-book'></i></div>
+        			<div class='timeline-panel'>
+            			<div class='timeline-heading'>
+                			<h4 class='timeline-title'>BIBLIOGRAPHY</h4>
+            			</div>
+            			<div class='timeline-body'>
+							{% for book in character.books_published.all %}
+								<a href="{% url 'book' book.id %}">{{ book.name }}</a> (Author)<br/>
+							{% endfor %}
+							{% for book in character.books_starred.all %}
+								<a href="{% url 'book' book.id %}">{{ book.name }}</a> (Subject)<br/>
+							{% endfor %}
+						</div>
+					</div>
+				</li>
+			{% endif %}
 
-{% if character.artifacts.all %}
-	<div class='row'>
-		<div class='col-md-12'>
-			<h3>ARTIFACTS</h3>
-			{% for artifact in character.artifacts.all %}
-				<a href="{% url 'artifact' artifact.id %}">{{ artifact.name }}</a><br/>
-			{% endfor %}
-		</div>
-	</div>
-{% endif %}
+			{% if character.artifacts.all %}
+			<li class='{% cycle inversion %}'>
+ 				<div class='timeline-badge warning'><i class='glyphicon glyphicon-glass'></i></div>
+        		<div class='timeline-panel'>
+            		<div class='timeline-heading'>
+                		<h4 class='timeline-title'>ARTIFACTS</h4>
+            		</div>
+            		<div class='timeline-body'>
+						{% for artifact in character.artifacts.all %}
+							<a href="{% url 'artifact' artifact.id %}">{{ artifact.name }}</a><br/>
+						{% endfor %}
+					</div>
+				</div>
+			</li>
+		{% endif %}
 
-{% if character.relationships1.all or character.relationships2.all %}
-	<div class='row'>
-		<div class='col-md-12'>
-			<h3>FAMILY RELATIONSHIPS</h3>
-			{% for relation1 in character.relationships1.all %}
-				{% if not relation1.character2.hidden %}
-				 	<a href="{% url 'character' relation1.character2.id %}">
-				{% endif %}
-				{{ relation1.character2.name }}
-				{% if not relation1.character2.hidden %}
-					</a>
-				{% endif %}
-				({{ relation1.descriptor2 }})<br/>
-			{% endfor %}
-			{% for relation2 in character.relationships2.all %}
-				{% if not relation2.character1.hidden %}
-				 	<a href="{% url 'character' relation2.character1.id %}">
-				{% endif %}
-				{{ relation2.character1.name }}
-				{% if not relation2.character1.hidden %}
-					</a>
-				{% endif %}
-				({{ relation2.descriptor1 }})<br/>
-			{% endfor %}
-		</div>
-	</div>
-{% endif %}
+		{% if character.relationships1.all or character.relationships2.all %}
+ 			<li class='{% cycle inversion %}'>
+ 				<div class='timeline-badge danger'><i class='glyphicon glyphicon-tree-deciduous'></i></div>
+    	   		<div class='timeline-panel'>
+            		<div class='timeline-heading'>
+                		<h4 class='timeline-title'>FAMILY RELATIONSHIPS</h4>
+            		</div>
+            		<div class='timeline-body'>
+						{% for relation1 in character.relationships1.all %}
+							{% if not relation1.character2.hidden %}
+				 				<a href="{% url 'character' relation1.character2.id %}">
+							{% endif %}
+							{{ relation1.character2.name }}
+							{% if not relation1.character2.hidden %}
+								</a>
+							{% endif %}
+							({{ relation1.descriptor2 }})<br/>
+						{% endfor %}
+						{% for relation2 in character.relationships2.all %}
+							{% if not relation2.character1.hidden %}
+				 				<a href="{% url 'character' relation2.character1.id %}">
+							{% endif %}
+							{{ relation2.character1.name }}
+							{% if not relation2.character1.hidden %}
+								</a>
+							{% endif %}
+							({{ relation2.descriptor1 }})<br/>
+						{% endfor %}
+					</div>
+				</div>
+			</li>
+	{% endif %}
+</ul>
 {% endblock content %}
