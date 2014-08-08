@@ -3,6 +3,8 @@ import os
 import urllib3.request
 import json
 import traceback
+from marauder.models import Creature
+import random
 
 twistory = 'http://twistory.pythonanywhere.com'
 
@@ -51,7 +53,7 @@ def get_one_hike_for_each_difficulty():
     hikes = get_hikes(True)
     if(hikes is None):
         return (None, None, None)
-
+    
     difficult, moderate, easy = hikes
     difficult = get_json(os.path.join(twistory, 'api/hikes', difficult.pop()))
     moderate = get_json(os.path.join(twistory, 'api/hikes', moderate.pop()))
@@ -63,7 +65,6 @@ def get_hike(name):
     try:
         web_name = name.replace(' ', '%20')
         hike = get_json(os.path.join(twistory, 'api/hikes', web_name))
-        hike['name'] = name
         hike['time'] = hike['est_time(min)']
         hike['distance'] = hike['distance(mile)']
         return hike
@@ -75,11 +76,15 @@ def get_park(name):
     try:
         web_name = name.replace(' ', '%20')
         park = get_json(os.path.join(twistory, 'api/parks', web_name))
-        park['name'] = name
         park['max_elevation'] = park['max_elevation(ft)']
         park['visitors'] = park['visitors(annual)']
         return park
     except Exception:
         return None
 
-
+#def get_creature(rating):
+#    '''Return random creature.'''
+#    try:
+#        return random.choice(Creature.objects.filter(rating__gt=1))
+#    except Exception:
+#        return None
