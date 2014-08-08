@@ -595,12 +595,12 @@ def otherapi(request):
 #    easy_park = None
 
     context = {
-        'difficult_hike': error_hike if difficult is None else difficult,
-        'moderate_hike': error_hike if moderate is None else moderate,
-        'easy_hike': error_hike if easy is None else easy,
-        'difficult_park': error_park if difficult_park is None else difficult_park,
-        'moderate_park': error_park if moderate_park is None else moderate_park,
-        'easy_park': error_park if easy is easy_park else easy_park,
+        'difficult_hike': error_hike if not difficult else difficult,
+        'moderate_hike': error_hike if not moderate else moderate,
+        'easy_hike': error_hike if not easy else easy,
+        'difficult_park': error_park if not difficult_park else difficult_park,
+        'moderate_park': error_park if not moderate_park else moderate_park,
+        'easy_park': error_park if not easy_park else easy_park,
 #        'creature': error_creature if creature is None else creature,
     }
     return render(request, 'experience.html', Context(context))
