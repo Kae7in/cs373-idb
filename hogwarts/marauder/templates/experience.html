@@ -31,10 +31,19 @@
 
 <div class='row'>
         <div class='col-xs-12 col-md-6 col-sm-6 list-group-item'>
-            <h3>For An Adventurous Outing: The {{other.death_valley_buttes.name}}</h3>
-                If you enjoy trips to the Forbidden Forest, the {{other.death_valley_buttes.name}} are the destination for you.
-                They are located in {{other.death_valley.name}}, a desert in {{other.death_valley.state}}.
-                There are {{other.death_valley.visitors}} visitors to {{other.death_valley.name}} per year, and most of them are dementors.
+            <h3>
+                For An Adventurous Outing:<br/>
+                {% if not difficult_hike.error %}
+                    <a href='http://twistory.pythonanywhere.com/hikes/{{difficult_hike.name}}'>
+                {% endif %}
+                {{difficult_hike.name}}
+                {% if not difficult_hike.error %}
+                    </a>
+                {% endif %}
+            </h3>
+                If you enjoy trips to the Forbidden Forest, the {{difficult_hike.name}} are the destination for you.
+                They are located in {% if not difficult_hike.error %}<a href='http://twistory.pythonanywhere.com/parks/{{difficult_park.name}}'>{% endif %}{{difficult_park.name}}{% if not difficult_hike.error %}</a>{% endif %} in {{difficult_park.state}}.
+                There are {{difficult_park.visitors}} visitors to {{difficult_park.name}} per year, and most of them are dementors.
                 Don't be surprised if during your strenuous hike you happen to catch a happy dementor family enjoying a barbecue or a picnic.
                 Be sure to bring lots of water! You don't want to get dehydrated.
                 <br/>
@@ -43,7 +52,7 @@
         </div>
         <div class='col-xs-12 col-md-6 col-sm-6'>
             <div class='main-image pull-right list-group-item'>
-                <img src='{{STATIC_URL}}/images/Death-Valley-010.jpg'>
+                <img src='{{difficult_hike.image}}'/>
             </div>
         </div>
 </div>
@@ -55,9 +64,17 @@
 
 <div class='row'>
         <div class='col-xs-12 col-md-6 col-sm-6 list-group-item'>
-            <h3>For A More Moderate Climb: {{other.rock_creek.name}}</h3>
-                If Hogsmeade is more your style than the Forbidden Forest, {{other.rock_creek.name}} will be a great spot for you and your friends.
-                {{other.rock_creek.name}} is a hike of moderate dificulty located in {{other.denali.name}} National Park in Alaska. After hiking the trail,
+            <h3>For A More Moderate Climb:<br/>
+                {% if not moderate_hike.error %}
+                    <a href='http://twistory.pythonanywhere.com/hikes/{{moderate_hike.name}}'>
+                {% endif %}
+                {{moderate_hike.name}}
+                {% if not moderate_hike.error %}
+                    </a>
+                {% endif %}
+            </h3>
+                If Hogsmeade is more your style than the Forbidden Forest, {{moderate_hike.name}} will be a great spot for you and your friends.
+                {{moderate_hike.name}} is a hike of moderate dificulty located in {% if not moderate_hike.error %}<a href='http://twistory.pythonanywhere.com/parks/{{moderate_park.name}}'>{% endif %}{{moderate_park.name}}{% if not moderate_hike.error %}</a>{% endif %} National Park in {{moderate_park.state}}. After hiking the trail,
                 cool off with a swim in the creek. If you look closely, hidden among the usual muggle-world fauna are a
                 few scattered centaurs and woefully displaced house elves.
                 <br/>
@@ -66,7 +83,7 @@
         </div>
         <div class='col-xs-12 col-md-6 col-sm-6'>
             <div class='main-image pull-right list-group-item'>
-                <img src='{{STATIC_URL}}/images/rockcreek.jpg' height="225">
+                <img src='{{moderate_hike.image}}'/>
             </div>
         </div>
 </div>
@@ -76,17 +93,25 @@
 </div>
 
 <div class='row'>
-        <div class='col-xs-12 col-md-6 col-sm-6 list-group-item'>
-            <h3>For A Relaxing Stroll: {{other.pinery.name}}</h3>
-            If your ideal Saturday afternoon is a stroll down Diagon Alley, come to {{other.pinery.name}} Hike in the {{other.guadalupe_mountains.name}}!!
-            Located in Texas, {{other.pinery.name}} Hike is relaxing and non-strenuous. You will walk so little that by the time you reach the
-            end of the trail you will feel like you just apparated there! And you won't come across anything more dangerous than a Flobberworm.
-            <br/>
-            <br/>
+        <div class='col-xs-12 col-md-6 col-sm-6'>
+            <div class='list-group-item'>
+                <h3>For A Relaxing Stroll:<br/>
+                    {% if not easy_hike.error %}
+                        <a href='http://twistory.pythonanywhere.com/hikes/{{easy_hike.name}}'>
+                    {% endif %}
+                    {{easy_hike.name}}
+                    {% if not easy_hike.error %}
+                        </a>
+                    {% endif %}
+                </h3>
+                If your ideal Saturday afternoon is a stroll down Diagon Alley, come to {{easy_hike.name}} in the {% if not easy_hike.error %}<a href='http://twistory.pythonanywhere.com/parks/{{easy_park.name}}'>{% endif %}{{easy_park.name}}{% if not easy_hike.error %}</a>{% endif %}!!
+                Located in {{easy_park.state}}, {{easy_hike.name}} is relaxing and non-strenuous. You will walk so little that by the time you reach the
+                end of the trail you will feel like you just apparated there! And you won't come across anything more dangerous than a Flobberworm.
+            </div>
         </div>
         <div class='col-xs-12 col-md-6 col-sm-6'>
             <div class='main-image pull-right list-group-item'>
-                <img src='{{STATIC_URL}}/images/250px-Flubberwurm.png'>
+                <img src='{{ easy_hike.image }}'/>
             </div>
         </div>
 </div>

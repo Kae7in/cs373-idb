@@ -2,6 +2,11 @@
 
 {% block data-active %}active{% endblock data-active %}
 
+{% block breadcrumbs_items %}
+<li><a href="{% url 'artifacts' %}">Artifacts</a></li>
+<li class='active'>{{ artifact.name }}</li>
+{% endblock breadcrumbs_items %}
+
 {% block content %}
 <div class='row'>
   <div class='col-xs-12 col-md-8 col-sm-6 info-group'>
@@ -45,6 +50,17 @@
             <a href="{% url 'story' story.id %}">{{ story.name }}</a><br />
         {% endfor %}
     {% endblock stories %}
+  </div>
+</div>
+{% endif %}
+
+{% if artifact.shop %}
+<div class='row'>
+  <div class='col-md-12'>
+    <h3>SHOP</h3>
+    {% block shop %}
+        <a href="{% url 'shop' artifact.shop.id %}">{{ artifact.shop.name }}</a><br />
+    {% endblock shop %}
   </div>
 </div>
 {% endif %}

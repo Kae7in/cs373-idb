@@ -17,6 +17,7 @@ from django.shortcuts import render_to_response
 import shlex
 from haystack.backends import SQ
 from haystack.forms import SearchForm
+from django.conf import settings
 
 # Creature Views
 class CreatureListView(SingleTableView):
@@ -486,7 +487,6 @@ class JSON404Response(HttpResponse):
             status = 404
         )
 
-
 """
   HAYSTACK SEARCH
 """
@@ -523,6 +523,8 @@ class MySearchView(SearchView):
         if not q:
             return None
         sq = generateSearchQuery(q, 'OR')
+        if not sq:
+            return None
         return self.form.searchqueryset.filter(sq)
 
     def get_and_results(self):
@@ -530,6 +532,8 @@ class MySearchView(SearchView):
         if not q:
             return None
         sq = generateSearchQuery(q, 'AND')
+        if not sq:
+            return None
         return self.form.searchqueryset.filter(sq)
 
     def create_response(self):
@@ -557,17 +561,16 @@ def otherapi(request):
     # so if we use this, we need a 'Brewing your Muggle experience...'
     # loading page
     # hard, middle, easy = get_hikes()
+    error_hike = {'name': '[Voldemort has intercepted this message]', 'image':  settings.STATIC_URL+'images/happy-voldemort.gif', 'error': True}
+    error_park = {'name': '[Voldemort has intercepted this message]', 'visitors': '2 Death Eater', 'state': '[Voldemort has intercepted this message]'}
+    difficult, moderate, easy = get_one_hike_for_each_difficulty()
 
-    context = {'other':
-        {'death_valley_buttes': get_hike('Death Valley Buttes'),
-         'death_valley': get_park('Death Valley'),
-         'pinery': get_hike('Pinery'),
-         'guadalupe_mountains': get_park('Guadalupe Mountains'),
-         'rock_creek': get_hike('Rock Creek'),
-         'denali': get_park('Denali'),
-#        'strenuous': hard,
-#        'moderate': middle,
-#        'easy': easy,
-        }
+    context = {
+        'difficult_hike': error_hike if difficult is None else difficult,
+        'moderate_hike': error_hike if moderate is None else moderate,
+        'easy_hike': error_hike if easy is None else easy,
+        'difficult_park': error_park if difficult is None else get_park(difficult['park']),
+        'moderate_park': error_park if moderate is None else get_park(moderate['park']),
+        'easy_park': error_park if easy is None else get_park(easy['park'])
     }
     return render(request, 'experience.html', Context(context))
