@@ -563,14 +563,44 @@ def otherapi(request):
     # hard, middle, easy = get_hikes()
     error_hike = {'name': '[Voldemort has intercepted this message]', 'image':  settings.STATIC_URL+'images/happy-voldemort.gif', 'error': True}
     error_park = {'name': '[Voldemort has intercepted this message]', 'visitors': '2 Death Eater', 'state': '[Voldemort has intercepted this message]'}
+ #   error_creature = {'name':'[Voldemort has intercepted this message]', 'error': True}
+
     difficult, moderate, easy = get_one_hike_for_each_difficulty()
+    if difficult:
+        difficult['time'] = difficult['est_time(min)']
+        difficult['distance'] = difficult['distance(mile)']
+        difficult_park = get_park(difficult['park'])
+    else:
+        difficult_park = None
+    if moderate:
+        moderate['time'] = moderate['est_time(min)']
+        moderate['distance'] = moderate['distance(mile)']
+        moderate_park = get_park(moderate['park'])
+    else:
+        moderate_park = None
+    if easy:
+        easy['time'] = easy['est_time(min)']
+        easy['distance'] = easy['distance(mile)']
+        easy_park = get_park(easy['park'])
+    else:
+        easy_park = None    
+#    creature = get_creature()
+
+# For Voldemort demo
+#    difficult = None
+#    moderate = None
+#    easy = None
+#    difficult_park = None
+#    moderate_park = None
+#    easy_park = None
 
     context = {
         'difficult_hike': error_hike if difficult is None else difficult,
         'moderate_hike': error_hike if moderate is None else moderate,
         'easy_hike': error_hike if easy is None else easy,
-        'difficult_park': error_park if difficult is None else get_park(difficult['park']),
-        'moderate_park': error_park if moderate is None else get_park(moderate['park']),
-        'easy_park': error_park if easy is None else get_park(easy['park'])
+        'difficult_park': error_park if difficult_park is None else difficult_park,
+        'moderate_park': error_park if moderate_park is None else moderate_park,
+        'easy_park': error_park if easy is easy_park else easy_park,
+#        'creature': error_creature if creature is None else creature,
     }
     return render(request, 'experience.html', Context(context))
