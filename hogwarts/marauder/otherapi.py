@@ -47,7 +47,7 @@ def get_hikes(just_one):
 def get_one_hike_for_each_difficulty():
     hikes = get_hikes(True)
     if(hikes is None):
-        return None, None, None
+        return (None, None, None)
 
     difficult, moderate, easy = hikes
     difficult = get_json(os.path.join(twistory, 'api/hikes', difficult.pop()))
