@@ -14,47 +14,19 @@
 
 <div class='row'>
    	<div class='col-xs-12 col-md-6 col-sm-6 info-group'>
-   		<ul class='list-group info-group-list'>
-			<li class='list-group-item'>
-			    {{ location.kind|capfirst }}
+   		<ul class='timeline-single'>
+            <li class='timeline-inverted'>
+                <div class='timeline-badge info'><i class='glyphicon glyphicon-info-sign'></i></div>
+                <div class='timeline-panel'>
+        	        <div class='timeline-body'>
+   						<ul class='list-group info-group-list'>
+							<li class='list-group-item'>
+			    				{{ location.kind|capfirst }}
+							</li>
+						</ul>
+					</div>
+				</div>
 			</li>
-			{% if location.kind == 'school' %}
-				<li class='list-group-item'>
-					{{ location.country }}
-				</li>
-			{% endif %}
-			{% if location.kind == 'shop' %}
-				{% if location.owners.all %}
-					<li class='list-group-item'>
-						Owned by
-						<ul>
-						{% for owner in location.owners.all %}
-							<li>
-							{% if not owner.hidden %}
-								<a href='{% url "character" owner.id %}'>
-							{% endif %}
-							{{ owner.name }}
-							{% if not owner.hidden %}
-								</a>
-							{% endif %}
-							</li>
-						{% endfor %}
-						</ul>
-					</li>
-				{% endif %}
-				{% if location.locations.all %}
-					<li class='list-group-item'>
-						Located in
-						<ul>
-						{% for l in location.locations.all %}
-							<li>
-								<a href='{% url "location" l.id %}'>{{ l.name }}</a>
-							</li>
-						{% endfor %}
-						</ul>
-					</li>
-				{% endif %}
-			{% endif %}
 		</ul>
 	</div>
 
@@ -71,26 +43,43 @@
 	</div>
 </div>
 
-{% if location.stories.all %}
- 	<div class='row'>
-	  	<div class='col-md-12'>
-			<h3>RELATED STORIES</h3>
-			{% for story in location.stories.all %}
-		  		<a href="{% url 'story' story.id %}">{{ story.name }}</a><br/>
-			{% endfor %}
-		</div>
-	</div>
-{% endif %}
+<div class='row'>
+	<div class='col-md-12'>
+		<ul class='timeline'>
+			<li class="{% cycle 'timeline-inverted' '' as inversion %}" style='display: none;'></li>
+			{% if location.stories.all %}
+ 				<li class="{% cycle inversion %}">
+ 					<div class='timeline-badge success'><i class='glyphicon glyphicon-leaf'></i></div>
+        			<div class='timeline-panel'>
+            			<div class='timeline-heading'>
+               				<h4 class='timeline-title'>RELATED STORIES</h4>
+            			</div>
+            			<div class='timeline-body'>
+            				{% for story in location.stories.all %}
+		  						<a href="{% url 'story' story.id %}">{{ story.name }}</a><br/>
+							{% endfor %}
+						</div>
+					</div>
+				</li>
+			{% endif %}
 
-{% if location.shops.all %}
- 	<div class='row'>
-	  	<div class='col-md-12'>
-			<h3>SHOPS</h3>
-			{% for shop in location.shops.all %}
-		  		<a href="{% url 'shop' shop.id %}">{{ shop.name }}</a><br/>
-			{% endfor %}
-		</div>
+			{% if location.shops.all %}
+ 	 			<li class="{% cycle inversion %}">
+ 					<div class='timeline-badge warning'><i class='glyphicon glyphicon-shopping-cart'></i></div>
+        			<div class='timeline-panel'>
+            			<div class='timeline-heading'>
+               				<h4 class='timeline-title'>SHOPS</h4>
+            			</div>
+            			<div class='timeline-body'>
+							{% for shop in location.shops.all %}
+		  						<a href="{% url 'shop' shop.id %}">{{ shop.name }}</a><br/>
+							{% endfor %}
+						</div>
+					</div>
+				</li>
+			{% endif %}
+		</ul>
 	</div>
-{% endif %}
+</div>
 
 {% endblock content %}
