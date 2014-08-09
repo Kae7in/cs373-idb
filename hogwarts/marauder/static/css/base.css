@@ -1,5 +1,21 @@
 @import url('http://fonts.googleapis.com/css?family=Open+Sans:200,300');
 
+
+.timeline > li > .timeline-panel { width: 100%; }
+
+.timeline > li > .timeline-badge { 
+  margin: 10px auto;
+  position: relative;
+  top: 0px;
+  left: 0px;
+}
+
+.exp-img { width: 100%; }
+
+.timeline-single > li > .timeline-panel {
+  width: 45%;
+}
+
 .main-image img, .shadow-box {
   -webkit-box-shadow: 0 1px 6px rgba(0, 0, 0, 0.175);
   -moz-box-shadow: 0 1px 6px rgba(0, 0, 0, 0.175);
@@ -53,17 +69,6 @@
   position: relative;
 }
 
-.timeline:before {
-  top: 0;
-  bottom: 0;
-  position: absolute;
-  content: " ";
-  width: 3px;
-  background-color: #eeeeee;
-  left: 50%;
-  margin-left: -1.5px;
-}
-
 .timeline > li, .timeline-single > li {
   margin-bottom: 20px;
   position: relative;
@@ -90,7 +95,6 @@
 }
 
 .timeline > li > .timeline-panel,  .timeline-single > li > .timeline-panel {
-  width: 45%;
   float: left;
   border: 1px solid #d4d4d4;
   border-radius: 2px;
@@ -108,32 +112,6 @@
   margin-left: 50px;
 }
 
-.timeline > li > .timeline-panel:before,
-.timeline-single > li > .timeline-panel:before {
-  position: absolute;
-  top: 26px;
-  right: -15px;
-  display: inline-block;
-  border-top: 15px solid transparent;
-  border-left: 15px solid #ccc;
-  border-right: 0 solid #ccc;
-  border-bottom: 15px solid transparent;
-  content: " ";
-}
-
-.timeline > li > .timeline-panel:after,
- .timeline-single > li > .timeline-panel:after {
-  position: absolute;
-  top: 27px;
-  right: -14px;
-  display: inline-block;
-  border-top: 14px solid transparent;
-  border-left: 14px solid #fff;
-  border-right: 0 solid #fff;
-  border-bottom: 14px solid transparent;
-  content: " ";
-}
-
 .timeline > li > .timeline-badge,
 .timeline-single > li > .timeline-badge {
   color: #fff;
@@ -142,10 +120,6 @@
   line-height: 50px;
   font-size: 1.4em;
   text-align: center;
-  position: absolute;
-  top: 16px;
-  left: 50%;
-  margin-left: -25px;
   background-color: #999999;
   z-index: 100;
   border-top-right-radius: 50%;
@@ -153,6 +127,14 @@
   border-bottom-right-radius: 50%;
   border-bottom-left-radius: 50%;
 }
+
+.timeline-single > li > .timeline-badge {
+  position: absolute;
+  top: 16px;
+  left: 50%;
+  margin-left: -25px;
+}
+
 .timeline-single > li > .timeline-badge {
   left: 0%;
   margin-left: -25px;
@@ -161,7 +143,6 @@
 
 .timeline > li.timeline-inverted > .timeline-panel {
   float: right;
-  width: 44%;
 }
 
 .timeline > li.timeline-inverted > .timeline-panel:before,
@@ -324,6 +305,64 @@ body {
 /* anything larger than mobile phone */
 @media (min-width: 768px) {
 
+.timeline > li > .timeline-badge {
+  position: absolute;
+  top: 16px;
+  left: 50%;
+  margin-left: -25px;
+}
+
+.timeline > li > .timeline-panel {
+  width: 45%;
+}
+
+.timeline > li.timeline-inverted > .timeline-panel {
+  float: right;
+  width: 44%;
+}
+
+.exp-img { width: 45%; }
+
+.timeline > li > .timeline-badge { display: block; }
+
+.timeline > li > .timeline-panel:after,
+ .timeline-single > li > .timeline-panel:after {
+  position: absolute;
+  top: 27px;
+  right: -14px;
+  display: inline-block;
+  border-top: 14px solid transparent;
+  border-left: 14px solid #fff;
+  border-right: 0 solid #fff;
+  border-bottom: 14px solid transparent;
+  content: " ";
+}
+
+.timeline > li > .timeline-panel:before,
+.timeline-single > li > .timeline-panel:before {
+  position: absolute;
+  top: 26px;
+  right: -15px;
+  display: inline-block;
+  border-top: 15px solid transparent;
+  border-left: 15px solid #ccc;
+  border-right: 0 solid #ccc;
+  border-bottom: 15px solid transparent;
+  content: " ";
+}
+
+
+.timeline:before {
+  top: 0;
+  bottom: 0;
+  position: absolute;
+  content: " ";
+  width: 3px;
+  background-color: #eeeeee;
+  left: 50%;
+  margin-left: -1.5px;
+}
+
 
 .jumbotron {
     background: url('../images/maraudersbase.jpg');
@@ -349,7 +388,7 @@ body {
 
 /* mobile phones */
 @media (max-width: 768px) {
-    #description, blockquote, .block-text {
+    blockquote, .block-text {
         max-width: 320px;
     }
 
