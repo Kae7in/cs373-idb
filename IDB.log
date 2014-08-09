@@ -1,3 +1,1422 @@
+commit 3387d4cee033390ed2546bbc90f42b0e2b1dd46f
+Merge: 022e83c 7d7d010
+Author: Starnett <Starnett@users.noreply.github.com>
+Date:   Fri Aug 8 19:13:26 2014 -0500
+
+    Merge pull request #450 from Kae7in/mobile_fix
+    
+    Mobile fix
+
+commit 7d7d010aa1ea77795246962e71a9236df19d65d1
+Author: Amanda Steinwedel <amanda.steinwedel@gmail.com>
+Date:   Fri Aug 8 19:12:37 2014 -0500
+
+    mobile friendly timeline
+
+commit 42be324d84dc3678b77ddf9afae5eb5a141ea940
+Author: Amanda Steinwedel <amanda.steinwedel@gmail.com>
+Date:   Fri Aug 8 18:53:52 2014 -0500
+
+    revert to nontimeline for mobile view
+
+commit 022e83ce7be2356c0fa54dcdd56821c285a87335
+Author: Angela Hsu <ahsu@cs.utexas.edu>
+Date:   Fri Aug 8 18:43:58 2014 -0500
+
+    Final technical report added
+
+commit 08d9140a2859f979d890264e1a5fcd0e85eca819
+Merge: ac6aa0f 9bc4ec9
+Author: Amanda Steinwedel <amanda.steinwedel@massrelevance.com>
+Date:   Fri Aug 8 18:22:28 2014 -0500
+
+    Merge pull request #449 from Kae7in/timeline_look
+    
+    update glyphicon experience timeline
+
+commit 9bc4ec94c4989b53a98b5ecc66a7ae293558fe43
+Author: Amanda Steinwedel <amanda.steinwedel@gmail.com>
+Date:   Fri Aug 8 18:20:54 2014 -0500
+
+    update glyphicon experience timeline
+
+commit ac6aa0fe30ae597c0f5fc50c912be8549e2e9adc
+Merge: 978c6f9 31c72b5
+Author: Starnett <Starnett@users.noreply.github.com>
+Date:   Fri Aug 8 18:10:48 2014 -0500
+
+    Merge pull request #448 from Kae7in/timeline_look
+    
+    Timeline look
+
+commit 31c72b5ee7ebec7319cc3262d6feeae7260a5622
+Merge: 52ca156 978c6f9
+Author: Amanda Steinwedel <amanda.steinwedel@gmail.com>
+Date:   Fri Aug 8 18:10:00 2014 -0500
+
+    Merge branch 'master' into timeline_look
+    
+    Conflicts:
+    	hogwarts/marauder/templates/about.html
+
+commit 52ca15697f80de5db41bcdd4cc862432d23866dc
+Author: Amanda Steinwedel <amanda.steinwedel@gmail.com>
+Date:   Fri Aug 8 18:00:26 2014 -0500
+
+    get rid of unnecessary load
+
+commit b9bc69a8ec35e31be9d1e82cb4edcdf62990feb1
+Author: Amanda Steinwedel <amanda.steinwedel@gmail.com>
+Date:   Fri Aug 8 17:58:38 2014 -0500
+
+    fix minor style and add citation
+
+commit c037212598caf54043a2789ce10684ddc8bd3a73
+Author: Amanda Steinwedel <amanda.steinwedel@gmail.com>
+Date:   Fri Aug 8 17:44:12 2014 -0500
+
+    update muggle experience to timeline layout
+
+commit 978c6f9ed216c91eba45e5da6aabc9ca46de19f8
+Author: David <domoench@gmail.com>
+Date:   Fri Aug 8 22:39:22 2014 +0000
+
+    Updated about file from urllib3 to requests
+
+commit 3dc444216722a6d4d0203eac8e355befa7689124
+Author: Amanda Steinwedel <amanda.steinwedel@gmail.com>
+Date:   Fri Aug 8 17:33:46 2014 -0500
+
+    update books to timeline layout
+
+commit ffb987e226be4605ac7927597dd85dcfea8a4768
+Author: Amanda Steinwedel <amanda.steinwedel@gmail.com>
+Date:   Fri Aug 8 17:31:29 2014 -0500
+
+    update houses to timeline layout
+
+commit 9dc836eeb19afe2cdfe81c40cc40b93a5bbc594e
+Author: Amanda Steinwedel <amanda.steinwedel@gmail.com>
+Date:   Fri Aug 8 17:24:15 2014 -0500
+
+    update schools to timeline layout
+
+commit b1d1358c95a4873af34df0c728bf6ae24d84154a
+Author: Amanda Steinwedel <amanda.steinwedel@gmail.com>
+Date:   Fri Aug 8 17:16:09 2014 -0500
+
+    update shops to timeline layout
+
+commit 6f9a828c7ccaa43c83864bbcb75387ce7fa78f54
+Author: Amanda Steinwedel <amanda.steinwedel@gmail.com>
+Date:   Fri Aug 8 17:09:41 2014 -0500
+
+    update locations to timeline layout
+
+commit 689a7927a0d67c25cbfca1d3b7d1f629ba801f40
+Author: Amanda Steinwedel <amanda.steinwedel@gmail.com>
+Date:   Fri Aug 8 17:02:59 2014 -0500
+
+    update potions to timeline layout
+
+commit 60b09248e950dc63edcc15cf4bee500ed3c00c27
+Author: Amanda Steinwedel <amanda.steinwedel@gmail.com>
+Date:   Fri Aug 8 16:58:42 2014 -0500
+
+    update spells to timeline layout
+
+commit 75b9f2efe7ec6c547541d1cd180fd4610519281c
+Author: Amanda Steinwedel <amanda.steinwedel@gmail.com>
+Date:   Fri Aug 8 16:57:02 2014 -0500
+
+    update creatures to timeline layout
+
+commit 8be16c5fb8f5779bfb50011707224c68f6d97487
+Author: Amanda Steinwedel <amanda.steinwedel@gmail.com>
+Date:   Fri Aug 8 16:47:03 2014 -0500
+
+    update artifacts to timeline layout
+
+commit 9c558cc472b74b5676933f3f1af487b5dc2d2cf8
+Author: Amanda Steinwedel <amanda.steinwedel@gmail.com>
+Date:   Fri Aug 8 16:37:16 2014 -0500
+
+    fix typos
+
+commit 2dc6c852ab65028dcd1a7aa62e0f85fcea532d75
+Author: Amanda Steinwedel <amanda.steinwedel@gmail.com>
+Date:   Fri Aug 8 16:32:35 2014 -0500
+
+    update stories to timeline layout and fix cycle bug
+
+commit 7c8f7c07eef5f9ba22e6e6b9f80d16768e2fc3ea
+Author: Amanda Steinwedel <amanda.steinwedel@gmail.com>
+Date:   Fri Aug 8 16:24:01 2014 -0500
+
+    fix style of timeline panels
+
+commit 5be8d88e76739497a10482e0331e365c914d173f
+Author: Amanda Steinwedel <amanda.steinwedel@gmail.com>
+Date:   Fri Aug 8 16:10:11 2014 -0500
+
+    update characters to timeline layout
+
+commit 097b0dd0667a8d441113608b0d94517e879bbf5b
+Author: Amanda Steinwedel <amanda.steinwedel@gmail.com>
+Date:   Fri Aug 8 15:12:29 2014 -0500
+
+    fix info group dividers
+
+commit 16b24f3615a9047c46a1fadb3627713ade69d729
+Author: Amanda Steinwedel <amanda.steinwedel@gmail.com>
+Date:   Fri Aug 8 14:51:05 2014 -0500
+
+    finish updating about page style
+
+commit 6e8b5536077f6ae718d3e895e59fec0870c65c3e
+Author: Amanda Steinwedel <amanda.steinwedel@gmail.com>
+Date:   Fri Aug 8 14:02:50 2014 -0500
+
+    have timeline for member roles
+
+commit 1f69ba08155a31ffc59ded7c260313e3341a52c2
+Author: David <domoench@gmail.com>
+Date:   Fri Aug 8 18:15:23 2014 +0000
+
+    Added a bullet
+
+commit 89e00bdfd4000dc75698d683578be1b9d9a57cf8
+Merge: 64502eb 02e2e94
+Author: IsabellaBhardwaj <isabella11@utexas.edu>
+Date:   Fri Aug 8 13:09:26 2014 -0500
+
+    Merge pull request #447 from Kae7in/otherapi
+    
+    added try except clauses to get_one_hike_for_each_difficulty()
+
+commit 64502eb237d0328932c4b7ceba47ef637abb095d
+Author: David <domoench@gmail.com>
+Date:   Fri Aug 8 17:39:52 2014 +0000
+
+    removing what-is-this
+
+commit 02937f2e6373d6af295bf07c7aaf6522ecbda148
+Author: David <domoench@gmail.com>
+Date:   Fri Aug 8 17:39:07 2014 +0000
+
+    updated about
+
+commit 4559a352b5df2e00b73660254471e29f89c59230
+Author: Angela Hsu <ahsu@cs.utexas.edu>
+Date:   Fri Aug 8 12:27:10 2014 -0500
+
+    deleting old otherapi.html
+
+commit a5df95bb4318b02f4acc3f39e89eb2758aba5335
+Author: Angela Hsu <ahsu@cs.utexas.edu>
+Date:   Fri Aug 8 12:26:02 2014 -0500
+
+    ADDING OTHERAPI.PY BACK IN
+
+commit 02e2e94afe073edfd17540de2aeeec98dfc52c02
+Author: Angela Hsu <ahsu@cs.utexas.edu>
+Date:   Fri Aug 8 12:24:08 2014 -0500
+
+    added try except clauses to get_one_hike_for_each_difficulty()
+
+commit 008799f65c2ea4af9eda6a427bd3f50ba0a1c52b
+Author: David <domoench@gmail.com>
+Date:   Fri Aug 8 17:16:28 2014 +0000
+
+    removing old otherapi.py
+
+commit 47026f2eab34b162e8b37857902471ba0278c74f
+Merge: f37db8b e921fb8
+Author: David <domoench@gmail.com>
+Date:   Fri Aug 8 17:10:52 2014 +0000
+
+    Merge branch 'master' of github.com:Kae7in/cs373-idb
+
+commit f37db8ba01b6749786596c579864edaf370e3956
+Author: David <domoench@gmail.com>
+Date:   Fri Aug 8 17:10:01 2014 +0000
+
+    changed price to 53 galleons
+
+commit e921fb8504c0d973b5a3f4dd2cb2cdc54baf4ec6
+Merge: 391f7c8 18f840b
+Author: David Ouyang Moench <domoench@gmail.com>
+Date:   Fri Aug 8 12:07:56 2014 -0500
+
+    Merge pull request #446 from Kae7in/splashTitles
+    
+    Splash titles
+
+commit 18f840bb1603d677372c7bd467711e446ddcb6ce
+Author: Kaelin <kae7in@gmail.com>
+Date:   Fri Aug 8 12:05:55 2014 -0500
+
+    added titles to icons on splash page and fixed a typo
+
+commit 391f7c8707e906223bba3048d6f9626dd24e7da0
+Merge: cb8a47c 02084eb
+Author: David Ouyang Moench <domoench@gmail.com>
+Date:   Fri Aug 8 12:04:32 2014 -0500
+
+    Merge pull request #445 from Kae7in/otherapi
+    
+    changing "is None" condition to "not thing" to catch empty list
+
+commit b841102fdd8902082abf540198865a1b6761b297
+Author: Kaelin <kae7in@gmail.com>
+Date:   Fri Aug 8 12:02:40 2014 -0500
+
+    added titles to splash page icons
+
+commit 02084eb4600dc16ebf6aff4c53a71b0d4ae6e1ab
+Author: Angela Hsu <ahsu@cs.utexas.edu>
+Date:   Fri Aug 8 12:00:56 2014 -0500
+
+    changing "is None" condition to "not thing" to catch empty list
+
+commit cb8a47cd443079e7eaed79c1b4c7b6e594e03ad7
+Merge: 8ce543d b1c50c6
+Author: David Ouyang Moench <domoench@gmail.com>
+Date:   Fri Aug 8 11:49:36 2014 -0500
+
+    Merge pull request #444 from Kae7in/otherapi
+    
+    switching to requests
+
+commit b1c50c65b3d0dd2ea6373964d5d41a4a3a07605f
+Author: Angela Hsu <ahsu@cs.utexas.edu>
+Date:   Fri Aug 8 11:48:24 2014 -0500
+
+    switching to requests
+
+commit 8ce543d1c03ccd5b9de4706e690f9e6e456b74b5
+Merge: 5b49723 206d7d7
+Author: David Ouyang Moench <domoench@gmail.com>
+Date:   Fri Aug 8 11:26:47 2014 -0500
+
+    Merge pull request #443 from Kae7in/otherapi
+    
+    adding error flag for park
+
+commit 206d7d7d0f2c16b6a16edcd54e8bae95bd88df9b
+Merge: 899982a 5b49723
+Author: Angela Hsu <ahsu@cs.utexas.edu>
+Date:   Fri Aug 8 11:25:27 2014 -0500
+
+    added national park again
+
+commit 899982aa9db0e94b6cfa3f0b03a28c28a275bf74
+Author: Angela Hsu <ahsu@cs.utexas.edu>
+Date:   Fri Aug 8 11:22:17 2014 -0500
+
+    adding error flag for park
+
+commit 5b49723cc28fa35cacc0cfe73462160a1a7843e6
+Author: David <domoench@gmail.com>
+Date:   Fri Aug 8 07:52:10 2014 +0000
+
+    Make parks not necessarily national parks
+
+commit d97546966be345256d1752a4b43b1d813cbc33e7
+Merge: 9558bb0 5c264c1
+Author: IsabellaBhardwaj <isabella11@utexas.edu>
+Date:   Fri Aug 8 02:44:28 2014 -0500
+
+    Merge pull request #442 from Kae7in/otherapi
+    
+    Otherapi
+
+commit 5c264c1e175ddc2b197fb6d8c0936a890c13e590
+Author: Angela Hsu <ahsu@cs.utexas.edu>
+Date:   Fri Aug 8 02:22:33 2014 -0500
+
+    adding master settings.py back in in case merge issues
+
+commit 8f70c82845619f805204a348a3d8f74bc2bdb95a
+Author: Angela Hsu <ahsu@cs.utexas.edu>
+Date:   Fri Aug 8 02:19:45 2014 -0500
+
+    quick Voldemort comment code
+
+commit 9323bf643fd3a2c87ba9f609cc83e3983bd5eb5c
+Author: Angela Hsu <ahsu@cs.utexas.edu>
+Date:   Fri Aug 8 02:07:23 2014 -0500
+
+    removing local settings file
+
+commit 2ea995e01bc8c7d1a678ae0c26da6105635c4065
+Author: Angela Hsu <ahsu@cs.utexas.edu>
+Date:   Fri Aug 8 02:06:03 2014 -0500
+
+    Fixed potential bug for getting parks in API; added more detail for hikes
+
+commit 26ce91a00aa76257ca2ac53b786286aef5d6d8cb
+Merge: 75828d2 9558bb0
+Author: Angela Hsu <ahsu@cs.utexas.edu>
+Date:   Fri Aug 8 00:18:26 2014 -0500
+
+    Merge branch 'master' of https://github.com/Kae7in/cs373-idb into otherapi
+    
+    Conflicts:
+    	hogwarts/marauder/otherapi.py
+    	hogwarts/marauder/templates/experience.html
+
+commit 9558bb074392b51e4a5d9452211650f3f8dccce2
+Merge: 15785b0 c54cdb6
+Author: David <domoench@gmail.com>
+Date:   Fri Aug 8 04:41:40 2014 +0000
+
+    Merge branch 'master' of github.com:Kae7in/cs373-idb
+
+commit 15785b0a809c9f20cf27b60d44fe6c625e7a9199
+Author: David <domoench@gmail.com>
+Date:   Fri Aug 8 04:41:30 2014 +0000
+
+    breadcrumbs added
+
+commit 41f929240603bce249fd9fc88f9247348be272b8
+Author: David <domoench@gmail.com>
+Date:   Fri Aug 8 04:39:46 2014 +0000
+
+    new try except clause within try except
+
+commit c54cdb6930e381c2ed8cb2dfb6429a28c03a8e6c
+Merge: 51a409f bdf1f04
+Author: ashoofly <ashoofly@users.noreply.github.com>
+Date:   Thu Aug 7 23:21:31 2014 -0500
+
+    Merge pull request #441 from Kae7in/about_page
+    
+    About page
+
+commit bdf1f049cafbf2f05e94406b88cb2c0eb8385b4c
+Merge: 35265ce 95ceb4c
+Author: Angela Hsu <ahsu@cs.utexas.edu>
+Date:   Thu Aug 7 23:19:38 2014 -0500
+
+    edits to about page
+
+commit 35265ce369eb50b1d8c55214d61dd7de8893d4ac
+Author: Angela Hsu <ahsu@cs.utexas.edu>
+Date:   Thu Aug 7 23:17:26 2014 -0500
+
+    angela edits
+
+commit 95ceb4c39b7d29c738b50882a7cd8343c3a6e74f
+Author: Kaelin <kae7in@gmail.com>
+Date:   Thu Aug 7 21:27:51 2014 -0500
+
+    added stuff
+
+commit 7d256a54330d55a4759b586ea700c4fc66176770
+Merge: 51a409f 9bd458a
+Author: Kaelin <kae7in@gmail.com>
+Date:   Thu Aug 7 21:03:38 2014 -0500
+
+    Merge branch 'about_page' of https://github.com/Kae7in/cs373-idb into about_page
+
+commit 51a409f5cba07364eb35339811c2116a3a4193ef
+Merge: d62183a 2de744b
+Author: ashoofly <ashoofly@users.noreply.github.com>
+Date:   Thu Aug 7 20:42:37 2014 -0500
+
+    Merge pull request #440 from Kae7in/breadcrumbs
+    
+    breadcrumbs added
+
+commit d62183a2257482e8291be2c1cfe06cb01b0beb73
+Merge: 422fbb0 6d17216
+Author: David Ouyang Moench <domoench@gmail.com>
+Date:   Thu Aug 7 20:40:07 2014 -0500
+
+    Merge pull request #438 from Kae7in/file_updates
+    
+    #437, fixes these errors
+
+commit 2de744b16f74e369d9132f62b53f117cd42b3db9
+Author: Amanda Steinwedel <amanda.steinwedel@gmail.com>
+Date:   Thu Aug 7 20:37:54 2014 -0500
+
+    breadcrumbs added
+
+commit 6d17216ff048408eba4f8d15150cb87223309e22
+Author: Stephen Arnett <starnett@cs.utexas.edu>
+Date:   Thu Aug 7 20:36:42 2014 -0500
+
+    #437, fixes typo error
+
+commit 422fbb0366810b680010679dc75da6a893ec608c
+Merge: 54a7282 9e5d772
+Author: ashoofly <ashoofly@users.noreply.github.com>
+Date:   Thu Aug 7 20:27:32 2014 -0500
+
+    Merge pull request #439 from Kae7in/issue430
+    
+    Updated models.html. Resolves #430.
+
+commit 9e5d772afb992ac960428dd38b45c3c9269e6a08
+Author: David Moench <domoench@gmail.com>
+Date:   Thu Aug 7 20:23:53 2014 -0500
+
+    Updated models.html. Resolves #430.
+
+commit 5a68e59943d2d86e88b238ee8d791877528f308f
+Author: Stephen Arnett <starnett@cs.utexas.edu>
+Date:   Thu Aug 7 20:22:17 2014 -0500
+
+    #437, fixes these errors
+
+commit 75828d2db39fe74e35401ee4f178f264db83635a
+Merge: 6ebec83 54a7282
+Author: Angela Hsu <ahsu@cs.utexas.edu>
+Date:   Thu Aug 7 20:20:48 2014 -0500
+
+    added more details to hikes
+
+commit 6ebec833df470ad485ffd55369d89a51af5c6219
+Merge: a3c561c 61f65f6
+Author: Angela Hsu <ahsu@cs.utexas.edu>
+Date:   Thu Aug 7 20:01:06 2014 -0500
+
+    some experience stuff
+
+commit 54a7282eeb081b00071bb75dbd8bbd72d7fdae19
+Merge: 75e720c 96bf749
+Author: David <domoench@gmail.com>
+Date:   Fri Aug 8 00:28:03 2014 +0000
+
+    Merge branch 'master' of github.com:Kae7in/cs373-idb
+
+commit 75e720cbe94054f0d154b3fec1711110014e01a8
+Author: David <domoench@gmail.com>
+Date:   Fri Aug 8 00:27:43 2014 +0000
+
+    Small changes to wording in experience
+
+commit 96bf749a9a67203e52219dfc9566776301c86420
+Merge: 3833df6 85def04
+Author: IsabellaBhardwaj <isabella11@utexas.edu>
+Date:   Thu Aug 7 19:14:06 2014 -0500
+
+    Merge pull request #436 from Kae7in/fixTypo
+    
+    Fix typo
+
+commit 85def048f44aeb3dbee4b6fa04f2ae5a6e2e3f72
+Author: Kaelin <kae7in@gmail.com>
+Date:   Thu Aug 7 19:12:31 2014 -0500
+
+    fixed typoe in base.html, Catagories to Categories
+
+commit 26d5a28e4e0a3ac4563beb0e0f4841f3a5af951f
+Author: Kaelin <kae7in@gmail.com>
+Date:   Thu Aug 7 19:08:36 2014 -0500
+
+    corrected typo Catagories to Categories
+
+commit 9bd458a0708d3b95b2d896a29288dfa311649433
+Author: Amanda Steinwedel <amanda.steinwedel@gmail.com>
+Date:   Thu Aug 7 19:05:34 2014 -0500
+
+    added technical report role
+
+commit 3833df690dd7f28ce8c334e527beb030f61a22f5
+Merge: 5189018 2b56eea
+Author: IsabellaBhardwaj <isabella11@utexas.edu>
+Date:   Thu Aug 7 19:04:37 2014 -0500
+
+    Merge pull request #434 from Kae7in/generalize_otherapi
+    
+    make our user of other api generic
+
+commit 2b56eead2c0d0b188cd5eb33c870653231998536
+Merge: 91c8674 5189018
+Author: Amanda Steinwedel <amanda.steinwedel@gmail.com>
+Date:   Thu Aug 7 19:03:11 2014 -0500
+
+    Merge branch 'master' into generalize_otherapi
+    
+    Conflicts:
+    	hogwarts/marauder/templates/experience.html
+
+commit 5189018ce06f885d3b09eee4856a23d51a48680d
+Author: David <domoench@gmail.com>
+Date:   Thu Aug 7 23:49:01 2014 +0000
+
+    Dynamic images
+
+commit 91c86747308e1cde85160122bd12645e9d44989e
+Author: Amanda Steinwedel <amanda.steinwedel@gmail.com>
+Date:   Thu Aug 7 18:44:25 2014 -0500
+
+    make our user of other api generic
+
+commit 528e2d2deb2e6651a27b0d5134028cb3d355df6f
+Merge: cd49bbb 184c12b
+Author: David Ouyang Moench <domoench@gmail.com>
+Date:   Thu Aug 7 18:29:19 2014 -0500
+
+    Merge pull request #433 from Kae7in/issue432
+    
+    Updated tests.out. Resolves #432.
+
+commit 184c12b01849fc09505e08fb0ddd39cdef561071
+Author: David Moench <domoench@gmail.com>
+Date:   Thu Aug 7 18:27:20 2014 -0500
+
+    Updated tests.out. Resolves #432.
+
+commit cd49bbb223545bfe5ad74c6793f9364c6399ad8f
+Merge: 61f65f6 150c809
+Author: Kaelin Hooper <kae7in@gmail.com>
+Date:   Thu Aug 7 18:25:18 2014 -0500
+
+    Merge pull request #428 from Kae7in/issue319
+    
+    Issue319
+
+commit a3c561cee017e27bd3a557ab68461a7a77912e7c
+Author: Angela Hsu <ahsu@cs.utexas.edu>
+Date:   Thu Aug 7 18:14:58 2014 -0500
+
+    Adding hike details
+
+commit 61f65f666fae3c535dac955d7467892dc98c383a
+Merge: 11f745f eaa29aa
+Author: David <domoench@gmail.com>
+Date:   Thu Aug 7 23:13:21 2014 +0000
+
+    Merge branch 'master' of github.com:Kae7in/cs373-idb
+
+commit 11f745f798577dd032d6ba6754a71b8be2188dee
+Author: David <domoench@gmail.com>
+Date:   Thu Aug 7 23:12:33 2014 +0000
+
+    Adding links to twistory to experience
+
+commit 150c8090eb715877f6e3b6e5d675c3914097e621
+Merge: ad92de7 eaa29aa
+Author: David Moench <domoench@gmail.com>
+Date:   Thu Aug 7 18:03:39 2014 -0500
+
+    Merge branch 'master' of github.com:Kae7in/cs373-idb into issue319
+
+commit ad92de773e5b6e5324dc8267c5f18a08ee387a4d
+Author: David Moench <domoench@gmail.com>
+Date:   Thu Aug 7 18:03:02 2014 -0500
+
+    Added shop attribute to Artifact detail page. Resolves #319.
+
+commit eaa29aad96a2760b2b40e42ea44163e59e3358c1
+Merge: d263ad8 bf058ef
+Author: IsabellaBhardwaj <isabella11@utexas.edu>
+Date:   Thu Aug 7 18:02:19 2014 -0500
+
+    Merge pull request #425 from Kae7in/removeIngredients
+    
+    removed ingredient_text.txt
+
+commit d263ad80fed8b313f80ed3a9688d6a6676f56d0d
+Merge: 9287115 97211af
+Author: IsabellaBhardwaj <isabella11@utexas.edu>
+Date:   Thu Aug 7 18:02:06 2014 -0500
+
+    Merge pull request #427 from Kae7in/fixsearch
+    
+    fixed error that results form searching a blank line
+
+commit 97211af2ba00d164c89ccce20efe718bf9ada886
+Author: Kaelin <kae7in@gmail.com>
+Date:   Thu Aug 7 17:59:01 2014 -0500
+
+    fixed error that results form searching a blank line
+
+commit 822f3f6a5b10f9109fc599c2f227513f41607afb
+Author: Amanda Steinwedel <amanda.steinwedel@gmail.com>
+Date:   Thu Aug 7 17:50:12 2014 -0500
+
+    add role bullet points
+
+commit bf058ef2b90b93c3a5e2a5dcbfb1ff4926a6ea50
+Author: Kaelin <kae7in@gmail.com>
+Date:   Thu Aug 7 17:33:47 2014 -0500
+
+    removed ingredient_text.txt
+
+commit 9287115798ebb0582a212d0d8f5b7126ab99f11b
+Merge: 6098e7f 614c4ab
+Author: Starnett <Starnett@users.noreply.github.com>
+Date:   Thu Aug 7 17:23:06 2014 -0500
+
+    Merge pull request #424 from Kae7in/urllib3_upgrade
+    
+    switch api requests to urllib3
+
+commit 614c4abb341c6b37d947303347ba16ce1c09118c
+Author: David <domoench@gmail.com>
+Date:   Thu Aug 7 22:19:47 2014 +0000
+
+    switch api requests to urllib3
+
+commit 6098e7f44f228518afb063a5b609c69eb1db09e0
+Merge: 9c1b5ca 979a2e6
+Author: ashoofly <ashoofly@users.noreply.github.com>
+Date:   Thu Aug 7 17:18:07 2014 -0500
+
+    Merge pull request #423 from Kae7in/k-icon-hover
+    
+    made the icons on splash page inflate faster
+
+commit 9c1b5ca72379598dbdbf25a5cae8d23106f235d2
+Author: David <domoench@gmail.com>
+Date:   Thu Aug 7 17:48:47 2014 +0000
+
+    Fixed active block in experience, and added experience to navbar
+
+commit 360bbcc726426b7e5c9d2ddd52078026b418b3c2
+Author: David <domoench@gmail.com>
+Date:   Thu Aug 7 17:42:48 2014 +0000
+
+    Added moderate hike and park to context dict
+
+commit c060e06c7f33d3faa95b6ddd0235b63c53b725cf
+Author: David <domoench@gmail.com>
+Date:   Thu Aug 7 17:35:38 2014 +0000
+
+    Add moderate hike to html
+
+commit 979a2e614bc7581a8c90ad2d70e654ed5748b767
+Author: Kaelin <kae7in@gmail.com>
+Date:   Thu Aug 7 12:08:32 2014 -0500
+
+    made the icons on splash page inflate faster
+
+commit c2402f17181626ee550958fe9200471ab063c55f
+Author: David <domoench@gmail.com>
+Date:   Thu Aug 7 16:58:25 2014 +0000
+
+    Added easy hike and park to context, and added error message to death_valley.state
+
+commit 76a88a2c7a1e3752d27924c7e0c26ddce445d263
+Author: David <domoench@gmail.com>
+Date:   Thu Aug 7 16:43:33 2014 +0000
+
+    Added easy hike
+
+commit 3415c93742538b58db04e78b5294d31a29c1d474
+Author: David <domoench@gmail.com>
+Date:   Thu Aug 7 15:58:28 2014 +0000
+
+    Added get_parks to otherapi
+
+commit b5751f2e1eb135dcc997f32fda701083eeed4d40
+Merge: e5d817d 2926c27
+Author: David <domoench@gmail.com>
+Date:   Thu Aug 7 14:54:11 2014 +0000
+
+    Merge branch 'master' of github.com:Kae7in/cs373-idb
+
+commit e5d817d03715a3d49b194186f03726e962e76bc6
+Author: David <domoench@gmail.com>
+Date:   Thu Aug 7 14:53:40 2014 +0000
+
+    Added try-except clause for get_hike in case of PythonAnywhere problems (-AH)
+
+commit 2926c275fc19ec299195b9b0f57c413a3aff5a5b
+Merge: 7ace764 dd6a838
+Author: David Ouyang Moench <domoench@gmail.com>
+Date:   Wed Aug 6 23:46:07 2014 -0500
+
+    Merge pull request #422 from Kae7in/k-icon-hover
+    
+    added zoom-on-hover to icons on splash page
+
+commit 7ace7646ca5a5cfb39940c816a59acbb0874cd5e
+Merge: e04e0bf 6e738a2
+Author: David Ouyang Moench <domoench@gmail.com>
+Date:   Wed Aug 6 23:44:44 2014 -0500
+
+    Merge pull request #421 from Kae7in/data_fix
+    
+    fixes #420, data changed to catagories
+
+commit dd6a8383cbc0ad2bd99d6cf37710dad572440f5c
+Author: Kaelin <kae7in@gmail.com>
+Date:   Wed Aug 6 23:40:28 2014 -0500
+
+    added zoom-on-hover to icons on splash page
+
+commit 6e738a248dc5ba37de714f3e3a28f6ecf4306ff1
+Author: Stephen Arnett <starnett@cs.utexas.edu>
+Date:   Wed Aug 6 21:59:49 2014 -0500
+
+    fixes #420, data changed to catagories
+
+commit e04e0bf5620c5c2c6e7416a13da41f0348e80e03
+Author: David <domoench@gmail.com>
+Date:   Thu Aug 7 02:48:01 2014 +0000
+
+    Adding images
+
+commit ccb512d06268fdfb07d4feb7ef879c43ce1bb938
+Merge: 702092b 5516dfd
+Author: David <domoench@gmail.com>
+Date:   Thu Aug 7 00:48:49 2014 +0000
+
+    Merge branch 'master' of github.com:Kae7in/cs373-idb
+
+commit 702092bfd8755c33b788cb75fb9c8ee6fa3601ec
+Author: David <domoench@gmail.com>
+Date:   Thu Aug 7 00:48:22 2014 +0000
+
+    Fixing views to be experience, not otherapi
+
+commit 5516dfdb27f9bda2d978b3c22bbe5df32b89ee6c
+Merge: e3a96f0 98495c8
+Author: IsabellaBhardwaj <isabella11@utexas.edu>
+Date:   Wed Aug 6 19:33:08 2014 -0500
+
+    Merge pull request #418 from Kae7in/david-search
+    
+    Bringing david-search and master in sync
+
+commit e3a96f0b63dfb8c97be1d179d4f04c3e25761bcc
+Merge: 752839c 19e82df
+Author: IsabellaBhardwaj <isabella11@utexas.edu>
+Date:   Wed Aug 6 19:32:43 2014 -0500
+
+    Merge pull request #417 from Kae7in/mischief_message
+    
+    add different browser support and dont hide div again if already clicked...
+
+commit 98495c86304a3cd1d5e3e38c0f714cdfb7a5e792
+Merge: 0371ffe 752839c
+Author: David Moench <domoench@gmail.com>
+Date:   Wed Aug 6 18:34:15 2014 -0500
+
+    Merge branch 'master' of github.com:Kae7in/cs373-idb into david-search
+
+commit 752839cb14dfa81465e70e2e572d75cdb94969e1
+Author: David Moench <domoench@gmail.com>
+Date:   Wed Aug 6 18:32:55 2014 -0500
+
+    Set Whoosh as Haystack backend.
+
+commit 0371ffe6abdac14a46e8e5f72c767f47b89b0258
+Merge: 62e6c4d bf091b8
+Author: David Moench <domoench@gmail.com>
+Date:   Wed Aug 6 18:24:29 2014 -0500
+
+    Merge branch 'master' of github.com:Kae7in/cs373-idb into david-search
+    
+    Conflicts:
+    	hogwarts/marauder/tests.py
+
+commit 19e82df1df1fb292996197b527576e0ae3474fcf
+Author: Amanda Steinwedel <amanda.steinwedel@gmail.com>
+Date:   Wed Aug 6 17:19:21 2014 -0500
+
+    add different browser support and dont hide div again if already clicked into view
+
+commit bf091b8d3e191988f1b34402fa982be841c7b831
+Author: David <domoench@gmail.com>
+Date:   Wed Aug 6 22:18:56 2014 +0000
+
+    url direction for experience page
+
+commit 4f47820d0462e98a9d7b26e4c4ea8b68bb50f626
+Author: David <domoench@gmail.com>
+Date:   Wed Aug 6 22:04:53 2014 +0000
+
+    Citation line break
+
+commit 5a0d7536924846608e5f95c03147f4c67605dee8
+Merge: 90fa457 06e1fb5
+Author: David <domoench@gmail.com>
+Date:   Wed Aug 6 22:02:41 2014 +0000
+
+    Merge branch 'master' of github.com:Kae7in/cs373-idb
+
+commit 90fa457a8dba158f2c4000e2bdfc8998054d99b0
+Author: David <domoench@gmail.com>
+Date:   Wed Aug 6 22:01:39 2014 +0000
+
+    Adding experience page
+
+commit 06e1fb50f4133991ebad2d79fb35b21a2b9c3c9d
+Merge: 8256fbe cdea76f
+Author: IsabellaBhardwaj <isabella11@utexas.edu>
+Date:   Wed Aug 6 16:58:54 2014 -0500
+
+    Merge pull request #416 from Kae7in/mischief_message
+    
+    add mischief message to splash
+
+commit cdea76f85535acad412d256bf22f570fe3514fbf
+Author: Amanda Steinwedel <amanda.steinwedel@gmail.com>
+Date:   Wed Aug 6 16:57:55 2014 -0500
+
+    add mischief message to splash
+
+commit 8256fbe11537265c73a898473c43e80b25033c0f
+Merge: 4c21017 529e57f
+Author: IsabellaBhardwaj <isabella11@utexas.edu>
+Date:   Wed Aug 6 16:47:09 2014 -0500
+
+    Merge pull request #415 from Kae7in/dropdown_menu
+    
+    Dropdown menu
+
+commit 529e57f7dc67ef9b76a0af23de8f82f5b02bff86
+Author: Amanda Steinwedel <amanda.steinwedel@gmail.com>
+Date:   Wed Aug 6 16:45:53 2014 -0500
+
+    add citation for skull glyphicon
+
+commit a72a4faa27b97dcf9d781ee89780d05eea9a213b
+Author: Amanda Steinwedel <amanda.steinwedel@gmail.com>
+Date:   Wed Aug 6 16:44:52 2014 -0500
+
+    switch to dropdown menu in navbar
+
+commit 4c21017b6fcb0bd82fc0957944e1393b52d7139b
+Merge: 229fcc2 79bb8d0
+Author: Amanda Steinwedel <amanda.steinwedel@massrelevance.com>
+Date:   Wed Aug 6 16:38:08 2014 -0500
+
+    Merge pull request #411 from Kae7in/potion_unit_t
+    
+    Potion Unit Tests
+
+commit 229fcc2859128fc711e0cceed9da7913439f9434
+Merge: 3ea2610 ba6ea72
+Author: Starnett <Starnett@users.noreply.github.com>
+Date:   Wed Aug 6 16:36:57 2014 -0500
+
+    Merge pull request #414 from Kae7in/unforgivable
+    
+    add unforgivable to spell details page and icon for tables page
+
+commit ba6ea72c081de2b5bf2a864cfe481dbeb305c638
+Author: Amanda Steinwedel <amanda.steinwedel@gmail.com>
+Date:   Wed Aug 6 16:36:11 2014 -0500
+
+    add unforgivable to spell details page and icon for tables page
+
+commit 3ea2610b38d9c9242af027b3ed050d4ae3e63457
+Merge: 5006258 150092f
+Author: IsabellaBhardwaj <isabella11@utexas.edu>
+Date:   Wed Aug 6 00:21:58 2014 -0500
+
+    Merge pull request #407 from Kae7in/fix_mobile_search_icon
+    
+    fix #401 have search icon stay in input bar
+
+commit 79bb8d0ffb4462debb5380d182e13b2377e237a7
+Author: Isabella <isabella11@utexas.edu>
+Date:   Wed Aug 6 00:21:03 2014 -0500
+
+    Potion Unit Tests
+
+commit 62e6c4d6b8bd0ec5ca727e778458e56775023422
+Merge: f73b522 a1b64b0
+Author: Kaelin <kae7in@gmail.com>
+Date:   Tue Aug 5 21:11:14 2014 -0500
+
+    added search tests for Spells and Artifacts
+
+commit 5006258e4e27b9502057736c9b6f42e9e7620c63
+Author: David <domoench@gmail.com>
+Date:   Wed Aug 6 02:08:46 2014 +0000
+
+    replaced spaces in twistory api url for pythonanywhere (-AH)
+
+commit f73b52290a2760aba67429c8185ff9373d384c61
+Author: Kaelin <kae7in@gmail.com>
+Date:   Tue Aug 5 21:04:56 2014 -0500
+
+    added search tests for Spells and Artifacts
+
+commit a1b64b02cc6e7a754db906e0212b76f234916664
+Author: Angela Hsu <ahsu@cs.utexas.edu>
+Date:   Tue Aug 5 20:53:24 2014 -0500
+
+    all tests passing
+
+commit 6a87b52d103109f2d9f1b039cf79641efb80bb85
+Merge: 4c4d013 66ae58e
+Author: David <domoench@gmail.com>
+Date:   Wed Aug 6 01:46:40 2014 +0000
+
+    Merge branch 'master' of github.com:Kae7in/cs373-idb
+
+commit 4c4d0132aae9902666bcb1b1878900a408735a6b
+Author: David <domoench@gmail.com>
+Date:   Wed Aug 6 01:44:41 2014 +0000
+
+    Added a citation
+
+commit 66ae58ebc94dbe2a22a20c84fafb36c92b72fc95
+Merge: 3bf5c52 6246230
+Author: ashoofly <ashoofly@users.noreply.github.com>
+Date:   Tue Aug 5 20:36:00 2014 -0500
+
+    Merge pull request #408 from Kae7in/david-search
+    
+    david-search
+
+commit 71044115ff5a971fe9a7e00f2cbcf477958cb26d
+Merge: 053efa5 6246230
+Author: Angela Hsu <ahsu@cs.utexas.edu>
+Date:   Tue Aug 5 20:30:53 2014 -0500
+
+    Merge branch 'david-search' of https://github.com/Kae7in/cs373-idb into david-search
+
+commit 053efa5954ef8c2b7f968d933f4e23624f49988a
+Author: Angela Hsu <ahsu@cs.utexas.edu>
+Date:   Tue Aug 5 20:30:44 2014 -0500
+
+    creature tests passing
+
+commit 027477ba29c16959002f4559134e7fbed14b7bbe
+Author: Angela Hsu <ahsu@cs.utexas.edu>
+Date:   Tue Aug 5 20:03:08 2014 -0500
+
+    stashing for branch checkout
+
+commit 624623017b5032b08d31c9a98e2849757d603852
+Merge: ec9beb5 3bf5c52
+Author: David Moench <domoench@gmail.com>
+Date:   Tue Aug 5 19:54:14 2014 -0500
+
+    Merge branch 'master' of github.com:Kae7in/cs373-idb into david-search
+
+commit ec9beb57525f342fa557b4145419876001e1425e
+Author: David Moench <domoench@gmail.com>
+Date:   Tue Aug 5 19:45:02 2014 -0500
+
+    Removed description searchability test from Location Search Test.
+
+commit 64333901ee0817e87b0f148e41ce5e7a2925ce74
+Merge: 4ac05ff 5a3d9cb
+Author: David Moench <domoench@gmail.com>
+Date:   Tue Aug 5 19:32:58 2014 -0500
+
+    Merge branch 'david-search' of github.com:Kae7in/cs373-idb into david-search
+
+commit 4ac05ffd2ac324a37c7a41d943656af7a5e52bb9
+Author: David Moench <domoench@gmail.com>
+Date:   Tue Aug 5 19:32:48 2014 -0500
+
+    Fixed typo.
+
+commit 3bf5c5265fcb72f60fa068d811c9603cf395f4b2
+Merge: f261839 f4285f6
+Author: David <domoench@gmail.com>
+Date:   Tue Aug 5 19:56:01 2014 +0000
+
+    Merge branch 'master' of github.com:Kae7in/cs373-idb
+
+commit f261839c3243ac4be00027b6ede162e2a37cd7a5
+Author: David <domoench@gmail.com>
+Date:   Tue Aug 5 19:53:26 2014 +0000
+
+    updated db backup
+
+commit 150092f1ad455584269543afbea286010383288a
+Author: Amanda Steinwedel <amanda.steinwedel@gmail.com>
+Date:   Tue Aug 5 13:41:04 2014 -0500
+
+    fix #401 have search icon stay in input bar
+
+commit 5a3d9cb6587e35d35934f245d1622cd6973fb9e3
+Author: Amanda Steinwedel <amanda.steinwedel@gmail.com>
+Date:   Tue Aug 5 13:30:33 2014 -0500
+
+    Add book search tests and fix typo
+
+commit 38a0e9995193914fedf92b22d82addf09348bd82
+Author: Amanda Steinwedel <amanda.steinwedel@gmail.com>
+Date:   Tue Aug 5 13:26:57 2014 -0500
+
+    forgot or/and params in generating search query
+
+commit a27423e51f14b84d5de71d4709fb3a3f20bff36a
+Author: Amanda Steinwedel <amanda.steinwedel@gmail.com>
+Date:   Tue Aug 5 13:23:20 2014 -0500
+
+    add Location search tests
+
+commit 5b410d8148992234682c2f806f08cf19b4836864
+Author: Amanda Steinwedel <amanda.steinwedel@gmail.com>
+Date:   Tue Aug 5 13:22:23 2014 -0500
+
+    fix typo from Character to Story
+
+commit 527bbe1ba8c03cf6f6a7475164e190c343b38d59
+Author: Amanda Steinwedel <amanda.steinwedel@gmail.com>
+Date:   Tue Aug 5 13:05:58 2014 -0500
+
+    add story search tests
+
+commit f4285f66fa35ebfe9d128f36874c52c2202fbc5f
+Merge: 1210e77 5689cfb
+Author: IsabellaBhardwaj <isabella11@utexas.edu>
+Date:   Mon Aug 4 23:33:54 2014 -0500
+
+    Merge pull request #405 from Kae7in/angela-api
+    
+    Angela api
+
+commit 5689cfb66ff2a41f5dd0cef81c4baa5303514f20
+Author: Angela Hsu <ahsu@cs.utexas.edu>
+Date:   Mon Aug 4 23:17:59 2014 -0500
+
+    api example working
+
+commit 4a06e4b61c2c9417fe35a110d9ef82eb08ea7d2d
+Author: Angela Hsu <ahsu@cs.utexas.edu>
+Date:   Mon Aug 4 22:48:07 2014 -0500
+
+    initial working of twistory api
+
+commit c3aee15980e23fe47efae3e5b54de89e5719085f
+Merge: f51c0e8 bc8b23f
+Author: David Moench <domoench@gmail.com>
+Date:   Mon Aug 4 22:35:37 2014 -0500
+
+    Merge branch 'david-search' of github.com:Kae7in/cs373-idb into david-search
+
+commit f51c0e8d8c111432d080269616a626abf0a896c6
+Author: David Moench <domoench@gmail.com>
+Date:   Mon Aug 4 22:34:02 2014 -0500
+
+    Implemented Haystack Search Unit Tests. #404.
+
+commit 8c93ed8b6f1b5ded2d2fe0f7d9b7a93b6deeca2a
+Author: David Moench <domoench@gmail.com>
+Date:   Mon Aug 4 22:22:54 2014 -0500
+
+    Removed shop + creature from character index. They're keys.
+    
+    * Added wand and quote_by since they're text fields.
+
+commit 1210e770c9f8de559972e68481b21b4f5ad89bf5
+Merge: 2dcf2e5 831f7b9
+Author: ashoofly <ashoofly@users.noreply.github.com>
+Date:   Mon Aug 4 21:57:21 2014 -0500
+
+    Merge pull request #402 from Kae7in/k-splash-search
+    
+    added functioning search bar to splash page and removed search glyphicon...
+
+commit 831f7b94951e6e89b4f205f29da1aa866b123172
+Author: Kaelin <kae7in@gmail.com>
+Date:   Mon Aug 4 21:17:30 2014 -0500
+
+    added functioning search bar to splash page and removed search glyphicon from the navbar
+
+commit 2dcf2e57039017d4ca3d5395a17d257b8f46d02f
+Merge: abf1c19 43eb0d3
+Author: Starnett <Starnett@users.noreply.github.com>
+Date:   Mon Aug 4 20:38:31 2014 -0500
+
+    Merge pull request #399 from Kae7in/search_on_enter
+    
+    fix #398 search in navbar on enter
+
+commit 43eb0d367bf1b46cfd3ef479d20c6d9aecb7f774
+Author: Amanda Steinwedel <amanda.steinwedel@gmail.com>
+Date:   Mon Aug 4 20:37:40 2014 -0500
+
+    fix #398 search in navbar on enter
+
+commit abf1c19976d9799843ec5f507c50f4e5032b3320
+Author: Kaelin <kae7in@gmail.com>
+Date:   Mon Aug 4 20:27:28 2014 -0500
+
+    added titles to icons/links on splash page (index.html)
+
+commit 67fa25d1a55f07efeb4ebeb425f082bf9d9c4d04
+Merge: d4f9b89 ebc3afb
+Author: Starnett <Starnett@users.noreply.github.com>
+Date:   Mon Aug 4 20:21:23 2014 -0500
+
+    Merge pull request #397 from Kae7in/separate_and_or_search
+    
+    add search and or tabs
+
+commit ebc3afb7e97e66b8e3798d69713598e0e1f4be7f
+Author: Amanda Steinwedel <amanda.steinwedel@gmail.com>
+Date:   Mon Aug 4 20:20:19 2014 -0500
+
+    add search and or tabs
+
+commit d4f9b896a329d54e1484db57ea072a585119edbd
+Author: IsabellaBhardwaj <isabella11@utexas.edu>
+Date:   Mon Aug 4 19:44:16 2014 -0500
+
+    Update about.html
+
+commit f64ee82c23017f7cde9e3b0bfc215f5d7b5fd9c0
+Merge: b84343b 9115a11
+Author: IsabellaBhardwaj <isabella11@utexas.edu>
+Date:   Mon Aug 4 19:41:39 2014 -0500
+
+    Merge pull request #395 from Kae7in/navbar_search
+    
+    add search to navbar
+
+commit 9115a11f4f99d2ebaeca399b1729185a4c6f0c09
+Author: Amanda Steinwedel <amanda.steinwedel@gmail.com>
+Date:   Mon Aug 4 19:38:03 2014 -0500
+
+    add search to navbar
+
+commit b84343b7242d6bf4ce932444d3d7136d2c537bfe
+Author: David <domoench@gmail.com>
+Date:   Sun Aug 3 17:23:55 2014 +0000
+
+    changes on live site
+
+commit dd23de7e5d842170735992e6ae1296411c34aad6
+Merge: e151964 bc8b23f
+Author: ashoofly <ashoofly@users.noreply.github.com>
+Date:   Sun Aug 3 12:10:03 2014 -0500
+
+    Merge pull request #390 from Kae7in/david-search
+    
+    David search
+
+commit e15196490bd7444af6ed47249c83f65597c43021
+Author: David <domoench@gmail.com>
+Date:   Sun Aug 3 17:07:33 2014 +0000
+
+    about page
+
+commit bc8b23f83d0bb81047adfa0c022ccc493bc63389
+Author: Angela Hsu <ahsu@cs.utexas.edu>
+Date:   Sat Aug 2 18:27:46 2014 -0500
+
+    changed minor styling
+
+commit 57a94a614657739a6ae833a55c61a5e652a8f19c
+Author: David Moench <domoench@gmail.com>
+Date:   Sat Aug 2 17:43:22 2014 -0500
+
+    Fixed an accidental merge bug.
+
+commit 0cb8fd6c4367b777d1484a52d9980e0ba46ea83f
+Merge: 6042254 16a3c34
+Author: David Moench <domoench@gmail.com>
+Date:   Sat Aug 2 17:15:37 2014 -0500
+
+    Merge branch 'david-search' of github.com:Kae7in/cs373-idb into david-search
+
+commit 6042254479d292da3b5f3f50b74e5aa52331b305
+Author: David Moench <domoench@gmail.com>
+Date:   Sat Aug 2 17:14:16 2014 -0500
+
+    Implemented AND/OR search. #357.
+
+commit 16a3c34c60f5ab5575d0c03e9539f0c72d2414bd
+Merge: f639bda 9587cc4
+Author: Kaelin <kae7in@gmail.com>
+Date:   Sat Aug 2 17:03:24 2014 -0500
+
+    Merge branch 'david-search' of https://github.com/Kae7in/cs373-idb into david-search
+
+commit f639bda4e3b2e67d25b70265d3acf486d385303e
+Author: Kaelin <kae7in@gmail.com>
+Date:   Sat Aug 2 17:03:17 2014 -0500
+
+    forgot search_indexes.py
+
+commit 0213aeb4efcb3826e68651c66fd571a3edc3f49f
+Author: Kaelin <kae7in@gmail.com>
+Date:   Sat Aug 2 17:02:07 2014 -0500
+
+    added SpellIndex and StoryIndex classes to search_index.py; added spell_text.txt and story_text.txt
+
+commit 9587cc428afdcdcfac9c5754bc8355a487d5704f
+Author: Angela Hsu <ahsu@cs.utexas.edu>
+Date:   Sat Aug 2 16:38:09 2014 -0500
+
+    cleaned up some search models
+
+commit 428cd84c7b8d5fbbeb19b52dcadacc7b996b9e22
+Merge: 1622b54 c8ce553
+Author: Angela Hsu <ahsu@cs.utexas.edu>
+Date:   Sat Aug 2 16:18:03 2014 -0500
+
+    Merge branch 'david-search' of https://github.com/Kae7in/cs373-idb into david-search
+
+commit 1622b54783b7d1fb6d4dd54844c6bd39c9525b87
+Author: Angela Hsu <ahsu@cs.utexas.edu>
+Date:   Sat Aug 2 16:17:22 2014 -0500
+
+    fixed hyperlink result for potions
+
+commit c8ce55327cd663c8a4cf3fd57a17b41b7fbcfee5
+Author: Isabella <isabella11@utexas.edu>
+Date:   Sat Aug 2 16:11:17 2014 -0500
+
+    Took foreign keys from Book in search_indexes.py
+
+commit 6fb6d5bb5a45f89dd097e14592cb76caf775514d
+Author: Kaelin <kae7in@gmail.com>
+Date:   Sat Aug 2 16:06:04 2014 -0500
+
+    fixed errors with potions
+
+commit a188698fd1cd98b74ac4b1aa79b3c68b325a5705
+Merge: 57a871e f1edb28
+Author: ashoofly <ashoofly@users.noreply.github.com>
+Date:   Fri Aug 1 18:52:41 2014 -0500
+
+    Merge pull request #373 from Kae7in/isabella_search_models
+    
+    Models for Potion, Book, and Ingredients.
+
+commit 57a871e41e611d9c191b8c28f2c42325f36854b0
+Author: Angela Hsu <ahsu@cs.utexas.edu>
+Date:   Fri Aug 1 18:50:23 2014 -0500
+
+    added search glyph; new location search template
+
+commit f1edb28708c6d7a47fae28d4cb10af554d6e1586
+Author: Isabella <isabella11@utexas.edu>
+Date:   Fri Aug 1 18:29:56 2014 -0500
+
+    Added text files
+
+commit 3c06931e492bf9b4c7fbcd09a0dc525f482a52a6
+Merge: dc4aee0 af2d168
+Author: Angela Hsu <ahsu@cs.utexas.edu>
+Date:   Fri Aug 1 18:18:48 2014 -0500
+
+    Merge branch 'david-search' of https://github.com/Kae7in/cs373-idb into david-search
+    
+    Conflicts:
+    	hogwarts/marauder/search_indexes.py
+
+commit dc4aee0e3ac95f70c3d8700e920fd05622512de4
+Author: Angela Hsu <ahsu@cs.utexas.edu>
+Date:   Fri Aug 1 18:17:58 2014 -0500
+
+    added locations; some css formatting
+
+commit bee0ca2920646819222e7d0ceac87c6761c6f350
+Merge: b8208c2 af2d168
+Author: Isabella <isabella11@utexas.edu>
+Date:   Fri Aug 1 18:02:25 2014 -0500
+
+    Merge branch 'david-search' of https://github.com/Kae7in/cs373-idb into isabella_search_models
+    
+    Conflicts:
+    	hogwarts/marauder/search_indexes.py
+
+commit b8208c2f5a9c03e5ed62751a95ee5f084b46ff31
+Author: Isabella <isabella11@utexas.edu>
+Date:   Fri Aug 1 17:58:48 2014 -0500
+
+    Added search models for Ingredient and Book
+
+commit af2d168816e4534fbabaedfa2ad5b938f5014e80
+Author: Kaelin <kae7in@gmail.com>
+Date:   Fri Aug 1 17:41:02 2014 -0500
+
+    added ArtifactIndex to search_indexes.py
+
+commit 998bdaf742a9886493a77a065a2514cd1771bb2b
+Author: Isabella <isabella11@utexas.edu>
+Date:   Fri Aug 1 17:10:08 2014 -0500
+
+    Added PotionIndexes
+
+commit 1a4649e9fc426944f3ca29d5c1f9a58aef459578
+Author: David Moench <domoench@gmail.com>
+Date:   Fri Aug 1 16:32:33 2014 -0500
+
+    Fixed highlighting. #356.
+
+commit 3dff274fd8b5c780d97f1d31ec5ad8ba0c178696
+Author: Angela Hsu <ahsu@cs.utexas.edu>
+Date:   Fri Aug 1 13:19:55 2014 -0500
+
+    forgot to add new file utils.py
+
+commit c58b7ff65c13a50f77017599190a92407d4f2a6e
+Author: Angela Hsu <ahsu@cs.utexas.edu>
+Date:   Fri Aug 1 13:16:25 2014 -0500
+
+    trying to get search highlighting to work
+
+commit 6fbe9921ba6a22a043238c15641033bdd8128e31
+Author: Angela Hsu <ahsu@cs.utexas.edu>
+Date:   Wed Jul 30 12:59:37 2014 -0500
+
+    added get_absolute_url() to all models
+
+commit afc73972d190dbaf84120154f25e0d15a486b19a
+Author: David Moench <domoench@gmail.com>
+Date:   Tue Jul 29 18:37:07 2014 -0500
+
+    Setup search with Haystack - forgot these files on the last commit.
+
+commit 6945688a7d7f35238f885e2eeefa7aeee48cad69
+Author: David Moench <domoench@gmail.com>
+Date:   Tue Jul 29 18:25:42 2014 -0500
+
+    Setup search with Haystack (backed by ElasticSearch).
+
+commit dfa97cb5f3344e3d12f283e5be476a1042d031a4
+Author: David <domoench@gmail.com>
+Date:   Mon Jul 28 19:06:29 2014 +0000
+
+    new backup
+
+commit e6ede13b7dc224479a86573226b1e0de200491d0
+Author: David <domoench@gmail.com>
+Date:   Mon Jul 28 18:53:27 2014 +0000
+
+    adding migrations directory to version control
+
+commit 4089de389f60a945c2dc8ef12f3496e465498d10
+Author: David <domoench@gmail.com>
+Date:   Mon Jul 28 18:40:26 2014 +0000
+
+    adding media directory to version control
+
+commit 2a79bebeb6b818a75919f3cf48099e78ef0acacb
+Author: David <domoench@gmail.com>
+Date:   Sat Jul 26 01:18:08 2014 +0000
+
+    last changes before turnin
+
+commit 14d0f77b977a790f7f18d7a88d9ab834093f4de5
+Author: David <domoench@gmail.com>
+Date:   Sat Jul 26 01:04:20 2014 +0000
+
+    DEBUG set to false for settings.py.
+
+commit 6f118d04bdca540f2f4cc3dce7c8c8a90651d5fe
+Author: David Moench <domoench@gmail.com>
+Date:   Fri Jul 25 19:39:02 2014 -0500
+
+    Updated technical report. Resolves #220.
+
+commit f731eb4734e1bf0c8fef71136efc89b0f61e5075
+Author: David Moench <domoench@gmail.com>
+Date:   Fri Jul 25 19:27:10 2014 -0500
+
+    Updated git log.
+
 commit ba7a3c7fef054abb02f15003cf4274734f148166
 Merge: 3c5d503 c95edd6
 Author: Starnett <Starnett@users.noreply.github.com>
