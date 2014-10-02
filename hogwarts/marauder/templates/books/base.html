@@ -5,6 +5,7 @@
 {% block breadcrumbs_items %}
 <li><a href="{% url 'books' %}">Books</a></li>
 <li class='active'>{{ book.name }}</li>
+{% endblock breadcrumbs_items %}
 
 {% block content %}
 <div id="name">
