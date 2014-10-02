@@ -22,11 +22,19 @@ ul.star-list {
 
 .navbar-toggle { background-color: white; }
 
-body {
-    padding-top: 51px !important;
+body, .navbar {
+  background-image: url(http://subtlepatterns.com/patterns/purty_wood.png);
 }
 
-.navbar { background-color: white; }
+.row-content {
+  background-color: white;
+  padding: 20px;
+  -webkit-box-shadow: 0px 1px 10px 4px rgba(50, 50, 50, 0.75) !important;
+  -moz-box-shadow: 0px 1px 10px 4px rgba(50, 50, 50, 0.75) !important;
+  box-shadow: 0px 1px 10px 4px rgba(50, 50, 50, 0.75) !important;
+  margin-top: 30px;
+  margin-bottom: 60px;
+}
 
 #content {
   font-family: 'Oxygen', sans-serif;
