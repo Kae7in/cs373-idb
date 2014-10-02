@@ -23,7 +23,7 @@ ul.star-list {
 .navbar-toggle { background-color: white; }
 
 body, .navbar {
-  background-image: url(http://subtlepatterns.com/patterns/purty_wood.png);
+  background-image: url('../images/purty_wood.png');
 }
 
 .row-content {
@@ -378,15 +378,15 @@ a:hover {
 }
 
 .navbar-nav>li>a:hover, .navbar-brand:hover, .navbar-nav>li>a:focus, .navbar-brand:focus  {
-  color: #E9B64A !important;
-  text-shadow: -1px 1px 8px #ffc, 1px -1px 8px #E9B64A;
+  color: #FFFFFF !important;
+  text-shadow: -1px 1px 8px #ffc, 1px -1px 8px #FFFFFF;
 }
 
 .navbar-nav li.active, .navbar-nav>.active>a, .navbar-nav>.open>a {
   background-color: transparent !important;
   text-decoration: none;
-  color: #E9B64A !important;
-  text-shadow: -1px 1px 8px #ffc, 1px -1px 8px #E9B64A;
+  color: #FFFFFF !important;
+  text-shadow: -1px 1px 8px #ffc, 1px -1px 8px #FFFFFF;
 }
 
 li.dropdown.active {
