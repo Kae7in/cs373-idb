@@ -134,7 +134,7 @@
  					<div class='timeline-badge success'><i class='glyphicon glyphicon-leaf'></i></div>
         			<div class='timeline-panel'>
             			<div class='timeline-heading'>
-                			<h4 class='timeline-title'>STORIES</h4>
+                			<h3 class='timeline-title uppercase'>Stories</h3>
             			</div>
             			<div class='timeline-body'>
 							{% for story in character.stories.all %}
@@ -150,7 +150,7 @@
  					<div class='timeline-badge'><i class='glyphicon glyphicon-book'></i></div>
         			<div class='timeline-panel'>
             			<div class='timeline-heading'>
-                			<h4 class='timeline-title'>BIBLIOGRAPHY</h4>
+                			<h3 class='timeline-title uppercase'>Bibliography</h3>
             			</div>
             			<div class='timeline-body'>
 							{% for book in character.books_published.all %}
@@ -169,7 +169,7 @@
  					<div class='timeline-badge warning'><i class='glyphicon glyphicon-glass'></i></div>
         			<div class='timeline-panel'>
             			<div class='timeline-heading'>
-                			<h4 class='timeline-title'>ARTIFACTS</h4>
+                			<h3 class='timeline-title uppercase'>Artifacts</h3>
             			</div>
             			<div class='timeline-body'>
 							{% for artifact in character.artifacts.all %}
@@ -185,7 +185,7 @@
  					<div class='timeline-badge danger'><i class='glyphicon glyphicon-tree-deciduous'></i></div>
     	   			<div class='timeline-panel'>
             			<div class='timeline-heading'>
-                			<h4 class='timeline-title'>FAMILY RELATIONSHIPS</h4>
+                			<h3 class='timeline-title uppercase'>Family Relationships</h3>
             			</div>
             			<div class='timeline-body'>
 							{% for relation1 in character.relationships1.all %}
