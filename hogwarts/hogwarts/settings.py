@@ -18,13 +18,13 @@ BASE_DIR = os.path.dirname(os.path.dirname(__file__))
 SECRET_KEY = 'ex629+bp_*v#e8*b2#&%f!z9p_ass74vn^o=wi30jjdp=1kv-*'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = False
+DEBUG = True
 
 TEMPLATE_DEBUG = False
 
 TEMPLATE_CONTEXT_PROCESSORS += ("django.core.context_processors.request",)
 
-ALLOWED_HOSTS = '*'
+ALLOWED_HOSTS = []
 
 # Application definition
 
@@ -38,7 +38,8 @@ INSTALLED_APPS = (
     'marauder',
     'south',
     'django_tables2',
-    'haystack'
+    #'haystack'
+    #'south',
 )
 
 MIDDLEWARE_CLASSES = (
@@ -59,11 +60,11 @@ WSGI_APPLICATION = 'hogwarts.wsgi.application'
 
 DATABASES = {
     'default': { 'ENGINE': 'mysql.connector.django',
-        'NAME': 'domoench$default',
-        'USER': 'domoench',
+        'NAME': 'amandagoblin$default',
+        'USER': 'amandagoblin',
         'PASSWORD': 'lemonsherbert',
         'HOST': 'mysql.server',
-        'TEST_NAME': 'domoench$test_default',
+        'TEST_NAME': 'amandagoblin$test_default',
     }
 }
 
@@ -101,5 +102,5 @@ USE_TZ = True
 
 STATIC_URL = '/static/'
 
-MEDIA_ROOT = '/home/domoench/cs373-idb/hogwarts/marauder/media'
+MEDIA_ROOT = '/home/amandagoblin/cs373-idb/hogwarts/marauder/media'
 MEDIA_URL = '/media/'

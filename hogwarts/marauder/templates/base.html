@@ -17,7 +17,6 @@
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
     <script src="{{ STATIC_URL }}js/bootstrap.min.js"></script>
     <script src="{{ STATIC_URL }}js/base.js"></script>
-
     {% block scripts %}{% endblock scripts %}
   </head>
 
@@ -31,16 +30,16 @@
             <span class="icon-bar"></span>
             <span class="icon-bar"></span>
           </button>
-          <a class="navbar-brand" href="#">Marauder's Map</a>
+          <a class="navbar-brand serif" href="#">Marauder's Map</a>
         </div>
 
 
         <!-- Collect the nav links, forms, and other content for toggling -->
         <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
           <ul class="nav navbar-nav">
-            <li><a href="/">Home</a></li>
-            <li class='{%block about-active %}{% endblock about-active %}'><a href="/about">About</a></li>
-           <li class="dropdown {% block data-active %}{% endblock data-active %}">
+            <li><a class='serif' href="/">Home</a></li>
+            <li class='{%block about-active %}{% endblock about-active %}'><a class='serif' href="/about">About</a></li>
+            <li class="dropdown {% block data-active %}{% endblock data-active %}">
               <a class='serif' href="#" class="dropdown-toggle" data-toggle="dropdown">Categories <span class="caret"></span></a>
               <ul class="dropdown-menu" role="menu">
                 <li><a href="{% url 'characters' %}">Characters</a></li>
@@ -54,8 +53,8 @@
                 <li><a href="{% url 'books' %}">Books</a></li>
               </ul>
             </li>
-            <li class='{% block citations-active%}{% endblock citations-active %}'><a href="/citations">Citations</a></li>
-            <li class='{% block experience-active%}{% endblock experience-active %}'><a href="/experience">A Word From Our Sponsor</a></li>
+            <li class='{% block experience-active%}{% endblock experience-active %} serif'><a href="/experience">A Word From Our Sponsor</a></li>
+            <li class='{% block citations-active %}{% endblock citations-active %} serif'><a href="/citations">Citations</a></li>
           </ul>
           <form class='navbar-form navbar-right' role='search'>
             <div class='form-group has-feedback'>
@@ -69,13 +68,13 @@
 
     <a style="display:block" href="/">
       <div class="jumbotron">
-        <h1 class="text-center">Marauder's Map</h1>
-        <p class="text-center">Brought to you by The Six Potters</p>
+        <h1 class="text-center serif dark-shadow-thick">Marauder's Map</h1>
+        <p class="text-center serif dark-shadow-thin">Brought to you by The Six Potters</p>
       </div>
     </a>
 
-    <div class='container-fluid'>
-      <div class='row'>
+    <div class='container-fluid container-content wrapper'>
+      <div class='row row-content'>
         <div class="col-md-12 top-index">
           <div id='content'>
               <div class='row'>
@@ -92,6 +91,9 @@
           </div>
         </div>
       </div> <!-- /row -->
+      <div class='push'></div>
     </div> <!-- /container-fluid -->
+
+    <div class='footer serif dark-shadow-thin'>The Six Potters are Amanda Steinwedel, Angela Hsu, David Moench, Isabella Bhardwaj, Kaelin D. Hooper, and Stephen Arnett</div>
   </body>
 </html>

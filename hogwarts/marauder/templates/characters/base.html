@@ -165,52 +165,54 @@
 			{% endif %}
 
 			{% if character.artifacts.all %}
-			<li class='{% cycle inversion %}'>
- 				<div class='timeline-badge warning'><i class='glyphicon glyphicon-glass'></i></div>
-        		<div class='timeline-panel'>
-            		<div class='timeline-heading'>
-                		<h4 class='timeline-title'>ARTIFACTS</h4>
-            		</div>
-            		<div class='timeline-body'>
-						{% for artifact in character.artifacts.all %}
-							<a href="{% url 'artifact' artifact.id %}">{{ artifact.name }}</a><br/>
-						{% endfor %}
+				<li class='{% cycle inversion %}'>
+ 					<div class='timeline-badge warning'><i class='glyphicon glyphicon-glass'></i></div>
+        			<div class='timeline-panel'>
+            			<div class='timeline-heading'>
+                			<h4 class='timeline-title'>ARTIFACTS</h4>
+            			</div>
+            			<div class='timeline-body'>
+							{% for artifact in character.artifacts.all %}
+								<a href="{% url 'artifact' artifact.id %}">{{ artifact.name }}</a><br/>
+							{% endfor %}
+						</div>
 					</div>
-				</div>
-			</li>
-		{% endif %}
+				</li>
+			{% endif %}
 
-		{% if character.relationships1.all or character.relationships2.all %}
- 			<li class='{% cycle inversion %}'>
- 				<div class='timeline-badge danger'><i class='glyphicon glyphicon-tree-deciduous'></i></div>
-    	   		<div class='timeline-panel'>
-            		<div class='timeline-heading'>
-                		<h4 class='timeline-title'>FAMILY RELATIONSHIPS</h4>
-            		</div>
-            		<div class='timeline-body'>
-						{% for relation1 in character.relationships1.all %}
-							{% if not relation1.character2.hidden %}
-				 				<a href="{% url 'character' relation1.character2.id %}">
-							{% endif %}
-							{{ relation1.character2.name }}
-							{% if not relation1.character2.hidden %}
-								</a>
-							{% endif %}
-							({{ relation1.descriptor2 }})<br/>
-						{% endfor %}
-						{% for relation2 in character.relationships2.all %}
-							{% if not relation2.character1.hidden %}
-				 				<a href="{% url 'character' relation2.character1.id %}">
-							{% endif %}
-							{{ relation2.character1.name }}
-							{% if not relation2.character1.hidden %}
-								</a>
-							{% endif %}
-							({{ relation2.descriptor1 }})<br/>
-						{% endfor %}
+			{% if character.relationships1.all or character.relationships2.all %}
+ 				<li class='{% cycle inversion %}'>
+ 					<div class='timeline-badge danger'><i class='glyphicon glyphicon-tree-deciduous'></i></div>
+    	   			<div class='timeline-panel'>
+            			<div class='timeline-heading'>
+                			<h4 class='timeline-title'>FAMILY RELATIONSHIPS</h4>
+            			</div>
+            			<div class='timeline-body'>
+							{% for relation1 in character.relationships1.all %}
+								{% if not relation1.character2.hidden %}
+					 				<a href="{% url 'character' relation1.character2.id %}">
+								{% endif %}
+								{{ relation1.character2.name }}
+								{% if not relation1.character2.hidden %}
+									</a>
+								{% endif %}
+								({{ relation1.descriptor2 }})<br/>
+							{% endfor %}
+							{% for relation2 in character.relationships2.all %}
+								{% if not relation2.character1.hidden %}
+				 					<a href="{% url 'character' relation2.character1.id %}">
+								{% endif %}
+								{{ relation2.character1.name }}
+								{% if not relation2.character1.hidden %}
+									</a>
+								{% endif %}
+								({{ relation2.descriptor1 }})<br/>
+							{% endfor %}
+						</div>
 					</div>
-				</div>
-			</li>
-	{% endif %}
-</ul>
+				</li>
+			{% endif %}
+		</ul>
+	</div>
+</div>
 {% endblock content %}
